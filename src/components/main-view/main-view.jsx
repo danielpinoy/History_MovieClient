@@ -26,7 +26,6 @@ export const MainView = () => {
 
 					}
 				})
-				console.log(historyMovieApi)
 				setMovie(historyMovieApi)
 			})
 			.catch((error) => {
@@ -39,16 +38,20 @@ export const MainView = () => {
 
 	if(selectedMovie){
 	
-		return <MovieView movie={selectedMovie} onBackClick={()=>setSelectedMovie(null)}/>
+		return <MovieView movie={selectedMovie} 	movies={movies}  onBackClick={()=>setSelectedMovie(null)}/>
 	}
-	const updatedMovie = movies.map((movie)=>{
-		return    <MovieCard key={movie.id} movie={movie}
-		onMovieClick={(newSelectedMovie) => {
-			setSelectedMovie(newSelectedMovie);
-		}}
-	/>
-	})
-console.log(movies)
+	
+	const updatedMovie = movies.map((movie) => (
+		<MovieCard
+			key={movie.id}
+			movie={movie}
+			onMovieClick={(newSelectedMovie) => {
+				setSelectedMovie(newSelectedMovie);
+			}}
+		/>
+	));
+
+	
 	if(movies.length === 0){
 		return <div>The list is empty!</div>
 	}
