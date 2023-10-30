@@ -38,19 +38,19 @@ export const MainView = () => {
             .catch((error) => {
                 console.error("Error:", error);
             });
-    }, []);
-
-    useEffect(() => {
-        if (!token) return;
-
-        fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
-            headers: { Authorization: `Bearer ${token}` },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-            });
     }, [token]);
+
+    // useEffect(() => {
+    //     if (!token) return;
+
+    //     fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
+    //         headers: { Authorization: `Bearer ${token}` },
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             console.log(data);
+    //         });
+    // }, [token]);
 
     if (!user) {
         return (

@@ -27347,19 +27347,19 @@ const MainView = ()=>{
         }).catch((error)=>{
             console.error("Error:", error);
         });
-    }, []);
-    (0, _react.useEffect)(()=>{
-        if (!token) return;
-        fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>response.json()).then((data)=>{
-            console.log(data);
-        });
     }, [
         token
     ]);
+    // useEffect(() => {
+    //     if (!token) return;
+    //     fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
+    //         headers: { Authorization: `Bearer ${token}` },
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             console.log(data);
+    //         });
+    // }, [token]);
     if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
@@ -27476,7 +27476,7 @@ const MainView = ()=>{
         columnNumber: 9
     }, undefined);
 };
-_s(MainView, "4jJTMG3xreZI0yvy2upuQxogWcU=");
+_s(MainView, "9wJBvfUyU2IigbyWC+M5y3EH9h4=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
