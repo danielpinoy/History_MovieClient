@@ -12,7 +12,9 @@ export const MainView = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
-        fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies")
+        fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
+            headers: { Authorization: `Bearer ${token}` },
+        })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Network response was not ok");
@@ -39,11 +41,9 @@ export const MainView = () => {
     }, []);
 
     useEffect(() => {
-        if (!token) {
-            return;
-        }
+        if (!token) return;
 
-        fetch("https://myflixmoviedb.herokuapp.com/movies", {
+        fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then((response) => response.json())
@@ -82,9 +82,9 @@ export const MainView = () => {
         );
     }
     if (selectedMovie) {
-        return <MovieView movies={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
+        return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
     }
-
+    console.log(selectedMovie);
     if (movies.length === 0) {
         return <div>The list is empty!</div>;
     }
