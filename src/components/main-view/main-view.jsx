@@ -82,7 +82,7 @@ export const MainView = () => {
         );
     }
     if (selectedMovie) {
-        return <BookView book={selectedBook} onBackClick={() => setSelectedBook(null)} />;
+        return <MovieView movies={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
     }
 
     if (movies.length === 0) {

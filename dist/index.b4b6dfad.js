@@ -27396,9 +27396,9 @@ const MainView = ()=>{
             }, undefined)
         ]
     }, void 0, true);
-    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(BookView, {
-        book: selectedBook,
-        onBackClick: ()=>setSelectedBook(null)
+    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+        movies: selectedMovie,
+        onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
         lineNumber: 85,
