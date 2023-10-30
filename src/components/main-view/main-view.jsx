@@ -31,16 +31,10 @@ export const MainView = () => {
                         featured: data.Featured,
                     };
                 });
-<<<<<<< Updated upstream
                 setMovies(historyMovieApi);
             })
             .catch((error) => {
                 console.error("Error:", error);
-=======
-
-                setMovies(booksFromApi);
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
             });
     }, []);
 
@@ -58,65 +52,50 @@ export const MainView = () => {
             });
     }, [token]);
 
+    if (!user) {
+        return (
+            <>
+                <LoginView
+                    onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                    }}
+                />
+                or
+                <SignupView />
+            </>
+        );
+    }
+
+    if (!user) {
+        return (
+            <>
+                <LoginView
+                    onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                    }}
+                />
+                or
+                <SignupView />
+            </>
+        );
+    }
     if (selectedMovie) {
-        return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
-    }
-
-    if (!user) {
-        return (
-            <>
-                <LoginView
-                    onLoggedIn={(user, token) => {
-                        setUser(user);
-                        setToken(token);
-<<<<<<< Updated upstream
-=======
-                    }}
-                />
-                or
-                <SignupView />
-            </>
-        );
-    }
-=======
-            });
-    }, []);
-
-    if (!user) {
-        return (
-            <>
-                <LoginView
-                    onLoggedIn={(user, token) => {
-                        setUser(user);
-                        setToken(token);
-                    }}
-                />
-                or
-                <SignupView />
-            </>
-        );
-    }
->>>>>>> Stashed changes
-    if (selectedBook) {
         return <BookView book={selectedBook} onBackClick={() => setSelectedBook(null)} />;
     }
 
-    if (books.length === 0) {
+    if (movies.length === 0) {
         return <div>The list is empty!</div>;
     }
 
-    return (
-        <div>
-            {books.map((book) => (
-                <BookCard
-                    key={book.id}
-                    book={book}
-                    onBookClick={(newSelectedMovie) => {
-                        setSelectedMovie(newSelectedMovie);
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+    if (!user) {
+        return (
+            <>
+                <LoginView
+                    onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
                     }}
                 />
                 or
