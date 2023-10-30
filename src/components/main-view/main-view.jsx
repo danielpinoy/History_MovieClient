@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
+import { SignupView } from "../signup-view/signup-view";
 const MainView = () => {
-    const [movies, setMovie] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState(null);
-    const [user, getUser] = useState(null);
+    const storedUser = JSON.parse(localStorage.getItem("user")),
+        storedToken = localStorage.getItem("token"),
+        [user, setUser] = useState(storedUser ? storedUser : null),
+        [token, setToken] = useState(storedToken ? storedToken : null),
+        [movies, setMovies] = useState([]),
+        [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
         fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies")
@@ -27,7 +31,7 @@ const MainView = () => {
                         featured: data.Featured,
                     };
                 });
-                setMovie(historyMovieApi);
+                setMovies(historyMovieApi);
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -54,14 +58,51 @@ const MainView = () => {
         />
     ));
 
+    useEffect(() => {
+        if (!token) {
+            return;
+        }
+
+        fetch("https://historic-movies-a728a807961d.herokuapp.com/movies", {
+            headers: { Authorization: `Bearer ${token}` },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+            });
+    }, [token]);
+
     if (!user) {
-        return <LoginView />;
+        return (
+            <>
+                <LoginView
+                    onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                    }}
+                />
+                or
+                <SignupView />
+            </>
+        );
     }
 
     if (movies.length === 0) {
         return <div>The list is empty!</div>;
     }
-    return <div>{updatedMovie}</div>;
+    return (
+        <div>
+            {updatedMovie}
+            <button
+                onClick={() => {
+                    setUser(null);
+                    setToken(null);
+                    localStorage.clear();
+                }}>
+                Logout
+            </button>
+        </div>
+    );
 };
 
 export default MainView;
