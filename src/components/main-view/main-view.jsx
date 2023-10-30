@@ -39,6 +39,7 @@ export const MainView = () => {
 =======
 
                 setMovies(booksFromApi);
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
             });
     }, []);
@@ -77,6 +78,25 @@ export const MainView = () => {
             </>
         );
     }
+=======
+            });
+    }, []);
+
+    if (!user) {
+        return (
+            <>
+                <LoginView
+                    onLoggedIn={(user, token) => {
+                        setUser(user);
+                        setToken(token);
+                    }}
+                />
+                or
+                <SignupView />
+            </>
+        );
+    }
+>>>>>>> Stashed changes
     if (selectedBook) {
         return <BookView book={selectedBook} onBackClick={() => setSelectedBook(null)} />;
     }
@@ -93,6 +113,9 @@ export const MainView = () => {
                     book={book}
                     onBookClick={(newSelectedMovie) => {
                         setSelectedMovie(newSelectedMovie);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                     }}
                 />
