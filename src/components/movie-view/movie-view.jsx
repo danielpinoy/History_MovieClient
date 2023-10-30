@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 export const MovieView = ({ movie, onBackClick }) => {
-    console.log(movie);
     return (
         <div>
             <div></div>

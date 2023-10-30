@@ -84,7 +84,6 @@ export const MainView = () => {
     if (selectedMovie) {
         return <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
     }
-    console.log(selectedMovie);
     if (movies.length === 0) {
         return <div>The list is empty!</div>;
     }
