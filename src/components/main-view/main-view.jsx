@@ -31,10 +31,15 @@ export const MainView = () => {
                         featured: data.Featured,
                     };
                 });
+<<<<<<< Updated upstream
                 setMovies(historyMovieApi);
             })
             .catch((error) => {
                 console.error("Error:", error);
+=======
+
+                setMovies(booksFromApi);
+>>>>>>> Stashed changes
             });
     }, []);
 
@@ -63,6 +68,32 @@ export const MainView = () => {
                     onLoggedIn={(user, token) => {
                         setUser(user);
                         setToken(token);
+<<<<<<< Updated upstream
+=======
+                    }}
+                />
+                or
+                <SignupView />
+            </>
+        );
+    }
+    if (selectedBook) {
+        return <BookView book={selectedBook} onBackClick={() => setSelectedBook(null)} />;
+    }
+
+    if (books.length === 0) {
+        return <div>The list is empty!</div>;
+    }
+
+    return (
+        <div>
+            {books.map((book) => (
+                <BookCard
+                    key={book.id}
+                    book={book}
+                    onBookClick={(newSelectedMovie) => {
+                        setSelectedMovie(newSelectedMovie);
+>>>>>>> Stashed changes
                     }}
                 />
                 or

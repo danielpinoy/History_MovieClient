@@ -8,6 +8,32 @@ export const SignupView = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+<<<<<<< Updated upstream
+=======
+
+        const data = {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday,
+        };
+
+        fetch("SIGNUP_URL", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then((response) => {
+            if (response.ok) {
+                alert("Signup successful");
+                window.location.reload();
+            } else {
+                alert("Signup failed");
+            }
+        });
+    };
+>>>>>>> Stashed changes
 
         const data = {
             Username: username,
