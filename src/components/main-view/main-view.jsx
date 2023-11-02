@@ -16,6 +16,7 @@ export const MainView = () => {
     const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
+        // Fetch movies from your API
         fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
             headers: { Authorization: `Bearer ${token}` },
         })
@@ -31,6 +32,7 @@ export const MainView = () => {
                         id: data._id,
                         title: data.Title,
                         description: data.Description,
+                        image: data.Image,
                         director: data.Director,
                         actor: data.Actors,
                         genre: data.Genre,
@@ -40,13 +42,13 @@ export const MainView = () => {
                 setMovies(historyMovieApi);
             })
             .catch((error) => {
-                console.error("Error:", error);
+                console.error("Error fetching movies:", error);
             });
     }, [token]);
 
     const updatedMovie = movies.map((movie) => {
         return (
-            <Col key={movie.id} md={4} className="mb-4">
+            <Col key={movie.id} md={3} className="mb-4">
                 <MovieCard
                     movie={movie}
                     onMovieClick={(newSelectedMovie) => {
@@ -78,7 +80,7 @@ export const MainView = () => {
                     </Col>
                 </>
             ) : selectedMovie ? (
-                <Col md={8}>
+                <Col md={12}>
                     <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
                 </Col>
             ) : movies.length === 0 ? (

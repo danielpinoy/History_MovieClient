@@ -27339,6 +27339,7 @@ const MainView = ()=>{
     const [movies, setMovies] = (0, _react.useState)([]);
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     (0, _react.useEffect)(()=>{
+        // Fetch movies from your API
         fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -27352,6 +27353,7 @@ const MainView = ()=>{
                     id: data._id,
                     title: data.Title,
                     description: data.Description,
+                    image: data.Image,
                     director: data.Director,
                     actor: data.Actors,
                     genre: data.Genre,
@@ -27360,14 +27362,14 @@ const MainView = ()=>{
             });
             setMovies(historyMovieApi);
         }).catch((error)=>{
-            console.error("Error:", error);
+            console.error("Error fetching movies:", error);
         });
     }, [
         token
     ]);
     const updatedMovie = movies.map((movie)=>{
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-            md: 4,
+            md: 3,
             className: "mb-4",
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                 movie: movie,
@@ -27381,12 +27383,12 @@ const MainView = ()=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 50,
+                lineNumber: 52,
                 columnNumber: 17
             }, undefined)
         }, movie.id, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 49,
+            lineNumber: 51,
             columnNumber: 13
         }, undefined);
     });
@@ -27403,40 +27405,40 @@ const MainView = ()=>{
                             }
                         }, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 70,
+                            lineNumber: 72,
                             columnNumber: 25
                         }, undefined),
                         "or",
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 77,
+                            lineNumber: 79,
                             columnNumber: 25
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 69,
+                    lineNumber: 71,
                     columnNumber: 21
                 }, undefined)
             }, void 0, false) : selectedMovie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
-                md: 8,
+                md: 12,
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
                     movie: selectedMovie,
                     onBackClick: ()=>setSelectedMovie(null)
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 82,
+                    lineNumber: 84,
                     columnNumber: 21
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 81,
+                lineNumber: 83,
                 columnNumber: 17
             }, undefined) : movies.length === 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: "The list is empty!"
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 85,
+                lineNumber: 87,
                 columnNumber: 17
             }, undefined) : updatedMovie,
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
@@ -27452,18 +27454,18 @@ const MainView = ()=>{
                     children: "Logout"
                 }, void 0, false, {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 90,
+                    lineNumber: 92,
                     columnNumber: 17
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 89,
+                lineNumber: 91,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 66,
+        lineNumber: 68,
         columnNumber: 9
     }, undefined);
 };
@@ -41975,8 +41977,9 @@ var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
 var _movieCardScss = require("./movie-card.scss");
 const MovieCard = ({ movie, onMovieClick })=>{
+    console.log(movie.image);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
-        className: "hover h-100 ",
+        className: "hover h-100",
         onClick: ()=>{
             onMovieClick(movie);
         },
@@ -41986,25 +41989,26 @@ const MovieCard = ({ movie, onMovieClick })=>{
                     children: movie.title
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 12,
+                    lineNumber: 13,
                     columnNumber: 17
                 }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Text, {
-                    children: movie.description
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Img, {
+                    src: movie.image,
+                    alt: movie.title
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 13,
+                    lineNumber: 14,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 11,
+            lineNumber: 12,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
-        lineNumber: 6,
+        lineNumber: 7,
         columnNumber: 9
     }, undefined);
 };
