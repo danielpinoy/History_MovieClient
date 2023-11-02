@@ -1,43 +1,45 @@
 import PropTypes from "prop-types";
+import "./movie-view.scss";
+import { Button, Card } from "react-bootstrap";
+
 export const MovieView = ({ movie, onBackClick }) => {
     return (
-        <div>
-            <div></div>
-            <div>
-                <span>Title: </span>
-                <span>{movie.title}</span>
-            </div>
+        <Card>
+            <Card.Body>
+                <Card.Title className="mb-3">{movie.title}</Card.Title>
+                <Card.Text className="mb-3">{movie.description}</Card.Text>
+                <Card.Text className="mb-3">
+                    <strong>Director:</strong> {movie.director.Name}
+                    <br />
+                    {movie.director.Bio}
+                </Card.Text>
 
-            <div>
-                <span>Description: </span>
-                <span>{movie.description}</span>
-            </div>
-            <div>
-                <span>Director: </span>
-                <span>{movie.director.Name}</span>
-                <br />
-                <span>{movie.director.Bio}</span>
-            </div>
+                <Card.Text className="mb-3">
+                    <strong>Actors:</strong>
+                    <ul className="list-unstyled">
+                        {movie.actor.map((actor) => (
+                            <li key={actor}>{actor}</li>
+                        ))}
+                    </ul>
+                </Card.Text>
 
-            <div>
-                <span>Actors: </span>
-                <span>
-                    {movie.actor.map((actor) => (
-                        <div key={actor}>{actor}</div>
-                    ))}
-                </span>
-                <br />
-            </div>
+                <Card.Text className="mb-3">
+                    <strong>Genre:</strong> {movie.genre.Name}
+                </Card.Text>
 
-            <div>
-                <span>Genres: </span>
-                <span>{movie.genre.Name}</span>
-                <br />
-            </div>
+                <Card.Text className="mb-3">
+                    <strong>Featured:</strong> {movie.featured ? "Yes" : "No"}
+                </Card.Text>
 
-            <div>{movie.featured}</div>
-            <button onClick={onBackClick}>Close</button>
-        </div>
+                <Button
+                    variant="primary"
+                    onClick={onBackClick}
+                    className="back-button"
+                    style={{ cursor: "pointer" }}>
+                    Close
+                </Button>
+            </Card.Body>
+        </Card>
     );
 };
 
