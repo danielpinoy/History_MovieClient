@@ -1,8 +1,13 @@
-import PropTypes from "prop-types";
 import "./movie-view.scss";
 import { Button, Card } from "react-bootstrap";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
-export const MovieView = ({ movie, onBackClick }) => {
+export const MovieView = ({ movies }) => {
+    const { movieId } = useParams();
+
+    console.log(movies);
+    const movie = movies.find((m) => m.id === movieId);
     return (
         <Card>
             <Card.Body>
@@ -30,33 +35,30 @@ export const MovieView = ({ movie, onBackClick }) => {
                 <Card.Text className="mb-3">
                     <strong>Featured:</strong> {movie.featured ? "Yes" : "No"}
                 </Card.Text>
-
-                <Button
-                    variant="primary"
-                    onClick={onBackClick}
-                    className="back-button"
-                    style={{ cursor: "pointer" }}>
-                    Close
-                </Button>
+                <Link to={`/`}>
+                    <Button variant="primary" className="back-button" style={{ cursor: "pointer" }}>
+                        Close
+                    </Button>
+                </Link>
             </Card.Body>
         </Card>
     );
 };
 
-MovieView.propTypes = {
-    movie: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        director: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Bio: PropTypes.string.isRequired,
-        }).isRequired,
-        actor: PropTypes.arrayOf(PropTypes.string),
-        genre: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string,
-        }).isRequired,
-        featured: PropTypes.bool,
-    }).isRequired,
-    onBackClick: PropTypes.func.isRequired,
-};
+// MovieView.propTypes = {
+//     movie: PropTypes.shape({
+//         title: PropTypes.string.isRequired,
+//         description: PropTypes.string.isRequired,
+//         director: PropTypes.shape({
+//             Name: PropTypes.string.isRequired,
+//             Bio: PropTypes.string.isRequired,
+//         }).isRequired,
+//         actor: PropTypes.arrayOf(PropTypes.string).isRequired,
+//         genre: PropTypes.shape({
+//             Name: PropTypes.string.isRequired,
+//             Description: PropTypes.string,
+//         }).isRequired,
+//         featured: PropTypes.bool,
+//         image: PropTypes.string.isRequired,
+//     }).isRequired,
+// };

@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 export const LoginView = ({ onLoggedIn }) => {
+    console.log("Logged");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const handleSubmit = (event) => {
@@ -44,7 +45,7 @@ export const LoginView = ({ onLoggedIn }) => {
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mt-3">
                 <Form.Label>
-                    <h3>Sign In</h3>
+                    <h3>Log In</h3>
                 </Form.Label>
             </Form.Group>
 
