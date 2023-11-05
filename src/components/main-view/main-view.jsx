@@ -62,6 +62,7 @@ export const MainView = () => {
                 onLoggedOut={() => {
                     setUser(null);
                     setToken(null);
+                    localStorage.clear();
                 }}
             />
             <Row>
@@ -110,6 +111,7 @@ export const MainView = () => {
                                         {!userEdit ? (
                                             <ProfileView
                                                 user={user}
+                                                movies={movies}
                                                 clickUpdate={(num) => setUserEdit(num)}
                                             />
                                         ) : (

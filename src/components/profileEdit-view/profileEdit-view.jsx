@@ -3,8 +3,6 @@ import { Button, Card, ListGroup } from "react-bootstrap";
 
 export const ProfileEditView = ({ user, onUpdateUser, clickUpdate, token }) => {
     const [userData, setUserData] = useState(user);
-    const formattedBirthday = new Date(user.Birthday).toLocaleDateString();
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUserData({ ...userData, [name]: value });
@@ -26,14 +24,9 @@ export const ProfileEditView = ({ user, onUpdateUser, clickUpdate, token }) => {
             })
             .catch((error) => {
                 console.error("Error updating user:", error);
-                // Handle the error, e.g., show an alert
             });
     };
 
-    // const handleSubmit = () => {
-    //     onUpdateUser(userData); // Update the user data
-    //     clickUpdate(null);
-    // };
     return (
         <>
             <Card>
@@ -52,7 +45,7 @@ export const ProfileEditView = ({ user, onUpdateUser, clickUpdate, token }) => {
                         <ListGroup.Item>
                             Password:
                             <input
-                                type="password"
+                                type="text"
                                 name="Password"
                                 value={userData.Password}
                                 onChange={handleChange}
@@ -63,7 +56,7 @@ export const ProfileEditView = ({ user, onUpdateUser, clickUpdate, token }) => {
                             <input
                                 type="date"
                                 name="Birthday"
-                                value={formattedBirthday}
+                                value={userData.Birthday}
                                 onChange={handleChange}
                             />
                         </ListGroup.Item>
