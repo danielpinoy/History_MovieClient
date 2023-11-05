@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Button } from "react-bootstrap";
 import { ProfileEditView } from "../profileEdit-view/profileEdit-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
@@ -16,7 +15,7 @@ export const MainView = () => {
     const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     const [movies, setMovies] = useState([]);
-    const [userUpdate, setUserUpdate] = useState(null);
+    const [userEdit, setUserEdit] = useState(null);
     useEffect(() => {
         // Fetch movies from your API
         fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
@@ -62,6 +61,7 @@ export const MainView = () => {
                 user={user}
                 onLoggedOut={() => {
                     setUser(null);
+                    setToken(null);
                 }}
             />
             <Row>
@@ -89,8 +89,9 @@ export const MainView = () => {
                                 ) : (
                                     <Col md={4}>
                                         <LoginView
-                                            onLoggedIn={(user) => {
+                                            onLoggedIn={(user, token) => {
                                                 setUser(user);
+                                                setToken(token);
                                             }}
                                         />
                                     </Col>
@@ -106,16 +107,24 @@ export const MainView = () => {
                                     <Navigate to="/login" replace />
                                 ) : (
                                     <Col md={12} className="d-flex justify-content-center">
-                                        {!userUpdate ? (
+                                        {!userEdit ? (
                                             <ProfileView
                                                 user={user}
-                                                clickUpdate={(num) => setUserUpdate(num)}
+                                                clickUpdate={(num) => setUserEdit(num)}
                                             />
                                         ) : (
                                             <ProfileEditView
                                                 user={user}
+                                                token={token}
                                                 clickUpdate={(num) => {
-                                                    setUserUpdate(num);
+                                                    setUserEdit(num);
+                                                }}
+                                                onUpdateUser={(updatedUser) => {
+                                                    setUser(updatedUser);
+                                                    localStorage.setItem(
+                                                        "user",
+                                                        JSON.stringify(updatedUser)
+                                                    );
                                                 }}
                                             />
                                         )}

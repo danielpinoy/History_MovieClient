@@ -1,22 +1,39 @@
 import React, { useState } from "react";
 import { Button, Card, ListGroup } from "react-bootstrap";
 
-export const ProfileEditView = ({ user, onUpdateUser, clickUpdate }) => {
+export const ProfileEditView = ({ user, onUpdateUser, clickUpdate, token }) => {
     const [userData, setUserData] = useState(user);
-    console.log(user.Birthday, "DDDDDDDDDDDDDDDD");
     const formattedBirthday = new Date(user.Birthday).toLocaleDateString();
-    console.log(user.Birthday);
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // onUpdateUser(userData);
-        clickUpdate(null);
-    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUserData({ ...userData, [name]: value });
     };
 
+    const handleSubmit = () => {
+        fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${user.Username}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`, // Add the Authorization header
+            },
+            body: JSON.stringify(userData),
+        })
+            .then((response) => response.json())
+            .then((updatedUser) => {
+                onUpdateUser(updatedUser);
+                clickUpdate(null);
+            })
+            .catch((error) => {
+                console.error("Error updating user:", error);
+                // Handle the error, e.g., show an alert
+            });
+    };
+
+    // const handleSubmit = () => {
+    //     onUpdateUser(userData); // Update the user data
+    //     clickUpdate(null);
+    // };
     return (
         <>
             <Card>

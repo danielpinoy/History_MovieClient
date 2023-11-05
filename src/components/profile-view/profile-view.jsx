@@ -2,7 +2,6 @@ import { Button, Card } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 
 export const ProfileView = ({ user, clickUpdate }) => {
-    console.log(user);
     const formattedBirthday = new Date(user.Birthday).toLocaleDateString();
 
     return (
