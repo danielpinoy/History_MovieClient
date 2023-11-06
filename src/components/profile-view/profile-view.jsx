@@ -1,43 +1,49 @@
 import { Button, Card } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 export const ProfileView = ({ user, clickUpdate, movies, token, clickDeleteFM }) => {
     const formattedBirthday = new Date(user.Birthday).toLocaleDateString();
-    console.log(user.FavoriteMovies);
-    console.log(movies);
+    const favoriteMovies = movies.filter((m) => user.FavoriteMovies.includes(m.id));
+    const navigate = useNavigate();
+
     const handleDeleteClick = () => {
         const confirmed = window.confirm("Are you sure you want to delete your Profile?");
         if (confirmed) {
+            console.log(user._id);
             onDeleteUser();
         }
     };
 
-    const favoriteMovies = movies.filter((m) => user.FavoriteMovies.includes(m.id));
-    console.log(user._id);
     const onDeleteUser = () => {
-        // fetch(`/user/${user._id}`, {
-        //     method: "DELETE",
-        //     headers: { Authorization: `Bearer ${token}` },
-        // })
-        //     .then((response) => {
-        //         if (response.ok) {
-        //             localStorage.clear();
-
-        //             console.log("Successfully deleted the user.");
-        //         } else {
-        //             console.error("Failed to delete the user.");
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.error("Error deleting user:", error);
-        //     });
-        console.log("Deleted");
+        fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => {
+                if (response.ok) {
+                    localStorage.clear();
+                    window.location.reload();
+                    console.log("Successfully deleted the user.");
+                    navigate("/login");
+                } else {
+                    console.error("Failed to delete the user.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error deleting user:", error);
+            });
     };
-    const onDeleteFavoriteMovie = (movieTitle) => {
-        const encodedMovieTitle = encodeURIComponent(movieTitle);
 
+    const onDeleteFavoriteMovie = (movieId) => {
+        const encodedMovieId = encodeURIComponent(movieId);
+        console.log(encodedMovieId);
         fetch(
-            `https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}/${encodedMovieTitle}`,
+            `https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}/${encodedMovieId}`,
             {
                 method: "DELETE",
                 headers: {
@@ -48,24 +54,13 @@ export const ProfileView = ({ user, clickUpdate, movies, token, clickDeleteFM })
         )
             .then((response) => {
                 if (response.ok) {
-                    // Fetch the updated user data to get the new list of favorite movies
-                    fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}`, {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        },
-                    })
-                        .then((response) => response.json())
-                        .then((updatedUserData) => {
-                            console.log(updatedUserData);
-                            clickDeleteFM({
-                                ...user,
-                                FavoriteMovies: updatedUserData.FavoriteMovies,
-                            });
-                            console.log("Movie removed from favorites.");
-                        })
-                        .catch((error) => {
-                            console.error("Error fetching updated user data:", error);
-                        });
+                    const updatedUser = {
+                        ...user,
+                        FavoriteMovies: user.FavoriteMovies.filter((title) => title !== movieId),
+                    };
+                    clickDeleteFM(updatedUser);
+
+                    localStorage.setItem("user", JSON.stringify(updatedUser));
                 }
             })
             .catch((error) => {
@@ -89,15 +84,17 @@ export const ProfileView = ({ user, clickUpdate, movies, token, clickDeleteFM })
                         <strong>Email:</strong>: {user.Email}
                     </ListGroup.Item>
                     <ListGroup.Item className="d-flex flex-column">
-                        <strong>Favorite Movies:</strong>
+                        <h4>Favorite Movies:</h4>
                         {favoriteMovies.map((movie) => {
                             return (
-                                <React.Fragment key={movie.title}>
-                                    <Card.Text>{movie.title}</Card.Text>
-                                    <Button onClick={() => onDeleteFavoriteMovie(movie.id)}>
+                                <div key={movie.title} className="d-flex">
+                                    <h5>{movie.title}</h5>
+                                    <Button
+                                        size="sm"
+                                        onClick={() => onDeleteFavoriteMovie(movie.id)}>
                                         Delete
                                     </Button>
-                                </React.Fragment>
+                                </div>
                             );
                         })}
                     </ListGroup.Item>

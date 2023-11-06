@@ -45,7 +45,7 @@ export const MainView = () => {
             .catch((error) => {
                 console.error("Error fetching movies:", error);
             });
-    }, [token]);
+    }, [user]);
 
     const updatedMovie = movies.map((movie) => {
         return (
@@ -56,10 +56,29 @@ export const MainView = () => {
     });
 
     const handleAddToFavorites = (movieId) => {
-        const updatedUser = { ...user };
-        updatedUser.favoriteMovies.push(movieId);
-        setUser(updatedUser);
+        fetch("https://historic-movies-a728a807961d.herokuapp.com/user/addfavorite", {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ userId: user._id, movieId }),
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setUser(data);
+                localStorage.setItem("user", JSON.stringify(data));
+            })
+            .catch((error) => {
+                console.error("Error adding movie to favorites:", error);
+            });
     };
+
     return (
         <BrowserRouter>
             <NavigationBar
@@ -120,6 +139,10 @@ export const MainView = () => {
                                                 token={token}
                                                 clickDeleteFM={(updatedUser) => {
                                                     setUser(updatedUser);
+                                                    localStorage.setItem(
+                                                        "user",
+                                                        JSON.stringify(updatedUser)
+                                                    );
                                                 }}
                                                 clickUpdate={(num, updatedUser) => {
                                                     setUserEdit(num);
