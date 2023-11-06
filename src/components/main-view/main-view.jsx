@@ -112,7 +112,13 @@ export const MainView = () => {
                                             <ProfileView
                                                 user={user}
                                                 movies={movies}
-                                                clickUpdate={(num) => setUserEdit(num)}
+                                                token={token}
+                                                clickDeleteFM={(updatedUser) => {
+                                                    setUser(updatedUser);
+                                                }}
+                                                clickUpdate={(num, updatedUser) => {
+                                                    setUserEdit(num);
+                                                }}
                                             />
                                         ) : (
                                             <ProfileEditView

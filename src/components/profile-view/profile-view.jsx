@@ -1,19 +1,20 @@
 import { Button, Card } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
-
-export const ProfileView = ({ user, clickUpdate, movies }) => {
+import React from "react";
+export const ProfileView = ({ user, clickUpdate, movies, token, clickDeleteFM }) => {
     const formattedBirthday = new Date(user.Birthday).toLocaleDateString();
+    console.log(user.FavoriteMovies);
     console.log(movies);
     const handleDeleteClick = () => {
-        const confirmed = window.confirm("Are you sure you want to delete this Profile?");
+        const confirmed = window.confirm("Are you sure you want to delete your Profile?");
         if (confirmed) {
-            onDelete();
+            onDeleteUser();
         }
     };
 
     const favoriteMovies = movies.filter((m) => user.FavoriteMovies.includes(m.id));
-    console.log(favoriteMovies);
-    const onDelete = () => {
+    console.log(user._id);
+    const onDeleteUser = () => {
         // fetch(`/user/${user._id}`, {
         //     method: "DELETE",
         //     headers: { Authorization: `Bearer ${token}` },
@@ -32,7 +33,45 @@ export const ProfileView = ({ user, clickUpdate, movies }) => {
         //     });
         console.log("Deleted");
     };
+    const onDeleteFavoriteMovie = (movieTitle) => {
+        const encodedMovieTitle = encodeURIComponent(movieTitle);
 
+        fetch(
+            `https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}/${encodedMovieTitle}`,
+            {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        )
+            .then((response) => {
+                if (response.ok) {
+                    // Fetch the updated user data to get the new list of favorite movies
+                    fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    })
+                        .then((response) => response.json())
+                        .then((updatedUserData) => {
+                            console.log(updatedUserData);
+                            clickDeleteFM({
+                                ...user,
+                                FavoriteMovies: updatedUserData.FavoriteMovies,
+                            });
+                            console.log("Movie removed from favorites.");
+                        })
+                        .catch((error) => {
+                            console.error("Error fetching updated user data:", error);
+                        });
+                }
+            })
+            .catch((error) => {
+                console.error("Error removing movie from favorites:", error);
+            });
+    };
     return (
         <>
             <Card>
@@ -52,7 +91,14 @@ export const ProfileView = ({ user, clickUpdate, movies }) => {
                     <ListGroup.Item className="d-flex flex-column">
                         <strong>Favorite Movies:</strong>
                         {favoriteMovies.map((movie) => {
-                            return <Card.Text>{movie.title}</Card.Text>;
+                            return (
+                                <React.Fragment key={movie.title}>
+                                    <Card.Text>{movie.title}</Card.Text>
+                                    <Button onClick={() => onDeleteFavoriteMovie(movie.id)}>
+                                        Delete
+                                    </Button>
+                                </React.Fragment>
+                            );
                         })}
                     </ListGroup.Item>
                     <ListGroup.Item className="d-flex justify-content-between">
