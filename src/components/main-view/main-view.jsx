@@ -54,7 +54,12 @@ export const MainView = () => {
             </Col>
         );
     });
-    console.log(movies);
+
+    const handleAddToFavorites = (movieId) => {
+        const updatedUser = { ...user };
+        updatedUser.favoriteMovies.push(movieId);
+        setUser(updatedUser);
+    };
     return (
         <BrowserRouter>
             <NavigationBar
@@ -152,7 +157,14 @@ export const MainView = () => {
                                     <Col>The list is empty!</Col>
                                 ) : (
                                     <Col md={12}>
-                                        <MovieView movies={movies} />
+                                        <MovieView
+                                            movies={movies}
+                                            token={token}
+                                            user={user}
+                                            updatedUser={(movieId) => {
+                                                handleAddToFavorites(movieId);
+                                            }}
+                                        />
                                     </Col>
                                 )}
                             </>
