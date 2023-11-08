@@ -13211,6 +13211,10 @@ textarea.form-control-lg {
   padding: 4px 12px;
 }
 
+.d-flex {
+  gap: 5px;
+}
+
 .hover {
   cursor: pointer;
   background-color: #fff;
@@ -13220,6 +13224,10 @@ textarea.form-control-lg {
 .hover:hover {
   color: #fff;
   background-color: #000;
+}
+
+.remove-decoration {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */
