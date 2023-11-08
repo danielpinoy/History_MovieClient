@@ -12,11 +12,11 @@ export const ProfileView = ({ user, clickUpdate, movies, token, clickDeleteFM })
         const confirmed = window.confirm("Are you sure you want to delete your Profile?");
         if (confirmed) {
             console.log(user._id);
-            onDeleteUser();
+            deleteUser();
         }
     };
 
-    const onDeleteUser = () => {
+    const deleteUser = () => {
         fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}`, {
             method: "DELETE",
             headers: {

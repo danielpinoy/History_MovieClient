@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 export const LoginView = ({ onLoggedIn }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const handleSubmit = (event) => {
+    const loginUser = (event) => {
         event.preventDefault();
 
         const data = {
@@ -41,7 +41,7 @@ export const LoginView = ({ onLoggedIn }) => {
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={loginUser}>
             <Form.Group className="mt-3">
                 <Form.Label>
                     <h3>Log In</h3>

@@ -8,7 +8,7 @@ export const SignupView = () => {
     const [email, setEmail] = useState("");
     const [birthday, setBirthday] = useState("");
 
-    const handleSubmit = (event) => {
+    const signUpSubmit = (event) => {
         event.preventDefault();
 
         const data = {
@@ -34,7 +34,7 @@ export const SignupView = () => {
         });
     };
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={signUpSubmit}>
             <Form.Group className="mb-3">
                 <Form.Label>Username:</Form.Label>
                 <Form.Control
