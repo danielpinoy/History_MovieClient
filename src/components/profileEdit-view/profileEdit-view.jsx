@@ -1,30 +1,19 @@
 import React, { useState } from "react";
 import { Button, Card, ListGroup } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { editUser } from "../../actions/userActions";
+export const ProfileEditView = ({ user, clickUpdate, token }) => {
+    const dispatch = useDispatch();
 
-export const ProfileEditView = ({ user, onUpdateUser, clickUpdate, token }) => {
-    const [userData, setUserData] = useState(user);
+    const [updatedUserData, setUpdatedUserData] = useState(user);
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setUserData({ ...userData, [name]: value });
+        setUpdatedUserData({ ...updatedUserData, [name]: value });
     };
 
     const handleSubmit = () => {
-        fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${user.Username}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`, // Add the Authorization header
-            },
-            body: JSON.stringify(userData),
-        })
-            .then((response) => response.json())
-            .then((updatedUser) => {
-                onUpdateUser(updatedUser);
-                clickUpdate(null);
-            })
-            .catch((error) => {
-                console.error("Error updating user:", error);
-            });
+        dispatch(editUser(user, updatedUserData, token));
+        clickUpdate(null);
     };
 
     return (
@@ -38,7 +27,7 @@ export const ProfileEditView = ({ user, onUpdateUser, clickUpdate, token }) => {
                             <input
                                 type="text"
                                 name="Username"
-                                value={userData.Username}
+                                value={updatedUserData.Username}
                                 onChange={handleChange}
                             />
                         </ListGroup.Item>
@@ -47,7 +36,7 @@ export const ProfileEditView = ({ user, onUpdateUser, clickUpdate, token }) => {
                             <input
                                 type="text"
                                 name="Password"
-                                value={userData.Password}
+                                value={updatedUserData.Password}
                                 onChange={handleChange}
                             />
                         </ListGroup.Item>
@@ -56,7 +45,7 @@ export const ProfileEditView = ({ user, onUpdateUser, clickUpdate, token }) => {
                             <input
                                 type="date"
                                 name="Birthday"
-                                value={userData.Birthday}
+                                value={updatedUserData.Birthday}
                                 onChange={handleChange}
                             />
                         </ListGroup.Item>
@@ -65,7 +54,7 @@ export const ProfileEditView = ({ user, onUpdateUser, clickUpdate, token }) => {
                             <input
                                 type="email"
                                 name="Email"
-                                value={userData.Email}
+                                value={updatedUserData.Email}
                                 onChange={handleChange}
                             />
                         </ListGroup.Item>

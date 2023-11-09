@@ -2,18 +2,20 @@ import "./movie-view.scss";
 import { Button, Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-
-export const MovieView = ({ movies, token, user, updatedUser }) => {
+import { addFavoriteMovieToUser } from "../../actions/userActions";
+import { useDispatch } from "react-redux";
+export const MovieView = ({ movies, user }) => {
     const { movieId } = useParams();
+    const dispatch = useDispatch();
     const movie = movies.find((m) => m.id === movieId);
+    const isMovieInFavorites = user.FavoriteMovies.includes(String(movieId));
 
     const similarMovies = movies.filter(
         (m) => m.genre.Name === movie.genre.Name && m.id !== movieId
     );
 
-    const onSubmit = () => {
-        updatedUser();
-    };
+    console.log(isMovieInFavorites, "favorite movie added");
+
     return (
         <Card>
             <Card.Body className="d-flex flex-column">
@@ -64,14 +66,19 @@ export const MovieView = ({ movies, token, user, updatedUser }) => {
                             Close
                         </Button>
                     </Link>
-                    <Button
-                        onClick={() => {
-                            updatedUser(movieId);
-                        }}
-                        variant="dark"
-                        style={{ cursor: "pointer" }}>
-                        Add To Favorite
-                    </Button>
+
+                    {isMovieInFavorites ? (
+                        <Button variant="secondary">Already Your Favorite</Button>
+                    ) : (
+                        <Button
+                            onClick={() => {
+                                dispatch(addFavoriteMovieToUser(user._id, movieId));
+                            }}
+                            variant="dark"
+                            style={{ cursor: "pointer" }}>
+                            Add To Favorite
+                        </Button>
+                    )}
                 </Card.Text>
             </Card.Body>
         </Card>

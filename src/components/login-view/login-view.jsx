@@ -2,42 +2,19 @@ import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useDispatch } from "react-redux";
+import { login } from "../../actions/userActions";
+export const LoginView = () => {
+    const dispatch = useDispatch();
 
-export const LoginView = ({ onLoggedIn }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const loginUser = (event) => {
         event.preventDefault();
-
-        const data = {
-            Username: username,
-            Password: password,
-        };
-
-        fetch("https://historic-movies-a728a807961d.herokuapp.com/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("Login response: ", data);
-                if (data.user) {
-                    localStorage.setItem("user", JSON.stringify(data.user));
-                    console.log(data.user);
-                    localStorage.setItem("token", data.token);
-                    onLoggedIn(data.user, data.token);
-                } else {
-                    console.log(data.token);
-
-                    alert("No such user");
-                }
-            })
-            .catch((e) => {
-                alert("Something went wrong");
-            });
+        console.log(username, password);
+        dispatch(login(username, password));
+        setUsername("");
+        setPassword("");
     };
 
     return (

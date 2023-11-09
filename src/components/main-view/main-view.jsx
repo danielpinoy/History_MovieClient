@@ -9,44 +9,28 @@ import { SignupView } from "../signup-view/signup-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../actions/userActions";
+import { getMovies } from "../../actions/movieActions";
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
-    const storedToken = localStorage.getItem("token");
-    const [user, setUser] = useState(storedUser ? storedUser : null);
-    const [token, setToken] = useState(storedToken ? storedToken : null);
-    const [movies, setMovies] = useState([]);
-    const [userEdit, setUserEdit] = useState(null);
-    useEffect(() => {
-        // Fetch movies from your API
-        fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
-            headers: { Authorization: `Bearer ${token}` },
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
-            .then((data) => {
-                const historyMovieApi = data.map((data) => {
-                    return {
-                        id: data._id,
-                        title: data.Title,
-                        description: data.Description,
-                        image: data.Image,
-                        director: data.Director,
-                        actor: data.Actors,
-                        genre: data.Genre,
-                        featured: data.Featured,
-                    };
-                });
-                setMovies(historyMovieApi);
-            })
-            .catch((error) => {
-                console.error("Error fetching movies:", error);
-            });
-    }, [user]);
 
+    const storedToken = localStorage.getItem("token");
+    // const [user, setUser] = useState(storedUser ? storedUser : null);
+    const [token, setToken] = useState(storedToken ? storedToken : null);
+    const [userEdit, setUserEdit] = useState(null);
+    const dispatch = useDispatch();
+
+    const user = useSelector((state) => state.user);
+    const movies = useSelector((state) => state.movies);
+    // console.log(movies, "movies");
+    console.log(user, "main-view user");
+    // console.log(storedUser, "main-view storedUser");
+    // console.log(storedToken);
+    // console.log(token);
+    useEffect(() => {
+        dispatch(getMovies());
+    }, []);
     const updatedMovie = movies.map((movie) => {
         return (
             <Col key={movie.id} md={3} className="mb-4">
@@ -55,38 +39,13 @@ export const MainView = () => {
         );
     });
 
-    const handleAddToFavorites = (movieId) => {
-        fetch("https://historic-movies-a728a807961d.herokuapp.com/user/addfavorite", {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ userId: user._id, movieId }),
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
-            .then((data) => {
-                setUser(data);
-                localStorage.setItem("user", JSON.stringify(data));
-            })
-            .catch((error) => {
-                console.error("Error adding movie to favorites:", error);
-            });
-    };
-
     return (
         <BrowserRouter>
             <NavigationBar
                 user={user}
                 loggedOut={() => {
-                    setUser(null);
-                    setToken(null);
-                    localStorage.clear();
+                    dispatch(logout());
+                    window.location.reload();
                 }}
             />
             <Row>
@@ -95,7 +54,7 @@ export const MainView = () => {
                         path="/signup"
                         element={
                             <>
-                                {user ? (
+                                {storedUser ? (
                                     <Navigate to="/" />
                                 ) : (
                                     <Col md={5}>
@@ -109,16 +68,11 @@ export const MainView = () => {
                         path="/login"
                         element={
                             <>
-                                {user ? (
+                                {storedUser ? (
                                     <Navigate to="/" />
                                 ) : (
                                     <Col md={4}>
-                                        <LoginView
-                                            onLoggedIn={(user, token) => {
-                                                setUser(user);
-                                                setToken(token);
-                                            }}
-                                        />
+                                        <LoginView />
                                     </Col>
                                 )}
                             </>
@@ -128,7 +82,7 @@ export const MainView = () => {
                         path="/users"
                         element={
                             <>
-                                {!user ? (
+                                {!storedUser ? (
                                     <Navigate to="/login" replace />
                                 ) : (
                                     <Col md={12} className="d-flex justify-content-center">
@@ -137,30 +91,17 @@ export const MainView = () => {
                                                 user={user}
                                                 movies={movies}
                                                 token={token}
-                                                clickDeleteFM={(updatedUser) => {
-                                                    setUser(updatedUser);
-                                                    localStorage.setItem(
-                                                        "user",
-                                                        JSON.stringify(updatedUser)
-                                                    );
-                                                }}
-                                                clickUpdate={(num, updatedUser) => {
+                                                clickUpdate={(num) => {
                                                     setUserEdit(num);
                                                 }}
                                             />
                                         ) : (
                                             <ProfileEditView
                                                 user={user}
-                                                token={token}
+                                                newUser={storedUser}
+                                                token={storedToken}
                                                 clickUpdate={(num) => {
                                                     setUserEdit(num);
-                                                }}
-                                                onUpdateUser={(updatedUser) => {
-                                                    setUser(updatedUser);
-                                                    localStorage.setItem(
-                                                        "user",
-                                                        JSON.stringify(updatedUser)
-                                                    );
                                                 }}
                                             />
                                         )}
@@ -174,20 +115,13 @@ export const MainView = () => {
                         path="/Movies/:movieId"
                         element={
                             <>
-                                {!user ? (
+                                {!storedUser ? (
                                     <Navigate to="/login" replace />
                                 ) : movies.length === 0 ? (
                                     <Col>The list is empty!</Col>
                                 ) : (
                                     <Col md={12}>
-                                        <MovieView
-                                            movies={movies}
-                                            token={token}
-                                            user={user}
-                                            updatedUser={(movieId) => {
-                                                handleAddToFavorites(movieId);
-                                            }}
-                                        />
+                                        <MovieView movies={movies} token={token} user={user} />
                                     </Col>
                                 )}
                             </>
@@ -197,7 +131,7 @@ export const MainView = () => {
                         path="/"
                         element={
                             <>
-                                {!user ? (
+                                {!storedUser ? (
                                     <Navigate to="/login" replace />
                                 ) : movies.length === 0 ? (
                                     <Col>The list is empty!</Col>
