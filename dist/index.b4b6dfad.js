@@ -27529,7 +27529,7 @@ $RefreshReg$(_c, "MainView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8","react":"21dqq","../movie-view/movie-view":"ggaUx","../movie-card/movie-card":"bwuIu","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","../login-view/login-view":"9YtA0","../signup-view/signup-view":"4OGiN","react-router-dom":"9xmpe","../navigation-bar/navigation-bar":"bsPVM","../profile-view/profile-view":"2vVqf","../profileEdit-view/profileEdit-view":"kr71C","react-redux":"bdVon","../../actions/userActions":"5JRkM","../../actions/movieActions":"fP2tj"}],"ifWdp":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","react/jsx-dev-runtime":"iTorj","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8","react":"21dqq","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","../profileEdit-view/profileEdit-view":"kr71C","../movie-card/movie-card":"bwuIu","../movie-view/movie-view":"ggaUx","../signup-view/signup-view":"4OGiN","../profile-view/profile-view":"2vVqf","react-router-dom":"9xmpe","../navigation-bar/navigation-bar":"bsPVM","react-redux":"bdVon","../../actions/userActions":"5JRkM","../../actions/movieActions":"fP2tj","../login-view/login-view":"9YtA0"}],"ifWdp":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -27559,624 +27559,41 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"ggaUx":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$e9f6.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieView", ()=>MovieView);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _movieViewScss = require("./movie-view.scss");
-var _reactBootstrap = require("react-bootstrap");
-var _reactRouter = require("react-router");
-var _reactRouterDom = require("react-router-dom");
-var _userActions = require("../../actions/userActions");
-var _reactRedux = require("react-redux");
-var _s = $RefreshSig$();
-const MovieView = ({ movies, user })=>{
-    _s();
-    const { movieId } = (0, _reactRouter.useParams)();
-    const dispatch = (0, _reactRedux.useDispatch)();
-    const movie = movies.find((m)=>m.id === movieId);
-    const isMovieInFavorites = user.FavoriteMovies.includes(String(movieId));
-    const similarMovies = movies.filter((m)=>m.genre.Name === movie.genre.Name && m.id !== movieId);
-    console.log(isMovieInFavorites, "favorite movie added");
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
-            className: "d-flex flex-column",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Header, {
-                    as: "h5",
-                    children: movie.title
-                }, void 0, false, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 22,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                    children: movie.description
-                }, void 0, false, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 24,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                            children: "Director:"
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 26,
-                            columnNumber: 21
-                        }, undefined),
-                        " ",
-                        movie.director.Name,
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 27,
-                            columnNumber: 21
-                        }, undefined),
-                        movie.director.Bio
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 25,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                        children: "Actors:"
-                    }, void 0, false, {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 32,
-                        columnNumber: 21
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 31,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
-                    className: "list-unstyled",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "row",
-                        children: movie.actor.map((actor, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "col-md-4 my-2",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                    children: actor
-                                }, void 0, false, {
-                                    fileName: "src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 38,
-                                    columnNumber: 33
-                                }, undefined)
-                            }, index, false, {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 37,
-                                columnNumber: 29
-                            }, undefined))
-                    }, void 0, false, {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 35,
-                        columnNumber: 21
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 34,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                            children: "Genre:"
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 45,
-                            columnNumber: 21
-                        }, undefined),
-                        " ",
-                        movie.genre.Name
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 44,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                            children: "Featured:"
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 49,
-                            columnNumber: 21
-                        }, undefined),
-                        " ",
-                        movie.featured ? "Yes" : "No"
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 48,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                    className: "list-unstyled",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
-                        children: "Similar Movies:"
-                    }, void 0, false, {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 53,
-                        columnNumber: 21
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 52,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "row list-unstyled",
-                    children: similarMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "col-md-4 my-2",
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
-                                children: movie.title
-                            }, void 0, false, {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 58,
-                                columnNumber: 29
-                            }, undefined)
-                        }, movie.id, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 57,
-                            columnNumber: 25
-                        }, undefined))
-                }, void 0, false, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 55,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                    className: "d-flex justify-content-between",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                            to: `/`,
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                                variant: "primary",
-                                style: {
-                                    cursor: "pointer"
-                                },
-                                children: "Close"
-                            }, void 0, false, {
-                                fileName: "src/components/movie-view/movie-view.jsx",
-                                lineNumber: 65,
-                                columnNumber: 25
-                            }, undefined)
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 64,
-                            columnNumber: 21
-                        }, undefined),
-                        isMovieInFavorites ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                            variant: "secondary",
-                            children: "Already Your Favorite"
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 71,
-                            columnNumber: 25
-                        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                            onClick: ()=>{
-                                dispatch((0, _userActions.addFavoriteMovieToUser)(user._id, movieId));
-                            },
-                            variant: "dark",
-                            style: {
-                                cursor: "pointer"
-                            },
-                            children: "Add To Favorite"
-                        }, void 0, false, {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 73,
-                            columnNumber: 25
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/movie-view/movie-view.jsx",
-                    lineNumber: 63,
-                    columnNumber: 17
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/movie-view/movie-view.jsx",
-            lineNumber: 21,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/components/movie-view/movie-view.jsx",
-        lineNumber: 20,
-        columnNumber: 9
-    }, undefined);
-};
-_s(MovieView, "ImeHYv49h+hVneCbtq53++hVfSU=", false, function() {
-    return [
-        (0, _reactRouter.useParams),
-        (0, _reactRedux.useDispatch)
-    ];
-});
-_c = MovieView;
-var _c;
-$RefreshReg$(_c, "MovieView");
-
-  $parcel$ReactRefreshHelpers$e9f6.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","./movie-view.scss":"jnlR5","react-bootstrap":"3AD9A","react-router":"dbWyW","react-router-dom":"9xmpe","react/jsx-dev-runtime":"iTorj","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8","../../actions/userActions":"5JRkM","react-redux":"bdVon"}],"jnlR5":[function() {},{}],"3AD9A":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Accordion", ()=>(0, _accordionDefault.default));
-parcelHelpers.export(exports, "AccordionContext", ()=>(0, _accordionContextDefault.default));
-parcelHelpers.export(exports, "AccordionCollapse", ()=>(0, _accordionCollapseDefault.default));
-parcelHelpers.export(exports, "AccordionButton", ()=>(0, _accordionButtonDefault.default));
-parcelHelpers.export(exports, "useAccordionButton", ()=>(0, _accordionButton.useAccordionButton));
-parcelHelpers.export(exports, "AccordionHeader", ()=>(0, _accordionHeaderDefault.default));
-parcelHelpers.export(exports, "AccordionItem", ()=>(0, _accordionItemDefault.default));
-parcelHelpers.export(exports, "Alert", ()=>(0, _alertDefault.default));
-parcelHelpers.export(exports, "AlertHeading", ()=>(0, _alertHeadingDefault.default));
-parcelHelpers.export(exports, "AlertLink", ()=>(0, _alertLinkDefault.default));
-parcelHelpers.export(exports, "Anchor", ()=>(0, _anchorDefault.default));
-parcelHelpers.export(exports, "Badge", ()=>(0, _badgeDefault.default));
-parcelHelpers.export(exports, "Breadcrumb", ()=>(0, _breadcrumbDefault.default));
-parcelHelpers.export(exports, "BreadcrumbItem", ()=>(0, _breadcrumbItemDefault.default));
-parcelHelpers.export(exports, "Button", ()=>(0, _buttonDefault.default));
-parcelHelpers.export(exports, "ButtonGroup", ()=>(0, _buttonGroupDefault.default));
-parcelHelpers.export(exports, "ButtonToolbar", ()=>(0, _buttonToolbarDefault.default));
-parcelHelpers.export(exports, "Card", ()=>(0, _cardDefault.default));
-parcelHelpers.export(exports, "CardBody", ()=>(0, _cardBodyDefault.default));
-parcelHelpers.export(exports, "CardFooter", ()=>(0, _cardFooterDefault.default));
-parcelHelpers.export(exports, "CardGroup", ()=>(0, _cardGroupDefault.default));
-parcelHelpers.export(exports, "CardHeader", ()=>(0, _cardHeaderDefault.default));
-parcelHelpers.export(exports, "CardImg", ()=>(0, _cardImgDefault.default));
-parcelHelpers.export(exports, "CardImgOverlay", ()=>(0, _cardImgOverlayDefault.default));
-parcelHelpers.export(exports, "CardLink", ()=>(0, _cardLinkDefault.default));
-parcelHelpers.export(exports, "CardSubtitle", ()=>(0, _cardSubtitleDefault.default));
-parcelHelpers.export(exports, "CardText", ()=>(0, _cardTextDefault.default));
-parcelHelpers.export(exports, "CardTitle", ()=>(0, _cardTitleDefault.default));
-parcelHelpers.export(exports, "Carousel", ()=>(0, _carouselDefault.default));
-parcelHelpers.export(exports, "CarouselCaption", ()=>(0, _carouselCaptionDefault.default));
-parcelHelpers.export(exports, "CarouselItem", ()=>(0, _carouselItemDefault.default));
-parcelHelpers.export(exports, "CloseButton", ()=>(0, _closeButtonDefault.default));
-parcelHelpers.export(exports, "Col", ()=>(0, _colDefault.default));
-parcelHelpers.export(exports, "Collapse", ()=>(0, _collapseDefault.default));
-parcelHelpers.export(exports, "Container", ()=>(0, _containerDefault.default));
-parcelHelpers.export(exports, "Dropdown", ()=>(0, _dropdownDefault.default));
-parcelHelpers.export(exports, "DropdownButton", ()=>(0, _dropdownButtonDefault.default));
-parcelHelpers.export(exports, "DropdownDivider", ()=>(0, _dropdownDividerDefault.default));
-parcelHelpers.export(exports, "DropdownHeader", ()=>(0, _dropdownHeaderDefault.default));
-parcelHelpers.export(exports, "DropdownItem", ()=>(0, _dropdownItemDefault.default));
-parcelHelpers.export(exports, "DropdownItemText", ()=>(0, _dropdownItemTextDefault.default));
-parcelHelpers.export(exports, "DropdownMenu", ()=>(0, _dropdownMenuDefault.default));
-parcelHelpers.export(exports, "DropdownToggle", ()=>(0, _dropdownToggleDefault.default));
-parcelHelpers.export(exports, "Fade", ()=>(0, _fadeDefault.default));
-parcelHelpers.export(exports, "Figure", ()=>(0, _figureDefault.default));
-parcelHelpers.export(exports, "FigureCaption", ()=>(0, _figureCaptionDefault.default));
-parcelHelpers.export(exports, "FigureImage", ()=>(0, _figureImageDefault.default));
-parcelHelpers.export(exports, "Form", ()=>(0, _formDefault.default));
-parcelHelpers.export(exports, "FormControl", ()=>(0, _formControlDefault.default));
-parcelHelpers.export(exports, "FormCheck", ()=>(0, _formCheckDefault.default));
-parcelHelpers.export(exports, "FormFloating", ()=>(0, _formFloatingDefault.default));
-parcelHelpers.export(exports, "FloatingLabel", ()=>(0, _floatingLabelDefault.default));
-parcelHelpers.export(exports, "FormGroup", ()=>(0, _formGroupDefault.default));
-parcelHelpers.export(exports, "FormLabel", ()=>(0, _formLabelDefault.default));
-parcelHelpers.export(exports, "FormText", ()=>(0, _formTextDefault.default));
-parcelHelpers.export(exports, "FormSelect", ()=>(0, _formSelectDefault.default));
-parcelHelpers.export(exports, "Image", ()=>(0, _imageDefault.default));
-parcelHelpers.export(exports, "InputGroup", ()=>(0, _inputGroupDefault.default));
-parcelHelpers.export(exports, "ListGroup", ()=>(0, _listGroupDefault.default));
-parcelHelpers.export(exports, "ListGroupItem", ()=>(0, _listGroupItemDefault.default));
-parcelHelpers.export(exports, "Modal", ()=>(0, _modalDefault.default));
-parcelHelpers.export(exports, "ModalBody", ()=>(0, _modalBodyDefault.default));
-parcelHelpers.export(exports, "ModalDialog", ()=>(0, _modalDialogDefault.default));
-parcelHelpers.export(exports, "ModalFooter", ()=>(0, _modalFooterDefault.default));
-parcelHelpers.export(exports, "ModalHeader", ()=>(0, _modalHeaderDefault.default));
-parcelHelpers.export(exports, "ModalTitle", ()=>(0, _modalTitleDefault.default));
-parcelHelpers.export(exports, "Nav", ()=>(0, _navDefault.default));
-parcelHelpers.export(exports, "Navbar", ()=>(0, _navbarDefault.default));
-parcelHelpers.export(exports, "NavbarBrand", ()=>(0, _navbarBrandDefault.default));
-parcelHelpers.export(exports, "NavbarCollapse", ()=>(0, _navbarCollapseDefault.default));
-parcelHelpers.export(exports, "NavbarOffcanvas", ()=>(0, _navbarOffcanvasDefault.default));
-parcelHelpers.export(exports, "NavbarText", ()=>(0, _navbarTextDefault.default));
-parcelHelpers.export(exports, "NavbarToggle", ()=>(0, _navbarToggleDefault.default));
-parcelHelpers.export(exports, "NavDropdown", ()=>(0, _navDropdownDefault.default));
-parcelHelpers.export(exports, "NavItem", ()=>(0, _navItemDefault.default));
-parcelHelpers.export(exports, "NavLink", ()=>(0, _navLinkDefault.default));
-parcelHelpers.export(exports, "Offcanvas", ()=>(0, _offcanvasDefault.default));
-parcelHelpers.export(exports, "OffcanvasBody", ()=>(0, _offcanvasBodyDefault.default));
-parcelHelpers.export(exports, "OffcanvasHeader", ()=>(0, _offcanvasHeaderDefault.default));
-parcelHelpers.export(exports, "OffcanvasTitle", ()=>(0, _offcanvasTitleDefault.default));
-parcelHelpers.export(exports, "OffcanvasToggling", ()=>(0, _offcanvasTogglingDefault.default));
-parcelHelpers.export(exports, "Overlay", ()=>(0, _overlayDefault.default));
-parcelHelpers.export(exports, "OverlayTrigger", ()=>(0, _overlayTriggerDefault.default));
-parcelHelpers.export(exports, "PageItem", ()=>(0, _pageItemDefault.default));
-parcelHelpers.export(exports, "Pagination", ()=>(0, _paginationDefault.default));
-parcelHelpers.export(exports, "Placeholder", ()=>(0, _placeholderDefault.default));
-parcelHelpers.export(exports, "PlaceholderButton", ()=>(0, _placeholderButtonDefault.default));
-parcelHelpers.export(exports, "Popover", ()=>(0, _popoverDefault.default));
-parcelHelpers.export(exports, "PopoverBody", ()=>(0, _popoverBodyDefault.default));
-parcelHelpers.export(exports, "PopoverHeader", ()=>(0, _popoverHeaderDefault.default));
-parcelHelpers.export(exports, "ProgressBar", ()=>(0, _progressBarDefault.default));
-parcelHelpers.export(exports, "Ratio", ()=>(0, _ratioDefault.default));
-parcelHelpers.export(exports, "Row", ()=>(0, _rowDefault.default));
-parcelHelpers.export(exports, "Spinner", ()=>(0, _spinnerDefault.default));
-parcelHelpers.export(exports, "SplitButton", ()=>(0, _splitButtonDefault.default));
-parcelHelpers.export(exports, "SSRProvider", ()=>(0, _ssrproviderDefault.default));
-parcelHelpers.export(exports, "Stack", ()=>(0, _stackDefault.default));
-parcelHelpers.export(exports, "Tab", ()=>(0, _tabDefault.default));
-parcelHelpers.export(exports, "TabContainer", ()=>(0, _tabContainerDefault.default));
-parcelHelpers.export(exports, "TabContent", ()=>(0, _tabContentDefault.default));
-parcelHelpers.export(exports, "Table", ()=>(0, _tableDefault.default));
-parcelHelpers.export(exports, "TabPane", ()=>(0, _tabPaneDefault.default));
-parcelHelpers.export(exports, "Tabs", ()=>(0, _tabsDefault.default));
-parcelHelpers.export(exports, "ThemeProvider", ()=>(0, _themeProviderDefault.default));
-parcelHelpers.export(exports, "Toast", ()=>(0, _toastDefault.default));
-parcelHelpers.export(exports, "ToastBody", ()=>(0, _toastBodyDefault.default));
-parcelHelpers.export(exports, "ToastContainer", ()=>(0, _toastContainerDefault.default));
-parcelHelpers.export(exports, "ToastHeader", ()=>(0, _toastHeaderDefault.default));
-parcelHelpers.export(exports, "ToggleButton", ()=>(0, _toggleButtonDefault.default));
-parcelHelpers.export(exports, "ToggleButtonGroup", ()=>(0, _toggleButtonGroupDefault.default));
-parcelHelpers.export(exports, "Tooltip", ()=>(0, _tooltipDefault.default));
-var _accordion = require("./Accordion");
-var _accordionDefault = parcelHelpers.interopDefault(_accordion);
-var _accordionContext = require("./AccordionContext");
-var _accordionContextDefault = parcelHelpers.interopDefault(_accordionContext);
-var _accordionCollapse = require("./AccordionCollapse");
-var _accordionCollapseDefault = parcelHelpers.interopDefault(_accordionCollapse);
-var _accordionButton = require("./AccordionButton");
-var _accordionButtonDefault = parcelHelpers.interopDefault(_accordionButton);
-var _accordionHeader = require("./AccordionHeader");
-var _accordionHeaderDefault = parcelHelpers.interopDefault(_accordionHeader);
-var _accordionItem = require("./AccordionItem");
-var _accordionItemDefault = parcelHelpers.interopDefault(_accordionItem);
-var _alert = require("./Alert");
-var _alertDefault = parcelHelpers.interopDefault(_alert);
-var _alertHeading = require("./AlertHeading");
-var _alertHeadingDefault = parcelHelpers.interopDefault(_alertHeading);
-var _alertLink = require("./AlertLink");
-var _alertLinkDefault = parcelHelpers.interopDefault(_alertLink);
-var _anchor = require("./Anchor");
-var _anchorDefault = parcelHelpers.interopDefault(_anchor);
-var _badge = require("./Badge");
-var _badgeDefault = parcelHelpers.interopDefault(_badge);
-var _breadcrumb = require("./Breadcrumb");
-var _breadcrumbDefault = parcelHelpers.interopDefault(_breadcrumb);
-var _breadcrumbItem = require("./BreadcrumbItem");
-var _breadcrumbItemDefault = parcelHelpers.interopDefault(_breadcrumbItem);
-var _button = require("./Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _buttonGroup = require("./ButtonGroup");
-var _buttonGroupDefault = parcelHelpers.interopDefault(_buttonGroup);
-var _buttonToolbar = require("./ButtonToolbar");
-var _buttonToolbarDefault = parcelHelpers.interopDefault(_buttonToolbar);
-var _card = require("./Card");
-var _cardDefault = parcelHelpers.interopDefault(_card);
-var _cardBody = require("./CardBody");
-var _cardBodyDefault = parcelHelpers.interopDefault(_cardBody);
-var _cardFooter = require("./CardFooter");
-var _cardFooterDefault = parcelHelpers.interopDefault(_cardFooter);
-var _cardGroup = require("./CardGroup");
-var _cardGroupDefault = parcelHelpers.interopDefault(_cardGroup);
-var _cardHeader = require("./CardHeader");
-var _cardHeaderDefault = parcelHelpers.interopDefault(_cardHeader);
-var _cardImg = require("./CardImg");
-var _cardImgDefault = parcelHelpers.interopDefault(_cardImg);
-var _cardImgOverlay = require("./CardImgOverlay");
-var _cardImgOverlayDefault = parcelHelpers.interopDefault(_cardImgOverlay);
-var _cardLink = require("./CardLink");
-var _cardLinkDefault = parcelHelpers.interopDefault(_cardLink);
-var _cardSubtitle = require("./CardSubtitle");
-var _cardSubtitleDefault = parcelHelpers.interopDefault(_cardSubtitle);
-var _cardText = require("./CardText");
-var _cardTextDefault = parcelHelpers.interopDefault(_cardText);
-var _cardTitle = require("./CardTitle");
-var _cardTitleDefault = parcelHelpers.interopDefault(_cardTitle);
-var _carousel = require("./Carousel");
-var _carouselDefault = parcelHelpers.interopDefault(_carousel);
-var _carouselCaption = require("./CarouselCaption");
-var _carouselCaptionDefault = parcelHelpers.interopDefault(_carouselCaption);
-var _carouselItem = require("./CarouselItem");
-var _carouselItemDefault = parcelHelpers.interopDefault(_carouselItem);
-var _closeButton = require("./CloseButton");
-var _closeButtonDefault = parcelHelpers.interopDefault(_closeButton);
-var _col = require("./Col");
-var _colDefault = parcelHelpers.interopDefault(_col);
-var _collapse = require("./Collapse");
-var _collapseDefault = parcelHelpers.interopDefault(_collapse);
-var _container = require("./Container");
-var _containerDefault = parcelHelpers.interopDefault(_container);
-var _dropdown = require("./Dropdown");
-var _dropdownDefault = parcelHelpers.interopDefault(_dropdown);
-var _dropdownButton = require("./DropdownButton");
-var _dropdownButtonDefault = parcelHelpers.interopDefault(_dropdownButton);
-var _dropdownDivider = require("./DropdownDivider");
-var _dropdownDividerDefault = parcelHelpers.interopDefault(_dropdownDivider);
-var _dropdownHeader = require("./DropdownHeader");
-var _dropdownHeaderDefault = parcelHelpers.interopDefault(_dropdownHeader);
-var _dropdownItem = require("./DropdownItem");
-var _dropdownItemDefault = parcelHelpers.interopDefault(_dropdownItem);
-var _dropdownItemText = require("./DropdownItemText");
-var _dropdownItemTextDefault = parcelHelpers.interopDefault(_dropdownItemText);
-var _dropdownMenu = require("./DropdownMenu");
-var _dropdownMenuDefault = parcelHelpers.interopDefault(_dropdownMenu);
-var _dropdownToggle = require("./DropdownToggle");
-var _dropdownToggleDefault = parcelHelpers.interopDefault(_dropdownToggle);
-var _fade = require("./Fade");
-var _fadeDefault = parcelHelpers.interopDefault(_fade);
-var _figure = require("./Figure");
-var _figureDefault = parcelHelpers.interopDefault(_figure);
-var _figureCaption = require("./FigureCaption");
-var _figureCaptionDefault = parcelHelpers.interopDefault(_figureCaption);
-var _figureImage = require("./FigureImage");
-var _figureImageDefault = parcelHelpers.interopDefault(_figureImage);
-var _form = require("./Form");
-var _formDefault = parcelHelpers.interopDefault(_form);
-var _formControl = require("./FormControl");
-var _formControlDefault = parcelHelpers.interopDefault(_formControl);
-var _formCheck = require("./FormCheck");
-var _formCheckDefault = parcelHelpers.interopDefault(_formCheck);
-var _formFloating = require("./FormFloating");
-var _formFloatingDefault = parcelHelpers.interopDefault(_formFloating);
-var _floatingLabel = require("./FloatingLabel");
-var _floatingLabelDefault = parcelHelpers.interopDefault(_floatingLabel);
-var _formGroup = require("./FormGroup");
-var _formGroupDefault = parcelHelpers.interopDefault(_formGroup);
-var _formLabel = require("./FormLabel");
-var _formLabelDefault = parcelHelpers.interopDefault(_formLabel);
-var _formText = require("./FormText");
-var _formTextDefault = parcelHelpers.interopDefault(_formText);
-var _formSelect = require("./FormSelect");
-var _formSelectDefault = parcelHelpers.interopDefault(_formSelect);
-var _image = require("./Image");
-var _imageDefault = parcelHelpers.interopDefault(_image);
-var _inputGroup = require("./InputGroup");
-var _inputGroupDefault = parcelHelpers.interopDefault(_inputGroup);
-var _listGroup = require("./ListGroup");
-var _listGroupDefault = parcelHelpers.interopDefault(_listGroup);
-var _listGroupItem = require("./ListGroupItem");
-var _listGroupItemDefault = parcelHelpers.interopDefault(_listGroupItem);
-var _modal = require("./Modal");
-var _modalDefault = parcelHelpers.interopDefault(_modal);
-var _modalBody = require("./ModalBody");
-var _modalBodyDefault = parcelHelpers.interopDefault(_modalBody);
-var _modalDialog = require("./ModalDialog");
-var _modalDialogDefault = parcelHelpers.interopDefault(_modalDialog);
-var _modalFooter = require("./ModalFooter");
-var _modalFooterDefault = parcelHelpers.interopDefault(_modalFooter);
-var _modalHeader = require("./ModalHeader");
-var _modalHeaderDefault = parcelHelpers.interopDefault(_modalHeader);
-var _modalTitle = require("./ModalTitle");
-var _modalTitleDefault = parcelHelpers.interopDefault(_modalTitle);
-var _nav = require("./Nav");
-var _navDefault = parcelHelpers.interopDefault(_nav);
-var _navbar = require("./Navbar");
-var _navbarDefault = parcelHelpers.interopDefault(_navbar);
-var _navbarBrand = require("./NavbarBrand");
-var _navbarBrandDefault = parcelHelpers.interopDefault(_navbarBrand);
-var _navbarCollapse = require("./NavbarCollapse");
-var _navbarCollapseDefault = parcelHelpers.interopDefault(_navbarCollapse);
-var _navbarOffcanvas = require("./NavbarOffcanvas");
-var _navbarOffcanvasDefault = parcelHelpers.interopDefault(_navbarOffcanvas);
-var _navbarText = require("./NavbarText");
-var _navbarTextDefault = parcelHelpers.interopDefault(_navbarText);
-var _navbarToggle = require("./NavbarToggle");
-var _navbarToggleDefault = parcelHelpers.interopDefault(_navbarToggle);
-var _navDropdown = require("./NavDropdown");
-var _navDropdownDefault = parcelHelpers.interopDefault(_navDropdown);
-var _navItem = require("./NavItem");
-var _navItemDefault = parcelHelpers.interopDefault(_navItem);
-var _navLink = require("./NavLink");
-var _navLinkDefault = parcelHelpers.interopDefault(_navLink);
-var _offcanvas = require("./Offcanvas");
-var _offcanvasDefault = parcelHelpers.interopDefault(_offcanvas);
-var _offcanvasBody = require("./OffcanvasBody");
-var _offcanvasBodyDefault = parcelHelpers.interopDefault(_offcanvasBody);
-var _offcanvasHeader = require("./OffcanvasHeader");
-var _offcanvasHeaderDefault = parcelHelpers.interopDefault(_offcanvasHeader);
-var _offcanvasTitle = require("./OffcanvasTitle");
-var _offcanvasTitleDefault = parcelHelpers.interopDefault(_offcanvasTitle);
-var _offcanvasToggling = require("./OffcanvasToggling");
-var _offcanvasTogglingDefault = parcelHelpers.interopDefault(_offcanvasToggling);
-var _overlay = require("./Overlay");
-var _overlayDefault = parcelHelpers.interopDefault(_overlay);
-var _overlayTrigger = require("./OverlayTrigger");
-var _overlayTriggerDefault = parcelHelpers.interopDefault(_overlayTrigger);
-var _pageItem = require("./PageItem");
-var _pageItemDefault = parcelHelpers.interopDefault(_pageItem);
-var _pagination = require("./Pagination");
-var _paginationDefault = parcelHelpers.interopDefault(_pagination);
-var _placeholder = require("./Placeholder");
-var _placeholderDefault = parcelHelpers.interopDefault(_placeholder);
-var _placeholderButton = require("./PlaceholderButton");
-var _placeholderButtonDefault = parcelHelpers.interopDefault(_placeholderButton);
-var _popover = require("./Popover");
-var _popoverDefault = parcelHelpers.interopDefault(_popover);
-var _popoverBody = require("./PopoverBody");
-var _popoverBodyDefault = parcelHelpers.interopDefault(_popoverBody);
-var _popoverHeader = require("./PopoverHeader");
-var _popoverHeaderDefault = parcelHelpers.interopDefault(_popoverHeader);
-var _progressBar = require("./ProgressBar");
-var _progressBarDefault = parcelHelpers.interopDefault(_progressBar);
-var _ratio = require("./Ratio");
-var _ratioDefault = parcelHelpers.interopDefault(_ratio);
-var _row = require("./Row");
-var _rowDefault = parcelHelpers.interopDefault(_row);
-var _spinner = require("./Spinner");
-var _spinnerDefault = parcelHelpers.interopDefault(_spinner);
-var _splitButton = require("./SplitButton");
-var _splitButtonDefault = parcelHelpers.interopDefault(_splitButton);
-var _ssrprovider = require("./SSRProvider");
-var _ssrproviderDefault = parcelHelpers.interopDefault(_ssrprovider);
-var _stack = require("./Stack");
-var _stackDefault = parcelHelpers.interopDefault(_stack);
-var _tab = require("./Tab");
-var _tabDefault = parcelHelpers.interopDefault(_tab);
-var _tabContainer = require("./TabContainer");
-var _tabContainerDefault = parcelHelpers.interopDefault(_tabContainer);
-var _tabContent = require("./TabContent");
-var _tabContentDefault = parcelHelpers.interopDefault(_tabContent);
-var _table = require("./Table");
-var _tableDefault = parcelHelpers.interopDefault(_table);
-var _tabPane = require("./TabPane");
-var _tabPaneDefault = parcelHelpers.interopDefault(_tabPane);
-var _tabs = require("./Tabs");
-var _tabsDefault = parcelHelpers.interopDefault(_tabs);
-var _themeProvider = require("./ThemeProvider");
-var _themeProviderDefault = parcelHelpers.interopDefault(_themeProvider);
-var _toast = require("./Toast");
-var _toastDefault = parcelHelpers.interopDefault(_toast);
-var _toastBody = require("./ToastBody");
-var _toastBodyDefault = parcelHelpers.interopDefault(_toastBody);
-var _toastContainer = require("./ToastContainer");
-var _toastContainerDefault = parcelHelpers.interopDefault(_toastContainer);
-var _toastHeader = require("./ToastHeader");
-var _toastHeaderDefault = parcelHelpers.interopDefault(_toastHeader);
-var _toggleButton = require("./ToggleButton");
-var _toggleButtonDefault = parcelHelpers.interopDefault(_toggleButton);
-var _toggleButtonGroup = require("./ToggleButtonGroup");
-var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup);
-var _tooltip = require("./Tooltip");
-var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
-
-},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./AccordionHeader":false,"./AccordionItem":false,"./Alert":false,"./AlertHeading":false,"./AlertLink":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardBody":false,"./CardFooter":false,"./CardGroup":false,"./CardHeader":false,"./CardImg":false,"./CardImgOverlay":false,"./CardLink":false,"./CardSubtitle":false,"./CardText":false,"./CardTitle":false,"./Carousel":false,"./CarouselCaption":false,"./CarouselItem":false,"./CloseButton":false,"./Col":false,"./Collapse":false,"./Container":"hEdsw","./Dropdown":false,"./DropdownButton":false,"./DropdownDivider":false,"./DropdownHeader":false,"./DropdownItem":false,"./DropdownItemText":false,"./DropdownMenu":false,"./DropdownToggle":false,"./Fade":false,"./Figure":false,"./FigureCaption":false,"./FigureImage":false,"./Form":false,"./FormControl":false,"./FormCheck":false,"./FormFloating":false,"./FloatingLabel":false,"./FormGroup":false,"./FormLabel":false,"./FormText":false,"./FormSelect":false,"./Image":false,"./InputGroup":false,"./ListGroup":"4tGXh","./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalHeader":false,"./ModalTitle":false,"./Nav":"cXyL2","./Navbar":"1mHjo","./NavbarBrand":false,"./NavbarCollapse":false,"./NavbarOffcanvas":false,"./NavbarText":false,"./NavbarToggle":false,"./NavDropdown":false,"./NavItem":false,"./NavLink":false,"./Offcanvas":false,"./OffcanvasBody":false,"./OffcanvasHeader":false,"./OffcanvasTitle":false,"./OffcanvasToggling":false,"./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverBody":false,"./PopoverHeader":false,"./ProgressBar":false,"./Ratio":false,"./Row":false,"./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":false,"./Toast":false,"./ToastBody":false,"./ToastContainer":false,"./ToastHeader":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"aPzUt":[function(require,module,exports) {
+},{}],"cMC39":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
 var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
-var _button = require("@restart/ui/Button");
 var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
 "use client";
-const Button = /*#__PURE__*/ _react.forwardRef(({ as, bsPrefix, variant = "primary", size, active = false, disabled = false, className, ...props }, ref)=>{
-    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "btn");
-    const [buttonProps, { tagName }] = (0, _button.useButtonProps)({
-        tagName: as,
-        disabled,
-        ...props
+const Row = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+as: Component = "div", ...props }, ref)=>{
+    const decoratedBsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "row");
+    const breakpoints = (0, _themeProvider.useBootstrapBreakpoints)();
+    const minBreakpoint = (0, _themeProvider.useBootstrapMinBreakpoint)();
+    const sizePrefix = `${decoratedBsPrefix}-cols`;
+    const classes = [];
+    breakpoints.forEach((brkPoint)=>{
+        const propValue = props[brkPoint];
+        delete props[brkPoint];
+        let cols;
+        if (propValue != null && typeof propValue === "object") ({ cols } = propValue);
+        else cols = propValue;
+        const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : "";
+        if (cols != null) classes.push(`${sizePrefix}${infix}-${cols}`);
     });
-    const Component = tagName;
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ...buttonProps,
-        ...props,
         ref: ref,
-        disabled: disabled,
-        className: (0, _classnamesDefault.default)(className, prefix, active && "active", variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && disabled && "disabled")
+        ...props,
+        className: (0, _classnamesDefault.default)(className, decoratedBsPrefix, ...classes)
     });
 });
-Button.displayName = "Button";
-exports.default = Button;
+Row.displayName = "Row";
+exports.default = Row;
 
-},{"classnames":"jocGM","react":"21dqq","@restart/ui/Button":"8YUbR","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"jocGM":[function(require,module,exports) {
+},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"jocGM":[function(require,module,exports) {
 /*!
 	Copyright (c) 2018 Jed Watson.
 	Licensed under the MIT License (MIT), see
@@ -28217,95 +27634,89 @@ exports.default = Button;
     else window.classNames = classNames;
 })();
 
-},{}],"8YUbR":[function(require,module,exports) {
+},{}],"dVixI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "isTrivialHref", ()=>isTrivialHref);
-parcelHelpers.export(exports, "useButtonProps", ()=>useButtonProps);
+parcelHelpers.export(exports, "DEFAULT_BREAKPOINTS", ()=>DEFAULT_BREAKPOINTS);
+parcelHelpers.export(exports, "DEFAULT_MIN_BREAKPOINT", ()=>DEFAULT_MIN_BREAKPOINT);
+parcelHelpers.export(exports, "useBootstrapPrefix", ()=>useBootstrapPrefix);
+parcelHelpers.export(exports, "useBootstrapBreakpoints", ()=>useBootstrapBreakpoints);
+parcelHelpers.export(exports, "useBootstrapMinBreakpoint", ()=>useBootstrapMinBreakpoint);
+parcelHelpers.export(exports, "useIsRTL", ()=>useIsRTL);
+parcelHelpers.export(exports, "createBootstrapComponent", ()=>createBootstrapComponent);
+parcelHelpers.export(exports, "ThemeConsumer", ()=>Consumer);
 var _react = require("react");
 var _jsxRuntime = require("react/jsx-runtime");
-const _excluded = [
-    "as",
-    "disabled"
+"use client";
+const DEFAULT_BREAKPOINTS = [
+    "xxl",
+    "xl",
+    "lg",
+    "md",
+    "sm",
+    "xs"
 ];
-function _objectWithoutPropertiesLoose(source, excluded) {
-    if (source == null) return {};
-    var target = {};
-    var sourceKeys = Object.keys(source);
-    var key, i;
-    for(i = 0; i < sourceKeys.length; i++){
-        key = sourceKeys[i];
-        if (excluded.indexOf(key) >= 0) continue;
-        target[key] = source[key];
-    }
-    return target;
-}
-function isTrivialHref(href) {
-    return !href || href.trim() === "#";
-}
-function useButtonProps({ tagName, disabled, href, target, rel, role, onClick, tabIndex = 0, type }) {
-    if (!tagName) {
-        if (href != null || target != null || rel != null) tagName = "a";
-        else tagName = "button";
-    }
-    const meta = {
-        tagName
-    };
-    if (tagName === "button") return [
-        {
-            type: type || "button",
-            disabled
-        },
-        meta
-    ];
-    const handleClick = (event)=>{
-        if (disabled || tagName === "a" && isTrivialHref(href)) event.preventDefault();
-        if (disabled) {
-            event.stopPropagation();
-            return;
-        }
-        onClick == null || onClick(event);
-    };
-    const handleKeyDown = (event)=>{
-        if (event.key === " ") {
-            event.preventDefault();
-            handleClick(event);
-        }
-    };
-    if (tagName === "a") {
-        // Ensure there's a href so Enter can trigger anchor button.
-        href || (href = "#");
-        if (disabled) href = undefined;
-    }
-    return [
-        {
-            role: role != null ? role : "button",
-            // explicitly undefined so that it overrides the props disabled in a spread
-            // e.g. <Tag {...props} {...hookProps} />
-            disabled: undefined,
-            tabIndex: disabled ? undefined : tabIndex,
-            href,
-            target: tagName === "a" ? target : undefined,
-            "aria-disabled": !disabled ? undefined : disabled,
-            rel: tagName === "a" ? rel : undefined,
-            onClick: handleClick,
-            onKeyDown: handleKeyDown
-        },
-        meta
-    ];
-}
-const Button = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
-    let { as: asProp, disabled } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
-    const [buttonProps, { tagName: Component }] = useButtonProps(Object.assign({
-        tagName: asProp,
-        disabled
-    }, props));
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, Object.assign({}, props, buttonProps, {
-        ref: ref
-    }));
+const DEFAULT_MIN_BREAKPOINT = "xs";
+const ThemeContext = /*#__PURE__*/ _react.createContext({
+    prefixes: {},
+    breakpoints: DEFAULT_BREAKPOINTS,
+    minBreakpoint: DEFAULT_MIN_BREAKPOINT
 });
-Button.displayName = "Button";
-exports.default = Button;
+const { Consumer, Provider } = ThemeContext;
+function ThemeProvider({ prefixes = {}, breakpoints = DEFAULT_BREAKPOINTS, minBreakpoint = DEFAULT_MIN_BREAKPOINT, dir, children }) {
+    const contextValue = (0, _react.useMemo)(()=>({
+            prefixes: {
+                ...prefixes
+            },
+            breakpoints,
+            minBreakpoint,
+            dir
+        }), [
+        prefixes,
+        breakpoints,
+        minBreakpoint,
+        dir
+    ]);
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Provider, {
+        value: contextValue,
+        children: children
+    });
+}
+function useBootstrapPrefix(prefix, defaultPrefix) {
+    const { prefixes } = (0, _react.useContext)(ThemeContext);
+    return prefix || prefixes[defaultPrefix] || defaultPrefix;
+}
+function useBootstrapBreakpoints() {
+    const { breakpoints } = (0, _react.useContext)(ThemeContext);
+    return breakpoints;
+}
+function useBootstrapMinBreakpoint() {
+    const { minBreakpoint } = (0, _react.useContext)(ThemeContext);
+    return minBreakpoint;
+}
+function useIsRTL() {
+    const { dir } = (0, _react.useContext)(ThemeContext);
+    return dir === "rtl";
+}
+function createBootstrapComponent(Component, opts) {
+    if (typeof opts === "string") opts = {
+        prefix: opts
+    };
+    const isClassy = Component.prototype && Component.prototype.isReactComponent;
+    // If it's a functional component make sure we don't break it with a ref
+    const { prefix, forwardRefAs = isClassy ? "ref" : "innerRef" } = opts;
+    const Wrapped = /*#__PURE__*/ _react.forwardRef(({ ...props }, ref)=>{
+        props[forwardRefAs] = ref;
+        const bsPrefix = useBootstrapPrefix(props.bsPrefix, prefix);
+        return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+            ...props,
+            bsPrefix: bsPrefix
+        });
+    });
+    Wrapped.displayName = `Bootstrap(${Component.displayName || Component.name})`;
+    return Wrapped;
+}
+exports.default = ThemeProvider;
 
 },{"react":"21dqq","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"6AEwr":[function(require,module,exports) {
 "use strict";
@@ -29154,89 +28565,677 @@ module.exports = require("c4c10cbba9862d5f");
     exports.jsxs = jsxs;
 })();
 
-},{"593632ccebda0d3a":"21dqq"}],"dVixI":[function(require,module,exports) {
+},{"593632ccebda0d3a":"21dqq"}],"2L2I6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "DEFAULT_BREAKPOINTS", ()=>DEFAULT_BREAKPOINTS);
-parcelHelpers.export(exports, "DEFAULT_MIN_BREAKPOINT", ()=>DEFAULT_MIN_BREAKPOINT);
-parcelHelpers.export(exports, "useBootstrapPrefix", ()=>useBootstrapPrefix);
-parcelHelpers.export(exports, "useBootstrapBreakpoints", ()=>useBootstrapBreakpoints);
-parcelHelpers.export(exports, "useBootstrapMinBreakpoint", ()=>useBootstrapMinBreakpoint);
-parcelHelpers.export(exports, "useIsRTL", ()=>useIsRTL);
-parcelHelpers.export(exports, "createBootstrapComponent", ()=>createBootstrapComponent);
-parcelHelpers.export(exports, "ThemeConsumer", ()=>Consumer);
+parcelHelpers.export(exports, "useCol", ()=>useCol);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
 var _react = require("react");
+var _themeProvider = require("./ThemeProvider");
 var _jsxRuntime = require("react/jsx-runtime");
 "use client";
-const DEFAULT_BREAKPOINTS = [
-    "xxl",
-    "xl",
-    "lg",
-    "md",
-    "sm",
-    "xs"
-];
-const DEFAULT_MIN_BREAKPOINT = "xs";
-const ThemeContext = /*#__PURE__*/ _react.createContext({
-    prefixes: {},
-    breakpoints: DEFAULT_BREAKPOINTS,
-    minBreakpoint: DEFAULT_MIN_BREAKPOINT
-});
-const { Consumer, Provider } = ThemeContext;
-function ThemeProvider({ prefixes = {}, breakpoints = DEFAULT_BREAKPOINTS, minBreakpoint = DEFAULT_MIN_BREAKPOINT, dir, children }) {
-    const contextValue = (0, _react.useMemo)(()=>({
-            prefixes: {
-                ...prefixes
-            },
-            breakpoints,
-            minBreakpoint,
-            dir
-        }), [
-        prefixes,
-        breakpoints,
-        minBreakpoint,
-        dir
-    ]);
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Provider, {
-        value: contextValue,
-        children: children
+function useCol({ as, bsPrefix, className, ...props }) {
+    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "col");
+    const breakpoints = (0, _themeProvider.useBootstrapBreakpoints)();
+    const minBreakpoint = (0, _themeProvider.useBootstrapMinBreakpoint)();
+    const spans = [];
+    const classes = [];
+    breakpoints.forEach((brkPoint)=>{
+        const propValue = props[brkPoint];
+        delete props[brkPoint];
+        let span;
+        let offset;
+        let order;
+        if (typeof propValue === "object" && propValue != null) ({ span, offset, order } = propValue);
+        else span = propValue;
+        const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : "";
+        if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
+        if (order != null) classes.push(`order${infix}-${order}`);
+        if (offset != null) classes.push(`offset${infix}-${offset}`);
     });
-}
-function useBootstrapPrefix(prefix, defaultPrefix) {
-    const { prefixes } = (0, _react.useContext)(ThemeContext);
-    return prefix || prefixes[defaultPrefix] || defaultPrefix;
-}
-function useBootstrapBreakpoints() {
-    const { breakpoints } = (0, _react.useContext)(ThemeContext);
-    return breakpoints;
-}
-function useBootstrapMinBreakpoint() {
-    const { minBreakpoint } = (0, _react.useContext)(ThemeContext);
-    return minBreakpoint;
-}
-function useIsRTL() {
-    const { dir } = (0, _react.useContext)(ThemeContext);
-    return dir === "rtl";
-}
-function createBootstrapComponent(Component, opts) {
-    if (typeof opts === "string") opts = {
-        prefix: opts
-    };
-    const isClassy = Component.prototype && Component.prototype.isReactComponent;
-    // If it's a functional component make sure we don't break it with a ref
-    const { prefix, forwardRefAs = isClassy ? "ref" : "innerRef" } = opts;
-    const Wrapped = /*#__PURE__*/ _react.forwardRef(({ ...props }, ref)=>{
-        props[forwardRefAs] = ref;
-        const bsPrefix = useBootstrapPrefix(props.bsPrefix, prefix);
-        return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+    return [
+        {
             ...props,
-            bsPrefix: bsPrefix
-        });
-    });
-    Wrapped.displayName = `Bootstrap(${Component.displayName || Component.name})`;
-    return Wrapped;
+            className: (0, _classnamesDefault.default)(className, ...spans, ...classes)
+        },
+        {
+            as,
+            bsPrefix,
+            spans
+        }
+    ];
 }
-exports.default = ThemeProvider;
+const Col = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+(props, ref)=>{
+    const [{ className, ...colProps }, { as: Component = "div", bsPrefix, spans }] = useCol(props);
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ...colProps,
+        ref: ref,
+        className: (0, _classnamesDefault.default)(className, !spans.length && bsPrefix)
+    });
+});
+Col.displayName = "Col";
+exports.default = Col;
+
+},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"kr71C":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$484b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$484b.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ProfileEditView", ()=>ProfileEditView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactBootstrap = require("react-bootstrap");
+var _reactRedux = require("react-redux");
+var _userActions = require("../../actions/userActions");
+var _s = $RefreshSig$();
+const ProfileEditView = ({ user, clickUpdate, token })=>{
+    _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const [updatedUserData, setUpdatedUserData] = (0, _react.useState)(user);
+    const handleChange = (e)=>{
+        const { name, value } = e.target;
+        setUpdatedUserData({
+            ...updatedUserData,
+            [name]: value
+        });
+    };
+    const handleSubmit = ()=>{
+        dispatch((0, _userActions.editUser)(user, updatedUserData, token));
+        clickUpdate(null);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
+                            children: "Edit Profile"
+                        }, void 0, false, {
+                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                            lineNumber: 23,
+                            columnNumber: 21
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.ListGroup), {
+                            className: "list-group-flush",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.ListGroup).Item, {
+                                    children: [
+                                        "Username:",
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                            type: "text",
+                                            name: "Username",
+                                            value: updatedUserData.Username,
+                                            onChange: handleChange
+                                        }, void 0, false, {
+                                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                                            lineNumber: 27,
+                                            columnNumber: 29
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                                    lineNumber: 25,
+                                    columnNumber: 25
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.ListGroup).Item, {
+                                    children: [
+                                        "Password:",
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                            type: "text",
+                                            name: "Password",
+                                            value: updatedUserData.Password,
+                                            onChange: handleChange
+                                        }, void 0, false, {
+                                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                                            lineNumber: 36,
+                                            columnNumber: 29
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                                    lineNumber: 34,
+                                    columnNumber: 25
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.ListGroup).Item, {
+                                    children: [
+                                        "Date of Birth:",
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                            type: "date",
+                                            name: "Birthday",
+                                            value: updatedUserData.Birthday,
+                                            onChange: handleChange
+                                        }, void 0, false, {
+                                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                                            lineNumber: 45,
+                                            columnNumber: 29
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                                    lineNumber: 43,
+                                    columnNumber: 25
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.ListGroup).Item, {
+                                    children: [
+                                        "Email:",
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                            type: "email",
+                                            name: "Email",
+                                            value: updatedUserData.Email,
+                                            onChange: handleChange
+                                        }, void 0, false, {
+                                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                                            lineNumber: 54,
+                                            columnNumber: 29
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                                    lineNumber: 52,
+                                    columnNumber: 25
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                            lineNumber: 24,
+                            columnNumber: 21
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                    lineNumber: 22,
+                    columnNumber: 17
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                lineNumber: 21,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                onClick: handleSubmit,
+                children: "Update"
+            }, void 0, false, {
+                fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
+                lineNumber: 64,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true);
+};
+_s(ProfileEditView, "ZULVamhvOOhmMgA1M4B0ZQpRprI=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch)
+    ];
+});
+_c = ProfileEditView;
+var _c;
+$RefreshReg$(_c, "ProfileEditView");
+
+  $parcel$ReactRefreshHelpers$484b.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-redux":"bdVon","../../actions/userActions":"5JRkM","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8"}],"3AD9A":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Accordion", ()=>(0, _accordionDefault.default));
+parcelHelpers.export(exports, "AccordionContext", ()=>(0, _accordionContextDefault.default));
+parcelHelpers.export(exports, "AccordionCollapse", ()=>(0, _accordionCollapseDefault.default));
+parcelHelpers.export(exports, "AccordionButton", ()=>(0, _accordionButtonDefault.default));
+parcelHelpers.export(exports, "useAccordionButton", ()=>(0, _accordionButton.useAccordionButton));
+parcelHelpers.export(exports, "AccordionHeader", ()=>(0, _accordionHeaderDefault.default));
+parcelHelpers.export(exports, "AccordionItem", ()=>(0, _accordionItemDefault.default));
+parcelHelpers.export(exports, "Alert", ()=>(0, _alertDefault.default));
+parcelHelpers.export(exports, "AlertHeading", ()=>(0, _alertHeadingDefault.default));
+parcelHelpers.export(exports, "AlertLink", ()=>(0, _alertLinkDefault.default));
+parcelHelpers.export(exports, "Anchor", ()=>(0, _anchorDefault.default));
+parcelHelpers.export(exports, "Badge", ()=>(0, _badgeDefault.default));
+parcelHelpers.export(exports, "Breadcrumb", ()=>(0, _breadcrumbDefault.default));
+parcelHelpers.export(exports, "BreadcrumbItem", ()=>(0, _breadcrumbItemDefault.default));
+parcelHelpers.export(exports, "Button", ()=>(0, _buttonDefault.default));
+parcelHelpers.export(exports, "ButtonGroup", ()=>(0, _buttonGroupDefault.default));
+parcelHelpers.export(exports, "ButtonToolbar", ()=>(0, _buttonToolbarDefault.default));
+parcelHelpers.export(exports, "Card", ()=>(0, _cardDefault.default));
+parcelHelpers.export(exports, "CardBody", ()=>(0, _cardBodyDefault.default));
+parcelHelpers.export(exports, "CardFooter", ()=>(0, _cardFooterDefault.default));
+parcelHelpers.export(exports, "CardGroup", ()=>(0, _cardGroupDefault.default));
+parcelHelpers.export(exports, "CardHeader", ()=>(0, _cardHeaderDefault.default));
+parcelHelpers.export(exports, "CardImg", ()=>(0, _cardImgDefault.default));
+parcelHelpers.export(exports, "CardImgOverlay", ()=>(0, _cardImgOverlayDefault.default));
+parcelHelpers.export(exports, "CardLink", ()=>(0, _cardLinkDefault.default));
+parcelHelpers.export(exports, "CardSubtitle", ()=>(0, _cardSubtitleDefault.default));
+parcelHelpers.export(exports, "CardText", ()=>(0, _cardTextDefault.default));
+parcelHelpers.export(exports, "CardTitle", ()=>(0, _cardTitleDefault.default));
+parcelHelpers.export(exports, "Carousel", ()=>(0, _carouselDefault.default));
+parcelHelpers.export(exports, "CarouselCaption", ()=>(0, _carouselCaptionDefault.default));
+parcelHelpers.export(exports, "CarouselItem", ()=>(0, _carouselItemDefault.default));
+parcelHelpers.export(exports, "CloseButton", ()=>(0, _closeButtonDefault.default));
+parcelHelpers.export(exports, "Col", ()=>(0, _colDefault.default));
+parcelHelpers.export(exports, "Collapse", ()=>(0, _collapseDefault.default));
+parcelHelpers.export(exports, "Container", ()=>(0, _containerDefault.default));
+parcelHelpers.export(exports, "Dropdown", ()=>(0, _dropdownDefault.default));
+parcelHelpers.export(exports, "DropdownButton", ()=>(0, _dropdownButtonDefault.default));
+parcelHelpers.export(exports, "DropdownDivider", ()=>(0, _dropdownDividerDefault.default));
+parcelHelpers.export(exports, "DropdownHeader", ()=>(0, _dropdownHeaderDefault.default));
+parcelHelpers.export(exports, "DropdownItem", ()=>(0, _dropdownItemDefault.default));
+parcelHelpers.export(exports, "DropdownItemText", ()=>(0, _dropdownItemTextDefault.default));
+parcelHelpers.export(exports, "DropdownMenu", ()=>(0, _dropdownMenuDefault.default));
+parcelHelpers.export(exports, "DropdownToggle", ()=>(0, _dropdownToggleDefault.default));
+parcelHelpers.export(exports, "Fade", ()=>(0, _fadeDefault.default));
+parcelHelpers.export(exports, "Figure", ()=>(0, _figureDefault.default));
+parcelHelpers.export(exports, "FigureCaption", ()=>(0, _figureCaptionDefault.default));
+parcelHelpers.export(exports, "FigureImage", ()=>(0, _figureImageDefault.default));
+parcelHelpers.export(exports, "Form", ()=>(0, _formDefault.default));
+parcelHelpers.export(exports, "FormControl", ()=>(0, _formControlDefault.default));
+parcelHelpers.export(exports, "FormCheck", ()=>(0, _formCheckDefault.default));
+parcelHelpers.export(exports, "FormFloating", ()=>(0, _formFloatingDefault.default));
+parcelHelpers.export(exports, "FloatingLabel", ()=>(0, _floatingLabelDefault.default));
+parcelHelpers.export(exports, "FormGroup", ()=>(0, _formGroupDefault.default));
+parcelHelpers.export(exports, "FormLabel", ()=>(0, _formLabelDefault.default));
+parcelHelpers.export(exports, "FormText", ()=>(0, _formTextDefault.default));
+parcelHelpers.export(exports, "FormSelect", ()=>(0, _formSelectDefault.default));
+parcelHelpers.export(exports, "Image", ()=>(0, _imageDefault.default));
+parcelHelpers.export(exports, "InputGroup", ()=>(0, _inputGroupDefault.default));
+parcelHelpers.export(exports, "ListGroup", ()=>(0, _listGroupDefault.default));
+parcelHelpers.export(exports, "ListGroupItem", ()=>(0, _listGroupItemDefault.default));
+parcelHelpers.export(exports, "Modal", ()=>(0, _modalDefault.default));
+parcelHelpers.export(exports, "ModalBody", ()=>(0, _modalBodyDefault.default));
+parcelHelpers.export(exports, "ModalDialog", ()=>(0, _modalDialogDefault.default));
+parcelHelpers.export(exports, "ModalFooter", ()=>(0, _modalFooterDefault.default));
+parcelHelpers.export(exports, "ModalHeader", ()=>(0, _modalHeaderDefault.default));
+parcelHelpers.export(exports, "ModalTitle", ()=>(0, _modalTitleDefault.default));
+parcelHelpers.export(exports, "Nav", ()=>(0, _navDefault.default));
+parcelHelpers.export(exports, "Navbar", ()=>(0, _navbarDefault.default));
+parcelHelpers.export(exports, "NavbarBrand", ()=>(0, _navbarBrandDefault.default));
+parcelHelpers.export(exports, "NavbarCollapse", ()=>(0, _navbarCollapseDefault.default));
+parcelHelpers.export(exports, "NavbarOffcanvas", ()=>(0, _navbarOffcanvasDefault.default));
+parcelHelpers.export(exports, "NavbarText", ()=>(0, _navbarTextDefault.default));
+parcelHelpers.export(exports, "NavbarToggle", ()=>(0, _navbarToggleDefault.default));
+parcelHelpers.export(exports, "NavDropdown", ()=>(0, _navDropdownDefault.default));
+parcelHelpers.export(exports, "NavItem", ()=>(0, _navItemDefault.default));
+parcelHelpers.export(exports, "NavLink", ()=>(0, _navLinkDefault.default));
+parcelHelpers.export(exports, "Offcanvas", ()=>(0, _offcanvasDefault.default));
+parcelHelpers.export(exports, "OffcanvasBody", ()=>(0, _offcanvasBodyDefault.default));
+parcelHelpers.export(exports, "OffcanvasHeader", ()=>(0, _offcanvasHeaderDefault.default));
+parcelHelpers.export(exports, "OffcanvasTitle", ()=>(0, _offcanvasTitleDefault.default));
+parcelHelpers.export(exports, "OffcanvasToggling", ()=>(0, _offcanvasTogglingDefault.default));
+parcelHelpers.export(exports, "Overlay", ()=>(0, _overlayDefault.default));
+parcelHelpers.export(exports, "OverlayTrigger", ()=>(0, _overlayTriggerDefault.default));
+parcelHelpers.export(exports, "PageItem", ()=>(0, _pageItemDefault.default));
+parcelHelpers.export(exports, "Pagination", ()=>(0, _paginationDefault.default));
+parcelHelpers.export(exports, "Placeholder", ()=>(0, _placeholderDefault.default));
+parcelHelpers.export(exports, "PlaceholderButton", ()=>(0, _placeholderButtonDefault.default));
+parcelHelpers.export(exports, "Popover", ()=>(0, _popoverDefault.default));
+parcelHelpers.export(exports, "PopoverBody", ()=>(0, _popoverBodyDefault.default));
+parcelHelpers.export(exports, "PopoverHeader", ()=>(0, _popoverHeaderDefault.default));
+parcelHelpers.export(exports, "ProgressBar", ()=>(0, _progressBarDefault.default));
+parcelHelpers.export(exports, "Ratio", ()=>(0, _ratioDefault.default));
+parcelHelpers.export(exports, "Row", ()=>(0, _rowDefault.default));
+parcelHelpers.export(exports, "Spinner", ()=>(0, _spinnerDefault.default));
+parcelHelpers.export(exports, "SplitButton", ()=>(0, _splitButtonDefault.default));
+parcelHelpers.export(exports, "SSRProvider", ()=>(0, _ssrproviderDefault.default));
+parcelHelpers.export(exports, "Stack", ()=>(0, _stackDefault.default));
+parcelHelpers.export(exports, "Tab", ()=>(0, _tabDefault.default));
+parcelHelpers.export(exports, "TabContainer", ()=>(0, _tabContainerDefault.default));
+parcelHelpers.export(exports, "TabContent", ()=>(0, _tabContentDefault.default));
+parcelHelpers.export(exports, "Table", ()=>(0, _tableDefault.default));
+parcelHelpers.export(exports, "TabPane", ()=>(0, _tabPaneDefault.default));
+parcelHelpers.export(exports, "Tabs", ()=>(0, _tabsDefault.default));
+parcelHelpers.export(exports, "ThemeProvider", ()=>(0, _themeProviderDefault.default));
+parcelHelpers.export(exports, "Toast", ()=>(0, _toastDefault.default));
+parcelHelpers.export(exports, "ToastBody", ()=>(0, _toastBodyDefault.default));
+parcelHelpers.export(exports, "ToastContainer", ()=>(0, _toastContainerDefault.default));
+parcelHelpers.export(exports, "ToastHeader", ()=>(0, _toastHeaderDefault.default));
+parcelHelpers.export(exports, "ToggleButton", ()=>(0, _toggleButtonDefault.default));
+parcelHelpers.export(exports, "ToggleButtonGroup", ()=>(0, _toggleButtonGroupDefault.default));
+parcelHelpers.export(exports, "Tooltip", ()=>(0, _tooltipDefault.default));
+var _accordion = require("./Accordion");
+var _accordionDefault = parcelHelpers.interopDefault(_accordion);
+var _accordionContext = require("./AccordionContext");
+var _accordionContextDefault = parcelHelpers.interopDefault(_accordionContext);
+var _accordionCollapse = require("./AccordionCollapse");
+var _accordionCollapseDefault = parcelHelpers.interopDefault(_accordionCollapse);
+var _accordionButton = require("./AccordionButton");
+var _accordionButtonDefault = parcelHelpers.interopDefault(_accordionButton);
+var _accordionHeader = require("./AccordionHeader");
+var _accordionHeaderDefault = parcelHelpers.interopDefault(_accordionHeader);
+var _accordionItem = require("./AccordionItem");
+var _accordionItemDefault = parcelHelpers.interopDefault(_accordionItem);
+var _alert = require("./Alert");
+var _alertDefault = parcelHelpers.interopDefault(_alert);
+var _alertHeading = require("./AlertHeading");
+var _alertHeadingDefault = parcelHelpers.interopDefault(_alertHeading);
+var _alertLink = require("./AlertLink");
+var _alertLinkDefault = parcelHelpers.interopDefault(_alertLink);
+var _anchor = require("./Anchor");
+var _anchorDefault = parcelHelpers.interopDefault(_anchor);
+var _badge = require("./Badge");
+var _badgeDefault = parcelHelpers.interopDefault(_badge);
+var _breadcrumb = require("./Breadcrumb");
+var _breadcrumbDefault = parcelHelpers.interopDefault(_breadcrumb);
+var _breadcrumbItem = require("./BreadcrumbItem");
+var _breadcrumbItemDefault = parcelHelpers.interopDefault(_breadcrumbItem);
+var _button = require("./Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _buttonGroup = require("./ButtonGroup");
+var _buttonGroupDefault = parcelHelpers.interopDefault(_buttonGroup);
+var _buttonToolbar = require("./ButtonToolbar");
+var _buttonToolbarDefault = parcelHelpers.interopDefault(_buttonToolbar);
+var _card = require("./Card");
+var _cardDefault = parcelHelpers.interopDefault(_card);
+var _cardBody = require("./CardBody");
+var _cardBodyDefault = parcelHelpers.interopDefault(_cardBody);
+var _cardFooter = require("./CardFooter");
+var _cardFooterDefault = parcelHelpers.interopDefault(_cardFooter);
+var _cardGroup = require("./CardGroup");
+var _cardGroupDefault = parcelHelpers.interopDefault(_cardGroup);
+var _cardHeader = require("./CardHeader");
+var _cardHeaderDefault = parcelHelpers.interopDefault(_cardHeader);
+var _cardImg = require("./CardImg");
+var _cardImgDefault = parcelHelpers.interopDefault(_cardImg);
+var _cardImgOverlay = require("./CardImgOverlay");
+var _cardImgOverlayDefault = parcelHelpers.interopDefault(_cardImgOverlay);
+var _cardLink = require("./CardLink");
+var _cardLinkDefault = parcelHelpers.interopDefault(_cardLink);
+var _cardSubtitle = require("./CardSubtitle");
+var _cardSubtitleDefault = parcelHelpers.interopDefault(_cardSubtitle);
+var _cardText = require("./CardText");
+var _cardTextDefault = parcelHelpers.interopDefault(_cardText);
+var _cardTitle = require("./CardTitle");
+var _cardTitleDefault = parcelHelpers.interopDefault(_cardTitle);
+var _carousel = require("./Carousel");
+var _carouselDefault = parcelHelpers.interopDefault(_carousel);
+var _carouselCaption = require("./CarouselCaption");
+var _carouselCaptionDefault = parcelHelpers.interopDefault(_carouselCaption);
+var _carouselItem = require("./CarouselItem");
+var _carouselItemDefault = parcelHelpers.interopDefault(_carouselItem);
+var _closeButton = require("./CloseButton");
+var _closeButtonDefault = parcelHelpers.interopDefault(_closeButton);
+var _col = require("./Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
+var _collapse = require("./Collapse");
+var _collapseDefault = parcelHelpers.interopDefault(_collapse);
+var _container = require("./Container");
+var _containerDefault = parcelHelpers.interopDefault(_container);
+var _dropdown = require("./Dropdown");
+var _dropdownDefault = parcelHelpers.interopDefault(_dropdown);
+var _dropdownButton = require("./DropdownButton");
+var _dropdownButtonDefault = parcelHelpers.interopDefault(_dropdownButton);
+var _dropdownDivider = require("./DropdownDivider");
+var _dropdownDividerDefault = parcelHelpers.interopDefault(_dropdownDivider);
+var _dropdownHeader = require("./DropdownHeader");
+var _dropdownHeaderDefault = parcelHelpers.interopDefault(_dropdownHeader);
+var _dropdownItem = require("./DropdownItem");
+var _dropdownItemDefault = parcelHelpers.interopDefault(_dropdownItem);
+var _dropdownItemText = require("./DropdownItemText");
+var _dropdownItemTextDefault = parcelHelpers.interopDefault(_dropdownItemText);
+var _dropdownMenu = require("./DropdownMenu");
+var _dropdownMenuDefault = parcelHelpers.interopDefault(_dropdownMenu);
+var _dropdownToggle = require("./DropdownToggle");
+var _dropdownToggleDefault = parcelHelpers.interopDefault(_dropdownToggle);
+var _fade = require("./Fade");
+var _fadeDefault = parcelHelpers.interopDefault(_fade);
+var _figure = require("./Figure");
+var _figureDefault = parcelHelpers.interopDefault(_figure);
+var _figureCaption = require("./FigureCaption");
+var _figureCaptionDefault = parcelHelpers.interopDefault(_figureCaption);
+var _figureImage = require("./FigureImage");
+var _figureImageDefault = parcelHelpers.interopDefault(_figureImage);
+var _form = require("./Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _formControl = require("./FormControl");
+var _formControlDefault = parcelHelpers.interopDefault(_formControl);
+var _formCheck = require("./FormCheck");
+var _formCheckDefault = parcelHelpers.interopDefault(_formCheck);
+var _formFloating = require("./FormFloating");
+var _formFloatingDefault = parcelHelpers.interopDefault(_formFloating);
+var _floatingLabel = require("./FloatingLabel");
+var _floatingLabelDefault = parcelHelpers.interopDefault(_floatingLabel);
+var _formGroup = require("./FormGroup");
+var _formGroupDefault = parcelHelpers.interopDefault(_formGroup);
+var _formLabel = require("./FormLabel");
+var _formLabelDefault = parcelHelpers.interopDefault(_formLabel);
+var _formText = require("./FormText");
+var _formTextDefault = parcelHelpers.interopDefault(_formText);
+var _formSelect = require("./FormSelect");
+var _formSelectDefault = parcelHelpers.interopDefault(_formSelect);
+var _image = require("./Image");
+var _imageDefault = parcelHelpers.interopDefault(_image);
+var _inputGroup = require("./InputGroup");
+var _inputGroupDefault = parcelHelpers.interopDefault(_inputGroup);
+var _listGroup = require("./ListGroup");
+var _listGroupDefault = parcelHelpers.interopDefault(_listGroup);
+var _listGroupItem = require("./ListGroupItem");
+var _listGroupItemDefault = parcelHelpers.interopDefault(_listGroupItem);
+var _modal = require("./Modal");
+var _modalDefault = parcelHelpers.interopDefault(_modal);
+var _modalBody = require("./ModalBody");
+var _modalBodyDefault = parcelHelpers.interopDefault(_modalBody);
+var _modalDialog = require("./ModalDialog");
+var _modalDialogDefault = parcelHelpers.interopDefault(_modalDialog);
+var _modalFooter = require("./ModalFooter");
+var _modalFooterDefault = parcelHelpers.interopDefault(_modalFooter);
+var _modalHeader = require("./ModalHeader");
+var _modalHeaderDefault = parcelHelpers.interopDefault(_modalHeader);
+var _modalTitle = require("./ModalTitle");
+var _modalTitleDefault = parcelHelpers.interopDefault(_modalTitle);
+var _nav = require("./Nav");
+var _navDefault = parcelHelpers.interopDefault(_nav);
+var _navbar = require("./Navbar");
+var _navbarDefault = parcelHelpers.interopDefault(_navbar);
+var _navbarBrand = require("./NavbarBrand");
+var _navbarBrandDefault = parcelHelpers.interopDefault(_navbarBrand);
+var _navbarCollapse = require("./NavbarCollapse");
+var _navbarCollapseDefault = parcelHelpers.interopDefault(_navbarCollapse);
+var _navbarOffcanvas = require("./NavbarOffcanvas");
+var _navbarOffcanvasDefault = parcelHelpers.interopDefault(_navbarOffcanvas);
+var _navbarText = require("./NavbarText");
+var _navbarTextDefault = parcelHelpers.interopDefault(_navbarText);
+var _navbarToggle = require("./NavbarToggle");
+var _navbarToggleDefault = parcelHelpers.interopDefault(_navbarToggle);
+var _navDropdown = require("./NavDropdown");
+var _navDropdownDefault = parcelHelpers.interopDefault(_navDropdown);
+var _navItem = require("./NavItem");
+var _navItemDefault = parcelHelpers.interopDefault(_navItem);
+var _navLink = require("./NavLink");
+var _navLinkDefault = parcelHelpers.interopDefault(_navLink);
+var _offcanvas = require("./Offcanvas");
+var _offcanvasDefault = parcelHelpers.interopDefault(_offcanvas);
+var _offcanvasBody = require("./OffcanvasBody");
+var _offcanvasBodyDefault = parcelHelpers.interopDefault(_offcanvasBody);
+var _offcanvasHeader = require("./OffcanvasHeader");
+var _offcanvasHeaderDefault = parcelHelpers.interopDefault(_offcanvasHeader);
+var _offcanvasTitle = require("./OffcanvasTitle");
+var _offcanvasTitleDefault = parcelHelpers.interopDefault(_offcanvasTitle);
+var _offcanvasToggling = require("./OffcanvasToggling");
+var _offcanvasTogglingDefault = parcelHelpers.interopDefault(_offcanvasToggling);
+var _overlay = require("./Overlay");
+var _overlayDefault = parcelHelpers.interopDefault(_overlay);
+var _overlayTrigger = require("./OverlayTrigger");
+var _overlayTriggerDefault = parcelHelpers.interopDefault(_overlayTrigger);
+var _pageItem = require("./PageItem");
+var _pageItemDefault = parcelHelpers.interopDefault(_pageItem);
+var _pagination = require("./Pagination");
+var _paginationDefault = parcelHelpers.interopDefault(_pagination);
+var _placeholder = require("./Placeholder");
+var _placeholderDefault = parcelHelpers.interopDefault(_placeholder);
+var _placeholderButton = require("./PlaceholderButton");
+var _placeholderButtonDefault = parcelHelpers.interopDefault(_placeholderButton);
+var _popover = require("./Popover");
+var _popoverDefault = parcelHelpers.interopDefault(_popover);
+var _popoverBody = require("./PopoverBody");
+var _popoverBodyDefault = parcelHelpers.interopDefault(_popoverBody);
+var _popoverHeader = require("./PopoverHeader");
+var _popoverHeaderDefault = parcelHelpers.interopDefault(_popoverHeader);
+var _progressBar = require("./ProgressBar");
+var _progressBarDefault = parcelHelpers.interopDefault(_progressBar);
+var _ratio = require("./Ratio");
+var _ratioDefault = parcelHelpers.interopDefault(_ratio);
+var _row = require("./Row");
+var _rowDefault = parcelHelpers.interopDefault(_row);
+var _spinner = require("./Spinner");
+var _spinnerDefault = parcelHelpers.interopDefault(_spinner);
+var _splitButton = require("./SplitButton");
+var _splitButtonDefault = parcelHelpers.interopDefault(_splitButton);
+var _ssrprovider = require("./SSRProvider");
+var _ssrproviderDefault = parcelHelpers.interopDefault(_ssrprovider);
+var _stack = require("./Stack");
+var _stackDefault = parcelHelpers.interopDefault(_stack);
+var _tab = require("./Tab");
+var _tabDefault = parcelHelpers.interopDefault(_tab);
+var _tabContainer = require("./TabContainer");
+var _tabContainerDefault = parcelHelpers.interopDefault(_tabContainer);
+var _tabContent = require("./TabContent");
+var _tabContentDefault = parcelHelpers.interopDefault(_tabContent);
+var _table = require("./Table");
+var _tableDefault = parcelHelpers.interopDefault(_table);
+var _tabPane = require("./TabPane");
+var _tabPaneDefault = parcelHelpers.interopDefault(_tabPane);
+var _tabs = require("./Tabs");
+var _tabsDefault = parcelHelpers.interopDefault(_tabs);
+var _themeProvider = require("./ThemeProvider");
+var _themeProviderDefault = parcelHelpers.interopDefault(_themeProvider);
+var _toast = require("./Toast");
+var _toastDefault = parcelHelpers.interopDefault(_toast);
+var _toastBody = require("./ToastBody");
+var _toastBodyDefault = parcelHelpers.interopDefault(_toastBody);
+var _toastContainer = require("./ToastContainer");
+var _toastContainerDefault = parcelHelpers.interopDefault(_toastContainer);
+var _toastHeader = require("./ToastHeader");
+var _toastHeaderDefault = parcelHelpers.interopDefault(_toastHeader);
+var _toggleButton = require("./ToggleButton");
+var _toggleButtonDefault = parcelHelpers.interopDefault(_toggleButton);
+var _toggleButtonGroup = require("./ToggleButtonGroup");
+var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup);
+var _tooltip = require("./Tooltip");
+var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
+
+},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./AccordionHeader":false,"./AccordionItem":false,"./Alert":false,"./AlertHeading":false,"./AlertLink":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"aPzUt","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"lAynp","./CardBody":false,"./CardFooter":false,"./CardGroup":false,"./CardHeader":false,"./CardImg":false,"./CardImgOverlay":false,"./CardLink":false,"./CardSubtitle":false,"./CardText":false,"./CardTitle":false,"./Carousel":false,"./CarouselCaption":false,"./CarouselItem":false,"./CloseButton":false,"./Col":false,"./Collapse":false,"./Container":"hEdsw","./Dropdown":false,"./DropdownButton":false,"./DropdownDivider":false,"./DropdownHeader":false,"./DropdownItem":false,"./DropdownItemText":false,"./DropdownMenu":false,"./DropdownToggle":false,"./Fade":false,"./Figure":false,"./FigureCaption":false,"./FigureImage":false,"./Form":false,"./FormControl":false,"./FormCheck":false,"./FormFloating":false,"./FloatingLabel":false,"./FormGroup":false,"./FormLabel":false,"./FormText":false,"./FormSelect":false,"./Image":false,"./InputGroup":false,"./ListGroup":"4tGXh","./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalFooter":false,"./ModalHeader":false,"./ModalTitle":false,"./Nav":"cXyL2","./Navbar":"1mHjo","./NavbarBrand":false,"./NavbarCollapse":false,"./NavbarOffcanvas":false,"./NavbarText":false,"./NavbarToggle":false,"./NavDropdown":false,"./NavItem":false,"./NavLink":false,"./Offcanvas":false,"./OffcanvasBody":false,"./OffcanvasHeader":false,"./OffcanvasTitle":false,"./OffcanvasToggling":false,"./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverBody":false,"./PopoverHeader":false,"./ProgressBar":false,"./Ratio":false,"./Row":false,"./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":false,"./Toast":false,"./ToastBody":false,"./ToastContainer":false,"./ToastHeader":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"aPzUt":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _classnames = require("classnames");
+var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
+var _react = require("react");
+var _button = require("@restart/ui/Button");
+var _themeProvider = require("./ThemeProvider");
+var _jsxRuntime = require("react/jsx-runtime");
+"use client";
+const Button = /*#__PURE__*/ _react.forwardRef(({ as, bsPrefix, variant = "primary", size, active = false, disabled = false, className, ...props }, ref)=>{
+    const prefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "btn");
+    const [buttonProps, { tagName }] = (0, _button.useButtonProps)({
+        tagName: as,
+        disabled,
+        ...props
+    });
+    const Component = tagName;
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
+        ...buttonProps,
+        ...props,
+        ref: ref,
+        disabled: disabled,
+        className: (0, _classnamesDefault.default)(className, prefix, active && "active", variant && `${prefix}-${variant}`, size && `${prefix}-${size}`, props.href && disabled && "disabled")
+    });
+});
+Button.displayName = "Button";
+exports.default = Button;
+
+},{"classnames":"jocGM","react":"21dqq","@restart/ui/Button":"8YUbR","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"8YUbR":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "isTrivialHref", ()=>isTrivialHref);
+parcelHelpers.export(exports, "useButtonProps", ()=>useButtonProps);
+var _react = require("react");
+var _jsxRuntime = require("react/jsx-runtime");
+const _excluded = [
+    "as",
+    "disabled"
+];
+function _objectWithoutPropertiesLoose(source, excluded) {
+    if (source == null) return {};
+    var target = {};
+    var sourceKeys = Object.keys(source);
+    var key, i;
+    for(i = 0; i < sourceKeys.length; i++){
+        key = sourceKeys[i];
+        if (excluded.indexOf(key) >= 0) continue;
+        target[key] = source[key];
+    }
+    return target;
+}
+function isTrivialHref(href) {
+    return !href || href.trim() === "#";
+}
+function useButtonProps({ tagName, disabled, href, target, rel, role, onClick, tabIndex = 0, type }) {
+    if (!tagName) {
+        if (href != null || target != null || rel != null) tagName = "a";
+        else tagName = "button";
+    }
+    const meta = {
+        tagName
+    };
+    if (tagName === "button") return [
+        {
+            type: type || "button",
+            disabled
+        },
+        meta
+    ];
+    const handleClick = (event)=>{
+        if (disabled || tagName === "a" && isTrivialHref(href)) event.preventDefault();
+        if (disabled) {
+            event.stopPropagation();
+            return;
+        }
+        onClick == null || onClick(event);
+    };
+    const handleKeyDown = (event)=>{
+        if (event.key === " ") {
+            event.preventDefault();
+            handleClick(event);
+        }
+    };
+    if (tagName === "a") {
+        // Ensure there's a href so Enter can trigger anchor button.
+        href || (href = "#");
+        if (disabled) href = undefined;
+    }
+    return [
+        {
+            role: role != null ? role : "button",
+            // explicitly undefined so that it overrides the props disabled in a spread
+            // e.g. <Tag {...props} {...hookProps} />
+            disabled: undefined,
+            tabIndex: disabled ? undefined : tabIndex,
+            href,
+            target: tagName === "a" ? target : undefined,
+            "aria-disabled": !disabled ? undefined : disabled,
+            rel: tagName === "a" ? rel : undefined,
+            onClick: handleClick,
+            onKeyDown: handleKeyDown
+        },
+        meta
+    ];
+}
+const Button = /*#__PURE__*/ _react.forwardRef((_ref, ref)=>{
+    let { as: asProp, disabled } = _ref, props = _objectWithoutPropertiesLoose(_ref, _excluded);
+    const [buttonProps, { tagName: Component }] = useButtonProps(Object.assign({
+        tagName: asProp,
+        disabled
+    }, props));
+    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, Object.assign({}, props, buttonProps, {
+        ref: ref
+    }));
+});
+Button.displayName = "Button";
+exports.default = Button;
 
 },{"react":"21dqq","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"lAynp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -30288,60 +30287,7 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"2L2I6":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "useCol", ()=>useCol);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-function useCol({ as, bsPrefix, className, ...props }) {
-    bsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "col");
-    const breakpoints = (0, _themeProvider.useBootstrapBreakpoints)();
-    const minBreakpoint = (0, _themeProvider.useBootstrapMinBreakpoint)();
-    const spans = [];
-    const classes = [];
-    breakpoints.forEach((brkPoint)=>{
-        const propValue = props[brkPoint];
-        delete props[brkPoint];
-        let span;
-        let offset;
-        let order;
-        if (typeof propValue === "object" && propValue != null) ({ span, offset, order } = propValue);
-        else span = propValue;
-        const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : "";
-        if (span) spans.push(span === true ? `${bsPrefix}${infix}` : `${bsPrefix}${infix}-${span}`);
-        if (order != null) classes.push(`order${infix}-${order}`);
-        if (offset != null) classes.push(`offset${infix}-${offset}`);
-    });
-    return [
-        {
-            ...props,
-            className: (0, _classnamesDefault.default)(className, ...spans, ...classes)
-        },
-        {
-            as,
-            bsPrefix,
-            spans
-        }
-    ];
-}
-const Col = /*#__PURE__*/ _react.forwardRef(// Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-(props, ref)=>{
-    const [{ className, ...colProps }, { as: Component = "div", bsPrefix, spans }] = useCol(props);
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ...colProps,
-        ref: ref,
-        className: (0, _classnamesDefault.default)(className, !spans.length && bsPrefix)
-    });
-});
-Col.displayName = "Col";
-exports.default = Col;
-
-},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"acuzI":[function(require,module,exports) {
+},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"acuzI":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _classnames = require("classnames");
@@ -34856,41 +34802,3225 @@ const NavbarText = /*#__PURE__*/ _react.forwardRef(({ className, bsPrefix, as: C
 NavbarText.displayName = "NavbarText";
 exports.default = NavbarText;
 
-},{"react":"21dqq","classnames":"jocGM","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"cMC39":[function(require,module,exports) {
+},{"react":"21dqq","classnames":"jocGM","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"bdVon":[function(require,module,exports) {
+// The primary entry point assumes we're working with standard ReactDOM/RN, but
+// older versions that do not include `useSyncExternalStore` (React 16.9 - 17.x).
+// Because of that, the useSyncExternalStore compat shim is needed.
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _classnames = require("classnames");
-var _classnamesDefault = parcelHelpers.interopDefault(_classnames);
-var _react = require("react");
-var _themeProvider = require("./ThemeProvider");
-var _jsxRuntime = require("react/jsx-runtime");
-"use client";
-const Row = /*#__PURE__*/ _react.forwardRef(({ bsPrefix, className, // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
-as: Component = "div", ...props }, ref)=>{
-    const decoratedBsPrefix = (0, _themeProvider.useBootstrapPrefix)(bsPrefix, "row");
-    const breakpoints = (0, _themeProvider.useBootstrapBreakpoints)();
-    const minBreakpoint = (0, _themeProvider.useBootstrapMinBreakpoint)();
-    const sizePrefix = `${decoratedBsPrefix}-cols`;
-    const classes = [];
-    breakpoints.forEach((brkPoint)=>{
-        const propValue = props[brkPoint];
-        delete props[brkPoint];
-        let cols;
-        if (propValue != null && typeof propValue === "object") ({ cols } = propValue);
-        else cols = propValue;
-        const infix = brkPoint !== minBreakpoint ? `-${brkPoint}` : "";
-        if (cols != null) classes.push(`${sizePrefix}${infix}-${cols}`);
-    });
-    return /*#__PURE__*/ (0, _jsxRuntime.jsx)(Component, {
-        ref: ref,
-        ...props,
-        className: (0, _classnamesDefault.default)(className, decoratedBsPrefix, ...classes)
-    });
-});
-Row.displayName = "Row";
-exports.default = Row;
+parcelHelpers.export(exports, "batch", ()=>(0, _reactBatchedUpdates.unstable_batchedUpdates));
+var _shim = require("use-sync-external-store/shim");
+var _withSelector = require("use-sync-external-store/shim/with-selector");
+var _reactBatchedUpdates = require("./utils/reactBatchedUpdates");
+var _batch = require("./utils/batch");
+var _useSelector = require("./hooks/useSelector");
+var _connect = require("./components/connect");
+var _exports = require("./exports");
+parcelHelpers.exportAll(_exports, exports);
+(0, _useSelector.initializeUseSelector)((0, _withSelector.useSyncExternalStoreWithSelector));
+(0, _connect.initializeConnect)((0, _shim.useSyncExternalStore)); // Enable batched updates in our subscriptions for use
+// with standard React renderers (ReactDOM, React Native)
+(0, _batch.setBatch)((0, _reactBatchedUpdates.unstable_batchedUpdates));
 
-},{"classnames":"jocGM","react":"21dqq","./ThemeProvider":"dVixI","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"dbWyW":[function(require,module,exports) {
+},{"use-sync-external-store/shim":"hyxdF","use-sync-external-store/shim/with-selector":"iDrhg","./utils/reactBatchedUpdates":"5K86X","./utils/batch":"ikw0G","./hooks/useSelector":"l3rFI","./components/connect":"5gOIw","./exports":"iAa1P","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"hyxdF":[function(require,module,exports) {
+"use strict";
+module.exports = require("5ab7799a565bbe74");
+
+},{"5ab7799a565bbe74":"khU3l"}],"khU3l":[function(require,module,exports) {
+/**
+ * @license React
+ * use-sync-external-store-shim.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ "use strict";
+(function() {
+    "use strict";
+    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
+    var React = require("d49206e28a986e9f");
+    var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+    function error(format) {
+        for(var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++)args[_key2 - 1] = arguments[_key2];
+        printWarning("error", format, args);
+    }
+    function printWarning(level, format, args) {
+        var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+        var stack = ReactDebugCurrentFrame.getStackAddendum();
+        if (stack !== "") {
+            format += "%s";
+            args = args.concat([
+                stack
+            ]);
+        } // eslint-disable-next-line react-internal/safe-string-coercion
+        var argsWithFormat = args.map(function(item) {
+            return String(item);
+        }); // Careful: RN currently depends on this prefix
+        argsWithFormat.unshift("Warning: " + format); // We intentionally don't use spread (or .apply) directly because it
+        // breaks IE9: https://github.com/facebook/react/issues/13610
+        // eslint-disable-next-line react-internal/no-production-logging
+        Function.prototype.apply.call(console[level], console, argsWithFormat);
+    }
+    /**
+ * inlined Object.is polyfill to avoid requiring consumers ship their own
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+ */ function is(x, y) {
+        return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
+        ;
+    }
+    var objectIs = typeof Object.is === "function" ? Object.is : is;
+    // dispatch for CommonJS interop named imports.
+    var useState = React.useState, useEffect = React.useEffect, useLayoutEffect = React.useLayoutEffect, useDebugValue = React.useDebugValue;
+    var didWarnOld18Alpha = false;
+    var didWarnUncachedGetSnapshot = false; // Disclaimer: This shim breaks many of the rules of React, and only works
+    // because of a very particular set of implementation details and assumptions
+    // -- change any one of them and it will break. The most important assumption
+    // is that updates are always synchronous, because concurrent rendering is
+    // only available in versions of React that also have a built-in
+    // useSyncExternalStore API. And we only use this shim when the built-in API
+    // does not exist.
+    //
+    // Do not assume that the clever hacks used by this hook also work in general.
+    // The point of this shim is to replace the need for hacks by other libraries.
+    function useSyncExternalStore(subscribe, getSnapshot, // React do not expose a way to check if we're hydrating. So users of the shim
+    // will need to track that themselves and return the correct value
+    // from `getSnapshot`.
+    getServerSnapshot) {
+        if (!didWarnOld18Alpha) {
+            if (React.startTransition !== undefined) {
+                didWarnOld18Alpha = true;
+                error("You are using an outdated, pre-release alpha of React 18 that does not support useSyncExternalStore. The use-sync-external-store shim will not work correctly. Upgrade to a newer pre-release.");
+            }
+        }
+        // breaks the rules of React, and only works here because of specific
+        // implementation details, most importantly that updates are
+        // always synchronous.
+        var value = getSnapshot();
+        if (!didWarnUncachedGetSnapshot) {
+            var cachedValue = getSnapshot();
+            if (!objectIs(value, cachedValue)) {
+                error("The result of getSnapshot should be cached to avoid an infinite loop");
+                didWarnUncachedGetSnapshot = true;
+            }
+        }
+        // re-render whenever the subscribed state changes by updating an some
+        // arbitrary useState hook. Then, during render, we call getSnapshot to read
+        // the current value.
+        //
+        // Because we don't actually use the state returned by the useState hook, we
+        // can save a bit of memory by storing other stuff in that slot.
+        //
+        // To implement the early bailout, we need to track some things on a mutable
+        // object. Usually, we would put that in a useRef hook, but we can stash it in
+        // our useState hook instead.
+        //
+        // To force a re-render, we call forceUpdate({inst}). That works because the
+        // new object always fails an equality check.
+        var _useState = useState({
+            inst: {
+                value: value,
+                getSnapshot: getSnapshot
+            }
+        }), inst = _useState[0].inst, forceUpdate = _useState[1]; // Track the latest getSnapshot function with a ref. This needs to be updated
+        // in the layout phase so we can access it during the tearing check that
+        // happens on subscribe.
+        useLayoutEffect(function() {
+            inst.value = value;
+            inst.getSnapshot = getSnapshot; // Whenever getSnapshot or subscribe changes, we need to check in the
+            // commit phase if there was an interleaved mutation. In concurrent mode
+            // this can happen all the time, but even in synchronous mode, an earlier
+            // effect may have mutated the store.
+            if (checkIfSnapshotChanged(inst)) // Force a re-render.
+            forceUpdate({
+                inst: inst
+            });
+        }, [
+            subscribe,
+            value,
+            getSnapshot
+        ]);
+        useEffect(function() {
+            // Check for changes right before subscribing. Subsequent changes will be
+            // detected in the subscription handler.
+            if (checkIfSnapshotChanged(inst)) // Force a re-render.
+            forceUpdate({
+                inst: inst
+            });
+            var handleStoreChange = function() {
+                // TODO: Because there is no cross-renderer API for batching updates, it's
+                // up to the consumer of this library to wrap their subscription event
+                // with unstable_batchedUpdates. Should we try to detect when this isn't
+                // the case and print a warning in development?
+                // The store changed. Check if the snapshot changed since the last time we
+                // read from the store.
+                if (checkIfSnapshotChanged(inst)) // Force a re-render.
+                forceUpdate({
+                    inst: inst
+                });
+            }; // Subscribe to the store and return a clean-up function.
+            return subscribe(handleStoreChange);
+        }, [
+            subscribe
+        ]);
+        useDebugValue(value);
+        return value;
+    }
+    function checkIfSnapshotChanged(inst) {
+        var latestGetSnapshot = inst.getSnapshot;
+        var prevValue = inst.value;
+        try {
+            var nextValue = latestGetSnapshot();
+            return !objectIs(prevValue, nextValue);
+        } catch (error) {
+            return true;
+        }
+    }
+    function useSyncExternalStore$1(subscribe, getSnapshot, getServerSnapshot) {
+        // Note: The shim does not use getServerSnapshot, because pre-18 versions of
+        // React do not expose a way to check if we're hydrating. So users of the shim
+        // will need to track that themselves and return the correct value
+        // from `getSnapshot`.
+        return getSnapshot();
+    }
+    var canUseDOM = !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
+    var isServerEnvironment = !canUseDOM;
+    var shim = isServerEnvironment ? useSyncExternalStore$1 : useSyncExternalStore;
+    var useSyncExternalStore$2 = React.useSyncExternalStore !== undefined ? React.useSyncExternalStore : shim;
+    exports.useSyncExternalStore = useSyncExternalStore$2;
+    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
+})();
+
+},{"d49206e28a986e9f":"21dqq"}],"iDrhg":[function(require,module,exports) {
+"use strict";
+module.exports = require("825b2585cf61f03e");
+
+},{"825b2585cf61f03e":"vU6Qe"}],"vU6Qe":[function(require,module,exports) {
+/**
+ * @license React
+ * use-sync-external-store-shim/with-selector.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ "use strict";
+(function() {
+    "use strict";
+    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
+    var React = require("2f25dc3829c8e76e");
+    var shim = require("c4afd16660885105");
+    /**
+ * inlined Object.is polyfill to avoid requiring consumers ship their own
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+ */ function is(x, y) {
+        return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
+        ;
+    }
+    var objectIs = typeof Object.is === "function" ? Object.is : is;
+    var useSyncExternalStore = shim.useSyncExternalStore;
+    // for CommonJS interop.
+    var useRef = React.useRef, useEffect = React.useEffect, useMemo = React.useMemo, useDebugValue = React.useDebugValue; // Same as useSyncExternalStore, but supports selector and isEqual arguments.
+    function useSyncExternalStoreWithSelector(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
+        // Use this to track the rendered snapshot.
+        var instRef = useRef(null);
+        var inst;
+        if (instRef.current === null) {
+            inst = {
+                hasValue: false,
+                value: null
+            };
+            instRef.current = inst;
+        } else inst = instRef.current;
+        var _useMemo = useMemo(function() {
+            // Track the memoized state using closure variables that are local to this
+            // memoized instance of a getSnapshot function. Intentionally not using a
+            // useRef hook, because that state would be shared across all concurrent
+            // copies of the hook/component.
+            var hasMemo = false;
+            var memoizedSnapshot;
+            var memoizedSelection;
+            var memoizedSelector = function(nextSnapshot) {
+                if (!hasMemo) {
+                    // The first time the hook is called, there is no memoized result.
+                    hasMemo = true;
+                    memoizedSnapshot = nextSnapshot;
+                    var _nextSelection = selector(nextSnapshot);
+                    if (isEqual !== undefined) // Even if the selector has changed, the currently rendered selection
+                    // may be equal to the new selection. We should attempt to reuse the
+                    // current value if possible, to preserve downstream memoizations.
+                    {
+                        if (inst.hasValue) {
+                            var currentSelection = inst.value;
+                            if (isEqual(currentSelection, _nextSelection)) {
+                                memoizedSelection = currentSelection;
+                                return currentSelection;
+                            }
+                        }
+                    }
+                    memoizedSelection = _nextSelection;
+                    return _nextSelection;
+                } // We may be able to reuse the previous invocation's result.
+                // We may be able to reuse the previous invocation's result.
+                var prevSnapshot = memoizedSnapshot;
+                var prevSelection = memoizedSelection;
+                if (objectIs(prevSnapshot, nextSnapshot)) // The snapshot is the same as last time. Reuse the previous selection.
+                return prevSelection;
+                 // The snapshot has changed, so we need to compute a new selection.
+                // The snapshot has changed, so we need to compute a new selection.
+                var nextSelection = selector(nextSnapshot); // If a custom isEqual function is provided, use that to check if the data
+                // has changed. If it hasn't, return the previous selection. That signals
+                // to React that the selections are conceptually equal, and we can bail
+                // out of rendering.
+                // If a custom isEqual function is provided, use that to check if the data
+                // has changed. If it hasn't, return the previous selection. That signals
+                // to React that the selections are conceptually equal, and we can bail
+                // out of rendering.
+                if (isEqual !== undefined && isEqual(prevSelection, nextSelection)) return prevSelection;
+                memoizedSnapshot = nextSnapshot;
+                memoizedSelection = nextSelection;
+                return nextSelection;
+            }; // Assigning this to a constant so that Flow knows it can't change.
+            // Assigning this to a constant so that Flow knows it can't change.
+            var maybeGetServerSnapshot = getServerSnapshot === undefined ? null : getServerSnapshot;
+            var getSnapshotWithSelector = function() {
+                return memoizedSelector(getSnapshot());
+            };
+            var getServerSnapshotWithSelector = maybeGetServerSnapshot === null ? undefined : function() {
+                return memoizedSelector(maybeGetServerSnapshot());
+            };
+            return [
+                getSnapshotWithSelector,
+                getServerSnapshotWithSelector
+            ];
+        }, [
+            getSnapshot,
+            getServerSnapshot,
+            selector,
+            isEqual
+        ]), getSelection = _useMemo[0], getServerSelection = _useMemo[1];
+        var value = useSyncExternalStore(subscribe, getSelection, getServerSelection);
+        useEffect(function() {
+            inst.hasValue = true;
+            inst.value = value;
+        }, [
+            value
+        ]);
+        useDebugValue(value);
+        return value;
+    }
+    exports.useSyncExternalStoreWithSelector = useSyncExternalStoreWithSelector;
+    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
+})();
+
+},{"2f25dc3829c8e76e":"21dqq","c4afd16660885105":"hyxdF"}],"5K86X":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "unstable_batchedUpdates", ()=>(0, _reactDom.unstable_batchedUpdates));
+var _reactDom = require("react-dom");
+
+},{"react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"ikw0G":[function(require,module,exports) {
+// Default to a dummy "batch" implementation that just runs the callback
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "setBatch", ()=>setBatch);
+parcelHelpers.export(exports, "getBatch", ()=>getBatch);
+function defaultNoopBatch(callback) {
+    callback();
+}
+let batch = defaultNoopBatch; // Allow injecting another batching function later
+const setBatch = (newBatch)=>batch = newBatch; // Supply a getter just to skip dealing with ESM bindings
+const getBatch = ()=>batch;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"l3rFI":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initializeUseSelector", ()=>initializeUseSelector);
+/**
+ * Hook factory, which creates a `useSelector` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useSelector` hook bound to the specified context.
+ */ parcelHelpers.export(exports, "createSelectorHook", ()=>createSelectorHook);
+parcelHelpers.export(exports, "useSelector", ()=>useSelector);
+var _react = require("react");
+var _useReduxContext = require("./useReduxContext");
+var _context = require("../components/Context");
+var _useSyncExternalStore = require("../utils/useSyncExternalStore");
+let useSyncExternalStoreWithSelector = (0, _useSyncExternalStore.notInitialized);
+const initializeUseSelector = (fn)=>{
+    useSyncExternalStoreWithSelector = fn;
+};
+const refEquality = (a, b)=>a === b;
+function createSelectorHook(context = (0, _context.ReactReduxContext)) {
+    const useReduxContext = context === (0, _context.ReactReduxContext) ? (0, _useReduxContext.useReduxContext) : (0, _useReduxContext.createReduxContextHook)(context);
+    return function useSelector(selector, equalityFnOrOptions = {}) {
+        const { equalityFn = refEquality, stabilityCheck, noopCheck } = typeof equalityFnOrOptions === "function" ? {
+            equalityFn: equalityFnOrOptions
+        } : equalityFnOrOptions;
+        if (!selector) throw new Error(`You must pass a selector to useSelector`);
+        if (typeof selector !== "function") throw new Error(`You must pass a function as a selector to useSelector`);
+        if (typeof equalityFn !== "function") throw new Error(`You must pass a function as an equality function to useSelector`);
+        const { store, subscription, getServerState, stabilityCheck: globalStabilityCheck, noopCheck: globalNoopCheck } = useReduxContext();
+        const firstRun = (0, _react.useRef)(true);
+        const wrappedSelector = (0, _react.useCallback)({
+            [selector.name] (state) {
+                const selected = selector(state);
+                {
+                    const finalStabilityCheck = typeof stabilityCheck === "undefined" ? globalStabilityCheck : stabilityCheck;
+                    if (finalStabilityCheck === "always" || finalStabilityCheck === "once" && firstRun.current) {
+                        const toCompare = selector(state);
+                        if (!equalityFn(selected, toCompare)) {
+                            let stack = undefined;
+                            try {
+                                throw new Error();
+                            } catch (e) {
+                                ({ stack } = e);
+                            }
+                            console.warn("Selector " + (selector.name || "unknown") + " returned a different result when called with the same parameters. This can lead to unnecessary rerenders." + "\nSelectors that return a new reference (such as an object or an array) should be memoized: https://redux.js.org/usage/deriving-data-selectors#optimizing-selectors-with-memoization", {
+                                state,
+                                selected,
+                                selected2: toCompare,
+                                stack
+                            });
+                        }
+                    }
+                    const finalNoopCheck = typeof noopCheck === "undefined" ? globalNoopCheck : noopCheck;
+                    if (finalNoopCheck === "always" || finalNoopCheck === "once" && firstRun.current) // @ts-ignore
+                    {
+                        if (selected === state) {
+                            let stack = undefined;
+                            try {
+                                throw new Error();
+                            } catch (e) {
+                                ({ stack } = e);
+                            }
+                            console.warn("Selector " + (selector.name || "unknown") + " returned the root state when called. This can lead to unnecessary rerenders." + "\nSelectors that return the entire state are almost certainly a mistake, as they will cause a rerender whenever *anything* in state changes.", {
+                                stack
+                            });
+                        }
+                    }
+                    if (firstRun.current) firstRun.current = false;
+                }
+                return selected;
+            }
+        }[selector.name], [
+            selector,
+            globalStabilityCheck,
+            stabilityCheck
+        ]);
+        const selectedState = useSyncExternalStoreWithSelector(subscription.addNestedSub, store.getState, getServerState || store.getState, wrappedSelector, equalityFn);
+        (0, _react.useDebugValue)(selectedState);
+        return selectedState;
+    };
+}
+const useSelector = /*#__PURE__*/ createSelectorHook();
+
+},{"react":"21dqq","./useReduxContext":"3828k","../components/Context":"ji81o","../utils/useSyncExternalStore":"dSsKl","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"3828k":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * Hook factory, which creates a `useReduxContext` hook bound to a given context. This is a low-level
+ * hook that you should usually not need to call directly.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useReduxContext` hook bound to the specified context.
+ */ parcelHelpers.export(exports, "createReduxContextHook", ()=>createReduxContextHook);
+parcelHelpers.export(exports, "useReduxContext", ()=>useReduxContext);
+var _react = require("react");
+var _context = require("../components/Context");
+function createReduxContextHook(context = (0, _context.ReactReduxContext)) {
+    return function useReduxContext() {
+        const contextValue = (0, _react.useContext)(context);
+        if (!contextValue) throw new Error("could not find react-redux context value; please ensure the component is wrapped in a <Provider>");
+        return contextValue;
+    };
+}
+const useReduxContext = /*#__PURE__*/ createReduxContextHook();
+
+},{"react":"21dqq","../components/Context":"ji81o","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"ji81o":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "ReactReduxContext", ()=>ReactReduxContext);
+var _react = require("react");
+const ContextKey = Symbol.for(`react-redux-context`);
+const gT = typeof globalThis !== "undefined" ? globalThis : /* fall back to a per-module scope (pre-8.1 behaviour) if `globalThis` is not available */ {};
+function getContext() {
+    var _gT$ContextKey;
+    if (!_react.createContext) return {};
+    const contextMap = (_gT$ContextKey = gT[ContextKey]) != null ? _gT$ContextKey : gT[ContextKey] = new Map();
+    let realContext = contextMap.get(_react.createContext);
+    if (!realContext) {
+        realContext = _react.createContext(null);
+        realContext.displayName = "ReactRedux";
+        contextMap.set(_react.createContext, realContext);
+    }
+    return realContext;
+}
+const ReactReduxContext = /*#__PURE__*/ getContext();
+exports.default = ReactReduxContext;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"dSsKl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "notInitialized", ()=>notInitialized);
+const notInitialized = ()=>{
+    throw new Error("uSES not initialized!");
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"5gOIw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "initializeConnect", ()=>initializeConnect);
+var _extends = require("@babel/runtime/helpers/esm/extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+/* eslint-disable valid-jsdoc, @typescript-eslint/no-unused-vars */ var _hoistNonReactStatics = require("hoist-non-react-statics");
+var _hoistNonReactStaticsDefault = parcelHelpers.interopDefault(_hoistNonReactStatics);
+var _react = require("react");
+var _reactIs = require("react-is");
+var _selectorFactory = require("../connect/selectorFactory");
+var _selectorFactoryDefault = parcelHelpers.interopDefault(_selectorFactory);
+var _mapDispatchToProps = require("../connect/mapDispatchToProps");
+var _mapStateToProps = require("../connect/mapStateToProps");
+var _mergeProps = require("../connect/mergeProps");
+var _subscription = require("../utils/Subscription");
+var _useIsomorphicLayoutEffect = require("../utils/useIsomorphicLayoutEffect");
+var _shallowEqual = require("../utils/shallowEqual");
+var _shallowEqualDefault = parcelHelpers.interopDefault(_shallowEqual);
+var _warning = require("../utils/warning");
+var _warningDefault = parcelHelpers.interopDefault(_warning);
+var _context = require("./Context");
+var _useSyncExternalStore = require("../utils/useSyncExternalStore");
+const _excluded = [
+    "reactReduxForwardedRef"
+];
+let useSyncExternalStore = (0, _useSyncExternalStore.notInitialized);
+const initializeConnect = (fn)=>{
+    useSyncExternalStore = fn;
+}; // Define some constant arrays just to avoid re-creating these
+const EMPTY_ARRAY = [
+    null,
+    0
+];
+const NO_SUBSCRIPTION_ARRAY = [
+    null,
+    null
+]; // Attempts to stringify whatever not-really-a-component value we were given
+// for logging in an error message
+const stringifyComponent = (Comp)=>{
+    try {
+        return JSON.stringify(Comp);
+    } catch (err) {
+        return String(Comp);
+    }
+};
+// This is "just" a `useLayoutEffect`, but with two modifications:
+// - we need to fall back to `useEffect` in SSR to avoid annoying warnings
+// - we extract this to a separate function to avoid closing over values
+//   and causing memory leaks
+function useIsomorphicLayoutEffectWithArgs(effectFunc, effectArgs, dependencies) {
+    (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(()=>effectFunc(...effectArgs), dependencies);
+} // Effect callback, extracted: assign the latest props values to refs for later usage
+function captureWrapperProps(lastWrapperProps, lastChildProps, renderIsScheduled, wrapperProps, childPropsFromStoreUpdate, notifyNestedSubs) {
+    // We want to capture the wrapper props and child props we used for later comparisons
+    lastWrapperProps.current = wrapperProps;
+    renderIsScheduled.current = false; // If the render was from a store update, clear out that reference and cascade the subscriber update
+    if (childPropsFromStoreUpdate.current) {
+        childPropsFromStoreUpdate.current = null;
+        notifyNestedSubs();
+    }
+} // Effect callback, extracted: subscribe to the Redux store or nearest connected ancestor,
+// check for updates after dispatched actions, and trigger re-renders.
+function subscribeUpdates(shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, isMounted, childPropsFromStoreUpdate, notifyNestedSubs, additionalSubscribeListener) {
+    // If we're not subscribed to the store, nothing to do here
+    if (!shouldHandleStateChanges) return ()=>{}; // Capture values for checking if and when this component unmounts
+    let didUnsubscribe = false;
+    let lastThrownError = null; // We'll run this callback every time a store subscription update propagates to this component
+    const checkForUpdates = ()=>{
+        if (didUnsubscribe || !isMounted.current) // Don't run stale listeners.
+        // Redux doesn't guarantee unsubscriptions happen until next dispatch.
+        return;
+         // TODO We're currently calling getState ourselves here, rather than letting `uSES` do it
+        const latestStoreState = store.getState();
+        let newChildProps, error;
+        try {
+            // Actually run the selector with the most recent store state and wrapper props
+            // to determine what the child props should be
+            newChildProps = childPropsSelector(latestStoreState, lastWrapperProps.current);
+        } catch (e) {
+            error = e;
+            lastThrownError = e;
+        }
+        if (!error) lastThrownError = null;
+         // If the child props haven't changed, nothing to do here - cascade the subscription update
+        if (newChildProps === lastChildProps.current) {
+            if (!renderIsScheduled.current) notifyNestedSubs();
+        } else {
+            // Save references to the new child props.  Note that we track the "child props from store update"
+            // as a ref instead of a useState/useReducer because we need a way to determine if that value has
+            // been processed.  If this went into useState/useReducer, we couldn't clear out the value without
+            // forcing another re-render, which we don't want.
+            lastChildProps.current = newChildProps;
+            childPropsFromStoreUpdate.current = newChildProps;
+            renderIsScheduled.current = true; // TODO This is hacky and not how `uSES` is meant to be used
+            // Trigger the React `useSyncExternalStore` subscriber
+            additionalSubscribeListener();
+        }
+    }; // Actually subscribe to the nearest connected ancestor (or store)
+    subscription.onStateChange = checkForUpdates;
+    subscription.trySubscribe(); // Pull data from the store after first render in case the store has
+    // changed since we began.
+    checkForUpdates();
+    const unsubscribeWrapper = ()=>{
+        didUnsubscribe = true;
+        subscription.tryUnsubscribe();
+        subscription.onStateChange = null;
+        if (lastThrownError) // It's possible that we caught an error due to a bad mapState function, but the
+        // parent re-rendered without this component and we're about to unmount.
+        // This shouldn't happen as long as we do top-down subscriptions correctly, but
+        // if we ever do those wrong, this throw will surface the error in our tests.
+        // In that case, throw the error from here so it doesn't get lost.
+        throw lastThrownError;
+    };
+    return unsubscribeWrapper;
+} // Reducer initial state creation for our update reducer
+const initStateUpdates = ()=>EMPTY_ARRAY;
+function strictEqual(a, b) {
+    return a === b;
+}
+/**
+ * Infers the type of props that a connector will inject into a component.
+ */ let hasWarnedAboutDeprecatedPureOption = false;
+/**
+ * Connects a React component to a Redux store.
+ *
+ * - Without arguments, just wraps the component, without changing the behavior / props
+ *
+ * - If 2 params are passed (3rd param, mergeProps, is skipped), default behavior
+ * is to override ownProps (as stated in the docs), so what remains is everything that's
+ * not a state or dispatch prop
+ *
+ * - When 3rd param is passed, we don't know if ownProps propagate and whether they
+ * should be valid component props, because it depends on mergeProps implementation.
+ * As such, it is the user's responsibility to extend ownProps interface from state or
+ * dispatch props or both when applicable
+ *
+ * @param mapStateToProps A function that extracts values from state
+ * @param mapDispatchToProps Setup for dispatching actions
+ * @param mergeProps Optional callback to merge state and dispatch props together
+ * @param options Options for configuring the connection
+ *
+ */ function connect(mapStateToProps, mapDispatchToProps, mergeProps, { // The `pure` option has been removed, so TS doesn't like us destructuring this to check its existence.
+// @ts-ignore
+pure, areStatesEqual = strictEqual, areOwnPropsEqual = (0, _shallowEqualDefault.default), areStatePropsEqual = (0, _shallowEqualDefault.default), areMergedPropsEqual = (0, _shallowEqualDefault.default), // use React's forwardRef to expose a ref of the wrapped component
+forwardRef = false, // the context consumer to use
+context = (0, _context.ReactReduxContext) } = {}) {
+    if (pure !== undefined && !hasWarnedAboutDeprecatedPureOption) {
+        hasWarnedAboutDeprecatedPureOption = true;
+        (0, _warningDefault.default)('The `pure` option has been removed. `connect` is now always a "pure/memoized" component');
+    }
+    const Context = context;
+    const initMapStateToProps = (0, _mapStateToProps.mapStateToPropsFactory)(mapStateToProps);
+    const initMapDispatchToProps = (0, _mapDispatchToProps.mapDispatchToPropsFactory)(mapDispatchToProps);
+    const initMergeProps = (0, _mergeProps.mergePropsFactory)(mergeProps);
+    const shouldHandleStateChanges = Boolean(mapStateToProps);
+    const wrapWithConnect = (WrappedComponent)=>{
+        if (!(0, _reactIs.isValidElementType)(WrappedComponent)) throw new Error(`You must pass a component to the function returned by connect. Instead received ${stringifyComponent(WrappedComponent)}`);
+        const wrappedComponentName = WrappedComponent.displayName || WrappedComponent.name || "Component";
+        const displayName = `Connect(${wrappedComponentName})`;
+        const selectorFactoryOptions = {
+            shouldHandleStateChanges,
+            displayName,
+            wrappedComponentName,
+            WrappedComponent,
+            // @ts-ignore
+            initMapStateToProps,
+            // @ts-ignore
+            initMapDispatchToProps,
+            initMergeProps,
+            areStatesEqual,
+            areStatePropsEqual,
+            areOwnPropsEqual,
+            areMergedPropsEqual
+        };
+        function ConnectFunction(props) {
+            const [propsContext, reactReduxForwardedRef, wrapperProps] = _react.useMemo(()=>{
+                // Distinguish between actual "data" props that were passed to the wrapper component,
+                // and values needed to control behavior (forwarded refs, alternate context instances).
+                // To maintain the wrapperProps object reference, memoize this destructuring.
+                const { reactReduxForwardedRef } = props, wrapperProps = (0, _objectWithoutPropertiesLooseDefault.default)(props, _excluded);
+                return [
+                    props.context,
+                    reactReduxForwardedRef,
+                    wrapperProps
+                ];
+            }, [
+                props
+            ]);
+            const ContextToUse = _react.useMemo(()=>{
+                // Users may optionally pass in a custom context instance to use instead of our ReactReduxContext.
+                // Memoize the check that determines which context instance we should use.
+                return propsContext && propsContext.Consumer && // @ts-ignore
+                (0, _reactIs.isContextConsumer)(/*#__PURE__*/ _react.createElement(propsContext.Consumer, null)) ? propsContext : Context;
+            }, [
+                propsContext,
+                Context
+            ]); // Retrieve the store and ancestor subscription via context, if available
+            const contextValue = _react.useContext(ContextToUse); // The store _must_ exist as either a prop or in context.
+            // We'll check to see if it _looks_ like a Redux store first.
+            // This allows us to pass through a `store` prop that is just a plain value.
+            const didStoreComeFromProps = Boolean(props.store) && Boolean(props.store.getState) && Boolean(props.store.dispatch);
+            const didStoreComeFromContext = Boolean(contextValue) && Boolean(contextValue.store);
+            if (!didStoreComeFromProps && !didStoreComeFromContext) throw new Error(`Could not find "store" in the context of ` + `"${displayName}". Either wrap the root component in a <Provider>, ` + `or pass a custom React context provider to <Provider> and the corresponding ` + `React context consumer to ${displayName} in connect options.`);
+             // Based on the previous check, one of these must be true
+            const store = didStoreComeFromProps ? props.store : contextValue.store;
+            const getServerState = didStoreComeFromContext ? contextValue.getServerState : store.getState;
+            const childPropsSelector = _react.useMemo(()=>{
+                // The child props selector needs the store reference as an input.
+                // Re-create this selector whenever the store changes.
+                return (0, _selectorFactoryDefault.default)(store.dispatch, selectorFactoryOptions);
+            }, [
+                store
+            ]);
+            const [subscription, notifyNestedSubs] = _react.useMemo(()=>{
+                if (!shouldHandleStateChanges) return NO_SUBSCRIPTION_ARRAY; // This Subscription's source should match where store came from: props vs. context. A component
+                // connected to the store via props shouldn't use subscription from context, or vice versa.
+                const subscription = (0, _subscription.createSubscription)(store, didStoreComeFromProps ? undefined : contextValue.subscription); // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
+                // the middle of the notification loop, where `subscription` will then be null. This can
+                // probably be avoided if Subscription's listeners logic is changed to not call listeners
+                // that have been unsubscribed in the  middle of the notification loop.
+                const notifyNestedSubs = subscription.notifyNestedSubs.bind(subscription);
+                return [
+                    subscription,
+                    notifyNestedSubs
+                ];
+            }, [
+                store,
+                didStoreComeFromProps,
+                contextValue
+            ]); // Determine what {store, subscription} value should be put into nested context, if necessary,
+            // and memoize that value to avoid unnecessary context updates.
+            const overriddenContextValue = _react.useMemo(()=>{
+                if (didStoreComeFromProps) // This component is directly subscribed to a store from props.
+                // We don't want descendants reading from this store - pass down whatever
+                // the existing context value is from the nearest connected ancestor.
+                return contextValue;
+                 // Otherwise, put this component's subscription instance into context, so that
+                // connected descendants won't update until after this component is done
+                return (0, _extendsDefault.default)({}, contextValue, {
+                    subscription
+                });
+            }, [
+                didStoreComeFromProps,
+                contextValue,
+                subscription
+            ]); // Set up refs to coordinate values between the subscription effect and the render logic
+            const lastChildProps = _react.useRef();
+            const lastWrapperProps = _react.useRef(wrapperProps);
+            const childPropsFromStoreUpdate = _react.useRef();
+            const renderIsScheduled = _react.useRef(false);
+            const isProcessingDispatch = _react.useRef(false);
+            const isMounted = _react.useRef(false);
+            const latestSubscriptionCallbackError = _react.useRef();
+            (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(()=>{
+                isMounted.current = true;
+                return ()=>{
+                    isMounted.current = false;
+                };
+            }, []);
+            const actualChildPropsSelector = _react.useMemo(()=>{
+                const selector = ()=>{
+                    // Tricky logic here:
+                    // - This render may have been triggered by a Redux store update that produced new child props
+                    // - However, we may have gotten new wrapper props after that
+                    // If we have new child props, and the same wrapper props, we know we should use the new child props as-is.
+                    // But, if we have new wrapper props, those might change the child props, so we have to recalculate things.
+                    // So, we'll use the child props from store update only if the wrapper props are the same as last time.
+                    if (childPropsFromStoreUpdate.current && wrapperProps === lastWrapperProps.current) return childPropsFromStoreUpdate.current;
+                     // TODO We're reading the store directly in render() here. Bad idea?
+                    // This will likely cause Bad Things (TM) to happen in Concurrent Mode.
+                    // Note that we do this because on renders _not_ caused by store updates, we need the latest store state
+                    // to determine what the child props should be.
+                    return childPropsSelector(store.getState(), wrapperProps);
+                };
+                return selector;
+            }, [
+                store,
+                wrapperProps
+            ]); // We need this to execute synchronously every time we re-render. However, React warns
+            // about useLayoutEffect in SSR, so we try to detect environment and fall back to
+            // just useEffect instead to avoid the warning, since neither will run anyway.
+            const subscribeForReact = _react.useMemo(()=>{
+                const subscribe = (reactListener)=>{
+                    if (!subscription) return ()=>{};
+                    return subscribeUpdates(shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, isMounted, childPropsFromStoreUpdate, notifyNestedSubs, reactListener);
+                };
+                return subscribe;
+            }, [
+                subscription
+            ]);
+            useIsomorphicLayoutEffectWithArgs(captureWrapperProps, [
+                lastWrapperProps,
+                lastChildProps,
+                renderIsScheduled,
+                wrapperProps,
+                childPropsFromStoreUpdate,
+                notifyNestedSubs
+            ]);
+            let actualChildProps;
+            try {
+                actualChildProps = useSyncExternalStore(subscribeForReact, // TODO and we're just passing that through so it triggers a re-render for us rather than relying on `uSES`.
+                actualChildPropsSelector, getServerState ? ()=>childPropsSelector(getServerState(), wrapperProps) : actualChildPropsSelector);
+            } catch (err) {
+                if (latestSubscriptionCallbackError.current) err.message += `\nThe error may be correlated with this previous error:\n${latestSubscriptionCallbackError.current.stack}\n\n`;
+                throw err;
+            }
+            (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(()=>{
+                latestSubscriptionCallbackError.current = undefined;
+                childPropsFromStoreUpdate.current = undefined;
+                lastChildProps.current = actualChildProps;
+            }); // Now that all that's done, we can finally try to actually render the child component.
+            // We memoize the elements for the rendered child component as an optimization.
+            const renderedWrappedComponent = _react.useMemo(()=>{
+                return(/*#__PURE__*/ // @ts-ignore
+                _react.createElement(WrappedComponent, (0, _extendsDefault.default)({}, actualChildProps, {
+                    ref: reactReduxForwardedRef
+                })));
+            }, [
+                reactReduxForwardedRef,
+                WrappedComponent,
+                actualChildProps
+            ]); // If React sees the exact same element reference as last time, it bails out of re-rendering
+            // that child, same as if it was wrapped in React.memo() or returned false from shouldComponentUpdate.
+            const renderedChild = _react.useMemo(()=>{
+                if (shouldHandleStateChanges) // If this component is subscribed to store updates, we need to pass its own
+                // subscription instance down to our descendants. That means rendering the same
+                // Context instance, and putting a different value into the context.
+                return /*#__PURE__*/ _react.createElement(ContextToUse.Provider, {
+                    value: overriddenContextValue
+                }, renderedWrappedComponent);
+                return renderedWrappedComponent;
+            }, [
+                ContextToUse,
+                renderedWrappedComponent,
+                overriddenContextValue
+            ]);
+            return renderedChild;
+        }
+        const _Connect = _react.memo(ConnectFunction);
+        // Add a hacky cast to get the right output type
+        const Connect = _Connect;
+        Connect.WrappedComponent = WrappedComponent;
+        Connect.displayName = ConnectFunction.displayName = displayName;
+        if (forwardRef) {
+            const _forwarded = _react.forwardRef(function forwardConnectRef(props, ref) {
+                // @ts-ignore
+                return /*#__PURE__*/ _react.createElement(Connect, (0, _extendsDefault.default)({}, props, {
+                    reactReduxForwardedRef: ref
+                }));
+            });
+            const forwarded = _forwarded;
+            forwarded.displayName = displayName;
+            forwarded.WrappedComponent = WrappedComponent;
+            return (0, _hoistNonReactStaticsDefault.default)(forwarded, WrappedComponent);
+        }
+        return (0, _hoistNonReactStaticsDefault.default)(Connect, WrappedComponent);
+    };
+    return wrapWithConnect;
+}
+exports.default = connect;
+
+},{"@babel/runtime/helpers/esm/extends":"fTBFS","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"adHgr","hoist-non-react-statics":"1GfsB","react":"21dqq","react-is":"lb6Ui","../connect/selectorFactory":"e9uH3","../connect/mapDispatchToProps":"5QhPl","../connect/mapStateToProps":"4Hl4c","../connect/mergeProps":"hQpBj","../utils/Subscription":"ieuHT","../utils/useIsomorphicLayoutEffect":"kNbVc","../utils/shallowEqual":"gV5L4","../utils/warning":"cUQUw","./Context":"ji81o","../utils/useSyncExternalStore":"dSsKl","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"1GfsB":[function(require,module,exports) {
+"use strict";
+var reactIs = require("c03b486d83967636");
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */ var REACT_STATICS = {
+    childContextTypes: true,
+    contextType: true,
+    contextTypes: true,
+    defaultProps: true,
+    displayName: true,
+    getDefaultProps: true,
+    getDerivedStateFromError: true,
+    getDerivedStateFromProps: true,
+    mixins: true,
+    propTypes: true,
+    type: true
+};
+var KNOWN_STATICS = {
+    name: true,
+    length: true,
+    prototype: true,
+    caller: true,
+    callee: true,
+    arguments: true,
+    arity: true
+};
+var FORWARD_REF_STATICS = {
+    "$$typeof": true,
+    render: true,
+    defaultProps: true,
+    displayName: true,
+    propTypes: true
+};
+var MEMO_STATICS = {
+    "$$typeof": true,
+    compare: true,
+    defaultProps: true,
+    displayName: true,
+    propTypes: true,
+    type: true
+};
+var TYPE_STATICS = {};
+TYPE_STATICS[reactIs.ForwardRef] = FORWARD_REF_STATICS;
+TYPE_STATICS[reactIs.Memo] = MEMO_STATICS;
+function getStatics(component) {
+    // React v16.11 and below
+    if (reactIs.isMemo(component)) return MEMO_STATICS;
+     // React v16.12 and above
+    return TYPE_STATICS[component["$$typeof"]] || REACT_STATICS;
+}
+var defineProperty = Object.defineProperty;
+var getOwnPropertyNames = Object.getOwnPropertyNames;
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
+var getPrototypeOf = Object.getPrototypeOf;
+var objectPrototype = Object.prototype;
+function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
+    if (typeof sourceComponent !== "string") {
+        // don't hoist over string (html) components
+        if (objectPrototype) {
+            var inheritedComponent = getPrototypeOf(sourceComponent);
+            if (inheritedComponent && inheritedComponent !== objectPrototype) hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
+        }
+        var keys = getOwnPropertyNames(sourceComponent);
+        if (getOwnPropertySymbols) keys = keys.concat(getOwnPropertySymbols(sourceComponent));
+        var targetStatics = getStatics(targetComponent);
+        var sourceStatics = getStatics(sourceComponent);
+        for(var i = 0; i < keys.length; ++i){
+            var key = keys[i];
+            if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
+                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
+                try {
+                    // Avoid failures from read-only properties
+                    defineProperty(targetComponent, key, descriptor);
+                } catch (e) {}
+            }
+        }
+    }
+    return targetComponent;
+}
+module.exports = hoistNonReactStatics;
+
+},{"c03b486d83967636":"7EuwB"}],"lb6Ui":[function(require,module,exports) {
+"use strict";
+module.exports = require("d31d03ee5728daed");
+
+},{"d31d03ee5728daed":"idDA8"}],"idDA8":[function(require,module,exports) {
+/**
+ * @license React
+ * react-is.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */ "use strict";
+(function() {
+    "use strict";
+    // ATTENTION
+    // When adding new symbols to this file,
+    // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+    // The Symbol used to tag the ReactElement-like types.
+    var REACT_ELEMENT_TYPE = Symbol.for("react.element");
+    var REACT_PORTAL_TYPE = Symbol.for("react.portal");
+    var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
+    var REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
+    var REACT_PROFILER_TYPE = Symbol.for("react.profiler");
+    var REACT_PROVIDER_TYPE = Symbol.for("react.provider");
+    var REACT_CONTEXT_TYPE = Symbol.for("react.context");
+    var REACT_SERVER_CONTEXT_TYPE = Symbol.for("react.server_context");
+    var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
+    var REACT_SUSPENSE_TYPE = Symbol.for("react.suspense");
+    var REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list");
+    var REACT_MEMO_TYPE = Symbol.for("react.memo");
+    var REACT_LAZY_TYPE = Symbol.for("react.lazy");
+    var REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen");
+    // -----------------------------------------------------------------------------
+    var enableScopeAPI = false; // Experimental Create Event Handle API.
+    var enableCacheElement = false;
+    var enableTransitionTracing = false; // No known bugs, but needs performance testing
+    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
+    // stuff. Intended to enable React core members to more easily debug scheduling
+    // issues in DEV builds.
+    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
+    var REACT_MODULE_REFERENCE;
+    REACT_MODULE_REFERENCE = Symbol.for("react.module.reference");
+    function isValidElementType(type) {
+        if (typeof type === "string" || typeof type === "function") return true;
+         // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
+        if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden || type === REACT_OFFSCREEN_TYPE || enableScopeAPI || enableCacheElement || enableTransitionTracing) return true;
+        if (typeof type === "object" && type !== null) {
+            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // This needs to include all possible module reference object
+            // types supported by any Flight configuration anywhere since
+            // we don't know which Flight build this will end up being used
+            // with.
+            type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== undefined) return true;
+        }
+        return false;
+    }
+    function typeOf(object) {
+        if (typeof object === "object" && object !== null) {
+            var $$typeof = object.$$typeof;
+            switch($$typeof){
+                case REACT_ELEMENT_TYPE:
+                    var type = object.type;
+                    switch(type){
+                        case REACT_FRAGMENT_TYPE:
+                        case REACT_PROFILER_TYPE:
+                        case REACT_STRICT_MODE_TYPE:
+                        case REACT_SUSPENSE_TYPE:
+                        case REACT_SUSPENSE_LIST_TYPE:
+                            return type;
+                        default:
+                            var $$typeofType = type && type.$$typeof;
+                            switch($$typeofType){
+                                case REACT_SERVER_CONTEXT_TYPE:
+                                case REACT_CONTEXT_TYPE:
+                                case REACT_FORWARD_REF_TYPE:
+                                case REACT_LAZY_TYPE:
+                                case REACT_MEMO_TYPE:
+                                case REACT_PROVIDER_TYPE:
+                                    return $$typeofType;
+                                default:
+                                    return $$typeof;
+                            }
+                    }
+                case REACT_PORTAL_TYPE:
+                    return $$typeof;
+            }
+        }
+        return undefined;
+    }
+    var ContextConsumer = REACT_CONTEXT_TYPE;
+    var ContextProvider = REACT_PROVIDER_TYPE;
+    var Element = REACT_ELEMENT_TYPE;
+    var ForwardRef = REACT_FORWARD_REF_TYPE;
+    var Fragment = REACT_FRAGMENT_TYPE;
+    var Lazy = REACT_LAZY_TYPE;
+    var Memo = REACT_MEMO_TYPE;
+    var Portal = REACT_PORTAL_TYPE;
+    var Profiler = REACT_PROFILER_TYPE;
+    var StrictMode = REACT_STRICT_MODE_TYPE;
+    var Suspense = REACT_SUSPENSE_TYPE;
+    var SuspenseList = REACT_SUSPENSE_LIST_TYPE;
+    var hasWarnedAboutDeprecatedIsAsyncMode = false;
+    var hasWarnedAboutDeprecatedIsConcurrentMode = false; // AsyncMode should be deprecated
+    function isAsyncMode(object) {
+        if (!hasWarnedAboutDeprecatedIsAsyncMode) {
+            hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
+            console["warn"]("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 18+.");
+        }
+        return false;
+    }
+    function isConcurrentMode(object) {
+        if (!hasWarnedAboutDeprecatedIsConcurrentMode) {
+            hasWarnedAboutDeprecatedIsConcurrentMode = true; // Using console['warn'] to evade Babel and ESLint
+            console["warn"]("The ReactIs.isConcurrentMode() alias has been deprecated, and will be removed in React 18+.");
+        }
+        return false;
+    }
+    function isContextConsumer(object) {
+        return typeOf(object) === REACT_CONTEXT_TYPE;
+    }
+    function isContextProvider(object) {
+        return typeOf(object) === REACT_PROVIDER_TYPE;
+    }
+    function isElement(object) {
+        return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+    }
+    function isForwardRef(object) {
+        return typeOf(object) === REACT_FORWARD_REF_TYPE;
+    }
+    function isFragment(object) {
+        return typeOf(object) === REACT_FRAGMENT_TYPE;
+    }
+    function isLazy(object) {
+        return typeOf(object) === REACT_LAZY_TYPE;
+    }
+    function isMemo(object) {
+        return typeOf(object) === REACT_MEMO_TYPE;
+    }
+    function isPortal(object) {
+        return typeOf(object) === REACT_PORTAL_TYPE;
+    }
+    function isProfiler(object) {
+        return typeOf(object) === REACT_PROFILER_TYPE;
+    }
+    function isStrictMode(object) {
+        return typeOf(object) === REACT_STRICT_MODE_TYPE;
+    }
+    function isSuspense(object) {
+        return typeOf(object) === REACT_SUSPENSE_TYPE;
+    }
+    function isSuspenseList(object) {
+        return typeOf(object) === REACT_SUSPENSE_LIST_TYPE;
+    }
+    exports.ContextConsumer = ContextConsumer;
+    exports.ContextProvider = ContextProvider;
+    exports.Element = Element;
+    exports.ForwardRef = ForwardRef;
+    exports.Fragment = Fragment;
+    exports.Lazy = Lazy;
+    exports.Memo = Memo;
+    exports.Portal = Portal;
+    exports.Profiler = Profiler;
+    exports.StrictMode = StrictMode;
+    exports.Suspense = Suspense;
+    exports.SuspenseList = SuspenseList;
+    exports.isAsyncMode = isAsyncMode;
+    exports.isConcurrentMode = isConcurrentMode;
+    exports.isContextConsumer = isContextConsumer;
+    exports.isContextProvider = isContextProvider;
+    exports.isElement = isElement;
+    exports.isForwardRef = isForwardRef;
+    exports.isFragment = isFragment;
+    exports.isLazy = isLazy;
+    exports.isMemo = isMemo;
+    exports.isPortal = isPortal;
+    exports.isProfiler = isProfiler;
+    exports.isStrictMode = isStrictMode;
+    exports.isSuspense = isSuspense;
+    exports.isSuspenseList = isSuspenseList;
+    exports.isValidElementType = isValidElementType;
+    exports.typeOf = typeOf;
+})();
+
+},{}],"e9uH3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "pureFinalPropsSelectorFactory", ()=>pureFinalPropsSelectorFactory);
+parcelHelpers.export(exports, "default", ()=>finalPropsSelectorFactory);
+var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
+var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
+var _verifySubselectors = require("./verifySubselectors");
+var _verifySubselectorsDefault = parcelHelpers.interopDefault(_verifySubselectors);
+const _excluded = [
+    "initMapStateToProps",
+    "initMapDispatchToProps",
+    "initMergeProps"
+];
+function pureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, { areStatesEqual, areOwnPropsEqual, areStatePropsEqual }) {
+    let hasRunAtLeastOnce = false;
+    let state;
+    let ownProps;
+    let stateProps;
+    let dispatchProps;
+    let mergedProps;
+    function handleFirstCall(firstState, firstOwnProps) {
+        state = firstState;
+        ownProps = firstOwnProps;
+        stateProps = mapStateToProps(state, ownProps);
+        dispatchProps = mapDispatchToProps(dispatch, ownProps);
+        mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+        hasRunAtLeastOnce = true;
+        return mergedProps;
+    }
+    function handleNewPropsAndNewState() {
+        stateProps = mapStateToProps(state, ownProps);
+        if (mapDispatchToProps.dependsOnOwnProps) dispatchProps = mapDispatchToProps(dispatch, ownProps);
+        mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+        return mergedProps;
+    }
+    function handleNewProps() {
+        if (mapStateToProps.dependsOnOwnProps) stateProps = mapStateToProps(state, ownProps);
+        if (mapDispatchToProps.dependsOnOwnProps) dispatchProps = mapDispatchToProps(dispatch, ownProps);
+        mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+        return mergedProps;
+    }
+    function handleNewState() {
+        const nextStateProps = mapStateToProps(state, ownProps);
+        const statePropsChanged = !areStatePropsEqual(nextStateProps, stateProps);
+        stateProps = nextStateProps;
+        if (statePropsChanged) mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+        return mergedProps;
+    }
+    function handleSubsequentCalls(nextState, nextOwnProps) {
+        const propsChanged = !areOwnPropsEqual(nextOwnProps, ownProps);
+        const stateChanged = !areStatesEqual(nextState, state, nextOwnProps, ownProps);
+        state = nextState;
+        ownProps = nextOwnProps;
+        if (propsChanged && stateChanged) return handleNewPropsAndNewState();
+        if (propsChanged) return handleNewProps();
+        if (stateChanged) return handleNewState();
+        return mergedProps;
+    }
+    return function pureFinalPropsSelector(nextState, nextOwnProps) {
+        return hasRunAtLeastOnce ? handleSubsequentCalls(nextState, nextOwnProps) : handleFirstCall(nextState, nextOwnProps);
+    };
+}
+function finalPropsSelectorFactory(dispatch, _ref) {
+    let { initMapStateToProps, initMapDispatchToProps, initMergeProps } = _ref, options = (0, _objectWithoutPropertiesLooseDefault.default)(_ref, _excluded);
+    const mapStateToProps = initMapStateToProps(dispatch, options);
+    const mapDispatchToProps = initMapDispatchToProps(dispatch, options);
+    const mergeProps = initMergeProps(dispatch, options);
+    (0, _verifySubselectorsDefault.default)(mapStateToProps, mapDispatchToProps, mergeProps);
+    return pureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
+}
+
+},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"adHgr","./verifySubselectors":"10wWL","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"10wWL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>verifySubselectors);
+var _warning = require("../utils/warning");
+var _warningDefault = parcelHelpers.interopDefault(_warning);
+function verify(selector, methodName) {
+    if (!selector) throw new Error(`Unexpected value for ${methodName} in connect.`);
+    else if (methodName === "mapStateToProps" || methodName === "mapDispatchToProps") {
+        if (!Object.prototype.hasOwnProperty.call(selector, "dependsOnOwnProps")) (0, _warningDefault.default)(`The selector for ${methodName} of connect did not specify a value for dependsOnOwnProps.`);
+    }
+}
+function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps) {
+    verify(mapStateToProps, "mapStateToProps");
+    verify(mapDispatchToProps, "mapDispatchToProps");
+    verify(mergeProps, "mergeProps");
+}
+
+},{"../utils/warning":"cUQUw","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"cUQUw":[function(require,module,exports) {
+/**
+ * Prints a warning in the console if it exists.
+ *
+ * @param {String} message The warning message.
+ * @returns {void}
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>warning);
+function warning(message) {
+    /* eslint-disable no-console */ if (typeof console !== "undefined" && typeof console.error === "function") console.error(message);
+    /* eslint-enable no-console */ try {
+        // This error was thrown as a convenience so that if you enable
+        // "break on all exceptions" in your console,
+        // it would pause the execution at this line.
+        throw new Error(message);
+    /* eslint-disable no-empty */ } catch (e) {}
+/* eslint-enable no-empty */ }
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"5QhPl":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "mapDispatchToPropsFactory", ()=>mapDispatchToPropsFactory);
+var _bindActionCreators = require("../utils/bindActionCreators");
+var _bindActionCreatorsDefault = parcelHelpers.interopDefault(_bindActionCreators);
+var _wrapMapToProps = require("./wrapMapToProps");
+var _invalidArgFactory = require("./invalidArgFactory");
+function mapDispatchToPropsFactory(mapDispatchToProps) {
+    return mapDispatchToProps && typeof mapDispatchToProps === "object" ? (0, _wrapMapToProps.wrapMapToPropsConstant)((dispatch)=>(0, _bindActionCreatorsDefault.default)(mapDispatchToProps, dispatch)) : !mapDispatchToProps ? (0, _wrapMapToProps.wrapMapToPropsConstant)((dispatch)=>({
+            dispatch
+        })) : typeof mapDispatchToProps === "function" ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapDispatchToProps, "mapDispatchToProps") : (0, _invalidArgFactory.createInvalidArgFactory)(mapDispatchToProps, "mapDispatchToProps");
+}
+
+},{"../utils/bindActionCreators":"afPZO","./wrapMapToProps":"bSgjL","./invalidArgFactory":"fnbUv","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"afPZO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>bindActionCreators);
+function bindActionCreators(actionCreators, dispatch) {
+    const boundActionCreators = {};
+    for(const key in actionCreators){
+        const actionCreator = actionCreators[key];
+        if (typeof actionCreator === "function") boundActionCreators[key] = (...args)=>dispatch(actionCreator(...args));
+    }
+    return boundActionCreators;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"bSgjL":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "wrapMapToPropsConstant", ()=>wrapMapToPropsConstant) // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
+;
+// to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
+// whether mapToProps needs to be invoked when props have changed.
+//
+// A length of one signals that mapToProps does not depend on props from the parent component.
+// A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
+// therefore not reporting its length accurately..
+// TODO Can this get pulled out so that we can subscribe directly to the store if we don't need ownProps?
+parcelHelpers.export(exports, "getDependsOnOwnProps", ()=>getDependsOnOwnProps) // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
+;
+// this function wraps mapToProps in a proxy function which does several things:
+//
+//  * Detects whether the mapToProps function being called depends on props, which
+//    is used by selectorFactory to decide if it should reinvoke on props changes.
+//
+//  * On first call, handles mapToProps if returns another function, and treats that
+//    new function as the true mapToProps for subsequent calls.
+//
+//  * On first call, verifies the first result is a plain object, in order to warn
+//    the developer that their mapToProps function is not returning a valid result.
+//
+parcelHelpers.export(exports, "wrapMapToPropsFunc", ()=>wrapMapToPropsFunc);
+var _verifyPlainObject = require("../utils/verifyPlainObject");
+var _verifyPlainObjectDefault = parcelHelpers.interopDefault(_verifyPlainObject);
+function wrapMapToPropsConstant(//  It seems that the dispatch argument
+//  could be a dispatch function in some cases (ex: whenMapDispatchToPropsIsMissing)
+//  and a state object in some others (ex: whenMapStateToPropsIsMissing)
+// eslint-disable-next-line no-unused-vars
+getConstant) {
+    return function initConstantSelector(dispatch) {
+        const constant = getConstant(dispatch);
+        function constantSelector() {
+            return constant;
+        }
+        constantSelector.dependsOnOwnProps = false;
+        return constantSelector;
+    };
+}
+function getDependsOnOwnProps(mapToProps) {
+    return mapToProps.dependsOnOwnProps ? Boolean(mapToProps.dependsOnOwnProps) : mapToProps.length !== 1;
+}
+function wrapMapToPropsFunc(mapToProps, methodName) {
+    return function initProxySelector(dispatch, { displayName }) {
+        const proxy = function mapToPropsProxy(stateOrDispatch, ownProps) {
+            return proxy.dependsOnOwnProps ? proxy.mapToProps(stateOrDispatch, ownProps) : proxy.mapToProps(stateOrDispatch, undefined);
+        }; // allow detectFactoryAndVerify to get ownProps
+        proxy.dependsOnOwnProps = true;
+        proxy.mapToProps = function detectFactoryAndVerify(stateOrDispatch, ownProps) {
+            proxy.mapToProps = mapToProps;
+            proxy.dependsOnOwnProps = getDependsOnOwnProps(mapToProps);
+            let props = proxy(stateOrDispatch, ownProps);
+            if (typeof props === "function") {
+                proxy.mapToProps = props;
+                proxy.dependsOnOwnProps = getDependsOnOwnProps(props);
+                props = proxy(stateOrDispatch, ownProps);
+            }
+            (0, _verifyPlainObjectDefault.default)(props, displayName, methodName);
+            return props;
+        };
+        return proxy;
+    };
+}
+
+},{"../utils/verifyPlainObject":"f6LbZ","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"f6LbZ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>verifyPlainObject);
+var _isPlainObject = require("./isPlainObject");
+var _isPlainObjectDefault = parcelHelpers.interopDefault(_isPlainObject);
+var _warning = require("./warning");
+var _warningDefault = parcelHelpers.interopDefault(_warning);
+function verifyPlainObject(value, displayName, methodName) {
+    if (!(0, _isPlainObjectDefault.default)(value)) (0, _warningDefault.default)(`${methodName}() in ${displayName} must return a plain object. Instead received ${value}.`);
+}
+
+},{"./isPlainObject":"lM8m6","./warning":"cUQUw","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"lM8m6":[function(require,module,exports) {
+/**
+ * @param {any} obj The object to inspect.
+ * @returns {boolean} True if the argument appears to be a plain object.
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>isPlainObject);
+function isPlainObject(obj) {
+    if (typeof obj !== "object" || obj === null) return false;
+    let proto = Object.getPrototypeOf(obj);
+    if (proto === null) return true;
+    let baseProto = proto;
+    while(Object.getPrototypeOf(baseProto) !== null)baseProto = Object.getPrototypeOf(baseProto);
+    return proto === baseProto;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"fnbUv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createInvalidArgFactory", ()=>createInvalidArgFactory);
+function createInvalidArgFactory(arg, name) {
+    return (dispatch, options)=>{
+        throw new Error(`Invalid value of type ${typeof arg} for ${name} argument when connecting component ${options.wrappedComponentName}.`);
+    };
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"4Hl4c":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "mapStateToPropsFactory", ()=>mapStateToPropsFactory);
+var _wrapMapToProps = require("./wrapMapToProps");
+var _invalidArgFactory = require("./invalidArgFactory");
+function mapStateToPropsFactory(mapStateToProps) {
+    return !mapStateToProps ? (0, _wrapMapToProps.wrapMapToPropsConstant)(()=>({})) : typeof mapStateToProps === "function" ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapStateToProps, "mapStateToProps") : (0, _invalidArgFactory.createInvalidArgFactory)(mapStateToProps, "mapStateToProps");
+}
+
+},{"./wrapMapToProps":"bSgjL","./invalidArgFactory":"fnbUv","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"hQpBj":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "defaultMergeProps", ()=>defaultMergeProps);
+parcelHelpers.export(exports, "wrapMergePropsFunc", ()=>wrapMergePropsFunc);
+parcelHelpers.export(exports, "mergePropsFactory", ()=>mergePropsFactory);
+var _extends = require("@babel/runtime/helpers/esm/extends");
+var _extendsDefault = parcelHelpers.interopDefault(_extends);
+var _verifyPlainObject = require("../utils/verifyPlainObject");
+var _verifyPlainObjectDefault = parcelHelpers.interopDefault(_verifyPlainObject);
+var _invalidArgFactory = require("./invalidArgFactory");
+function defaultMergeProps(stateProps, dispatchProps, ownProps) {
+    // @ts-ignore
+    return (0, _extendsDefault.default)({}, ownProps, stateProps, dispatchProps);
+}
+function wrapMergePropsFunc(mergeProps) {
+    return function initMergePropsProxy(dispatch, { displayName, areMergedPropsEqual }) {
+        let hasRunOnce = false;
+        let mergedProps;
+        return function mergePropsProxy(stateProps, dispatchProps, ownProps) {
+            const nextMergedProps = mergeProps(stateProps, dispatchProps, ownProps);
+            if (hasRunOnce) {
+                if (!areMergedPropsEqual(nextMergedProps, mergedProps)) mergedProps = nextMergedProps;
+            } else {
+                hasRunOnce = true;
+                mergedProps = nextMergedProps;
+                (0, _verifyPlainObjectDefault.default)(mergedProps, displayName, "mergeProps");
+            }
+            return mergedProps;
+        };
+    };
+}
+function mergePropsFactory(mergeProps) {
+    return !mergeProps ? ()=>defaultMergeProps : typeof mergeProps === "function" ? wrapMergePropsFunc(mergeProps) : (0, _invalidArgFactory.createInvalidArgFactory)(mergeProps, "mergeProps");
+}
+
+},{"@babel/runtime/helpers/esm/extends":"fTBFS","../utils/verifyPlainObject":"f6LbZ","./invalidArgFactory":"fnbUv","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"ieuHT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createSubscription", ()=>createSubscription);
+var _batch = require("./batch"); // encapsulates the subscription logic for connecting a component to the redux store, as
+// well as nesting subscriptions of descendant components, so that we can ensure the
+// ancestor components re-render before descendants
+function createListenerCollection() {
+    const batch = (0, _batch.getBatch)();
+    let first = null;
+    let last = null;
+    return {
+        clear () {
+            first = null;
+            last = null;
+        },
+        notify () {
+            batch(()=>{
+                let listener = first;
+                while(listener){
+                    listener.callback();
+                    listener = listener.next;
+                }
+            });
+        },
+        get () {
+            let listeners = [];
+            let listener = first;
+            while(listener){
+                listeners.push(listener);
+                listener = listener.next;
+            }
+            return listeners;
+        },
+        subscribe (callback) {
+            let isSubscribed = true;
+            let listener = last = {
+                callback,
+                next: null,
+                prev: last
+            };
+            if (listener.prev) listener.prev.next = listener;
+            else first = listener;
+            return function unsubscribe() {
+                if (!isSubscribed || first === null) return;
+                isSubscribed = false;
+                if (listener.next) listener.next.prev = listener.prev;
+                else last = listener.prev;
+                if (listener.prev) listener.prev.next = listener.next;
+                else first = listener.next;
+            };
+        }
+    };
+}
+const nullListeners = {
+    notify () {},
+    get: ()=>[]
+};
+function createSubscription(store, parentSub) {
+    let unsubscribe;
+    let listeners = nullListeners; // Reasons to keep the subscription active
+    let subscriptionsAmount = 0; // Is this specific subscription subscribed (or only nested ones?)
+    let selfSubscribed = false;
+    function addNestedSub(listener) {
+        trySubscribe();
+        const cleanupListener = listeners.subscribe(listener); // cleanup nested sub
+        let removed = false;
+        return ()=>{
+            if (!removed) {
+                removed = true;
+                cleanupListener();
+                tryUnsubscribe();
+            }
+        };
+    }
+    function notifyNestedSubs() {
+        listeners.notify();
+    }
+    function handleChangeWrapper() {
+        if (subscription.onStateChange) subscription.onStateChange();
+    }
+    function isSubscribed() {
+        return selfSubscribed;
+    }
+    function trySubscribe() {
+        subscriptionsAmount++;
+        if (!unsubscribe) {
+            unsubscribe = parentSub ? parentSub.addNestedSub(handleChangeWrapper) : store.subscribe(handleChangeWrapper);
+            listeners = createListenerCollection();
+        }
+    }
+    function tryUnsubscribe() {
+        subscriptionsAmount--;
+        if (unsubscribe && subscriptionsAmount === 0) {
+            unsubscribe();
+            unsubscribe = undefined;
+            listeners.clear();
+            listeners = nullListeners;
+        }
+    }
+    function trySubscribeSelf() {
+        if (!selfSubscribed) {
+            selfSubscribed = true;
+            trySubscribe();
+        }
+    }
+    function tryUnsubscribeSelf() {
+        if (selfSubscribed) {
+            selfSubscribed = false;
+            tryUnsubscribe();
+        }
+    }
+    const subscription = {
+        addNestedSub,
+        notifyNestedSubs,
+        handleChangeWrapper,
+        isSubscribed,
+        trySubscribe: trySubscribeSelf,
+        tryUnsubscribe: tryUnsubscribeSelf,
+        getListeners: ()=>listeners
+    };
+    return subscription;
+}
+
+},{"./batch":"ikw0G","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"kNbVc":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "canUseDOM", ()=>canUseDOM);
+parcelHelpers.export(exports, "useIsomorphicLayoutEffect", ()=>useIsomorphicLayoutEffect);
+var _react = require("react"); // React currently throws a warning when using useLayoutEffect on the server.
+const canUseDOM = !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
+const useIsomorphicLayoutEffect = canUseDOM ? _react.useLayoutEffect : _react.useEffect;
+
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"gV5L4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>shallowEqual);
+function is(x, y) {
+    if (x === y) return x !== 0 || y !== 0 || 1 / x === 1 / y;
+    else return x !== x && y !== y;
+}
+function shallowEqual(objA, objB) {
+    if (is(objA, objB)) return true;
+    if (typeof objA !== "object" || objA === null || typeof objB !== "object" || objB === null) return false;
+    const keysA = Object.keys(objA);
+    const keysB = Object.keys(objB);
+    if (keysA.length !== keysB.length) return false;
+    for(let i = 0; i < keysA.length; i++){
+        if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) return false;
+    }
+    return true;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"iAa1P":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Provider", ()=>(0, _providerDefault.default));
+parcelHelpers.export(exports, "ReactReduxContext", ()=>(0, _context.ReactReduxContext));
+parcelHelpers.export(exports, "connect", ()=>(0, _connectDefault.default));
+parcelHelpers.export(exports, "useDispatch", ()=>(0, _useDispatch.useDispatch));
+parcelHelpers.export(exports, "createDispatchHook", ()=>(0, _useDispatch.createDispatchHook));
+parcelHelpers.export(exports, "useSelector", ()=>(0, _useSelector.useSelector));
+parcelHelpers.export(exports, "createSelectorHook", ()=>(0, _useSelector.createSelectorHook));
+parcelHelpers.export(exports, "useStore", ()=>(0, _useStore.useStore));
+parcelHelpers.export(exports, "createStoreHook", ()=>(0, _useStore.createStoreHook));
+parcelHelpers.export(exports, "shallowEqual", ()=>(0, _shallowEqualDefault.default));
+var _provider = require("./components/Provider");
+var _providerDefault = parcelHelpers.interopDefault(_provider);
+var _connect = require("./components/connect");
+var _connectDefault = parcelHelpers.interopDefault(_connect);
+var _context = require("./components/Context");
+var _useDispatch = require("./hooks/useDispatch");
+var _useSelector = require("./hooks/useSelector");
+var _useStore = require("./hooks/useStore");
+var _shallowEqual = require("./utils/shallowEqual");
+var _shallowEqualDefault = parcelHelpers.interopDefault(_shallowEqual);
+var _types = require("./types");
+parcelHelpers.exportAll(_types, exports);
+
+},{"./components/Provider":"bdd6J","./components/connect":"5gOIw","./components/Context":"ji81o","./hooks/useDispatch":"aOjNn","./hooks/useSelector":"l3rFI","./hooks/useStore":"39JZU","./utils/shallowEqual":"gV5L4","./types":"8RiCo","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"bdd6J":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _react = require("react");
+var _context = require("./Context");
+var _subscription = require("../utils/Subscription");
+var _useIsomorphicLayoutEffect = require("../utils/useIsomorphicLayoutEffect");
+function Provider({ store, context, children, serverState, stabilityCheck = "once", noopCheck = "once" }) {
+    const contextValue = _react.useMemo(()=>{
+        const subscription = (0, _subscription.createSubscription)(store);
+        return {
+            store,
+            subscription,
+            getServerState: serverState ? ()=>serverState : undefined,
+            stabilityCheck,
+            noopCheck
+        };
+    }, [
+        store,
+        serverState,
+        stabilityCheck,
+        noopCheck
+    ]);
+    const previousState = _react.useMemo(()=>store.getState(), [
+        store
+    ]);
+    (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(()=>{
+        const { subscription } = contextValue;
+        subscription.onStateChange = subscription.notifyNestedSubs;
+        subscription.trySubscribe();
+        if (previousState !== store.getState()) subscription.notifyNestedSubs();
+        return ()=>{
+            subscription.tryUnsubscribe();
+            subscription.onStateChange = undefined;
+        };
+    }, [
+        contextValue,
+        previousState
+    ]);
+    const Context = context || (0, _context.ReactReduxContext); // @ts-ignore 'AnyAction' is assignable to the constraint of type 'A', but 'A' could be instantiated with a different subtype
+    return /*#__PURE__*/ _react.createElement(Context.Provider, {
+        value: contextValue
+    }, children);
+}
+exports.default = Provider;
+
+},{"react":"21dqq","./Context":"ji81o","../utils/Subscription":"ieuHT","../utils/useIsomorphicLayoutEffect":"kNbVc","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"aOjNn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * Hook factory, which creates a `useDispatch` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useDispatch` hook bound to the specified context.
+ */ parcelHelpers.export(exports, "createDispatchHook", ()=>createDispatchHook);
+parcelHelpers.export(exports, "useDispatch", ()=>useDispatch);
+var _context = require("../components/Context");
+var _useStore = require("./useStore");
+function createDispatchHook(context = (0, _context.ReactReduxContext)) {
+    const useStore = context === (0, _context.ReactReduxContext) ? (0, _useStore.useStore) : (0, _useStore.createStoreHook)(context);
+    return function useDispatch() {
+        const store = useStore(); // @ts-ignore
+        return store.dispatch;
+    };
+}
+const useDispatch = /*#__PURE__*/ createDispatchHook();
+
+},{"../components/Context":"ji81o","./useStore":"39JZU","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"39JZU":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+/**
+ * Hook factory, which creates a `useStore` hook bound to a given context.
+ *
+ * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
+ * @returns {Function} A `useStore` hook bound to the specified context.
+ */ parcelHelpers.export(exports, "createStoreHook", ()=>createStoreHook);
+parcelHelpers.export(exports, "useStore", ()=>useStore);
+var _context = require("../components/Context");
+var _useReduxContext = require("./useReduxContext");
+function createStoreHook(context = (0, _context.ReactReduxContext)) {
+    const useReduxContext = context === (0, _context.ReactReduxContext) ? (0, _useReduxContext.useReduxContext) : (0, _useReduxContext.createReduxContextHook)(context);
+    return function useStore() {
+        const { store } = useReduxContext(); // @ts-ignore
+        return store;
+    };
+}
+const useStore = /*#__PURE__*/ createStoreHook();
+
+},{"../components/Context":"ji81o","./useReduxContext":"3828k","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"8RiCo":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"5JRkM":[function(require,module,exports) {
+// console.log(storedToken);
+// actions.js
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "LOG_IN", ()=>LOG_IN);
+parcelHelpers.export(exports, "LOG_OUT", ()=>LOG_OUT);
+parcelHelpers.export(exports, "EDIT_USER", ()=>EDIT_USER);
+parcelHelpers.export(exports, "DELETE_USER", ()=>DELETE_USER);
+parcelHelpers.export(exports, "ADD_FAVORITE_MOVIE_TO_USER", ()=>ADD_FAVORITE_MOVIE_TO_USER);
+parcelHelpers.export(exports, "UNFAVORITE_MOVIE", ()=>UNFAVORITE_MOVIE);
+parcelHelpers.export(exports, "login", ()=>login);
+parcelHelpers.export(exports, "logout", ()=>logout);
+parcelHelpers.export(exports, "editUser", ()=>editUser);
+parcelHelpers.export(exports, "deleteUser", ()=>deleteUser);
+parcelHelpers.export(exports, "addFavoriteMovieToUser", ()=>addFavoriteMovieToUser);
+parcelHelpers.export(exports, "unFavoriteMovie", ()=>unFavoriteMovie);
+const LOG_IN = "LOG_IN";
+const LOG_OUT = "LOG_OUT";
+const EDIT_USER = "EDIT_USER";
+const DELETE_USER = "DELETE_USER";
+const ADD_FAVORITE_MOVIE_TO_USER = "ADD_FAVORITE_MOVIE_TO_USER";
+const UNFAVORITE_MOVIE = "UNFAVORITE_MOVIE";
+const storedToken = localStorage.getItem("token");
+const login = (username, password)=>async (dispatch)=>{
+        console.log("Fetching movies...");
+        const data = {
+            Username: username,
+            Password: password
+        };
+        try {
+            const response = await fetch("https://historic-movies-a728a807961d.herokuapp.com/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+            const userData = await response.json();
+            if (userData.user) {
+                dispatch({
+                    type: LOG_IN,
+                    user: userData.user
+                });
+                localStorage.setItem("user", JSON.stringify(userData.user));
+                localStorage.setItem("token", userData.token);
+                window.location.reload();
+            } else alert("No such user");
+        } catch (error) {
+            alert("Something went wrong", error);
+        }
+    };
+const logout = ()=>(dispatch)=>{
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+        dispatch({
+            type: LOG_OUT
+        });
+        window.location.reload();
+    };
+const editUser = (userData, updatedUserData, token)=>async (dispatch)=>{
+        try {
+            const response = await fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${userData.Username}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
+                },
+                body: JSON.stringify(updatedUserData)
+            });
+            const updatedUser = await response.json();
+            dispatch({
+                type: EDIT_USER,
+                user: updatedUser
+            });
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+            window.location.reload();
+        } catch (error) {
+            console.error("Error updating user:", error);
+        }
+    };
+const deleteUser = (user, token)=>async (dispatch)=>{
+        try {
+            const response = await fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}`, {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            if (response.ok) {
+                localStorage.clear();
+                dispatch({
+                    type: DELETE_USER
+                });
+                window.location.reload();
+            } else console.error("Failed to delete the user.");
+        } catch (error) {
+            console.error("Error deleting user:", error);
+        }
+    };
+const addFavoriteMovieToUser = (userId, movieId)=>async (dispatch)=>{
+        try {
+            const response = await fetch("https://historic-movies-a728a807961d.herokuapp.com/user/addfavorite", {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${storedToken}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    userId: userId,
+                    movieId
+                })
+            });
+            if (!response.ok) throw new Error("Network response was not ok");
+            const updatedUser = await response.json();
+            console.log(updatedUser.FavoriteMovie, "updatedUser");
+            window.location.reload();
+            dispatch({
+                type: ADD_FAVORITE_MOVIE_TO_USER,
+                user: updatedUser
+            });
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+        } catch (error) {
+            console.error("Error adding movie to favorites:", error);
+        }
+    };
+const unFavoriteMovie = (user, movieId)=>async (dispatch)=>{
+        try {
+            const encodedMovieId = encodeURIComponent(movieId);
+            console.log(encodedMovieId);
+            const response = await fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}/${encodedMovieId}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${storedToken}`
+                }
+            });
+            const deletedFavoriteMovieFromUser = await response.json();
+            const updatedUser = {
+                ...user,
+                FavoriteMovies: user.FavoriteMovies.filter((movie)=>movie !== movieId)
+            };
+            window.location.reload();
+            console.log(updatedUser);
+            dispatch({
+                type: UNFAVORITE_MOVIE,
+                user: updatedUser
+            });
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+        } catch (error) {
+            console.error("Error removing movie to favorites:", error);
+        }
+    };
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"bwuIu":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$67b2.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _card = require("react-bootstrap/Card");
+var _cardDefault = parcelHelpers.interopDefault(_card);
+var _movieCardScss = require("./movie-card.scss");
+var _propTypes = require("prop-types");
+var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _reactRouterDom = require("react-router-dom");
+const MovieCard = ({ movie })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+        to: `/movies/${encodeURIComponent(movie.id)}`,
+        className: "remove-decoration",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
+            className: "hover h-100",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
+                        children: movie.title
+                    }, void 0, false, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 12,
+                        columnNumber: 21
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Img, {
+                        src: movie.image,
+                        alt: movie.title
+                    }, void 0, false, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 13,
+                        columnNumber: 21
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/movie-card/movie-card.jsx",
+                lineNumber: 11,
+                columnNumber: 17
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/components/movie-card/movie-card.jsx",
+            lineNumber: 10,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/movie-card/movie-card.jsx",
+        lineNumber: 9,
+        columnNumber: 9
+    }, undefined);
+};
+_c = MovieCard;
+MovieCard.prototypes = {
+    movie: (0, _propTypesDefault.default).shape({
+        title: (0, _propTypesDefault.default).string.isRequired,
+        image: (0, _propTypesDefault.default).string.isRequired
+    }).isRequired
+};
+var _c;
+$RefreshReg$(_c, "MovieCard");
+
+  $parcel$ReactRefreshHelpers$67b2.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Card":"lAynp","./movie-card.scss":"d6HH4","prop-types":"7wKI2","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8"}],"d6HH4":[function() {},{}],"9xmpe":[function(require,module,exports) {
+/**
+ * React Router DOM v6.18.0
+ *
+ * Copyright (c) Remix Software Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ *
+ * @license MIT
+ */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "AbortedDeferredError", ()=>(0, _reactRouter.AbortedDeferredError));
+parcelHelpers.export(exports, "Await", ()=>(0, _reactRouter.Await));
+parcelHelpers.export(exports, "MemoryRouter", ()=>(0, _reactRouter.MemoryRouter));
+parcelHelpers.export(exports, "Navigate", ()=>(0, _reactRouter.Navigate));
+parcelHelpers.export(exports, "NavigationType", ()=>(0, _reactRouter.NavigationType));
+parcelHelpers.export(exports, "Outlet", ()=>(0, _reactRouter.Outlet));
+parcelHelpers.export(exports, "Route", ()=>(0, _reactRouter.Route));
+parcelHelpers.export(exports, "Router", ()=>(0, _reactRouter.Router));
+parcelHelpers.export(exports, "Routes", ()=>(0, _reactRouter.Routes));
+parcelHelpers.export(exports, "UNSAFE_DataRouterContext", ()=>(0, _reactRouter.UNSAFE_DataRouterContext));
+parcelHelpers.export(exports, "UNSAFE_DataRouterStateContext", ()=>(0, _reactRouter.UNSAFE_DataRouterStateContext));
+parcelHelpers.export(exports, "UNSAFE_LocationContext", ()=>(0, _reactRouter.UNSAFE_LocationContext));
+parcelHelpers.export(exports, "UNSAFE_NavigationContext", ()=>(0, _reactRouter.UNSAFE_NavigationContext));
+parcelHelpers.export(exports, "UNSAFE_RouteContext", ()=>(0, _reactRouter.UNSAFE_RouteContext));
+parcelHelpers.export(exports, "UNSAFE_useRouteId", ()=>(0, _reactRouter.UNSAFE_useRouteId));
+parcelHelpers.export(exports, "createMemoryRouter", ()=>(0, _reactRouter.createMemoryRouter));
+parcelHelpers.export(exports, "createPath", ()=>(0, _reactRouter.createPath));
+parcelHelpers.export(exports, "createRoutesFromChildren", ()=>(0, _reactRouter.createRoutesFromChildren));
+parcelHelpers.export(exports, "createRoutesFromElements", ()=>(0, _reactRouter.createRoutesFromElements));
+parcelHelpers.export(exports, "defer", ()=>(0, _reactRouter.defer));
+parcelHelpers.export(exports, "generatePath", ()=>(0, _reactRouter.generatePath));
+parcelHelpers.export(exports, "isRouteErrorResponse", ()=>(0, _reactRouter.isRouteErrorResponse));
+parcelHelpers.export(exports, "json", ()=>(0, _reactRouter.json));
+parcelHelpers.export(exports, "matchPath", ()=>(0, _reactRouter.matchPath));
+parcelHelpers.export(exports, "matchRoutes", ()=>(0, _reactRouter.matchRoutes));
+parcelHelpers.export(exports, "parsePath", ()=>(0, _reactRouter.parsePath));
+parcelHelpers.export(exports, "redirect", ()=>(0, _reactRouter.redirect));
+parcelHelpers.export(exports, "redirectDocument", ()=>(0, _reactRouter.redirectDocument));
+parcelHelpers.export(exports, "renderMatches", ()=>(0, _reactRouter.renderMatches));
+parcelHelpers.export(exports, "resolvePath", ()=>(0, _reactRouter.resolvePath));
+parcelHelpers.export(exports, "unstable_useBlocker", ()=>(0, _reactRouter.unstable_useBlocker));
+parcelHelpers.export(exports, "useActionData", ()=>(0, _reactRouter.useActionData));
+parcelHelpers.export(exports, "useAsyncError", ()=>(0, _reactRouter.useAsyncError));
+parcelHelpers.export(exports, "useAsyncValue", ()=>(0, _reactRouter.useAsyncValue));
+parcelHelpers.export(exports, "useHref", ()=>(0, _reactRouter.useHref));
+parcelHelpers.export(exports, "useInRouterContext", ()=>(0, _reactRouter.useInRouterContext));
+parcelHelpers.export(exports, "useLoaderData", ()=>(0, _reactRouter.useLoaderData));
+parcelHelpers.export(exports, "useLocation", ()=>(0, _reactRouter.useLocation));
+parcelHelpers.export(exports, "useMatch", ()=>(0, _reactRouter.useMatch));
+parcelHelpers.export(exports, "useMatches", ()=>(0, _reactRouter.useMatches));
+parcelHelpers.export(exports, "useNavigate", ()=>(0, _reactRouter.useNavigate));
+parcelHelpers.export(exports, "useNavigation", ()=>(0, _reactRouter.useNavigation));
+parcelHelpers.export(exports, "useNavigationType", ()=>(0, _reactRouter.useNavigationType));
+parcelHelpers.export(exports, "useOutlet", ()=>(0, _reactRouter.useOutlet));
+parcelHelpers.export(exports, "useOutletContext", ()=>(0, _reactRouter.useOutletContext));
+parcelHelpers.export(exports, "useParams", ()=>(0, _reactRouter.useParams));
+parcelHelpers.export(exports, "useResolvedPath", ()=>(0, _reactRouter.useResolvedPath));
+parcelHelpers.export(exports, "useRevalidator", ()=>(0, _reactRouter.useRevalidator));
+parcelHelpers.export(exports, "useRouteError", ()=>(0, _reactRouter.useRouteError));
+parcelHelpers.export(exports, "useRouteLoaderData", ()=>(0, _reactRouter.useRouteLoaderData));
+parcelHelpers.export(exports, "useRoutes", ()=>(0, _reactRouter.useRoutes));
+//#endregion
+parcelHelpers.export(exports, "BrowserRouter", ()=>BrowserRouter);
+parcelHelpers.export(exports, "Form", ()=>Form);
+parcelHelpers.export(exports, "HashRouter", ()=>HashRouter);
+parcelHelpers.export(exports, "Link", ()=>Link);
+parcelHelpers.export(exports, "NavLink", ()=>NavLink);
+parcelHelpers.export(exports, "RouterProvider", ()=>RouterProvider);
+parcelHelpers.export(exports, "ScrollRestoration", ()=>ScrollRestoration);
+parcelHelpers.export(exports, "UNSAFE_FetchersContext", ()=>FetchersContext);
+parcelHelpers.export(exports, "UNSAFE_ViewTransitionContext", ()=>ViewTransitionContext);
+parcelHelpers.export(exports, "UNSAFE_useScrollRestoration", ()=>useScrollRestoration);
+parcelHelpers.export(exports, "createBrowserRouter", ()=>createBrowserRouter);
+parcelHelpers.export(exports, "createHashRouter", ()=>createHashRouter);
+parcelHelpers.export(exports, "createSearchParams", ()=>createSearchParams);
+parcelHelpers.export(exports, "unstable_HistoryRouter", ()=>HistoryRouter);
+parcelHelpers.export(exports, "unstable_usePrompt", ()=>usePrompt);
+parcelHelpers.export(exports, "unstable_useViewTransitionState", ()=>useViewTransitionState);
+parcelHelpers.export(exports, "useBeforeUnload", ()=>useBeforeUnload);
+parcelHelpers.export(exports, "useFetcher", ()=>useFetcher);
+parcelHelpers.export(exports, "useFetchers", ()=>useFetchers);
+parcelHelpers.export(exports, "useFormAction", ()=>useFormAction);
+parcelHelpers.export(exports, "useLinkClickHandler", ()=>useLinkClickHandler);
+parcelHelpers.export(exports, "useSearchParams", ()=>useSearchParams);
+parcelHelpers.export(exports, "useSubmit", ()=>useSubmit);
+var _react = require("react");
+var _reactRouter = require("react-router");
+var _router = require("@remix-run/router");
+function _extends() {
+    _extends = Object.assign ? Object.assign.bind() : function(target) {
+        for(var i = 1; i < arguments.length; i++){
+            var source = arguments[i];
+            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
+        }
+        return target;
+    };
+    return _extends.apply(this, arguments);
+}
+function _objectWithoutPropertiesLoose(source, excluded) {
+    if (source == null) return {};
+    var target = {};
+    var sourceKeys = Object.keys(source);
+    var key, i;
+    for(i = 0; i < sourceKeys.length; i++){
+        key = sourceKeys[i];
+        if (excluded.indexOf(key) >= 0) continue;
+        target[key] = source[key];
+    }
+    return target;
+}
+const defaultMethod = "get";
+const defaultEncType = "application/x-www-form-urlencoded";
+function isHtmlElement(object) {
+    return object != null && typeof object.tagName === "string";
+}
+function isButtonElement(object) {
+    return isHtmlElement(object) && object.tagName.toLowerCase() === "button";
+}
+function isFormElement(object) {
+    return isHtmlElement(object) && object.tagName.toLowerCase() === "form";
+}
+function isInputElement(object) {
+    return isHtmlElement(object) && object.tagName.toLowerCase() === "input";
+}
+function isModifiedEvent(event) {
+    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+}
+function shouldProcessLinkClick(event, target) {
+    return event.button === 0 && // Ignore everything but left clicks
+    (!target || target === "_self") && // Let browser handle "target=_blank" etc.
+    !isModifiedEvent(event) // Ignore clicks with modifier keys
+    ;
+}
+/**
+ * Creates a URLSearchParams object using the given initializer.
+ *
+ * This is identical to `new URLSearchParams(init)` except it also
+ * supports arrays as values in the object form of the initializer
+ * instead of just strings. This is convenient when you need multiple
+ * values for a given key, but don't want to use an array initializer.
+ *
+ * For example, instead of:
+ *
+ *   let searchParams = new URLSearchParams([
+ *     ['sort', 'name'],
+ *     ['sort', 'price']
+ *   ]);
+ *
+ * you can do:
+ *
+ *   let searchParams = createSearchParams({
+ *     sort: ['name', 'price']
+ *   });
+ */ function createSearchParams(init) {
+    if (init === void 0) init = "";
+    return new URLSearchParams(typeof init === "string" || Array.isArray(init) || init instanceof URLSearchParams ? init : Object.keys(init).reduce((memo, key)=>{
+        let value = init[key];
+        return memo.concat(Array.isArray(value) ? value.map((v)=>[
+                key,
+                v
+            ]) : [
+            [
+                key,
+                value
+            ]
+        ]);
+    }, []));
+}
+function getSearchParamsForLocation(locationSearch, defaultSearchParams) {
+    let searchParams = createSearchParams(locationSearch);
+    if (defaultSearchParams) // Use `defaultSearchParams.forEach(...)` here instead of iterating of
+    // `defaultSearchParams.keys()` to work-around a bug in Firefox related to
+    // web extensions. Relevant Bugzilla tickets:
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=1414602
+    // https://bugzilla.mozilla.org/show_bug.cgi?id=1023984
+    defaultSearchParams.forEach((_, key)=>{
+        if (!searchParams.has(key)) defaultSearchParams.getAll(key).forEach((value)=>{
+            searchParams.append(key, value);
+        });
+    });
+    return searchParams;
+}
+// One-time check for submitter support
+let _formDataSupportsSubmitter = null;
+function isFormDataSubmitterSupported() {
+    if (_formDataSupportsSubmitter === null) try {
+        new FormData(document.createElement("form"), // @ts-expect-error if FormData supports the submitter parameter, this will throw
+        0);
+        _formDataSupportsSubmitter = false;
+    } catch (e) {
+        _formDataSupportsSubmitter = true;
+    }
+    return _formDataSupportsSubmitter;
+}
+const supportedFormEncTypes = new Set([
+    "application/x-www-form-urlencoded",
+    "multipart/form-data",
+    "text/plain"
+]);
+function getFormEncType(encType) {
+    if (encType != null && !supportedFormEncTypes.has(encType)) {
+        (0, _router.UNSAFE_warning)(false, '"' + encType + '" is not a valid `encType` for `<Form>`/`<fetcher.Form>` ' + ('and will default to "' + defaultEncType + '"'));
+        return null;
+    }
+    return encType;
+}
+function getFormSubmissionInfo(target, basename) {
+    let method;
+    let action;
+    let encType;
+    let formData;
+    let body;
+    if (isFormElement(target)) {
+        // When grabbing the action from the element, it will have had the basename
+        // prefixed to ensure non-JS scenarios work, so strip it since we'll
+        // re-prefix in the router
+        let attr = target.getAttribute("action");
+        action = attr ? (0, _router.stripBasename)(attr, basename) : null;
+        method = target.getAttribute("method") || defaultMethod;
+        encType = getFormEncType(target.getAttribute("enctype")) || defaultEncType;
+        formData = new FormData(target);
+    } else if (isButtonElement(target) || isInputElement(target) && (target.type === "submit" || target.type === "image")) {
+        let form = target.form;
+        if (form == null) throw new Error('Cannot submit a <button> or <input type="submit"> without a <form>');
+        // <button>/<input type="submit"> may override attributes of <form>
+        // When grabbing the action from the element, it will have had the basename
+        // prefixed to ensure non-JS scenarios work, so strip it since we'll
+        // re-prefix in the router
+        let attr = target.getAttribute("formaction") || form.getAttribute("action");
+        action = attr ? (0, _router.stripBasename)(attr, basename) : null;
+        method = target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod;
+        encType = getFormEncType(target.getAttribute("formenctype")) || getFormEncType(form.getAttribute("enctype")) || defaultEncType;
+        // Build a FormData object populated from a form and submitter
+        formData = new FormData(form, target);
+        // If this browser doesn't support the `FormData(el, submitter)` format,
+        // then tack on the submitter value at the end.  This is a lightweight
+        // solution that is not 100% spec compliant.  For complete support in older
+        // browsers, consider using the `formdata-submitter-polyfill` package
+        if (!isFormDataSubmitterSupported()) {
+            let { name, type, value } = target;
+            if (type === "image") {
+                let prefix = name ? name + "." : "";
+                formData.append(prefix + "x", "0");
+                formData.append(prefix + "y", "0");
+            } else if (name) formData.append(name, value);
+        }
+    } else if (isHtmlElement(target)) throw new Error('Cannot submit element that is not <form>, <button>, or <input type="submit|image">');
+    else {
+        method = defaultMethod;
+        action = null;
+        encType = defaultEncType;
+        body = target;
+    }
+    // Send body for <Form encType="text/plain" so we encode it into text
+    if (formData && encType === "text/plain") {
+        body = formData;
+        formData = undefined;
+    }
+    return {
+        action,
+        method: method.toLowerCase(),
+        encType,
+        formData,
+        body
+    };
+}
+const _excluded = [
+    "onClick",
+    "relative",
+    "reloadDocument",
+    "replace",
+    "state",
+    "target",
+    "to",
+    "preventScrollReset",
+    "unstable_viewTransition"
+], _excluded2 = [
+    "aria-current",
+    "caseSensitive",
+    "className",
+    "end",
+    "style",
+    "to",
+    "unstable_viewTransition",
+    "children"
+], _excluded3 = [
+    "fetcherKey",
+    "navigate",
+    "reloadDocument",
+    "replace",
+    "state",
+    "method",
+    "action",
+    "onSubmit",
+    "relative",
+    "preventScrollReset",
+    "unstable_viewTransition"
+];
+function createBrowserRouter(routes, opts) {
+    return (0, _router.createRouter)({
+        basename: opts == null ? void 0 : opts.basename,
+        future: _extends({}, opts == null ? void 0 : opts.future, {
+            v7_prependBasename: true
+        }),
+        history: (0, _router.createBrowserHistory)({
+            window: opts == null ? void 0 : opts.window
+        }),
+        hydrationData: (opts == null ? void 0 : opts.hydrationData) || parseHydrationData(),
+        routes,
+        mapRouteProperties: (0, _reactRouter.UNSAFE_mapRouteProperties),
+        window: opts == null ? void 0 : opts.window
+    }).initialize();
+}
+function createHashRouter(routes, opts) {
+    return (0, _router.createRouter)({
+        basename: opts == null ? void 0 : opts.basename,
+        future: _extends({}, opts == null ? void 0 : opts.future, {
+            v7_prependBasename: true
+        }),
+        history: (0, _router.createHashHistory)({
+            window: opts == null ? void 0 : opts.window
+        }),
+        hydrationData: (opts == null ? void 0 : opts.hydrationData) || parseHydrationData(),
+        routes,
+        mapRouteProperties: (0, _reactRouter.UNSAFE_mapRouteProperties),
+        window: opts == null ? void 0 : opts.window
+    }).initialize();
+}
+function parseHydrationData() {
+    var _window;
+    let state = (_window = window) == null ? void 0 : _window.__staticRouterHydrationData;
+    if (state && state.errors) state = _extends({}, state, {
+        errors: deserializeErrors(state.errors)
+    });
+    return state;
+}
+function deserializeErrors(errors) {
+    if (!errors) return null;
+    let entries = Object.entries(errors);
+    let serialized = {};
+    for (let [key, val] of entries){
+        // Hey you!  If you change this, please change the corresponding logic in
+        // serializeErrors in react-router-dom/server.tsx :)
+        if (val && val.__type === "RouteErrorResponse") serialized[key] = new (0, _router.UNSAFE_ErrorResponseImpl)(val.status, val.statusText, val.data, val.internal === true);
+        else if (val && val.__type === "Error") {
+            // Attempt to reconstruct the right type of Error (i.e., ReferenceError)
+            if (val.__subType) {
+                let ErrorConstructor = window[val.__subType];
+                if (typeof ErrorConstructor === "function") try {
+                    // @ts-expect-error
+                    let error = new ErrorConstructor(val.message);
+                    // Wipe away the client-side stack trace.  Nothing to fill it in with
+                    // because we don't serialize SSR stack traces for security reasons
+                    error.stack = "";
+                    serialized[key] = error;
+                } catch (e) {
+                // no-op - fall through and create a normal Error
+                }
+            }
+            if (serialized[key] == null) {
+                let error = new Error(val.message);
+                // Wipe away the client-side stack trace.  Nothing to fill it in with
+                // because we don't serialize SSR stack traces for security reasons
+                error.stack = "";
+                serialized[key] = error;
+            }
+        } else serialized[key] = val;
+    }
+    return serialized;
+}
+const ViewTransitionContext = /*#__PURE__*/ _react.createContext({
+    isTransitioning: false
+});
+ViewTransitionContext.displayName = "ViewTransition";
+const FetchersContext = /*#__PURE__*/ _react.createContext(new Map());
+FetchersContext.displayName = "Fetchers";
+//#endregion
+////////////////////////////////////////////////////////////////////////////////
+//#region Components
+////////////////////////////////////////////////////////////////////////////////
+/**
+  Webpack + React 17 fails to compile on any of the following because webpack
+  complains that `startTransition` doesn't exist in `React`:
+  * import { startTransition } from "react"
+  * import * as React from from "react";
+    "startTransition" in React ? React.startTransition(() => setState()) : setState()
+  * import * as React from from "react";
+    "startTransition" in React ? React["startTransition"](() => setState()) : setState()
+
+  Moving it to a constant such as the following solves the Webpack/React 17 issue:
+  * import * as React from from "react";
+    const START_TRANSITION = "startTransition";
+    START_TRANSITION in React ? React[START_TRANSITION](() => setState()) : setState()
+
+  However, that introduces webpack/terser minification issues in production builds
+  in React 18 where minification/obfuscation ends up removing the call of
+  React.startTransition entirely from the first half of the ternary.  Grabbing
+  this exported reference once up front resolves that issue.
+
+  See https://github.com/remix-run/react-router/issues/10579
+*/ const START_TRANSITION = "startTransition";
+const startTransitionImpl = _react[START_TRANSITION];
+function startTransitionSafe(cb) {
+    if (startTransitionImpl) startTransitionImpl(cb);
+    else cb();
+}
+class Deferred {
+    constructor(){
+        this.status = "pending";
+        this.promise = new Promise((resolve, reject)=>{
+            this.resolve = (value)=>{
+                if (this.status === "pending") {
+                    this.status = "resolved";
+                    resolve(value);
+                }
+            };
+            this.reject = (reason)=>{
+                if (this.status === "pending") {
+                    this.status = "rejected";
+                    reject(reason);
+                }
+            };
+        });
+    }
+}
+/**
+ * Given a Remix Router instance, render the appropriate UI
+ */ function RouterProvider(_ref) {
+    let { fallbackElement, router, future } = _ref;
+    let [state, setStateImpl] = _react.useState(router.state);
+    let [pendingState, setPendingState] = _react.useState();
+    let [vtContext, setVtContext] = _react.useState({
+        isTransitioning: false
+    });
+    let [renderDfd, setRenderDfd] = _react.useState();
+    let [transition, setTransition] = _react.useState();
+    let [interruption, setInterruption] = _react.useState();
+    let fetcherData = _react.useRef(new Map());
+    let { v7_startTransition } = future || {};
+    let optInStartTransition = _react.useCallback((cb)=>{
+        if (v7_startTransition) startTransitionSafe(cb);
+        else cb();
+    }, [
+        v7_startTransition
+    ]);
+    let setState = _react.useCallback((newState, _ref2)=>{
+        let { deletedFetchers, unstable_viewTransitionOpts: viewTransitionOpts } = _ref2;
+        deletedFetchers.forEach((key)=>fetcherData.current.delete(key));
+        newState.fetchers.forEach((fetcher, key)=>{
+            if (fetcher.data !== undefined) fetcherData.current.set(key, fetcher.data);
+        });
+        if (!viewTransitionOpts || router.window == null || typeof router.window.document.startViewTransition !== "function") // Mid-navigation state update, or startViewTransition isn't available
+        optInStartTransition(()=>setStateImpl(newState));
+        else if (transition && renderDfd) {
+            // Interrupting an in-progress transition, cancel and let everything flush
+            // out, and then kick off a new transition from the interruption state
+            renderDfd.resolve();
+            transition.skipTransition();
+            setInterruption({
+                state: newState,
+                currentLocation: viewTransitionOpts.currentLocation,
+                nextLocation: viewTransitionOpts.nextLocation
+            });
+        } else {
+            // Completed navigation update with opted-in view transitions, let 'er rip
+            setPendingState(newState);
+            setVtContext({
+                isTransitioning: true,
+                currentLocation: viewTransitionOpts.currentLocation,
+                nextLocation: viewTransitionOpts.nextLocation
+            });
+        }
+    }, [
+        router.window,
+        transition,
+        renderDfd,
+        fetcherData,
+        optInStartTransition
+    ]);
+    // Need to use a layout effect here so we are subscribed early enough to
+    // pick up on any render-driven redirects/navigations (useEffect/<Navigate>)
+    _react.useLayoutEffect(()=>router.subscribe(setState), [
+        router,
+        setState
+    ]);
+    // When we start a view transition, create a Deferred we can use for the
+    // eventual "completed" render
+    _react.useEffect(()=>{
+        if (vtContext.isTransitioning) setRenderDfd(new Deferred());
+    }, [
+        vtContext.isTransitioning
+    ]);
+    // Once the deferred is created, kick off startViewTransition() to update the
+    // DOM and then wait on the Deferred to resolve (indicating the DOM update has
+    // happened)
+    _react.useEffect(()=>{
+        if (renderDfd && pendingState && router.window) {
+            let newState = pendingState;
+            let renderPromise = renderDfd.promise;
+            let transition = router.window.document.startViewTransition(async ()=>{
+                optInStartTransition(()=>setStateImpl(newState));
+                await renderPromise;
+            });
+            transition.finished.finally(()=>{
+                setRenderDfd(undefined);
+                setTransition(undefined);
+                setPendingState(undefined);
+                setVtContext({
+                    isTransitioning: false
+                });
+            });
+            setTransition(transition);
+        }
+    }, [
+        optInStartTransition,
+        pendingState,
+        renderDfd,
+        router.window
+    ]);
+    // When the new location finally renders and is committed to the DOM, this
+    // effect will run to resolve the transition
+    _react.useEffect(()=>{
+        if (renderDfd && pendingState && state.location.key === pendingState.location.key) renderDfd.resolve();
+    }, [
+        renderDfd,
+        transition,
+        state.location,
+        pendingState
+    ]);
+    // If we get interrupted with a new navigation during a transition, we skip
+    // the active transition, let it cleanup, then kick it off again here
+    _react.useEffect(()=>{
+        if (!vtContext.isTransitioning && interruption) {
+            setPendingState(interruption.state);
+            setVtContext({
+                isTransitioning: true,
+                currentLocation: interruption.currentLocation,
+                nextLocation: interruption.nextLocation
+            });
+            setInterruption(undefined);
+        }
+    }, [
+        vtContext.isTransitioning,
+        interruption
+    ]);
+    let navigator = _react.useMemo(()=>{
+        return {
+            createHref: router.createHref,
+            encodeLocation: router.encodeLocation,
+            go: (n)=>router.navigate(n),
+            push: (to, state, opts)=>router.navigate(to, {
+                    state,
+                    preventScrollReset: opts == null ? void 0 : opts.preventScrollReset
+                }),
+            replace: (to, state, opts)=>router.navigate(to, {
+                    replace: true,
+                    state,
+                    preventScrollReset: opts == null ? void 0 : opts.preventScrollReset
+                })
+        };
+    }, [
+        router
+    ]);
+    let basename = router.basename || "/";
+    let dataRouterContext = _react.useMemo(()=>({
+            router,
+            navigator,
+            static: false,
+            basename
+        }), [
+        router,
+        navigator,
+        basename
+    ]);
+    // The fragment and {null} here are important!  We need them to keep React 18's
+    // useId happy when we are server-rendering since we may have a <script> here
+    // containing the hydrated server-side staticContext (from StaticRouterProvider).
+    // useId relies on the component tree structure to generate deterministic id's
+    // so we need to ensure it remains the same on the client even though
+    // we don't need the <script> tag
+    return /*#__PURE__*/ _react.createElement(_react.Fragment, null, /*#__PURE__*/ _react.createElement((0, _reactRouter.UNSAFE_DataRouterContext).Provider, {
+        value: dataRouterContext
+    }, /*#__PURE__*/ _react.createElement((0, _reactRouter.UNSAFE_DataRouterStateContext).Provider, {
+        value: state
+    }, /*#__PURE__*/ _react.createElement(FetchersContext.Provider, {
+        value: fetcherData.current
+    }, /*#__PURE__*/ _react.createElement(ViewTransitionContext.Provider, {
+        value: vtContext
+    }, /*#__PURE__*/ _react.createElement((0, _reactRouter.Router), {
+        basename: basename,
+        location: state.location,
+        navigationType: state.historyAction,
+        navigator: navigator
+    }, state.initialized ? /*#__PURE__*/ _react.createElement(DataRoutes, {
+        routes: router.routes,
+        state: state
+    }) : fallbackElement))))), null);
+}
+function DataRoutes(_ref3) {
+    let { routes, state } = _ref3;
+    return (0, _reactRouter.UNSAFE_useRoutesImpl)(routes, undefined, state);
+}
+/**
+ * A `<Router>` for use in web browsers. Provides the cleanest URLs.
+ */ function BrowserRouter(_ref4) {
+    let { basename, children, future, window: window1 } = _ref4;
+    let historyRef = _react.useRef();
+    if (historyRef.current == null) historyRef.current = (0, _router.createBrowserHistory)({
+        window: window1,
+        v5Compat: true
+    });
+    let history = historyRef.current;
+    let [state, setStateImpl] = _react.useState({
+        action: history.action,
+        location: history.location
+    });
+    let { v7_startTransition } = future || {};
+    let setState = _react.useCallback((newState)=>{
+        v7_startTransition && startTransitionImpl ? startTransitionImpl(()=>setStateImpl(newState)) : setStateImpl(newState);
+    }, [
+        setStateImpl,
+        v7_startTransition
+    ]);
+    _react.useLayoutEffect(()=>history.listen(setState), [
+        history,
+        setState
+    ]);
+    return /*#__PURE__*/ _react.createElement((0, _reactRouter.Router), {
+        basename: basename,
+        children: children,
+        location: state.location,
+        navigationType: state.action,
+        navigator: history
+    });
+}
+/**
+ * A `<Router>` for use in web browsers. Stores the location in the hash
+ * portion of the URL so it is not sent to the server.
+ */ function HashRouter(_ref5) {
+    let { basename, children, future, window: window1 } = _ref5;
+    let historyRef = _react.useRef();
+    if (historyRef.current == null) historyRef.current = (0, _router.createHashHistory)({
+        window: window1,
+        v5Compat: true
+    });
+    let history = historyRef.current;
+    let [state, setStateImpl] = _react.useState({
+        action: history.action,
+        location: history.location
+    });
+    let { v7_startTransition } = future || {};
+    let setState = _react.useCallback((newState)=>{
+        v7_startTransition && startTransitionImpl ? startTransitionImpl(()=>setStateImpl(newState)) : setStateImpl(newState);
+    }, [
+        setStateImpl,
+        v7_startTransition
+    ]);
+    _react.useLayoutEffect(()=>history.listen(setState), [
+        history,
+        setState
+    ]);
+    return /*#__PURE__*/ _react.createElement((0, _reactRouter.Router), {
+        basename: basename,
+        children: children,
+        location: state.location,
+        navigationType: state.action,
+        navigator: history
+    });
+}
+/**
+ * A `<Router>` that accepts a pre-instantiated history object. It's important
+ * to note that using your own history object is highly discouraged and may add
+ * two versions of the history library to your bundles unless you use the same
+ * version of the history library that React Router uses internally.
+ */ function HistoryRouter(_ref6) {
+    let { basename, children, future, history } = _ref6;
+    let [state, setStateImpl] = _react.useState({
+        action: history.action,
+        location: history.location
+    });
+    let { v7_startTransition } = future || {};
+    let setState = _react.useCallback((newState)=>{
+        v7_startTransition && startTransitionImpl ? startTransitionImpl(()=>setStateImpl(newState)) : setStateImpl(newState);
+    }, [
+        setStateImpl,
+        v7_startTransition
+    ]);
+    _react.useLayoutEffect(()=>history.listen(setState), [
+        history,
+        setState
+    ]);
+    return /*#__PURE__*/ _react.createElement((0, _reactRouter.Router), {
+        basename: basename,
+        children: children,
+        location: state.location,
+        navigationType: state.action,
+        navigator: history
+    });
+}
+HistoryRouter.displayName = "unstable_HistoryRouter";
+const isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
+const ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
+/**
+ * The public API for rendering a history-aware `<a>`.
+ */ const Link = /*#__PURE__*/ _react.forwardRef(function LinkWithRef(_ref7, ref) {
+    let { onClick, relative, reloadDocument, replace, state, target, to, preventScrollReset, unstable_viewTransition } = _ref7, rest = _objectWithoutPropertiesLoose(_ref7, _excluded);
+    let { basename } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
+    // Rendered into <a href> for absolute URLs
+    let absoluteHref;
+    let isExternal = false;
+    if (typeof to === "string" && ABSOLUTE_URL_REGEX.test(to)) {
+        // Render the absolute href server- and client-side
+        absoluteHref = to;
+        // Only check for external origins client-side
+        if (isBrowser) try {
+            let currentUrl = new URL(window.location.href);
+            let targetUrl = to.startsWith("//") ? new URL(currentUrl.protocol + to) : new URL(to);
+            let path = (0, _router.stripBasename)(targetUrl.pathname, basename);
+            if (targetUrl.origin === currentUrl.origin && path != null) // Strip the protocol/origin/basename for same-origin absolute URLs
+            to = path + targetUrl.search + targetUrl.hash;
+            else isExternal = true;
+        } catch (e) {
+            // We can't do external URL detection without a valid URL
+            (0, _router.UNSAFE_warning)(false, '<Link to="' + to + '"> contains an invalid URL which will probably break ' + "when clicked - please update to a valid URL path.");
+        }
+    }
+    // Rendered into <a href> for relative URLs
+    let href = (0, _reactRouter.useHref)(to, {
+        relative
+    });
+    let internalOnClick = useLinkClickHandler(to, {
+        replace,
+        state,
+        target,
+        preventScrollReset,
+        relative,
+        unstable_viewTransition
+    });
+    function handleClick(event) {
+        if (onClick) onClick(event);
+        if (!event.defaultPrevented) internalOnClick(event);
+    }
+    return(/*#__PURE__*/ // eslint-disable-next-line jsx-a11y/anchor-has-content
+    _react.createElement("a", _extends({}, rest, {
+        href: absoluteHref || href,
+        onClick: isExternal || reloadDocument ? onClick : handleClick,
+        ref: ref,
+        target: target
+    })));
+});
+Link.displayName = "Link";
+/**
+ * A `<Link>` wrapper that knows if it's "active" or not.
+ */ const NavLink = /*#__PURE__*/ _react.forwardRef(function NavLinkWithRef(_ref8, ref) {
+    let { "aria-current": ariaCurrentProp = "page", caseSensitive = false, className: classNameProp = "", end = false, style: styleProp, to, unstable_viewTransition, children } = _ref8, rest = _objectWithoutPropertiesLoose(_ref8, _excluded2);
+    let path = (0, _reactRouter.useResolvedPath)(to, {
+        relative: rest.relative
+    });
+    let location = (0, _reactRouter.useLocation)();
+    let routerState = _react.useContext((0, _reactRouter.UNSAFE_DataRouterStateContext));
+    let { navigator } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
+    let isTransitioning = routerState != null && // Conditional usage is OK here because the usage of a data router is static
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useViewTransitionState(path) && unstable_viewTransition === true;
+    let toPathname = navigator.encodeLocation ? navigator.encodeLocation(path).pathname : path.pathname;
+    let locationPathname = location.pathname;
+    let nextLocationPathname = routerState && routerState.navigation && routerState.navigation.location ? routerState.navigation.location.pathname : null;
+    if (!caseSensitive) {
+        locationPathname = locationPathname.toLowerCase();
+        nextLocationPathname = nextLocationPathname ? nextLocationPathname.toLowerCase() : null;
+        toPathname = toPathname.toLowerCase();
+    }
+    let isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(toPathname.length) === "/";
+    let isPending = nextLocationPathname != null && (nextLocationPathname === toPathname || !end && nextLocationPathname.startsWith(toPathname) && nextLocationPathname.charAt(toPathname.length) === "/");
+    let renderProps = {
+        isActive,
+        isPending,
+        isTransitioning
+    };
+    let ariaCurrent = isActive ? ariaCurrentProp : undefined;
+    let className;
+    if (typeof classNameProp === "function") className = classNameProp(renderProps);
+    else // If the className prop is not a function, we use a default `active`
+    // class for <NavLink />s that are active. In v5 `active` was the default
+    // value for `activeClassName`, but we are removing that API and can still
+    // use the old default behavior for a cleaner upgrade path and keep the
+    // simple styling rules working as they currently do.
+    className = [
+        classNameProp,
+        isActive ? "active" : null,
+        isPending ? "pending" : null,
+        isTransitioning ? "transitioning" : null
+    ].filter(Boolean).join(" ");
+    let style = typeof styleProp === "function" ? styleProp(renderProps) : styleProp;
+    return /*#__PURE__*/ _react.createElement(Link, _extends({}, rest, {
+        "aria-current": ariaCurrent,
+        className: className,
+        ref: ref,
+        style: style,
+        to: to,
+        unstable_viewTransition: unstable_viewTransition
+    }), typeof children === "function" ? children(renderProps) : children);
+});
+NavLink.displayName = "NavLink";
+/**
+ * A `@remix-run/router`-aware `<form>`. It behaves like a normal form except
+ * that the interaction with the server is with `fetch` instead of new document
+ * requests, allowing components to add nicer UX to the page as the form is
+ * submitted and returns with data.
+ */ const Form = /*#__PURE__*/ _react.forwardRef((_ref9, forwardedRef)=>{
+    let { fetcherKey, navigate, reloadDocument, replace, state, method = defaultMethod, action, onSubmit, relative, preventScrollReset, unstable_viewTransition } = _ref9, props = _objectWithoutPropertiesLoose(_ref9, _excluded3);
+    let submit = useSubmit();
+    let formAction = useFormAction(action, {
+        relative
+    });
+    let formMethod = method.toLowerCase() === "get" ? "get" : "post";
+    let submitHandler = (event)=>{
+        onSubmit && onSubmit(event);
+        if (event.defaultPrevented) return;
+        event.preventDefault();
+        let submitter = event.nativeEvent.submitter;
+        let submitMethod = (submitter == null ? void 0 : submitter.getAttribute("formmethod")) || method;
+        submit(submitter || event.currentTarget, {
+            fetcherKey,
+            method: submitMethod,
+            navigate,
+            replace,
+            state,
+            relative,
+            preventScrollReset,
+            unstable_viewTransition
+        });
+    };
+    return /*#__PURE__*/ _react.createElement("form", _extends({
+        ref: forwardedRef,
+        method: formMethod,
+        action: formAction,
+        onSubmit: reloadDocument ? onSubmit : submitHandler
+    }, props));
+});
+Form.displayName = "Form";
+/**
+ * This component will emulate the browser's scroll restoration on location
+ * changes.
+ */ function ScrollRestoration(_ref10) {
+    let { getKey, storageKey } = _ref10;
+    useScrollRestoration({
+        getKey,
+        storageKey
+    });
+    return null;
+}
+ScrollRestoration.displayName = "ScrollRestoration";
+//#endregion
+////////////////////////////////////////////////////////////////////////////////
+//#region Hooks
+////////////////////////////////////////////////////////////////////////////////
+var DataRouterHook;
+(function(DataRouterHook) {
+    DataRouterHook["UseScrollRestoration"] = "useScrollRestoration";
+    DataRouterHook["UseSubmit"] = "useSubmit";
+    DataRouterHook["UseSubmitFetcher"] = "useSubmitFetcher";
+    DataRouterHook["UseFetcher"] = "useFetcher";
+    DataRouterHook["useViewTransitionState"] = "useViewTransitionState";
+})(DataRouterHook || (DataRouterHook = {}));
+var DataRouterStateHook;
+(function(DataRouterStateHook) {
+    DataRouterStateHook["UseFetcher"] = "useFetcher";
+    DataRouterStateHook["UseFetchers"] = "useFetchers";
+    DataRouterStateHook["UseScrollRestoration"] = "useScrollRestoration";
+})(DataRouterStateHook || (DataRouterStateHook = {}));
+// Internal hooks
+function getDataRouterConsoleError(hookName) {
+    return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
+}
+function useDataRouterContext(hookName) {
+    let ctx = _react.useContext((0, _reactRouter.UNSAFE_DataRouterContext));
+    !ctx && (0, _router.UNSAFE_invariant)(false, getDataRouterConsoleError(hookName));
+    return ctx;
+}
+function useDataRouterState(hookName) {
+    let state = _react.useContext((0, _reactRouter.UNSAFE_DataRouterStateContext));
+    !state && (0, _router.UNSAFE_invariant)(false, getDataRouterConsoleError(hookName));
+    return state;
+}
+// External hooks
+/**
+ * Handles the click behavior for router `<Link>` components. This is useful if
+ * you need to create custom `<Link>` components with the same click behavior we
+ * use in our exported `<Link>`.
+ */ function useLinkClickHandler(to, _temp) {
+    let { target, replace: replaceProp, state, preventScrollReset, relative, unstable_viewTransition } = _temp === void 0 ? {} : _temp;
+    let navigate = (0, _reactRouter.useNavigate)();
+    let location = (0, _reactRouter.useLocation)();
+    let path = (0, _reactRouter.useResolvedPath)(to, {
+        relative
+    });
+    return _react.useCallback((event)=>{
+        if (shouldProcessLinkClick(event, target)) {
+            event.preventDefault();
+            // If the URL hasn't changed, a regular <a> will do a replace instead of
+            // a push, so do the same here unless the replace prop is explicitly set
+            let replace = replaceProp !== undefined ? replaceProp : (0, _reactRouter.createPath)(location) === (0, _reactRouter.createPath)(path);
+            navigate(to, {
+                replace,
+                state,
+                preventScrollReset,
+                relative,
+                unstable_viewTransition
+            });
+        }
+    }, [
+        location,
+        navigate,
+        path,
+        replaceProp,
+        state,
+        target,
+        to,
+        preventScrollReset,
+        relative,
+        unstable_viewTransition
+    ]);
+}
+/**
+ * A convenient wrapper for reading and writing search parameters via the
+ * URLSearchParams interface.
+ */ function useSearchParams(defaultInit) {
+    (0, _router.UNSAFE_warning)(typeof URLSearchParams !== "undefined", "You cannot use the `useSearchParams` hook in a browser that does not support the URLSearchParams API. If you need to support Internet Explorer 11, we recommend you load a polyfill such as https://github.com/ungap/url-search-params\n\nIf you're unsure how to load polyfills, we recommend you check out https://polyfill.io/v3/ which provides some recommendations about how to load polyfills only for users that need them, instead of for every user.");
+    let defaultSearchParamsRef = _react.useRef(createSearchParams(defaultInit));
+    let hasSetSearchParamsRef = _react.useRef(false);
+    let location = (0, _reactRouter.useLocation)();
+    let searchParams = _react.useMemo(()=>// Only merge in the defaults if we haven't yet called setSearchParams.
+        // Once we call that we want those to take precedence, otherwise you can't
+        // remove a param with setSearchParams({}) if it has an initial value
+        getSearchParamsForLocation(location.search, hasSetSearchParamsRef.current ? null : defaultSearchParamsRef.current), [
+        location.search
+    ]);
+    let navigate = (0, _reactRouter.useNavigate)();
+    let setSearchParams = _react.useCallback((nextInit, navigateOptions)=>{
+        const newSearchParams = createSearchParams(typeof nextInit === "function" ? nextInit(searchParams) : nextInit);
+        hasSetSearchParamsRef.current = true;
+        navigate("?" + newSearchParams, navigateOptions);
+    }, [
+        navigate,
+        searchParams
+    ]);
+    return [
+        searchParams,
+        setSearchParams
+    ];
+}
+function validateClientSideSubmission() {
+    if (typeof document === "undefined") throw new Error("You are calling submit during the server render. Try calling submit within a `useEffect` or callback instead.");
+}
+let fetcherId = 0;
+let getUniqueFetcherId = ()=>"__" + String(++fetcherId) + "__";
+/**
+ * Returns a function that may be used to programmatically submit a form (or
+ * some arbitrary data) to the server.
+ */ function useSubmit() {
+    let { router } = useDataRouterContext(DataRouterHook.UseSubmit);
+    let { basename } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
+    let currentRouteId = (0, _reactRouter.UNSAFE_useRouteId)();
+    return _react.useCallback(function(target, options) {
+        if (options === void 0) options = {};
+        validateClientSideSubmission();
+        let { action, method, encType, formData, body } = getFormSubmissionInfo(target, basename);
+        if (options.navigate === false) {
+            let key = options.fetcherKey || getUniqueFetcherId();
+            router.fetch(key, currentRouteId, options.action || action, {
+                preventScrollReset: options.preventScrollReset,
+                formData,
+                body,
+                formMethod: options.method || method,
+                formEncType: options.encType || encType
+            });
+        } else router.navigate(options.action || action, {
+            preventScrollReset: options.preventScrollReset,
+            formData,
+            body,
+            formMethod: options.method || method,
+            formEncType: options.encType || encType,
+            replace: options.replace,
+            state: options.state,
+            fromRouteId: currentRouteId,
+            unstable_viewTransition: options.unstable_viewTransition
+        });
+    }, [
+        router,
+        basename,
+        currentRouteId
+    ]);
+}
+// v7: Eventually we should deprecate this entirely in favor of using the
+// router method directly?
+function useFormAction(action, _temp2) {
+    let { relative } = _temp2 === void 0 ? {} : _temp2;
+    let { basename } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
+    let routeContext = _react.useContext((0, _reactRouter.UNSAFE_RouteContext));
+    !routeContext && (0, _router.UNSAFE_invariant)(false, "useFormAction must be used inside a RouteContext");
+    let [match] = routeContext.matches.slice(-1);
+    // Shallow clone path so we can modify it below, otherwise we modify the
+    // object referenced by useMemo inside useResolvedPath
+    let path = _extends({}, (0, _reactRouter.useResolvedPath)(action ? action : ".", {
+        relative
+    }));
+    // Previously we set the default action to ".". The problem with this is that
+    // `useResolvedPath(".")` excludes search params of the resolved URL. This is
+    // the intended behavior of when "." is specifically provided as
+    // the form action, but inconsistent w/ browsers when the action is omitted.
+    // https://github.com/remix-run/remix/issues/927
+    let location = (0, _reactRouter.useLocation)();
+    if (action == null) {
+        // Safe to write to this directly here since if action was undefined, we
+        // would have called useResolvedPath(".") which will never include a search
+        path.search = location.search;
+        // When grabbing search params from the URL, remove the automatically
+        // inserted ?index param so we match the useResolvedPath search behavior
+        // which would not include ?index
+        if (match.route.index) {
+            let params = new URLSearchParams(path.search);
+            params.delete("index");
+            path.search = params.toString() ? "?" + params.toString() : "";
+        }
+    }
+    if ((!action || action === ".") && match.route.index) path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index";
+    // If we're operating within a basename, prepend it to the pathname prior
+    // to creating the form action.  If this is a root navigation, then just use
+    // the raw basename which allows the basename to have full control over the
+    // presence of a trailing slash on root actions
+    if (basename !== "/") path.pathname = path.pathname === "/" ? basename : (0, _router.joinPaths)([
+        basename,
+        path.pathname
+    ]);
+    return (0, _reactRouter.createPath)(path);
+}
+// TODO: (v7) Change the useFetcher generic default from `any` to `unknown`
+/**
+ * Interacts with route loaders and actions without causing a navigation. Great
+ * for any interaction that stays on the same page.
+ */ function useFetcher(_temp3) {
+    var _route$matches;
+    let { key } = _temp3 === void 0 ? {} : _temp3;
+    let { router } = useDataRouterContext(DataRouterHook.UseFetcher);
+    let state = useDataRouterState(DataRouterStateHook.UseFetcher);
+    let fetcherData = _react.useContext(FetchersContext);
+    let route = _react.useContext((0, _reactRouter.UNSAFE_RouteContext));
+    let routeId = (_route$matches = route.matches[route.matches.length - 1]) == null ? void 0 : _route$matches.route.id;
+    !fetcherData && (0, _router.UNSAFE_invariant)(false, "useFetcher must be used inside a FetchersContext");
+    !route && (0, _router.UNSAFE_invariant)(false, "useFetcher must be used inside a RouteContext");
+    !(routeId != null) && (0, _router.UNSAFE_invariant)(false, 'useFetcher can only be used on routes that contain a unique "id"');
+    // Fetcher key handling
+    let [fetcherKey, setFetcherKey] = _react.useState(key || "");
+    if (!fetcherKey) setFetcherKey(getUniqueFetcherId());
+    // Registration/cleanup
+    _react.useEffect(()=>{
+        router.getFetcher(fetcherKey);
+        return ()=>{
+            // Tell the router we've unmounted - if v7_fetcherPersist is enabled this
+            // will not delete immediately but instead queue up a delete after the
+            // fetcher returns to an `idle` state
+            router.deleteFetcher(fetcherKey);
+        };
+    }, [
+        router,
+        fetcherKey
+    ]);
+    // Fetcher additions
+    let load = _react.useCallback((href)=>{
+        !routeId && (0, _router.UNSAFE_invariant)(false, "No routeId available for fetcher.load()");
+        router.fetch(fetcherKey, routeId, href);
+    }, [
+        fetcherKey,
+        routeId,
+        router
+    ]);
+    let submitImpl = useSubmit();
+    let submit = _react.useCallback((target, opts)=>{
+        submitImpl(target, _extends({}, opts, {
+            navigate: false,
+            fetcherKey
+        }));
+    }, [
+        fetcherKey,
+        submitImpl
+    ]);
+    let FetcherForm = _react.useMemo(()=>{
+        let FetcherForm = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
+            return /*#__PURE__*/ _react.createElement(Form, _extends({}, props, {
+                navigate: false,
+                fetcherKey: fetcherKey,
+                ref: ref
+            }));
+        });
+        FetcherForm.displayName = "fetcher.Form";
+        return FetcherForm;
+    }, [
+        fetcherKey
+    ]);
+    // Exposed FetcherWithComponents
+    let fetcher = state.fetchers.get(fetcherKey) || (0, _router.IDLE_FETCHER);
+    let data = fetcherData.get(fetcherKey);
+    let fetcherWithComponents = _react.useMemo(()=>_extends({
+            Form: FetcherForm,
+            submit,
+            load
+        }, fetcher, {
+            data
+        }), [
+        FetcherForm,
+        submit,
+        load,
+        fetcher,
+        data
+    ]);
+    return fetcherWithComponents;
+}
+/**
+ * Provides all fetchers currently on the page. Useful for layouts and parent
+ * routes that need to provide pending/optimistic UI regarding the fetch.
+ */ function useFetchers() {
+    let state = useDataRouterState(DataRouterStateHook.UseFetchers);
+    return Array.from(state.fetchers.entries()).map((_ref11)=>{
+        let [key, fetcher] = _ref11;
+        return _extends({}, fetcher, {
+            key
+        });
+    });
+}
+const SCROLL_RESTORATION_STORAGE_KEY = "react-router-scroll-positions";
+let savedScrollPositions = {};
+/**
+ * When rendered inside a RouterProvider, will restore scroll positions on navigations
+ */ function useScrollRestoration(_temp4) {
+    let { getKey, storageKey } = _temp4 === void 0 ? {} : _temp4;
+    let { router } = useDataRouterContext(DataRouterHook.UseScrollRestoration);
+    let { restoreScrollPosition, preventScrollReset } = useDataRouterState(DataRouterStateHook.UseScrollRestoration);
+    let { basename } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
+    let location = (0, _reactRouter.useLocation)();
+    let matches = (0, _reactRouter.useMatches)();
+    let navigation = (0, _reactRouter.useNavigation)();
+    // Trigger manual scroll restoration while we're active
+    _react.useEffect(()=>{
+        window.history.scrollRestoration = "manual";
+        return ()=>{
+            window.history.scrollRestoration = "auto";
+        };
+    }, []);
+    // Save positions on pagehide
+    usePageHide(_react.useCallback(()=>{
+        if (navigation.state === "idle") {
+            let key = (getKey ? getKey(location, matches) : null) || location.key;
+            savedScrollPositions[key] = window.scrollY;
+        }
+        try {
+            sessionStorage.setItem(storageKey || SCROLL_RESTORATION_STORAGE_KEY, JSON.stringify(savedScrollPositions));
+        } catch (error) {
+            (0, _router.UNSAFE_warning)(false, "Failed to save scroll positions in sessionStorage, <ScrollRestoration /> will not work properly (" + error + ").");
+        }
+        window.history.scrollRestoration = "auto";
+    }, [
+        storageKey,
+        getKey,
+        navigation.state,
+        location,
+        matches
+    ]));
+    // Read in any saved scroll locations
+    if (typeof document !== "undefined") {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        _react.useLayoutEffect(()=>{
+            try {
+                let sessionPositions = sessionStorage.getItem(storageKey || SCROLL_RESTORATION_STORAGE_KEY);
+                if (sessionPositions) savedScrollPositions = JSON.parse(sessionPositions);
+            } catch (e) {
+            // no-op, use default empty object
+            }
+        }, [
+            storageKey
+        ]);
+        // Enable scroll restoration in the router
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        _react.useLayoutEffect(()=>{
+            let getKeyWithoutBasename = getKey && basename !== "/" ? (location, matches)=>getKey(_extends({}, location, {
+                    pathname: (0, _router.stripBasename)(location.pathname, basename) || location.pathname
+                }), matches) : getKey;
+            let disableScrollRestoration = router == null ? void 0 : router.enableScrollRestoration(savedScrollPositions, ()=>window.scrollY, getKeyWithoutBasename);
+            return ()=>disableScrollRestoration && disableScrollRestoration();
+        }, [
+            router,
+            basename,
+            getKey
+        ]);
+        // Restore scrolling when state.restoreScrollPosition changes
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        _react.useLayoutEffect(()=>{
+            // Explicit false means don't do anything (used for submissions)
+            if (restoreScrollPosition === false) return;
+            // been here before, scroll to it
+            if (typeof restoreScrollPosition === "number") {
+                window.scrollTo(0, restoreScrollPosition);
+                return;
+            }
+            // try to scroll to the hash
+            if (location.hash) {
+                let el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+                if (el) {
+                    el.scrollIntoView();
+                    return;
+                }
+            }
+            // Don't reset if this navigation opted out
+            if (preventScrollReset === true) return;
+            // otherwise go to the top on new locations
+            window.scrollTo(0, 0);
+        }, [
+            location,
+            restoreScrollPosition,
+            preventScrollReset
+        ]);
+    }
+}
+/**
+ * Setup a callback to be fired on the window's `beforeunload` event. This is
+ * useful for saving some data to `window.localStorage` just before the page
+ * refreshes.
+ *
+ * Note: The `callback` argument should be a function created with
+ * `React.useCallback()`.
+ */ function useBeforeUnload(callback, options) {
+    let { capture } = options || {};
+    _react.useEffect(()=>{
+        let opts = capture != null ? {
+            capture
+        } : undefined;
+        window.addEventListener("beforeunload", callback, opts);
+        return ()=>{
+            window.removeEventListener("beforeunload", callback, opts);
+        };
+    }, [
+        callback,
+        capture
+    ]);
+}
+/**
+ * Setup a callback to be fired on the window's `pagehide` event. This is
+ * useful for saving some data to `window.localStorage` just before the page
+ * refreshes.  This event is better supported than beforeunload across browsers.
+ *
+ * Note: The `callback` argument should be a function created with
+ * `React.useCallback()`.
+ */ function usePageHide(callback, options) {
+    let { capture } = options || {};
+    _react.useEffect(()=>{
+        let opts = capture != null ? {
+            capture
+        } : undefined;
+        window.addEventListener("pagehide", callback, opts);
+        return ()=>{
+            window.removeEventListener("pagehide", callback, opts);
+        };
+    }, [
+        callback,
+        capture
+    ]);
+}
+/**
+ * Wrapper around useBlocker to show a window.confirm prompt to users instead
+ * of building a custom UI with useBlocker.
+ *
+ * Warning: This has *a lot of rough edges* and behaves very differently (and
+ * very incorrectly in some cases) across browsers if user click addition
+ * back/forward navigations while the confirm is open.  Use at your own risk.
+ */ function usePrompt(_ref12) {
+    let { when, message } = _ref12;
+    let blocker = (0, _reactRouter.unstable_useBlocker)(when);
+    _react.useEffect(()=>{
+        if (blocker.state === "blocked") {
+            let proceed = window.confirm(message);
+            if (proceed) // This timeout is needed to avoid a weird "race" on POP navigations
+            // between the `window.history` revert navigation and the result of
+            // `window.confirm`
+            setTimeout(blocker.proceed, 0);
+            else blocker.reset();
+        }
+    }, [
+        blocker,
+        message
+    ]);
+    _react.useEffect(()=>{
+        if (blocker.state === "blocked" && !when) blocker.reset();
+    }, [
+        blocker,
+        when
+    ]);
+}
+/**
+ * Return a boolean indicating if there is an active view transition to the
+ * given href.  You can use this value to render CSS classes or viewTransitionName
+ * styles onto your elements
+ *
+ * @param href The destination href
+ * @param [opts.relative] Relative routing type ("route" | "path")
+ */ function useViewTransitionState(to, opts) {
+    if (opts === void 0) opts = {};
+    let vtContext = _react.useContext(ViewTransitionContext);
+    !(vtContext != null) && (0, _router.UNSAFE_invariant)(false, "`unstable_useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?");
+    let { basename } = useDataRouterContext(DataRouterHook.useViewTransitionState);
+    let path = (0, _reactRouter.useResolvedPath)(to, {
+        relative: opts.relative
+    });
+    if (!vtContext.isTransitioning) return false;
+    let currentPath = (0, _router.stripBasename)(vtContext.currentLocation.pathname, basename) || vtContext.currentLocation.pathname;
+    let nextPath = (0, _router.stripBasename)(vtContext.nextLocation.pathname, basename) || vtContext.nextLocation.pathname;
+    // Transition is active if we're going to or coming from the indicated
+    // destination.  This ensures that other PUSH navigations that reverse
+    // an indicated transition apply.  I.e., on the list view you have:
+    //
+    //   <NavLink to="/details/1" unstable_viewTransition>
+    //
+    // If you click the breadcrumb back to the list view:
+    //
+    //   <NavLink to="/list" unstable_viewTransition>
+    //
+    // We should apply the transition because it's indicated as active going
+    // from /list -> /details/1 and therefore should be active on the reverse
+    // (even though this isn't strictly a POP reverse)
+    return (0, _router.matchPath)(path.pathname, nextPath) != null || (0, _router.matchPath)(path.pathname, currentPath) != null;
+}
+
+},{"react":"21dqq","react-router":"dbWyW","@remix-run/router":"5ncDG","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"dbWyW":[function(require,module,exports) {
 /**
  * React Router v6.18.0
  *
@@ -39816,3364 +42946,260 @@ function persistAppliedTransitions(_window, transitions) {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"9xmpe":[function(require,module,exports) {
-/**
- * React Router DOM v6.18.0
- *
- * Copyright (c) Remix Software Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.md file in the root directory of this source tree.
- *
- * @license MIT
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"ggaUx":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e9f6.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "AbortedDeferredError", ()=>(0, _reactRouter.AbortedDeferredError));
-parcelHelpers.export(exports, "Await", ()=>(0, _reactRouter.Await));
-parcelHelpers.export(exports, "MemoryRouter", ()=>(0, _reactRouter.MemoryRouter));
-parcelHelpers.export(exports, "Navigate", ()=>(0, _reactRouter.Navigate));
-parcelHelpers.export(exports, "NavigationType", ()=>(0, _reactRouter.NavigationType));
-parcelHelpers.export(exports, "Outlet", ()=>(0, _reactRouter.Outlet));
-parcelHelpers.export(exports, "Route", ()=>(0, _reactRouter.Route));
-parcelHelpers.export(exports, "Router", ()=>(0, _reactRouter.Router));
-parcelHelpers.export(exports, "Routes", ()=>(0, _reactRouter.Routes));
-parcelHelpers.export(exports, "UNSAFE_DataRouterContext", ()=>(0, _reactRouter.UNSAFE_DataRouterContext));
-parcelHelpers.export(exports, "UNSAFE_DataRouterStateContext", ()=>(0, _reactRouter.UNSAFE_DataRouterStateContext));
-parcelHelpers.export(exports, "UNSAFE_LocationContext", ()=>(0, _reactRouter.UNSAFE_LocationContext));
-parcelHelpers.export(exports, "UNSAFE_NavigationContext", ()=>(0, _reactRouter.UNSAFE_NavigationContext));
-parcelHelpers.export(exports, "UNSAFE_RouteContext", ()=>(0, _reactRouter.UNSAFE_RouteContext));
-parcelHelpers.export(exports, "UNSAFE_useRouteId", ()=>(0, _reactRouter.UNSAFE_useRouteId));
-parcelHelpers.export(exports, "createMemoryRouter", ()=>(0, _reactRouter.createMemoryRouter));
-parcelHelpers.export(exports, "createPath", ()=>(0, _reactRouter.createPath));
-parcelHelpers.export(exports, "createRoutesFromChildren", ()=>(0, _reactRouter.createRoutesFromChildren));
-parcelHelpers.export(exports, "createRoutesFromElements", ()=>(0, _reactRouter.createRoutesFromElements));
-parcelHelpers.export(exports, "defer", ()=>(0, _reactRouter.defer));
-parcelHelpers.export(exports, "generatePath", ()=>(0, _reactRouter.generatePath));
-parcelHelpers.export(exports, "isRouteErrorResponse", ()=>(0, _reactRouter.isRouteErrorResponse));
-parcelHelpers.export(exports, "json", ()=>(0, _reactRouter.json));
-parcelHelpers.export(exports, "matchPath", ()=>(0, _reactRouter.matchPath));
-parcelHelpers.export(exports, "matchRoutes", ()=>(0, _reactRouter.matchRoutes));
-parcelHelpers.export(exports, "parsePath", ()=>(0, _reactRouter.parsePath));
-parcelHelpers.export(exports, "redirect", ()=>(0, _reactRouter.redirect));
-parcelHelpers.export(exports, "redirectDocument", ()=>(0, _reactRouter.redirectDocument));
-parcelHelpers.export(exports, "renderMatches", ()=>(0, _reactRouter.renderMatches));
-parcelHelpers.export(exports, "resolvePath", ()=>(0, _reactRouter.resolvePath));
-parcelHelpers.export(exports, "unstable_useBlocker", ()=>(0, _reactRouter.unstable_useBlocker));
-parcelHelpers.export(exports, "useActionData", ()=>(0, _reactRouter.useActionData));
-parcelHelpers.export(exports, "useAsyncError", ()=>(0, _reactRouter.useAsyncError));
-parcelHelpers.export(exports, "useAsyncValue", ()=>(0, _reactRouter.useAsyncValue));
-parcelHelpers.export(exports, "useHref", ()=>(0, _reactRouter.useHref));
-parcelHelpers.export(exports, "useInRouterContext", ()=>(0, _reactRouter.useInRouterContext));
-parcelHelpers.export(exports, "useLoaderData", ()=>(0, _reactRouter.useLoaderData));
-parcelHelpers.export(exports, "useLocation", ()=>(0, _reactRouter.useLocation));
-parcelHelpers.export(exports, "useMatch", ()=>(0, _reactRouter.useMatch));
-parcelHelpers.export(exports, "useMatches", ()=>(0, _reactRouter.useMatches));
-parcelHelpers.export(exports, "useNavigate", ()=>(0, _reactRouter.useNavigate));
-parcelHelpers.export(exports, "useNavigation", ()=>(0, _reactRouter.useNavigation));
-parcelHelpers.export(exports, "useNavigationType", ()=>(0, _reactRouter.useNavigationType));
-parcelHelpers.export(exports, "useOutlet", ()=>(0, _reactRouter.useOutlet));
-parcelHelpers.export(exports, "useOutletContext", ()=>(0, _reactRouter.useOutletContext));
-parcelHelpers.export(exports, "useParams", ()=>(0, _reactRouter.useParams));
-parcelHelpers.export(exports, "useResolvedPath", ()=>(0, _reactRouter.useResolvedPath));
-parcelHelpers.export(exports, "useRevalidator", ()=>(0, _reactRouter.useRevalidator));
-parcelHelpers.export(exports, "useRouteError", ()=>(0, _reactRouter.useRouteError));
-parcelHelpers.export(exports, "useRouteLoaderData", ()=>(0, _reactRouter.useRouteLoaderData));
-parcelHelpers.export(exports, "useRoutes", ()=>(0, _reactRouter.useRoutes));
-//#endregion
-parcelHelpers.export(exports, "BrowserRouter", ()=>BrowserRouter);
-parcelHelpers.export(exports, "Form", ()=>Form);
-parcelHelpers.export(exports, "HashRouter", ()=>HashRouter);
-parcelHelpers.export(exports, "Link", ()=>Link);
-parcelHelpers.export(exports, "NavLink", ()=>NavLink);
-parcelHelpers.export(exports, "RouterProvider", ()=>RouterProvider);
-parcelHelpers.export(exports, "ScrollRestoration", ()=>ScrollRestoration);
-parcelHelpers.export(exports, "UNSAFE_FetchersContext", ()=>FetchersContext);
-parcelHelpers.export(exports, "UNSAFE_ViewTransitionContext", ()=>ViewTransitionContext);
-parcelHelpers.export(exports, "UNSAFE_useScrollRestoration", ()=>useScrollRestoration);
-parcelHelpers.export(exports, "createBrowserRouter", ()=>createBrowserRouter);
-parcelHelpers.export(exports, "createHashRouter", ()=>createHashRouter);
-parcelHelpers.export(exports, "createSearchParams", ()=>createSearchParams);
-parcelHelpers.export(exports, "unstable_HistoryRouter", ()=>HistoryRouter);
-parcelHelpers.export(exports, "unstable_usePrompt", ()=>usePrompt);
-parcelHelpers.export(exports, "unstable_useViewTransitionState", ()=>useViewTransitionState);
-parcelHelpers.export(exports, "useBeforeUnload", ()=>useBeforeUnload);
-parcelHelpers.export(exports, "useFetcher", ()=>useFetcher);
-parcelHelpers.export(exports, "useFetchers", ()=>useFetchers);
-parcelHelpers.export(exports, "useFormAction", ()=>useFormAction);
-parcelHelpers.export(exports, "useLinkClickHandler", ()=>useLinkClickHandler);
-parcelHelpers.export(exports, "useSearchParams", ()=>useSearchParams);
-parcelHelpers.export(exports, "useSubmit", ()=>useSubmit);
-var _react = require("react");
+parcelHelpers.export(exports, "MovieView", ()=>MovieView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _movieViewScss = require("./movie-view.scss");
+var _reactBootstrap = require("react-bootstrap");
 var _reactRouter = require("react-router");
-var _router = require("@remix-run/router");
-function _extends() {
-    _extends = Object.assign ? Object.assign.bind() : function(target) {
-        for(var i = 1; i < arguments.length; i++){
-            var source = arguments[i];
-            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
-        }
-        return target;
-    };
-    return _extends.apply(this, arguments);
-}
-function _objectWithoutPropertiesLoose(source, excluded) {
-    if (source == null) return {};
-    var target = {};
-    var sourceKeys = Object.keys(source);
-    var key, i;
-    for(i = 0; i < sourceKeys.length; i++){
-        key = sourceKeys[i];
-        if (excluded.indexOf(key) >= 0) continue;
-        target[key] = source[key];
-    }
-    return target;
-}
-const defaultMethod = "get";
-const defaultEncType = "application/x-www-form-urlencoded";
-function isHtmlElement(object) {
-    return object != null && typeof object.tagName === "string";
-}
-function isButtonElement(object) {
-    return isHtmlElement(object) && object.tagName.toLowerCase() === "button";
-}
-function isFormElement(object) {
-    return isHtmlElement(object) && object.tagName.toLowerCase() === "form";
-}
-function isInputElement(object) {
-    return isHtmlElement(object) && object.tagName.toLowerCase() === "input";
-}
-function isModifiedEvent(event) {
-    return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
-}
-function shouldProcessLinkClick(event, target) {
-    return event.button === 0 && // Ignore everything but left clicks
-    (!target || target === "_self") && // Let browser handle "target=_blank" etc.
-    !isModifiedEvent(event) // Ignore clicks with modifier keys
-    ;
-}
-/**
- * Creates a URLSearchParams object using the given initializer.
- *
- * This is identical to `new URLSearchParams(init)` except it also
- * supports arrays as values in the object form of the initializer
- * instead of just strings. This is convenient when you need multiple
- * values for a given key, but don't want to use an array initializer.
- *
- * For example, instead of:
- *
- *   let searchParams = new URLSearchParams([
- *     ['sort', 'name'],
- *     ['sort', 'price']
- *   ]);
- *
- * you can do:
- *
- *   let searchParams = createSearchParams({
- *     sort: ['name', 'price']
- *   });
- */ function createSearchParams(init) {
-    if (init === void 0) init = "";
-    return new URLSearchParams(typeof init === "string" || Array.isArray(init) || init instanceof URLSearchParams ? init : Object.keys(init).reduce((memo, key)=>{
-        let value = init[key];
-        return memo.concat(Array.isArray(value) ? value.map((v)=>[
-                key,
-                v
-            ]) : [
-            [
-                key,
-                value
-            ]
-        ]);
-    }, []));
-}
-function getSearchParamsForLocation(locationSearch, defaultSearchParams) {
-    let searchParams = createSearchParams(locationSearch);
-    if (defaultSearchParams) // Use `defaultSearchParams.forEach(...)` here instead of iterating of
-    // `defaultSearchParams.keys()` to work-around a bug in Firefox related to
-    // web extensions. Relevant Bugzilla tickets:
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=1414602
-    // https://bugzilla.mozilla.org/show_bug.cgi?id=1023984
-    defaultSearchParams.forEach((_, key)=>{
-        if (!searchParams.has(key)) defaultSearchParams.getAll(key).forEach((value)=>{
-            searchParams.append(key, value);
-        });
-    });
-    return searchParams;
-}
-// One-time check for submitter support
-let _formDataSupportsSubmitter = null;
-function isFormDataSubmitterSupported() {
-    if (_formDataSupportsSubmitter === null) try {
-        new FormData(document.createElement("form"), // @ts-expect-error if FormData supports the submitter parameter, this will throw
-        0);
-        _formDataSupportsSubmitter = false;
-    } catch (e) {
-        _formDataSupportsSubmitter = true;
-    }
-    return _formDataSupportsSubmitter;
-}
-const supportedFormEncTypes = new Set([
-    "application/x-www-form-urlencoded",
-    "multipart/form-data",
-    "text/plain"
-]);
-function getFormEncType(encType) {
-    if (encType != null && !supportedFormEncTypes.has(encType)) {
-        (0, _router.UNSAFE_warning)(false, '"' + encType + '" is not a valid `encType` for `<Form>`/`<fetcher.Form>` ' + ('and will default to "' + defaultEncType + '"'));
-        return null;
-    }
-    return encType;
-}
-function getFormSubmissionInfo(target, basename) {
-    let method;
-    let action;
-    let encType;
-    let formData;
-    let body;
-    if (isFormElement(target)) {
-        // When grabbing the action from the element, it will have had the basename
-        // prefixed to ensure non-JS scenarios work, so strip it since we'll
-        // re-prefix in the router
-        let attr = target.getAttribute("action");
-        action = attr ? (0, _router.stripBasename)(attr, basename) : null;
-        method = target.getAttribute("method") || defaultMethod;
-        encType = getFormEncType(target.getAttribute("enctype")) || defaultEncType;
-        formData = new FormData(target);
-    } else if (isButtonElement(target) || isInputElement(target) && (target.type === "submit" || target.type === "image")) {
-        let form = target.form;
-        if (form == null) throw new Error('Cannot submit a <button> or <input type="submit"> without a <form>');
-        // <button>/<input type="submit"> may override attributes of <form>
-        // When grabbing the action from the element, it will have had the basename
-        // prefixed to ensure non-JS scenarios work, so strip it since we'll
-        // re-prefix in the router
-        let attr = target.getAttribute("formaction") || form.getAttribute("action");
-        action = attr ? (0, _router.stripBasename)(attr, basename) : null;
-        method = target.getAttribute("formmethod") || form.getAttribute("method") || defaultMethod;
-        encType = getFormEncType(target.getAttribute("formenctype")) || getFormEncType(form.getAttribute("enctype")) || defaultEncType;
-        // Build a FormData object populated from a form and submitter
-        formData = new FormData(form, target);
-        // If this browser doesn't support the `FormData(el, submitter)` format,
-        // then tack on the submitter value at the end.  This is a lightweight
-        // solution that is not 100% spec compliant.  For complete support in older
-        // browsers, consider using the `formdata-submitter-polyfill` package
-        if (!isFormDataSubmitterSupported()) {
-            let { name, type, value } = target;
-            if (type === "image") {
-                let prefix = name ? name + "." : "";
-                formData.append(prefix + "x", "0");
-                formData.append(prefix + "y", "0");
-            } else if (name) formData.append(name, value);
-        }
-    } else if (isHtmlElement(target)) throw new Error('Cannot submit element that is not <form>, <button>, or <input type="submit|image">');
-    else {
-        method = defaultMethod;
-        action = null;
-        encType = defaultEncType;
-        body = target;
-    }
-    // Send body for <Form encType="text/plain" so we encode it into text
-    if (formData && encType === "text/plain") {
-        body = formData;
-        formData = undefined;
-    }
-    return {
-        action,
-        method: method.toLowerCase(),
-        encType,
-        formData,
-        body
-    };
-}
-const _excluded = [
-    "onClick",
-    "relative",
-    "reloadDocument",
-    "replace",
-    "state",
-    "target",
-    "to",
-    "preventScrollReset",
-    "unstable_viewTransition"
-], _excluded2 = [
-    "aria-current",
-    "caseSensitive",
-    "className",
-    "end",
-    "style",
-    "to",
-    "unstable_viewTransition",
-    "children"
-], _excluded3 = [
-    "fetcherKey",
-    "navigate",
-    "reloadDocument",
-    "replace",
-    "state",
-    "method",
-    "action",
-    "onSubmit",
-    "relative",
-    "preventScrollReset",
-    "unstable_viewTransition"
-];
-function createBrowserRouter(routes, opts) {
-    return (0, _router.createRouter)({
-        basename: opts == null ? void 0 : opts.basename,
-        future: _extends({}, opts == null ? void 0 : opts.future, {
-            v7_prependBasename: true
-        }),
-        history: (0, _router.createBrowserHistory)({
-            window: opts == null ? void 0 : opts.window
-        }),
-        hydrationData: (opts == null ? void 0 : opts.hydrationData) || parseHydrationData(),
-        routes,
-        mapRouteProperties: (0, _reactRouter.UNSAFE_mapRouteProperties),
-        window: opts == null ? void 0 : opts.window
-    }).initialize();
-}
-function createHashRouter(routes, opts) {
-    return (0, _router.createRouter)({
-        basename: opts == null ? void 0 : opts.basename,
-        future: _extends({}, opts == null ? void 0 : opts.future, {
-            v7_prependBasename: true
-        }),
-        history: (0, _router.createHashHistory)({
-            window: opts == null ? void 0 : opts.window
-        }),
-        hydrationData: (opts == null ? void 0 : opts.hydrationData) || parseHydrationData(),
-        routes,
-        mapRouteProperties: (0, _reactRouter.UNSAFE_mapRouteProperties),
-        window: opts == null ? void 0 : opts.window
-    }).initialize();
-}
-function parseHydrationData() {
-    var _window;
-    let state = (_window = window) == null ? void 0 : _window.__staticRouterHydrationData;
-    if (state && state.errors) state = _extends({}, state, {
-        errors: deserializeErrors(state.errors)
-    });
-    return state;
-}
-function deserializeErrors(errors) {
-    if (!errors) return null;
-    let entries = Object.entries(errors);
-    let serialized = {};
-    for (let [key, val] of entries){
-        // Hey you!  If you change this, please change the corresponding logic in
-        // serializeErrors in react-router-dom/server.tsx :)
-        if (val && val.__type === "RouteErrorResponse") serialized[key] = new (0, _router.UNSAFE_ErrorResponseImpl)(val.status, val.statusText, val.data, val.internal === true);
-        else if (val && val.__type === "Error") {
-            // Attempt to reconstruct the right type of Error (i.e., ReferenceError)
-            if (val.__subType) {
-                let ErrorConstructor = window[val.__subType];
-                if (typeof ErrorConstructor === "function") try {
-                    // @ts-expect-error
-                    let error = new ErrorConstructor(val.message);
-                    // Wipe away the client-side stack trace.  Nothing to fill it in with
-                    // because we don't serialize SSR stack traces for security reasons
-                    error.stack = "";
-                    serialized[key] = error;
-                } catch (e) {
-                // no-op - fall through and create a normal Error
-                }
-            }
-            if (serialized[key] == null) {
-                let error = new Error(val.message);
-                // Wipe away the client-side stack trace.  Nothing to fill it in with
-                // because we don't serialize SSR stack traces for security reasons
-                error.stack = "";
-                serialized[key] = error;
-            }
-        } else serialized[key] = val;
-    }
-    return serialized;
-}
-const ViewTransitionContext = /*#__PURE__*/ _react.createContext({
-    isTransitioning: false
-});
-ViewTransitionContext.displayName = "ViewTransition";
-const FetchersContext = /*#__PURE__*/ _react.createContext(new Map());
-FetchersContext.displayName = "Fetchers";
-//#endregion
-////////////////////////////////////////////////////////////////////////////////
-//#region Components
-////////////////////////////////////////////////////////////////////////////////
-/**
-  Webpack + React 17 fails to compile on any of the following because webpack
-  complains that `startTransition` doesn't exist in `React`:
-  * import { startTransition } from "react"
-  * import * as React from from "react";
-    "startTransition" in React ? React.startTransition(() => setState()) : setState()
-  * import * as React from from "react";
-    "startTransition" in React ? React["startTransition"](() => setState()) : setState()
-
-  Moving it to a constant such as the following solves the Webpack/React 17 issue:
-  * import * as React from from "react";
-    const START_TRANSITION = "startTransition";
-    START_TRANSITION in React ? React[START_TRANSITION](() => setState()) : setState()
-
-  However, that introduces webpack/terser minification issues in production builds
-  in React 18 where minification/obfuscation ends up removing the call of
-  React.startTransition entirely from the first half of the ternary.  Grabbing
-  this exported reference once up front resolves that issue.
-
-  See https://github.com/remix-run/react-router/issues/10579
-*/ const START_TRANSITION = "startTransition";
-const startTransitionImpl = _react[START_TRANSITION];
-function startTransitionSafe(cb) {
-    if (startTransitionImpl) startTransitionImpl(cb);
-    else cb();
-}
-class Deferred {
-    constructor(){
-        this.status = "pending";
-        this.promise = new Promise((resolve, reject)=>{
-            this.resolve = (value)=>{
-                if (this.status === "pending") {
-                    this.status = "resolved";
-                    resolve(value);
-                }
-            };
-            this.reject = (reason)=>{
-                if (this.status === "pending") {
-                    this.status = "rejected";
-                    reject(reason);
-                }
-            };
-        });
-    }
-}
-/**
- * Given a Remix Router instance, render the appropriate UI
- */ function RouterProvider(_ref) {
-    let { fallbackElement, router, future } = _ref;
-    let [state, setStateImpl] = _react.useState(router.state);
-    let [pendingState, setPendingState] = _react.useState();
-    let [vtContext, setVtContext] = _react.useState({
-        isTransitioning: false
-    });
-    let [renderDfd, setRenderDfd] = _react.useState();
-    let [transition, setTransition] = _react.useState();
-    let [interruption, setInterruption] = _react.useState();
-    let fetcherData = _react.useRef(new Map());
-    let { v7_startTransition } = future || {};
-    let optInStartTransition = _react.useCallback((cb)=>{
-        if (v7_startTransition) startTransitionSafe(cb);
-        else cb();
-    }, [
-        v7_startTransition
-    ]);
-    let setState = _react.useCallback((newState, _ref2)=>{
-        let { deletedFetchers, unstable_viewTransitionOpts: viewTransitionOpts } = _ref2;
-        deletedFetchers.forEach((key)=>fetcherData.current.delete(key));
-        newState.fetchers.forEach((fetcher, key)=>{
-            if (fetcher.data !== undefined) fetcherData.current.set(key, fetcher.data);
-        });
-        if (!viewTransitionOpts || router.window == null || typeof router.window.document.startViewTransition !== "function") // Mid-navigation state update, or startViewTransition isn't available
-        optInStartTransition(()=>setStateImpl(newState));
-        else if (transition && renderDfd) {
-            // Interrupting an in-progress transition, cancel and let everything flush
-            // out, and then kick off a new transition from the interruption state
-            renderDfd.resolve();
-            transition.skipTransition();
-            setInterruption({
-                state: newState,
-                currentLocation: viewTransitionOpts.currentLocation,
-                nextLocation: viewTransitionOpts.nextLocation
-            });
-        } else {
-            // Completed navigation update with opted-in view transitions, let 'er rip
-            setPendingState(newState);
-            setVtContext({
-                isTransitioning: true,
-                currentLocation: viewTransitionOpts.currentLocation,
-                nextLocation: viewTransitionOpts.nextLocation
-            });
-        }
-    }, [
-        router.window,
-        transition,
-        renderDfd,
-        fetcherData,
-        optInStartTransition
-    ]);
-    // Need to use a layout effect here so we are subscribed early enough to
-    // pick up on any render-driven redirects/navigations (useEffect/<Navigate>)
-    _react.useLayoutEffect(()=>router.subscribe(setState), [
-        router,
-        setState
-    ]);
-    // When we start a view transition, create a Deferred we can use for the
-    // eventual "completed" render
-    _react.useEffect(()=>{
-        if (vtContext.isTransitioning) setRenderDfd(new Deferred());
-    }, [
-        vtContext.isTransitioning
-    ]);
-    // Once the deferred is created, kick off startViewTransition() to update the
-    // DOM and then wait on the Deferred to resolve (indicating the DOM update has
-    // happened)
-    _react.useEffect(()=>{
-        if (renderDfd && pendingState && router.window) {
-            let newState = pendingState;
-            let renderPromise = renderDfd.promise;
-            let transition = router.window.document.startViewTransition(async ()=>{
-                optInStartTransition(()=>setStateImpl(newState));
-                await renderPromise;
-            });
-            transition.finished.finally(()=>{
-                setRenderDfd(undefined);
-                setTransition(undefined);
-                setPendingState(undefined);
-                setVtContext({
-                    isTransitioning: false
-                });
-            });
-            setTransition(transition);
-        }
-    }, [
-        optInStartTransition,
-        pendingState,
-        renderDfd,
-        router.window
-    ]);
-    // When the new location finally renders and is committed to the DOM, this
-    // effect will run to resolve the transition
-    _react.useEffect(()=>{
-        if (renderDfd && pendingState && state.location.key === pendingState.location.key) renderDfd.resolve();
-    }, [
-        renderDfd,
-        transition,
-        state.location,
-        pendingState
-    ]);
-    // If we get interrupted with a new navigation during a transition, we skip
-    // the active transition, let it cleanup, then kick it off again here
-    _react.useEffect(()=>{
-        if (!vtContext.isTransitioning && interruption) {
-            setPendingState(interruption.state);
-            setVtContext({
-                isTransitioning: true,
-                currentLocation: interruption.currentLocation,
-                nextLocation: interruption.nextLocation
-            });
-            setInterruption(undefined);
-        }
-    }, [
-        vtContext.isTransitioning,
-        interruption
-    ]);
-    let navigator = _react.useMemo(()=>{
-        return {
-            createHref: router.createHref,
-            encodeLocation: router.encodeLocation,
-            go: (n)=>router.navigate(n),
-            push: (to, state, opts)=>router.navigate(to, {
-                    state,
-                    preventScrollReset: opts == null ? void 0 : opts.preventScrollReset
-                }),
-            replace: (to, state, opts)=>router.navigate(to, {
-                    replace: true,
-                    state,
-                    preventScrollReset: opts == null ? void 0 : opts.preventScrollReset
-                })
-        };
-    }, [
-        router
-    ]);
-    let basename = router.basename || "/";
-    let dataRouterContext = _react.useMemo(()=>({
-            router,
-            navigator,
-            static: false,
-            basename
-        }), [
-        router,
-        navigator,
-        basename
-    ]);
-    // The fragment and {null} here are important!  We need them to keep React 18's
-    // useId happy when we are server-rendering since we may have a <script> here
-    // containing the hydrated server-side staticContext (from StaticRouterProvider).
-    // useId relies on the component tree structure to generate deterministic id's
-    // so we need to ensure it remains the same on the client even though
-    // we don't need the <script> tag
-    return /*#__PURE__*/ _react.createElement(_react.Fragment, null, /*#__PURE__*/ _react.createElement((0, _reactRouter.UNSAFE_DataRouterContext).Provider, {
-        value: dataRouterContext
-    }, /*#__PURE__*/ _react.createElement((0, _reactRouter.UNSAFE_DataRouterStateContext).Provider, {
-        value: state
-    }, /*#__PURE__*/ _react.createElement(FetchersContext.Provider, {
-        value: fetcherData.current
-    }, /*#__PURE__*/ _react.createElement(ViewTransitionContext.Provider, {
-        value: vtContext
-    }, /*#__PURE__*/ _react.createElement((0, _reactRouter.Router), {
-        basename: basename,
-        location: state.location,
-        navigationType: state.historyAction,
-        navigator: navigator
-    }, state.initialized ? /*#__PURE__*/ _react.createElement(DataRoutes, {
-        routes: router.routes,
-        state: state
-    }) : fallbackElement))))), null);
-}
-function DataRoutes(_ref3) {
-    let { routes, state } = _ref3;
-    return (0, _reactRouter.UNSAFE_useRoutesImpl)(routes, undefined, state);
-}
-/**
- * A `<Router>` for use in web browsers. Provides the cleanest URLs.
- */ function BrowserRouter(_ref4) {
-    let { basename, children, future, window: window1 } = _ref4;
-    let historyRef = _react.useRef();
-    if (historyRef.current == null) historyRef.current = (0, _router.createBrowserHistory)({
-        window: window1,
-        v5Compat: true
-    });
-    let history = historyRef.current;
-    let [state, setStateImpl] = _react.useState({
-        action: history.action,
-        location: history.location
-    });
-    let { v7_startTransition } = future || {};
-    let setState = _react.useCallback((newState)=>{
-        v7_startTransition && startTransitionImpl ? startTransitionImpl(()=>setStateImpl(newState)) : setStateImpl(newState);
-    }, [
-        setStateImpl,
-        v7_startTransition
-    ]);
-    _react.useLayoutEffect(()=>history.listen(setState), [
-        history,
-        setState
-    ]);
-    return /*#__PURE__*/ _react.createElement((0, _reactRouter.Router), {
-        basename: basename,
-        children: children,
-        location: state.location,
-        navigationType: state.action,
-        navigator: history
-    });
-}
-/**
- * A `<Router>` for use in web browsers. Stores the location in the hash
- * portion of the URL so it is not sent to the server.
- */ function HashRouter(_ref5) {
-    let { basename, children, future, window: window1 } = _ref5;
-    let historyRef = _react.useRef();
-    if (historyRef.current == null) historyRef.current = (0, _router.createHashHistory)({
-        window: window1,
-        v5Compat: true
-    });
-    let history = historyRef.current;
-    let [state, setStateImpl] = _react.useState({
-        action: history.action,
-        location: history.location
-    });
-    let { v7_startTransition } = future || {};
-    let setState = _react.useCallback((newState)=>{
-        v7_startTransition && startTransitionImpl ? startTransitionImpl(()=>setStateImpl(newState)) : setStateImpl(newState);
-    }, [
-        setStateImpl,
-        v7_startTransition
-    ]);
-    _react.useLayoutEffect(()=>history.listen(setState), [
-        history,
-        setState
-    ]);
-    return /*#__PURE__*/ _react.createElement((0, _reactRouter.Router), {
-        basename: basename,
-        children: children,
-        location: state.location,
-        navigationType: state.action,
-        navigator: history
-    });
-}
-/**
- * A `<Router>` that accepts a pre-instantiated history object. It's important
- * to note that using your own history object is highly discouraged and may add
- * two versions of the history library to your bundles unless you use the same
- * version of the history library that React Router uses internally.
- */ function HistoryRouter(_ref6) {
-    let { basename, children, future, history } = _ref6;
-    let [state, setStateImpl] = _react.useState({
-        action: history.action,
-        location: history.location
-    });
-    let { v7_startTransition } = future || {};
-    let setState = _react.useCallback((newState)=>{
-        v7_startTransition && startTransitionImpl ? startTransitionImpl(()=>setStateImpl(newState)) : setStateImpl(newState);
-    }, [
-        setStateImpl,
-        v7_startTransition
-    ]);
-    _react.useLayoutEffect(()=>history.listen(setState), [
-        history,
-        setState
-    ]);
-    return /*#__PURE__*/ _react.createElement((0, _reactRouter.Router), {
-        basename: basename,
-        children: children,
-        location: state.location,
-        navigationType: state.action,
-        navigator: history
-    });
-}
-HistoryRouter.displayName = "unstable_HistoryRouter";
-const isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
-const ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;
-/**
- * The public API for rendering a history-aware `<a>`.
- */ const Link = /*#__PURE__*/ _react.forwardRef(function LinkWithRef(_ref7, ref) {
-    let { onClick, relative, reloadDocument, replace, state, target, to, preventScrollReset, unstable_viewTransition } = _ref7, rest = _objectWithoutPropertiesLoose(_ref7, _excluded);
-    let { basename } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
-    // Rendered into <a href> for absolute URLs
-    let absoluteHref;
-    let isExternal = false;
-    if (typeof to === "string" && ABSOLUTE_URL_REGEX.test(to)) {
-        // Render the absolute href server- and client-side
-        absoluteHref = to;
-        // Only check for external origins client-side
-        if (isBrowser) try {
-            let currentUrl = new URL(window.location.href);
-            let targetUrl = to.startsWith("//") ? new URL(currentUrl.protocol + to) : new URL(to);
-            let path = (0, _router.stripBasename)(targetUrl.pathname, basename);
-            if (targetUrl.origin === currentUrl.origin && path != null) // Strip the protocol/origin/basename for same-origin absolute URLs
-            to = path + targetUrl.search + targetUrl.hash;
-            else isExternal = true;
-        } catch (e) {
-            // We can't do external URL detection without a valid URL
-            (0, _router.UNSAFE_warning)(false, '<Link to="' + to + '"> contains an invalid URL which will probably break ' + "when clicked - please update to a valid URL path.");
-        }
-    }
-    // Rendered into <a href> for relative URLs
-    let href = (0, _reactRouter.useHref)(to, {
-        relative
-    });
-    let internalOnClick = useLinkClickHandler(to, {
-        replace,
-        state,
-        target,
-        preventScrollReset,
-        relative,
-        unstable_viewTransition
-    });
-    function handleClick(event) {
-        if (onClick) onClick(event);
-        if (!event.defaultPrevented) internalOnClick(event);
-    }
-    return(/*#__PURE__*/ // eslint-disable-next-line jsx-a11y/anchor-has-content
-    _react.createElement("a", _extends({}, rest, {
-        href: absoluteHref || href,
-        onClick: isExternal || reloadDocument ? onClick : handleClick,
-        ref: ref,
-        target: target
-    })));
-});
-Link.displayName = "Link";
-/**
- * A `<Link>` wrapper that knows if it's "active" or not.
- */ const NavLink = /*#__PURE__*/ _react.forwardRef(function NavLinkWithRef(_ref8, ref) {
-    let { "aria-current": ariaCurrentProp = "page", caseSensitive = false, className: classNameProp = "", end = false, style: styleProp, to, unstable_viewTransition, children } = _ref8, rest = _objectWithoutPropertiesLoose(_ref8, _excluded2);
-    let path = (0, _reactRouter.useResolvedPath)(to, {
-        relative: rest.relative
-    });
-    let location = (0, _reactRouter.useLocation)();
-    let routerState = _react.useContext((0, _reactRouter.UNSAFE_DataRouterStateContext));
-    let { navigator } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
-    let isTransitioning = routerState != null && // Conditional usage is OK here because the usage of a data router is static
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useViewTransitionState(path) && unstable_viewTransition === true;
-    let toPathname = navigator.encodeLocation ? navigator.encodeLocation(path).pathname : path.pathname;
-    let locationPathname = location.pathname;
-    let nextLocationPathname = routerState && routerState.navigation && routerState.navigation.location ? routerState.navigation.location.pathname : null;
-    if (!caseSensitive) {
-        locationPathname = locationPathname.toLowerCase();
-        nextLocationPathname = nextLocationPathname ? nextLocationPathname.toLowerCase() : null;
-        toPathname = toPathname.toLowerCase();
-    }
-    let isActive = locationPathname === toPathname || !end && locationPathname.startsWith(toPathname) && locationPathname.charAt(toPathname.length) === "/";
-    let isPending = nextLocationPathname != null && (nextLocationPathname === toPathname || !end && nextLocationPathname.startsWith(toPathname) && nextLocationPathname.charAt(toPathname.length) === "/");
-    let renderProps = {
-        isActive,
-        isPending,
-        isTransitioning
-    };
-    let ariaCurrent = isActive ? ariaCurrentProp : undefined;
-    let className;
-    if (typeof classNameProp === "function") className = classNameProp(renderProps);
-    else // If the className prop is not a function, we use a default `active`
-    // class for <NavLink />s that are active. In v5 `active` was the default
-    // value for `activeClassName`, but we are removing that API and can still
-    // use the old default behavior for a cleaner upgrade path and keep the
-    // simple styling rules working as they currently do.
-    className = [
-        classNameProp,
-        isActive ? "active" : null,
-        isPending ? "pending" : null,
-        isTransitioning ? "transitioning" : null
-    ].filter(Boolean).join(" ");
-    let style = typeof styleProp === "function" ? styleProp(renderProps) : styleProp;
-    return /*#__PURE__*/ _react.createElement(Link, _extends({}, rest, {
-        "aria-current": ariaCurrent,
-        className: className,
-        ref: ref,
-        style: style,
-        to: to,
-        unstable_viewTransition: unstable_viewTransition
-    }), typeof children === "function" ? children(renderProps) : children);
-});
-NavLink.displayName = "NavLink";
-/**
- * A `@remix-run/router`-aware `<form>`. It behaves like a normal form except
- * that the interaction with the server is with `fetch` instead of new document
- * requests, allowing components to add nicer UX to the page as the form is
- * submitted and returns with data.
- */ const Form = /*#__PURE__*/ _react.forwardRef((_ref9, forwardedRef)=>{
-    let { fetcherKey, navigate, reloadDocument, replace, state, method = defaultMethod, action, onSubmit, relative, preventScrollReset, unstable_viewTransition } = _ref9, props = _objectWithoutPropertiesLoose(_ref9, _excluded3);
-    let submit = useSubmit();
-    let formAction = useFormAction(action, {
-        relative
-    });
-    let formMethod = method.toLowerCase() === "get" ? "get" : "post";
-    let submitHandler = (event)=>{
-        onSubmit && onSubmit(event);
-        if (event.defaultPrevented) return;
-        event.preventDefault();
-        let submitter = event.nativeEvent.submitter;
-        let submitMethod = (submitter == null ? void 0 : submitter.getAttribute("formmethod")) || method;
-        submit(submitter || event.currentTarget, {
-            fetcherKey,
-            method: submitMethod,
-            navigate,
-            replace,
-            state,
-            relative,
-            preventScrollReset,
-            unstable_viewTransition
-        });
-    };
-    return /*#__PURE__*/ _react.createElement("form", _extends({
-        ref: forwardedRef,
-        method: formMethod,
-        action: formAction,
-        onSubmit: reloadDocument ? onSubmit : submitHandler
-    }, props));
-});
-Form.displayName = "Form";
-/**
- * This component will emulate the browser's scroll restoration on location
- * changes.
- */ function ScrollRestoration(_ref10) {
-    let { getKey, storageKey } = _ref10;
-    useScrollRestoration({
-        getKey,
-        storageKey
-    });
-    return null;
-}
-ScrollRestoration.displayName = "ScrollRestoration";
-//#endregion
-////////////////////////////////////////////////////////////////////////////////
-//#region Hooks
-////////////////////////////////////////////////////////////////////////////////
-var DataRouterHook;
-(function(DataRouterHook) {
-    DataRouterHook["UseScrollRestoration"] = "useScrollRestoration";
-    DataRouterHook["UseSubmit"] = "useSubmit";
-    DataRouterHook["UseSubmitFetcher"] = "useSubmitFetcher";
-    DataRouterHook["UseFetcher"] = "useFetcher";
-    DataRouterHook["useViewTransitionState"] = "useViewTransitionState";
-})(DataRouterHook || (DataRouterHook = {}));
-var DataRouterStateHook;
-(function(DataRouterStateHook) {
-    DataRouterStateHook["UseFetcher"] = "useFetcher";
-    DataRouterStateHook["UseFetchers"] = "useFetchers";
-    DataRouterStateHook["UseScrollRestoration"] = "useScrollRestoration";
-})(DataRouterStateHook || (DataRouterStateHook = {}));
-// Internal hooks
-function getDataRouterConsoleError(hookName) {
-    return hookName + " must be used within a data router.  See https://reactrouter.com/routers/picking-a-router.";
-}
-function useDataRouterContext(hookName) {
-    let ctx = _react.useContext((0, _reactRouter.UNSAFE_DataRouterContext));
-    !ctx && (0, _router.UNSAFE_invariant)(false, getDataRouterConsoleError(hookName));
-    return ctx;
-}
-function useDataRouterState(hookName) {
-    let state = _react.useContext((0, _reactRouter.UNSAFE_DataRouterStateContext));
-    !state && (0, _router.UNSAFE_invariant)(false, getDataRouterConsoleError(hookName));
-    return state;
-}
-// External hooks
-/**
- * Handles the click behavior for router `<Link>` components. This is useful if
- * you need to create custom `<Link>` components with the same click behavior we
- * use in our exported `<Link>`.
- */ function useLinkClickHandler(to, _temp) {
-    let { target, replace: replaceProp, state, preventScrollReset, relative, unstable_viewTransition } = _temp === void 0 ? {} : _temp;
-    let navigate = (0, _reactRouter.useNavigate)();
-    let location = (0, _reactRouter.useLocation)();
-    let path = (0, _reactRouter.useResolvedPath)(to, {
-        relative
-    });
-    return _react.useCallback((event)=>{
-        if (shouldProcessLinkClick(event, target)) {
-            event.preventDefault();
-            // If the URL hasn't changed, a regular <a> will do a replace instead of
-            // a push, so do the same here unless the replace prop is explicitly set
-            let replace = replaceProp !== undefined ? replaceProp : (0, _reactRouter.createPath)(location) === (0, _reactRouter.createPath)(path);
-            navigate(to, {
-                replace,
-                state,
-                preventScrollReset,
-                relative,
-                unstable_viewTransition
-            });
-        }
-    }, [
-        location,
-        navigate,
-        path,
-        replaceProp,
-        state,
-        target,
-        to,
-        preventScrollReset,
-        relative,
-        unstable_viewTransition
-    ]);
-}
-/**
- * A convenient wrapper for reading and writing search parameters via the
- * URLSearchParams interface.
- */ function useSearchParams(defaultInit) {
-    (0, _router.UNSAFE_warning)(typeof URLSearchParams !== "undefined", "You cannot use the `useSearchParams` hook in a browser that does not support the URLSearchParams API. If you need to support Internet Explorer 11, we recommend you load a polyfill such as https://github.com/ungap/url-search-params\n\nIf you're unsure how to load polyfills, we recommend you check out https://polyfill.io/v3/ which provides some recommendations about how to load polyfills only for users that need them, instead of for every user.");
-    let defaultSearchParamsRef = _react.useRef(createSearchParams(defaultInit));
-    let hasSetSearchParamsRef = _react.useRef(false);
-    let location = (0, _reactRouter.useLocation)();
-    let searchParams = _react.useMemo(()=>// Only merge in the defaults if we haven't yet called setSearchParams.
-        // Once we call that we want those to take precedence, otherwise you can't
-        // remove a param with setSearchParams({}) if it has an initial value
-        getSearchParamsForLocation(location.search, hasSetSearchParamsRef.current ? null : defaultSearchParamsRef.current), [
-        location.search
-    ]);
-    let navigate = (0, _reactRouter.useNavigate)();
-    let setSearchParams = _react.useCallback((nextInit, navigateOptions)=>{
-        const newSearchParams = createSearchParams(typeof nextInit === "function" ? nextInit(searchParams) : nextInit);
-        hasSetSearchParamsRef.current = true;
-        navigate("?" + newSearchParams, navigateOptions);
-    }, [
-        navigate,
-        searchParams
-    ]);
-    return [
-        searchParams,
-        setSearchParams
-    ];
-}
-function validateClientSideSubmission() {
-    if (typeof document === "undefined") throw new Error("You are calling submit during the server render. Try calling submit within a `useEffect` or callback instead.");
-}
-let fetcherId = 0;
-let getUniqueFetcherId = ()=>"__" + String(++fetcherId) + "__";
-/**
- * Returns a function that may be used to programmatically submit a form (or
- * some arbitrary data) to the server.
- */ function useSubmit() {
-    let { router } = useDataRouterContext(DataRouterHook.UseSubmit);
-    let { basename } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
-    let currentRouteId = (0, _reactRouter.UNSAFE_useRouteId)();
-    return _react.useCallback(function(target, options) {
-        if (options === void 0) options = {};
-        validateClientSideSubmission();
-        let { action, method, encType, formData, body } = getFormSubmissionInfo(target, basename);
-        if (options.navigate === false) {
-            let key = options.fetcherKey || getUniqueFetcherId();
-            router.fetch(key, currentRouteId, options.action || action, {
-                preventScrollReset: options.preventScrollReset,
-                formData,
-                body,
-                formMethod: options.method || method,
-                formEncType: options.encType || encType
-            });
-        } else router.navigate(options.action || action, {
-            preventScrollReset: options.preventScrollReset,
-            formData,
-            body,
-            formMethod: options.method || method,
-            formEncType: options.encType || encType,
-            replace: options.replace,
-            state: options.state,
-            fromRouteId: currentRouteId,
-            unstable_viewTransition: options.unstable_viewTransition
-        });
-    }, [
-        router,
-        basename,
-        currentRouteId
-    ]);
-}
-// v7: Eventually we should deprecate this entirely in favor of using the
-// router method directly?
-function useFormAction(action, _temp2) {
-    let { relative } = _temp2 === void 0 ? {} : _temp2;
-    let { basename } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
-    let routeContext = _react.useContext((0, _reactRouter.UNSAFE_RouteContext));
-    !routeContext && (0, _router.UNSAFE_invariant)(false, "useFormAction must be used inside a RouteContext");
-    let [match] = routeContext.matches.slice(-1);
-    // Shallow clone path so we can modify it below, otherwise we modify the
-    // object referenced by useMemo inside useResolvedPath
-    let path = _extends({}, (0, _reactRouter.useResolvedPath)(action ? action : ".", {
-        relative
-    }));
-    // Previously we set the default action to ".". The problem with this is that
-    // `useResolvedPath(".")` excludes search params of the resolved URL. This is
-    // the intended behavior of when "." is specifically provided as
-    // the form action, but inconsistent w/ browsers when the action is omitted.
-    // https://github.com/remix-run/remix/issues/927
-    let location = (0, _reactRouter.useLocation)();
-    if (action == null) {
-        // Safe to write to this directly here since if action was undefined, we
-        // would have called useResolvedPath(".") which will never include a search
-        path.search = location.search;
-        // When grabbing search params from the URL, remove the automatically
-        // inserted ?index param so we match the useResolvedPath search behavior
-        // which would not include ?index
-        if (match.route.index) {
-            let params = new URLSearchParams(path.search);
-            params.delete("index");
-            path.search = params.toString() ? "?" + params.toString() : "";
-        }
-    }
-    if ((!action || action === ".") && match.route.index) path.search = path.search ? path.search.replace(/^\?/, "?index&") : "?index";
-    // If we're operating within a basename, prepend it to the pathname prior
-    // to creating the form action.  If this is a root navigation, then just use
-    // the raw basename which allows the basename to have full control over the
-    // presence of a trailing slash on root actions
-    if (basename !== "/") path.pathname = path.pathname === "/" ? basename : (0, _router.joinPaths)([
-        basename,
-        path.pathname
-    ]);
-    return (0, _reactRouter.createPath)(path);
-}
-// TODO: (v7) Change the useFetcher generic default from `any` to `unknown`
-/**
- * Interacts with route loaders and actions without causing a navigation. Great
- * for any interaction that stays on the same page.
- */ function useFetcher(_temp3) {
-    var _route$matches;
-    let { key } = _temp3 === void 0 ? {} : _temp3;
-    let { router } = useDataRouterContext(DataRouterHook.UseFetcher);
-    let state = useDataRouterState(DataRouterStateHook.UseFetcher);
-    let fetcherData = _react.useContext(FetchersContext);
-    let route = _react.useContext((0, _reactRouter.UNSAFE_RouteContext));
-    let routeId = (_route$matches = route.matches[route.matches.length - 1]) == null ? void 0 : _route$matches.route.id;
-    !fetcherData && (0, _router.UNSAFE_invariant)(false, "useFetcher must be used inside a FetchersContext");
-    !route && (0, _router.UNSAFE_invariant)(false, "useFetcher must be used inside a RouteContext");
-    !(routeId != null) && (0, _router.UNSAFE_invariant)(false, 'useFetcher can only be used on routes that contain a unique "id"');
-    // Fetcher key handling
-    let [fetcherKey, setFetcherKey] = _react.useState(key || "");
-    if (!fetcherKey) setFetcherKey(getUniqueFetcherId());
-    // Registration/cleanup
-    _react.useEffect(()=>{
-        router.getFetcher(fetcherKey);
-        return ()=>{
-            // Tell the router we've unmounted - if v7_fetcherPersist is enabled this
-            // will not delete immediately but instead queue up a delete after the
-            // fetcher returns to an `idle` state
-            router.deleteFetcher(fetcherKey);
-        };
-    }, [
-        router,
-        fetcherKey
-    ]);
-    // Fetcher additions
-    let load = _react.useCallback((href)=>{
-        !routeId && (0, _router.UNSAFE_invariant)(false, "No routeId available for fetcher.load()");
-        router.fetch(fetcherKey, routeId, href);
-    }, [
-        fetcherKey,
-        routeId,
-        router
-    ]);
-    let submitImpl = useSubmit();
-    let submit = _react.useCallback((target, opts)=>{
-        submitImpl(target, _extends({}, opts, {
-            navigate: false,
-            fetcherKey
-        }));
-    }, [
-        fetcherKey,
-        submitImpl
-    ]);
-    let FetcherForm = _react.useMemo(()=>{
-        let FetcherForm = /*#__PURE__*/ _react.forwardRef((props, ref)=>{
-            return /*#__PURE__*/ _react.createElement(Form, _extends({}, props, {
-                navigate: false,
-                fetcherKey: fetcherKey,
-                ref: ref
-            }));
-        });
-        FetcherForm.displayName = "fetcher.Form";
-        return FetcherForm;
-    }, [
-        fetcherKey
-    ]);
-    // Exposed FetcherWithComponents
-    let fetcher = state.fetchers.get(fetcherKey) || (0, _router.IDLE_FETCHER);
-    let data = fetcherData.get(fetcherKey);
-    let fetcherWithComponents = _react.useMemo(()=>_extends({
-            Form: FetcherForm,
-            submit,
-            load
-        }, fetcher, {
-            data
-        }), [
-        FetcherForm,
-        submit,
-        load,
-        fetcher,
-        data
-    ]);
-    return fetcherWithComponents;
-}
-/**
- * Provides all fetchers currently on the page. Useful for layouts and parent
- * routes that need to provide pending/optimistic UI regarding the fetch.
- */ function useFetchers() {
-    let state = useDataRouterState(DataRouterStateHook.UseFetchers);
-    return Array.from(state.fetchers.entries()).map((_ref11)=>{
-        let [key, fetcher] = _ref11;
-        return _extends({}, fetcher, {
-            key
-        });
-    });
-}
-const SCROLL_RESTORATION_STORAGE_KEY = "react-router-scroll-positions";
-let savedScrollPositions = {};
-/**
- * When rendered inside a RouterProvider, will restore scroll positions on navigations
- */ function useScrollRestoration(_temp4) {
-    let { getKey, storageKey } = _temp4 === void 0 ? {} : _temp4;
-    let { router } = useDataRouterContext(DataRouterHook.UseScrollRestoration);
-    let { restoreScrollPosition, preventScrollReset } = useDataRouterState(DataRouterStateHook.UseScrollRestoration);
-    let { basename } = _react.useContext((0, _reactRouter.UNSAFE_NavigationContext));
-    let location = (0, _reactRouter.useLocation)();
-    let matches = (0, _reactRouter.useMatches)();
-    let navigation = (0, _reactRouter.useNavigation)();
-    // Trigger manual scroll restoration while we're active
-    _react.useEffect(()=>{
-        window.history.scrollRestoration = "manual";
-        return ()=>{
-            window.history.scrollRestoration = "auto";
-        };
-    }, []);
-    // Save positions on pagehide
-    usePageHide(_react.useCallback(()=>{
-        if (navigation.state === "idle") {
-            let key = (getKey ? getKey(location, matches) : null) || location.key;
-            savedScrollPositions[key] = window.scrollY;
-        }
-        try {
-            sessionStorage.setItem(storageKey || SCROLL_RESTORATION_STORAGE_KEY, JSON.stringify(savedScrollPositions));
-        } catch (error) {
-            (0, _router.UNSAFE_warning)(false, "Failed to save scroll positions in sessionStorage, <ScrollRestoration /> will not work properly (" + error + ").");
-        }
-        window.history.scrollRestoration = "auto";
-    }, [
-        storageKey,
-        getKey,
-        navigation.state,
-        location,
-        matches
-    ]));
-    // Read in any saved scroll locations
-    if (typeof document !== "undefined") {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        _react.useLayoutEffect(()=>{
-            try {
-                let sessionPositions = sessionStorage.getItem(storageKey || SCROLL_RESTORATION_STORAGE_KEY);
-                if (sessionPositions) savedScrollPositions = JSON.parse(sessionPositions);
-            } catch (e) {
-            // no-op, use default empty object
-            }
-        }, [
-            storageKey
-        ]);
-        // Enable scroll restoration in the router
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        _react.useLayoutEffect(()=>{
-            let getKeyWithoutBasename = getKey && basename !== "/" ? (location, matches)=>getKey(_extends({}, location, {
-                    pathname: (0, _router.stripBasename)(location.pathname, basename) || location.pathname
-                }), matches) : getKey;
-            let disableScrollRestoration = router == null ? void 0 : router.enableScrollRestoration(savedScrollPositions, ()=>window.scrollY, getKeyWithoutBasename);
-            return ()=>disableScrollRestoration && disableScrollRestoration();
-        }, [
-            router,
-            basename,
-            getKey
-        ]);
-        // Restore scrolling when state.restoreScrollPosition changes
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        _react.useLayoutEffect(()=>{
-            // Explicit false means don't do anything (used for submissions)
-            if (restoreScrollPosition === false) return;
-            // been here before, scroll to it
-            if (typeof restoreScrollPosition === "number") {
-                window.scrollTo(0, restoreScrollPosition);
-                return;
-            }
-            // try to scroll to the hash
-            if (location.hash) {
-                let el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-                if (el) {
-                    el.scrollIntoView();
-                    return;
-                }
-            }
-            // Don't reset if this navigation opted out
-            if (preventScrollReset === true) return;
-            // otherwise go to the top on new locations
-            window.scrollTo(0, 0);
-        }, [
-            location,
-            restoreScrollPosition,
-            preventScrollReset
-        ]);
-    }
-}
-/**
- * Setup a callback to be fired on the window's `beforeunload` event. This is
- * useful for saving some data to `window.localStorage` just before the page
- * refreshes.
- *
- * Note: The `callback` argument should be a function created with
- * `React.useCallback()`.
- */ function useBeforeUnload(callback, options) {
-    let { capture } = options || {};
-    _react.useEffect(()=>{
-        let opts = capture != null ? {
-            capture
-        } : undefined;
-        window.addEventListener("beforeunload", callback, opts);
-        return ()=>{
-            window.removeEventListener("beforeunload", callback, opts);
-        };
-    }, [
-        callback,
-        capture
-    ]);
-}
-/**
- * Setup a callback to be fired on the window's `pagehide` event. This is
- * useful for saving some data to `window.localStorage` just before the page
- * refreshes.  This event is better supported than beforeunload across browsers.
- *
- * Note: The `callback` argument should be a function created with
- * `React.useCallback()`.
- */ function usePageHide(callback, options) {
-    let { capture } = options || {};
-    _react.useEffect(()=>{
-        let opts = capture != null ? {
-            capture
-        } : undefined;
-        window.addEventListener("pagehide", callback, opts);
-        return ()=>{
-            window.removeEventListener("pagehide", callback, opts);
-        };
-    }, [
-        callback,
-        capture
-    ]);
-}
-/**
- * Wrapper around useBlocker to show a window.confirm prompt to users instead
- * of building a custom UI with useBlocker.
- *
- * Warning: This has *a lot of rough edges* and behaves very differently (and
- * very incorrectly in some cases) across browsers if user click addition
- * back/forward navigations while the confirm is open.  Use at your own risk.
- */ function usePrompt(_ref12) {
-    let { when, message } = _ref12;
-    let blocker = (0, _reactRouter.unstable_useBlocker)(when);
-    _react.useEffect(()=>{
-        if (blocker.state === "blocked") {
-            let proceed = window.confirm(message);
-            if (proceed) // This timeout is needed to avoid a weird "race" on POP navigations
-            // between the `window.history` revert navigation and the result of
-            // `window.confirm`
-            setTimeout(blocker.proceed, 0);
-            else blocker.reset();
-        }
-    }, [
-        blocker,
-        message
-    ]);
-    _react.useEffect(()=>{
-        if (blocker.state === "blocked" && !when) blocker.reset();
-    }, [
-        blocker,
-        when
-    ]);
-}
-/**
- * Return a boolean indicating if there is an active view transition to the
- * given href.  You can use this value to render CSS classes or viewTransitionName
- * styles onto your elements
- *
- * @param href The destination href
- * @param [opts.relative] Relative routing type ("route" | "path")
- */ function useViewTransitionState(to, opts) {
-    if (opts === void 0) opts = {};
-    let vtContext = _react.useContext(ViewTransitionContext);
-    !(vtContext != null) && (0, _router.UNSAFE_invariant)(false, "`unstable_useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?");
-    let { basename } = useDataRouterContext(DataRouterHook.useViewTransitionState);
-    let path = (0, _reactRouter.useResolvedPath)(to, {
-        relative: opts.relative
-    });
-    if (!vtContext.isTransitioning) return false;
-    let currentPath = (0, _router.stripBasename)(vtContext.currentLocation.pathname, basename) || vtContext.currentLocation.pathname;
-    let nextPath = (0, _router.stripBasename)(vtContext.nextLocation.pathname, basename) || vtContext.nextLocation.pathname;
-    // Transition is active if we're going to or coming from the indicated
-    // destination.  This ensures that other PUSH navigations that reverse
-    // an indicated transition apply.  I.e., on the list view you have:
-    //
-    //   <NavLink to="/details/1" unstable_viewTransition>
-    //
-    // If you click the breadcrumb back to the list view:
-    //
-    //   <NavLink to="/list" unstable_viewTransition>
-    //
-    // We should apply the transition because it's indicated as active going
-    // from /list -> /details/1 and therefore should be active on the reverse
-    // (even though this isn't strictly a POP reverse)
-    return (0, _router.matchPath)(path.pathname, nextPath) != null || (0, _router.matchPath)(path.pathname, currentPath) != null;
-}
-
-},{"react":"21dqq","react-router":"dbWyW","@remix-run/router":"5ncDG","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"5JRkM":[function(require,module,exports) {
-// console.log(storedToken);
-// actions.js
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "LOG_IN", ()=>LOG_IN);
-parcelHelpers.export(exports, "LOG_OUT", ()=>LOG_OUT);
-parcelHelpers.export(exports, "EDIT_USER", ()=>EDIT_USER);
-parcelHelpers.export(exports, "DELETE_USER", ()=>DELETE_USER);
-parcelHelpers.export(exports, "ADD_FAVORITE_MOVIE_TO_USER", ()=>ADD_FAVORITE_MOVIE_TO_USER);
-parcelHelpers.export(exports, "UNFAVORITE_MOVIE", ()=>UNFAVORITE_MOVIE);
-parcelHelpers.export(exports, "login", ()=>login);
-parcelHelpers.export(exports, "logout", ()=>logout);
-parcelHelpers.export(exports, "editUser", ()=>editUser);
-parcelHelpers.export(exports, "deleteUser", ()=>deleteUser);
-parcelHelpers.export(exports, "addFavoriteMovieToUser", ()=>addFavoriteMovieToUser);
-parcelHelpers.export(exports, "unFavoriteMovie", ()=>unFavoriteMovie);
-const LOG_IN = "LOG_IN";
-const LOG_OUT = "LOG_OUT";
-const EDIT_USER = "EDIT_USER";
-const DELETE_USER = "DELETE_USER";
-const ADD_FAVORITE_MOVIE_TO_USER = "ADD_FAVORITE_MOVIE_TO_USER";
-const UNFAVORITE_MOVIE = "UNFAVORITE_MOVIE";
-const storedToken = localStorage.getItem("token");
-const login = (username, password)=>async (dispatch)=>{
-        console.log("Fetching movies...");
-        const data = {
-            Username: username,
-            Password: password
-        };
-        try {
-            const response = await fetch("https://historic-movies-a728a807961d.herokuapp.com/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
-            const userData = await response.json();
-            if (userData.user) {
-                dispatch({
-                    type: LOG_IN,
-                    user: userData.user
-                });
-                localStorage.setItem("user", JSON.stringify(userData.user));
-                localStorage.setItem("token", userData.token);
-                window.location.reload();
-            } else alert("No such user");
-        } catch (error) {
-            alert("Something went wrong", error);
-        }
-    };
-const logout = ()=>(dispatch)=>{
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
-        dispatch({
-            type: LOG_OUT
-        });
-        window.location.reload();
-    };
-const editUser = (userData, updatedUserData, token)=>async (dispatch)=>{
-        try {
-            const response = await fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${userData.Username}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`
-                },
-                body: JSON.stringify(updatedUserData)
-            });
-            const updatedUser = await response.json();
-            dispatch({
-                type: EDIT_USER,
-                user: updatedUser
-            });
-            localStorage.setItem("user", JSON.stringify(updatedUser));
-            window.location.reload();
-        } catch (error) {
-            console.error("Error updating user:", error);
-        }
-    };
-const deleteUser = (user, token)=>async (dispatch)=>{
-        try {
-            const response = await fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}`, {
-                method: "DELETE",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Content-Type": "application/json"
-                }
-            });
-            if (response.ok) {
-                localStorage.clear();
-                dispatch({
-                    type: DELETE_USER
-                });
-                window.location.reload();
-            } else console.error("Failed to delete the user.");
-        } catch (error) {
-            console.error("Error deleting user:", error);
-        }
-    };
-const addFavoriteMovieToUser = (userId, movieId)=>async (dispatch)=>{
-        try {
-            const response = await fetch("https://historic-movies-a728a807961d.herokuapp.com/user/addfavorite", {
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${storedToken}`,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    userId: userId,
-                    movieId
-                })
-            });
-            if (!response.ok) throw new Error("Network response was not ok");
-            const updatedUser = await response.json();
-            console.log(updatedUser.FavoriteMovie, "updatedUser");
-            window.location.reload();
-            dispatch({
-                type: ADD_FAVORITE_MOVIE_TO_USER,
-                user: updatedUser
-            });
-            localStorage.setItem("user", JSON.stringify(updatedUser));
-        } catch (error) {
-            console.error("Error adding movie to favorites:", error);
-        }
-    };
-const unFavoriteMovie = (user, movieId)=>async (dispatch)=>{
-        try {
-            const encodedMovieId = encodeURIComponent(movieId);
-            console.log(encodedMovieId);
-            const response = await fetch(`https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}/${encodedMovieId}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${storedToken}`
-                }
-            });
-            const deletedFavoriteMovieFromUser = await response.json();
-            const updatedUser = {
-                ...user,
-                FavoriteMovies: user.FavoriteMovies.filter((movie)=>movie !== movieId)
-            };
-            window.location.reload();
-            console.log(updatedUser);
-            dispatch({
-                type: UNFAVORITE_MOVIE,
-                user: updatedUser
-            });
-            localStorage.setItem("user", JSON.stringify(updatedUser));
-        } catch (error) {
-            console.error("Error removing movie to favorites:", error);
-        }
-    };
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"bdVon":[function(require,module,exports) {
-// The primary entry point assumes we're working with standard ReactDOM/RN, but
-// older versions that do not include `useSyncExternalStore` (React 16.9 - 17.x).
-// Because of that, the useSyncExternalStore compat shim is needed.
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "batch", ()=>(0, _reactBatchedUpdates.unstable_batchedUpdates));
-var _shim = require("use-sync-external-store/shim");
-var _withSelector = require("use-sync-external-store/shim/with-selector");
-var _reactBatchedUpdates = require("./utils/reactBatchedUpdates");
-var _batch = require("./utils/batch");
-var _useSelector = require("./hooks/useSelector");
-var _connect = require("./components/connect");
-var _exports = require("./exports");
-parcelHelpers.exportAll(_exports, exports);
-(0, _useSelector.initializeUseSelector)((0, _withSelector.useSyncExternalStoreWithSelector));
-(0, _connect.initializeConnect)((0, _shim.useSyncExternalStore)); // Enable batched updates in our subscriptions for use
-// with standard React renderers (ReactDOM, React Native)
-(0, _batch.setBatch)((0, _reactBatchedUpdates.unstable_batchedUpdates));
-
-},{"use-sync-external-store/shim":"hyxdF","use-sync-external-store/shim/with-selector":"iDrhg","./utils/reactBatchedUpdates":"5K86X","./utils/batch":"ikw0G","./hooks/useSelector":"l3rFI","./components/connect":"5gOIw","./exports":"iAa1P","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"hyxdF":[function(require,module,exports) {
-"use strict";
-module.exports = require("5ab7799a565bbe74");
-
-},{"5ab7799a565bbe74":"khU3l"}],"khU3l":[function(require,module,exports) {
-/**
- * @license React
- * use-sync-external-store-shim.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ "use strict";
-(function() {
-    "use strict";
-    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
-    var React = require("d49206e28a986e9f");
-    var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    function error(format) {
-        for(var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++)args[_key2 - 1] = arguments[_key2];
-        printWarning("error", format, args);
-    }
-    function printWarning(level, format, args) {
-        var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
-        var stack = ReactDebugCurrentFrame.getStackAddendum();
-        if (stack !== "") {
-            format += "%s";
-            args = args.concat([
-                stack
-            ]);
-        } // eslint-disable-next-line react-internal/safe-string-coercion
-        var argsWithFormat = args.map(function(item) {
-            return String(item);
-        }); // Careful: RN currently depends on this prefix
-        argsWithFormat.unshift("Warning: " + format); // We intentionally don't use spread (or .apply) directly because it
-        // breaks IE9: https://github.com/facebook/react/issues/13610
-        // eslint-disable-next-line react-internal/no-production-logging
-        Function.prototype.apply.call(console[level], console, argsWithFormat);
-    }
-    /**
- * inlined Object.is polyfill to avoid requiring consumers ship their own
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
- */ function is(x, y) {
-        return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
-        ;
-    }
-    var objectIs = typeof Object.is === "function" ? Object.is : is;
-    // dispatch for CommonJS interop named imports.
-    var useState = React.useState, useEffect = React.useEffect, useLayoutEffect = React.useLayoutEffect, useDebugValue = React.useDebugValue;
-    var didWarnOld18Alpha = false;
-    var didWarnUncachedGetSnapshot = false; // Disclaimer: This shim breaks many of the rules of React, and only works
-    // because of a very particular set of implementation details and assumptions
-    // -- change any one of them and it will break. The most important assumption
-    // is that updates are always synchronous, because concurrent rendering is
-    // only available in versions of React that also have a built-in
-    // useSyncExternalStore API. And we only use this shim when the built-in API
-    // does not exist.
-    //
-    // Do not assume that the clever hacks used by this hook also work in general.
-    // The point of this shim is to replace the need for hacks by other libraries.
-    function useSyncExternalStore(subscribe, getSnapshot, // React do not expose a way to check if we're hydrating. So users of the shim
-    // will need to track that themselves and return the correct value
-    // from `getSnapshot`.
-    getServerSnapshot) {
-        if (!didWarnOld18Alpha) {
-            if (React.startTransition !== undefined) {
-                didWarnOld18Alpha = true;
-                error("You are using an outdated, pre-release alpha of React 18 that does not support useSyncExternalStore. The use-sync-external-store shim will not work correctly. Upgrade to a newer pre-release.");
-            }
-        }
-        // breaks the rules of React, and only works here because of specific
-        // implementation details, most importantly that updates are
-        // always synchronous.
-        var value = getSnapshot();
-        if (!didWarnUncachedGetSnapshot) {
-            var cachedValue = getSnapshot();
-            if (!objectIs(value, cachedValue)) {
-                error("The result of getSnapshot should be cached to avoid an infinite loop");
-                didWarnUncachedGetSnapshot = true;
-            }
-        }
-        // re-render whenever the subscribed state changes by updating an some
-        // arbitrary useState hook. Then, during render, we call getSnapshot to read
-        // the current value.
-        //
-        // Because we don't actually use the state returned by the useState hook, we
-        // can save a bit of memory by storing other stuff in that slot.
-        //
-        // To implement the early bailout, we need to track some things on a mutable
-        // object. Usually, we would put that in a useRef hook, but we can stash it in
-        // our useState hook instead.
-        //
-        // To force a re-render, we call forceUpdate({inst}). That works because the
-        // new object always fails an equality check.
-        var _useState = useState({
-            inst: {
-                value: value,
-                getSnapshot: getSnapshot
-            }
-        }), inst = _useState[0].inst, forceUpdate = _useState[1]; // Track the latest getSnapshot function with a ref. This needs to be updated
-        // in the layout phase so we can access it during the tearing check that
-        // happens on subscribe.
-        useLayoutEffect(function() {
-            inst.value = value;
-            inst.getSnapshot = getSnapshot; // Whenever getSnapshot or subscribe changes, we need to check in the
-            // commit phase if there was an interleaved mutation. In concurrent mode
-            // this can happen all the time, but even in synchronous mode, an earlier
-            // effect may have mutated the store.
-            if (checkIfSnapshotChanged(inst)) // Force a re-render.
-            forceUpdate({
-                inst: inst
-            });
-        }, [
-            subscribe,
-            value,
-            getSnapshot
-        ]);
-        useEffect(function() {
-            // Check for changes right before subscribing. Subsequent changes will be
-            // detected in the subscription handler.
-            if (checkIfSnapshotChanged(inst)) // Force a re-render.
-            forceUpdate({
-                inst: inst
-            });
-            var handleStoreChange = function() {
-                // TODO: Because there is no cross-renderer API for batching updates, it's
-                // up to the consumer of this library to wrap their subscription event
-                // with unstable_batchedUpdates. Should we try to detect when this isn't
-                // the case and print a warning in development?
-                // The store changed. Check if the snapshot changed since the last time we
-                // read from the store.
-                if (checkIfSnapshotChanged(inst)) // Force a re-render.
-                forceUpdate({
-                    inst: inst
-                });
-            }; // Subscribe to the store and return a clean-up function.
-            return subscribe(handleStoreChange);
-        }, [
-            subscribe
-        ]);
-        useDebugValue(value);
-        return value;
-    }
-    function checkIfSnapshotChanged(inst) {
-        var latestGetSnapshot = inst.getSnapshot;
-        var prevValue = inst.value;
-        try {
-            var nextValue = latestGetSnapshot();
-            return !objectIs(prevValue, nextValue);
-        } catch (error) {
-            return true;
-        }
-    }
-    function useSyncExternalStore$1(subscribe, getSnapshot, getServerSnapshot) {
-        // Note: The shim does not use getServerSnapshot, because pre-18 versions of
-        // React do not expose a way to check if we're hydrating. So users of the shim
-        // will need to track that themselves and return the correct value
-        // from `getSnapshot`.
-        return getSnapshot();
-    }
-    var canUseDOM = !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
-    var isServerEnvironment = !canUseDOM;
-    var shim = isServerEnvironment ? useSyncExternalStore$1 : useSyncExternalStore;
-    var useSyncExternalStore$2 = React.useSyncExternalStore !== undefined ? React.useSyncExternalStore : shim;
-    exports.useSyncExternalStore = useSyncExternalStore$2;
-    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
-})();
-
-},{"d49206e28a986e9f":"21dqq"}],"iDrhg":[function(require,module,exports) {
-"use strict";
-module.exports = require("825b2585cf61f03e");
-
-},{"825b2585cf61f03e":"vU6Qe"}],"vU6Qe":[function(require,module,exports) {
-/**
- * @license React
- * use-sync-external-store-shim/with-selector.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ "use strict";
-(function() {
-    "use strict";
-    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
-    var React = require("2f25dc3829c8e76e");
-    var shim = require("c4afd16660885105");
-    /**
- * inlined Object.is polyfill to avoid requiring consumers ship their own
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
- */ function is(x, y) {
-        return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y // eslint-disable-line no-self-compare
-        ;
-    }
-    var objectIs = typeof Object.is === "function" ? Object.is : is;
-    var useSyncExternalStore = shim.useSyncExternalStore;
-    // for CommonJS interop.
-    var useRef = React.useRef, useEffect = React.useEffect, useMemo = React.useMemo, useDebugValue = React.useDebugValue; // Same as useSyncExternalStore, but supports selector and isEqual arguments.
-    function useSyncExternalStoreWithSelector(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
-        // Use this to track the rendered snapshot.
-        var instRef = useRef(null);
-        var inst;
-        if (instRef.current === null) {
-            inst = {
-                hasValue: false,
-                value: null
-            };
-            instRef.current = inst;
-        } else inst = instRef.current;
-        var _useMemo = useMemo(function() {
-            // Track the memoized state using closure variables that are local to this
-            // memoized instance of a getSnapshot function. Intentionally not using a
-            // useRef hook, because that state would be shared across all concurrent
-            // copies of the hook/component.
-            var hasMemo = false;
-            var memoizedSnapshot;
-            var memoizedSelection;
-            var memoizedSelector = function(nextSnapshot) {
-                if (!hasMemo) {
-                    // The first time the hook is called, there is no memoized result.
-                    hasMemo = true;
-                    memoizedSnapshot = nextSnapshot;
-                    var _nextSelection = selector(nextSnapshot);
-                    if (isEqual !== undefined) // Even if the selector has changed, the currently rendered selection
-                    // may be equal to the new selection. We should attempt to reuse the
-                    // current value if possible, to preserve downstream memoizations.
-                    {
-                        if (inst.hasValue) {
-                            var currentSelection = inst.value;
-                            if (isEqual(currentSelection, _nextSelection)) {
-                                memoizedSelection = currentSelection;
-                                return currentSelection;
-                            }
-                        }
-                    }
-                    memoizedSelection = _nextSelection;
-                    return _nextSelection;
-                } // We may be able to reuse the previous invocation's result.
-                // We may be able to reuse the previous invocation's result.
-                var prevSnapshot = memoizedSnapshot;
-                var prevSelection = memoizedSelection;
-                if (objectIs(prevSnapshot, nextSnapshot)) // The snapshot is the same as last time. Reuse the previous selection.
-                return prevSelection;
-                 // The snapshot has changed, so we need to compute a new selection.
-                // The snapshot has changed, so we need to compute a new selection.
-                var nextSelection = selector(nextSnapshot); // If a custom isEqual function is provided, use that to check if the data
-                // has changed. If it hasn't, return the previous selection. That signals
-                // to React that the selections are conceptually equal, and we can bail
-                // out of rendering.
-                // If a custom isEqual function is provided, use that to check if the data
-                // has changed. If it hasn't, return the previous selection. That signals
-                // to React that the selections are conceptually equal, and we can bail
-                // out of rendering.
-                if (isEqual !== undefined && isEqual(prevSelection, nextSelection)) return prevSelection;
-                memoizedSnapshot = nextSnapshot;
-                memoizedSelection = nextSelection;
-                return nextSelection;
-            }; // Assigning this to a constant so that Flow knows it can't change.
-            // Assigning this to a constant so that Flow knows it can't change.
-            var maybeGetServerSnapshot = getServerSnapshot === undefined ? null : getServerSnapshot;
-            var getSnapshotWithSelector = function() {
-                return memoizedSelector(getSnapshot());
-            };
-            var getServerSnapshotWithSelector = maybeGetServerSnapshot === null ? undefined : function() {
-                return memoizedSelector(maybeGetServerSnapshot());
-            };
-            return [
-                getSnapshotWithSelector,
-                getServerSnapshotWithSelector
-            ];
-        }, [
-            getSnapshot,
-            getServerSnapshot,
-            selector,
-            isEqual
-        ]), getSelection = _useMemo[0], getServerSelection = _useMemo[1];
-        var value = useSyncExternalStore(subscribe, getSelection, getServerSelection);
-        useEffect(function() {
-            inst.hasValue = true;
-            inst.value = value;
-        }, [
-            value
-        ]);
-        useDebugValue(value);
-        return value;
-    }
-    exports.useSyncExternalStoreWithSelector = useSyncExternalStoreWithSelector;
-    /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */ if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop === "function") __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
-})();
-
-},{"2f25dc3829c8e76e":"21dqq","c4afd16660885105":"hyxdF"}],"5K86X":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "unstable_batchedUpdates", ()=>(0, _reactDom.unstable_batchedUpdates));
-var _reactDom = require("react-dom");
-
-},{"react-dom":"j6uA9","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"ikw0G":[function(require,module,exports) {
-// Default to a dummy "batch" implementation that just runs the callback
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "setBatch", ()=>setBatch);
-parcelHelpers.export(exports, "getBatch", ()=>getBatch);
-function defaultNoopBatch(callback) {
-    callback();
-}
-let batch = defaultNoopBatch; // Allow injecting another batching function later
-const setBatch = (newBatch)=>batch = newBatch; // Supply a getter just to skip dealing with ESM bindings
-const getBatch = ()=>batch;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"l3rFI":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "initializeUseSelector", ()=>initializeUseSelector);
-/**
- * Hook factory, which creates a `useSelector` hook bound to a given context.
- *
- * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
- * @returns {Function} A `useSelector` hook bound to the specified context.
- */ parcelHelpers.export(exports, "createSelectorHook", ()=>createSelectorHook);
-parcelHelpers.export(exports, "useSelector", ()=>useSelector);
-var _react = require("react");
-var _useReduxContext = require("./useReduxContext");
-var _context = require("../components/Context");
-var _useSyncExternalStore = require("../utils/useSyncExternalStore");
-let useSyncExternalStoreWithSelector = (0, _useSyncExternalStore.notInitialized);
-const initializeUseSelector = (fn)=>{
-    useSyncExternalStoreWithSelector = fn;
-};
-const refEquality = (a, b)=>a === b;
-function createSelectorHook(context = (0, _context.ReactReduxContext)) {
-    const useReduxContext = context === (0, _context.ReactReduxContext) ? (0, _useReduxContext.useReduxContext) : (0, _useReduxContext.createReduxContextHook)(context);
-    return function useSelector(selector, equalityFnOrOptions = {}) {
-        const { equalityFn = refEquality, stabilityCheck, noopCheck } = typeof equalityFnOrOptions === "function" ? {
-            equalityFn: equalityFnOrOptions
-        } : equalityFnOrOptions;
-        if (!selector) throw new Error(`You must pass a selector to useSelector`);
-        if (typeof selector !== "function") throw new Error(`You must pass a function as a selector to useSelector`);
-        if (typeof equalityFn !== "function") throw new Error(`You must pass a function as an equality function to useSelector`);
-        const { store, subscription, getServerState, stabilityCheck: globalStabilityCheck, noopCheck: globalNoopCheck } = useReduxContext();
-        const firstRun = (0, _react.useRef)(true);
-        const wrappedSelector = (0, _react.useCallback)({
-            [selector.name] (state) {
-                const selected = selector(state);
-                {
-                    const finalStabilityCheck = typeof stabilityCheck === "undefined" ? globalStabilityCheck : stabilityCheck;
-                    if (finalStabilityCheck === "always" || finalStabilityCheck === "once" && firstRun.current) {
-                        const toCompare = selector(state);
-                        if (!equalityFn(selected, toCompare)) {
-                            let stack = undefined;
-                            try {
-                                throw new Error();
-                            } catch (e) {
-                                ({ stack } = e);
-                            }
-                            console.warn("Selector " + (selector.name || "unknown") + " returned a different result when called with the same parameters. This can lead to unnecessary rerenders." + "\nSelectors that return a new reference (such as an object or an array) should be memoized: https://redux.js.org/usage/deriving-data-selectors#optimizing-selectors-with-memoization", {
-                                state,
-                                selected,
-                                selected2: toCompare,
-                                stack
-                            });
-                        }
-                    }
-                    const finalNoopCheck = typeof noopCheck === "undefined" ? globalNoopCheck : noopCheck;
-                    if (finalNoopCheck === "always" || finalNoopCheck === "once" && firstRun.current) // @ts-ignore
-                    {
-                        if (selected === state) {
-                            let stack = undefined;
-                            try {
-                                throw new Error();
-                            } catch (e) {
-                                ({ stack } = e);
-                            }
-                            console.warn("Selector " + (selector.name || "unknown") + " returned the root state when called. This can lead to unnecessary rerenders." + "\nSelectors that return the entire state are almost certainly a mistake, as they will cause a rerender whenever *anything* in state changes.", {
-                                stack
-                            });
-                        }
-                    }
-                    if (firstRun.current) firstRun.current = false;
-                }
-                return selected;
-            }
-        }[selector.name], [
-            selector,
-            globalStabilityCheck,
-            stabilityCheck
-        ]);
-        const selectedState = useSyncExternalStoreWithSelector(subscription.addNestedSub, store.getState, getServerState || store.getState, wrappedSelector, equalityFn);
-        (0, _react.useDebugValue)(selectedState);
-        return selectedState;
-    };
-}
-const useSelector = /*#__PURE__*/ createSelectorHook();
-
-},{"react":"21dqq","./useReduxContext":"3828k","../components/Context":"ji81o","../utils/useSyncExternalStore":"dSsKl","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"3828k":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-/**
- * Hook factory, which creates a `useReduxContext` hook bound to a given context. This is a low-level
- * hook that you should usually not need to call directly.
- *
- * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
- * @returns {Function} A `useReduxContext` hook bound to the specified context.
- */ parcelHelpers.export(exports, "createReduxContextHook", ()=>createReduxContextHook);
-parcelHelpers.export(exports, "useReduxContext", ()=>useReduxContext);
-var _react = require("react");
-var _context = require("../components/Context");
-function createReduxContextHook(context = (0, _context.ReactReduxContext)) {
-    return function useReduxContext() {
-        const contextValue = (0, _react.useContext)(context);
-        if (!contextValue) throw new Error("could not find react-redux context value; please ensure the component is wrapped in a <Provider>");
-        return contextValue;
-    };
-}
-const useReduxContext = /*#__PURE__*/ createReduxContextHook();
-
-},{"react":"21dqq","../components/Context":"ji81o","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"ji81o":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "ReactReduxContext", ()=>ReactReduxContext);
-var _react = require("react");
-const ContextKey = Symbol.for(`react-redux-context`);
-const gT = typeof globalThis !== "undefined" ? globalThis : /* fall back to a per-module scope (pre-8.1 behaviour) if `globalThis` is not available */ {};
-function getContext() {
-    var _gT$ContextKey;
-    if (!_react.createContext) return {};
-    const contextMap = (_gT$ContextKey = gT[ContextKey]) != null ? _gT$ContextKey : gT[ContextKey] = new Map();
-    let realContext = contextMap.get(_react.createContext);
-    if (!realContext) {
-        realContext = _react.createContext(null);
-        realContext.displayName = "ReactRedux";
-        contextMap.set(_react.createContext, realContext);
-    }
-    return realContext;
-}
-const ReactReduxContext = /*#__PURE__*/ getContext();
-exports.default = ReactReduxContext;
-
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"dSsKl":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "notInitialized", ()=>notInitialized);
-const notInitialized = ()=>{
-    throw new Error("uSES not initialized!");
-};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"5gOIw":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "initializeConnect", ()=>initializeConnect);
-var _extends = require("@babel/runtime/helpers/esm/extends");
-var _extendsDefault = parcelHelpers.interopDefault(_extends);
-var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
-var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
-/* eslint-disable valid-jsdoc, @typescript-eslint/no-unused-vars */ var _hoistNonReactStatics = require("hoist-non-react-statics");
-var _hoistNonReactStaticsDefault = parcelHelpers.interopDefault(_hoistNonReactStatics);
-var _react = require("react");
-var _reactIs = require("react-is");
-var _selectorFactory = require("../connect/selectorFactory");
-var _selectorFactoryDefault = parcelHelpers.interopDefault(_selectorFactory);
-var _mapDispatchToProps = require("../connect/mapDispatchToProps");
-var _mapStateToProps = require("../connect/mapStateToProps");
-var _mergeProps = require("../connect/mergeProps");
-var _subscription = require("../utils/Subscription");
-var _useIsomorphicLayoutEffect = require("../utils/useIsomorphicLayoutEffect");
-var _shallowEqual = require("../utils/shallowEqual");
-var _shallowEqualDefault = parcelHelpers.interopDefault(_shallowEqual);
-var _warning = require("../utils/warning");
-var _warningDefault = parcelHelpers.interopDefault(_warning);
-var _context = require("./Context");
-var _useSyncExternalStore = require("../utils/useSyncExternalStore");
-const _excluded = [
-    "reactReduxForwardedRef"
-];
-let useSyncExternalStore = (0, _useSyncExternalStore.notInitialized);
-const initializeConnect = (fn)=>{
-    useSyncExternalStore = fn;
-}; // Define some constant arrays just to avoid re-creating these
-const EMPTY_ARRAY = [
-    null,
-    0
-];
-const NO_SUBSCRIPTION_ARRAY = [
-    null,
-    null
-]; // Attempts to stringify whatever not-really-a-component value we were given
-// for logging in an error message
-const stringifyComponent = (Comp)=>{
-    try {
-        return JSON.stringify(Comp);
-    } catch (err) {
-        return String(Comp);
-    }
-};
-// This is "just" a `useLayoutEffect`, but with two modifications:
-// - we need to fall back to `useEffect` in SSR to avoid annoying warnings
-// - we extract this to a separate function to avoid closing over values
-//   and causing memory leaks
-function useIsomorphicLayoutEffectWithArgs(effectFunc, effectArgs, dependencies) {
-    (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(()=>effectFunc(...effectArgs), dependencies);
-} // Effect callback, extracted: assign the latest props values to refs for later usage
-function captureWrapperProps(lastWrapperProps, lastChildProps, renderIsScheduled, wrapperProps, childPropsFromStoreUpdate, notifyNestedSubs) {
-    // We want to capture the wrapper props and child props we used for later comparisons
-    lastWrapperProps.current = wrapperProps;
-    renderIsScheduled.current = false; // If the render was from a store update, clear out that reference and cascade the subscriber update
-    if (childPropsFromStoreUpdate.current) {
-        childPropsFromStoreUpdate.current = null;
-        notifyNestedSubs();
-    }
-} // Effect callback, extracted: subscribe to the Redux store or nearest connected ancestor,
-// check for updates after dispatched actions, and trigger re-renders.
-function subscribeUpdates(shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, isMounted, childPropsFromStoreUpdate, notifyNestedSubs, additionalSubscribeListener) {
-    // If we're not subscribed to the store, nothing to do here
-    if (!shouldHandleStateChanges) return ()=>{}; // Capture values for checking if and when this component unmounts
-    let didUnsubscribe = false;
-    let lastThrownError = null; // We'll run this callback every time a store subscription update propagates to this component
-    const checkForUpdates = ()=>{
-        if (didUnsubscribe || !isMounted.current) // Don't run stale listeners.
-        // Redux doesn't guarantee unsubscriptions happen until next dispatch.
-        return;
-         // TODO We're currently calling getState ourselves here, rather than letting `uSES` do it
-        const latestStoreState = store.getState();
-        let newChildProps, error;
-        try {
-            // Actually run the selector with the most recent store state and wrapper props
-            // to determine what the child props should be
-            newChildProps = childPropsSelector(latestStoreState, lastWrapperProps.current);
-        } catch (e) {
-            error = e;
-            lastThrownError = e;
-        }
-        if (!error) lastThrownError = null;
-         // If the child props haven't changed, nothing to do here - cascade the subscription update
-        if (newChildProps === lastChildProps.current) {
-            if (!renderIsScheduled.current) notifyNestedSubs();
-        } else {
-            // Save references to the new child props.  Note that we track the "child props from store update"
-            // as a ref instead of a useState/useReducer because we need a way to determine if that value has
-            // been processed.  If this went into useState/useReducer, we couldn't clear out the value without
-            // forcing another re-render, which we don't want.
-            lastChildProps.current = newChildProps;
-            childPropsFromStoreUpdate.current = newChildProps;
-            renderIsScheduled.current = true; // TODO This is hacky and not how `uSES` is meant to be used
-            // Trigger the React `useSyncExternalStore` subscriber
-            additionalSubscribeListener();
-        }
-    }; // Actually subscribe to the nearest connected ancestor (or store)
-    subscription.onStateChange = checkForUpdates;
-    subscription.trySubscribe(); // Pull data from the store after first render in case the store has
-    // changed since we began.
-    checkForUpdates();
-    const unsubscribeWrapper = ()=>{
-        didUnsubscribe = true;
-        subscription.tryUnsubscribe();
-        subscription.onStateChange = null;
-        if (lastThrownError) // It's possible that we caught an error due to a bad mapState function, but the
-        // parent re-rendered without this component and we're about to unmount.
-        // This shouldn't happen as long as we do top-down subscriptions correctly, but
-        // if we ever do those wrong, this throw will surface the error in our tests.
-        // In that case, throw the error from here so it doesn't get lost.
-        throw lastThrownError;
-    };
-    return unsubscribeWrapper;
-} // Reducer initial state creation for our update reducer
-const initStateUpdates = ()=>EMPTY_ARRAY;
-function strictEqual(a, b) {
-    return a === b;
-}
-/**
- * Infers the type of props that a connector will inject into a component.
- */ let hasWarnedAboutDeprecatedPureOption = false;
-/**
- * Connects a React component to a Redux store.
- *
- * - Without arguments, just wraps the component, without changing the behavior / props
- *
- * - If 2 params are passed (3rd param, mergeProps, is skipped), default behavior
- * is to override ownProps (as stated in the docs), so what remains is everything that's
- * not a state or dispatch prop
- *
- * - When 3rd param is passed, we don't know if ownProps propagate and whether they
- * should be valid component props, because it depends on mergeProps implementation.
- * As such, it is the user's responsibility to extend ownProps interface from state or
- * dispatch props or both when applicable
- *
- * @param mapStateToProps A function that extracts values from state
- * @param mapDispatchToProps Setup for dispatching actions
- * @param mergeProps Optional callback to merge state and dispatch props together
- * @param options Options for configuring the connection
- *
- */ function connect(mapStateToProps, mapDispatchToProps, mergeProps, { // The `pure` option has been removed, so TS doesn't like us destructuring this to check its existence.
-// @ts-ignore
-pure, areStatesEqual = strictEqual, areOwnPropsEqual = (0, _shallowEqualDefault.default), areStatePropsEqual = (0, _shallowEqualDefault.default), areMergedPropsEqual = (0, _shallowEqualDefault.default), // use React's forwardRef to expose a ref of the wrapped component
-forwardRef = false, // the context consumer to use
-context = (0, _context.ReactReduxContext) } = {}) {
-    if (pure !== undefined && !hasWarnedAboutDeprecatedPureOption) {
-        hasWarnedAboutDeprecatedPureOption = true;
-        (0, _warningDefault.default)('The `pure` option has been removed. `connect` is now always a "pure/memoized" component');
-    }
-    const Context = context;
-    const initMapStateToProps = (0, _mapStateToProps.mapStateToPropsFactory)(mapStateToProps);
-    const initMapDispatchToProps = (0, _mapDispatchToProps.mapDispatchToPropsFactory)(mapDispatchToProps);
-    const initMergeProps = (0, _mergeProps.mergePropsFactory)(mergeProps);
-    const shouldHandleStateChanges = Boolean(mapStateToProps);
-    const wrapWithConnect = (WrappedComponent)=>{
-        if (!(0, _reactIs.isValidElementType)(WrappedComponent)) throw new Error(`You must pass a component to the function returned by connect. Instead received ${stringifyComponent(WrappedComponent)}`);
-        const wrappedComponentName = WrappedComponent.displayName || WrappedComponent.name || "Component";
-        const displayName = `Connect(${wrappedComponentName})`;
-        const selectorFactoryOptions = {
-            shouldHandleStateChanges,
-            displayName,
-            wrappedComponentName,
-            WrappedComponent,
-            // @ts-ignore
-            initMapStateToProps,
-            // @ts-ignore
-            initMapDispatchToProps,
-            initMergeProps,
-            areStatesEqual,
-            areStatePropsEqual,
-            areOwnPropsEqual,
-            areMergedPropsEqual
-        };
-        function ConnectFunction(props) {
-            const [propsContext, reactReduxForwardedRef, wrapperProps] = _react.useMemo(()=>{
-                // Distinguish between actual "data" props that were passed to the wrapper component,
-                // and values needed to control behavior (forwarded refs, alternate context instances).
-                // To maintain the wrapperProps object reference, memoize this destructuring.
-                const { reactReduxForwardedRef } = props, wrapperProps = (0, _objectWithoutPropertiesLooseDefault.default)(props, _excluded);
-                return [
-                    props.context,
-                    reactReduxForwardedRef,
-                    wrapperProps
-                ];
-            }, [
-                props
-            ]);
-            const ContextToUse = _react.useMemo(()=>{
-                // Users may optionally pass in a custom context instance to use instead of our ReactReduxContext.
-                // Memoize the check that determines which context instance we should use.
-                return propsContext && propsContext.Consumer && // @ts-ignore
-                (0, _reactIs.isContextConsumer)(/*#__PURE__*/ _react.createElement(propsContext.Consumer, null)) ? propsContext : Context;
-            }, [
-                propsContext,
-                Context
-            ]); // Retrieve the store and ancestor subscription via context, if available
-            const contextValue = _react.useContext(ContextToUse); // The store _must_ exist as either a prop or in context.
-            // We'll check to see if it _looks_ like a Redux store first.
-            // This allows us to pass through a `store` prop that is just a plain value.
-            const didStoreComeFromProps = Boolean(props.store) && Boolean(props.store.getState) && Boolean(props.store.dispatch);
-            const didStoreComeFromContext = Boolean(contextValue) && Boolean(contextValue.store);
-            if (!didStoreComeFromProps && !didStoreComeFromContext) throw new Error(`Could not find "store" in the context of ` + `"${displayName}". Either wrap the root component in a <Provider>, ` + `or pass a custom React context provider to <Provider> and the corresponding ` + `React context consumer to ${displayName} in connect options.`);
-             // Based on the previous check, one of these must be true
-            const store = didStoreComeFromProps ? props.store : contextValue.store;
-            const getServerState = didStoreComeFromContext ? contextValue.getServerState : store.getState;
-            const childPropsSelector = _react.useMemo(()=>{
-                // The child props selector needs the store reference as an input.
-                // Re-create this selector whenever the store changes.
-                return (0, _selectorFactoryDefault.default)(store.dispatch, selectorFactoryOptions);
-            }, [
-                store
-            ]);
-            const [subscription, notifyNestedSubs] = _react.useMemo(()=>{
-                if (!shouldHandleStateChanges) return NO_SUBSCRIPTION_ARRAY; // This Subscription's source should match where store came from: props vs. context. A component
-                // connected to the store via props shouldn't use subscription from context, or vice versa.
-                const subscription = (0, _subscription.createSubscription)(store, didStoreComeFromProps ? undefined : contextValue.subscription); // `notifyNestedSubs` is duplicated to handle the case where the component is unmounted in
-                // the middle of the notification loop, where `subscription` will then be null. This can
-                // probably be avoided if Subscription's listeners logic is changed to not call listeners
-                // that have been unsubscribed in the  middle of the notification loop.
-                const notifyNestedSubs = subscription.notifyNestedSubs.bind(subscription);
-                return [
-                    subscription,
-                    notifyNestedSubs
-                ];
-            }, [
-                store,
-                didStoreComeFromProps,
-                contextValue
-            ]); // Determine what {store, subscription} value should be put into nested context, if necessary,
-            // and memoize that value to avoid unnecessary context updates.
-            const overriddenContextValue = _react.useMemo(()=>{
-                if (didStoreComeFromProps) // This component is directly subscribed to a store from props.
-                // We don't want descendants reading from this store - pass down whatever
-                // the existing context value is from the nearest connected ancestor.
-                return contextValue;
-                 // Otherwise, put this component's subscription instance into context, so that
-                // connected descendants won't update until after this component is done
-                return (0, _extendsDefault.default)({}, contextValue, {
-                    subscription
-                });
-            }, [
-                didStoreComeFromProps,
-                contextValue,
-                subscription
-            ]); // Set up refs to coordinate values between the subscription effect and the render logic
-            const lastChildProps = _react.useRef();
-            const lastWrapperProps = _react.useRef(wrapperProps);
-            const childPropsFromStoreUpdate = _react.useRef();
-            const renderIsScheduled = _react.useRef(false);
-            const isProcessingDispatch = _react.useRef(false);
-            const isMounted = _react.useRef(false);
-            const latestSubscriptionCallbackError = _react.useRef();
-            (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(()=>{
-                isMounted.current = true;
-                return ()=>{
-                    isMounted.current = false;
-                };
-            }, []);
-            const actualChildPropsSelector = _react.useMemo(()=>{
-                const selector = ()=>{
-                    // Tricky logic here:
-                    // - This render may have been triggered by a Redux store update that produced new child props
-                    // - However, we may have gotten new wrapper props after that
-                    // If we have new child props, and the same wrapper props, we know we should use the new child props as-is.
-                    // But, if we have new wrapper props, those might change the child props, so we have to recalculate things.
-                    // So, we'll use the child props from store update only if the wrapper props are the same as last time.
-                    if (childPropsFromStoreUpdate.current && wrapperProps === lastWrapperProps.current) return childPropsFromStoreUpdate.current;
-                     // TODO We're reading the store directly in render() here. Bad idea?
-                    // This will likely cause Bad Things (TM) to happen in Concurrent Mode.
-                    // Note that we do this because on renders _not_ caused by store updates, we need the latest store state
-                    // to determine what the child props should be.
-                    return childPropsSelector(store.getState(), wrapperProps);
-                };
-                return selector;
-            }, [
-                store,
-                wrapperProps
-            ]); // We need this to execute synchronously every time we re-render. However, React warns
-            // about useLayoutEffect in SSR, so we try to detect environment and fall back to
-            // just useEffect instead to avoid the warning, since neither will run anyway.
-            const subscribeForReact = _react.useMemo(()=>{
-                const subscribe = (reactListener)=>{
-                    if (!subscription) return ()=>{};
-                    return subscribeUpdates(shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, isMounted, childPropsFromStoreUpdate, notifyNestedSubs, reactListener);
-                };
-                return subscribe;
-            }, [
-                subscription
-            ]);
-            useIsomorphicLayoutEffectWithArgs(captureWrapperProps, [
-                lastWrapperProps,
-                lastChildProps,
-                renderIsScheduled,
-                wrapperProps,
-                childPropsFromStoreUpdate,
-                notifyNestedSubs
-            ]);
-            let actualChildProps;
-            try {
-                actualChildProps = useSyncExternalStore(subscribeForReact, // TODO and we're just passing that through so it triggers a re-render for us rather than relying on `uSES`.
-                actualChildPropsSelector, getServerState ? ()=>childPropsSelector(getServerState(), wrapperProps) : actualChildPropsSelector);
-            } catch (err) {
-                if (latestSubscriptionCallbackError.current) err.message += `\nThe error may be correlated with this previous error:\n${latestSubscriptionCallbackError.current.stack}\n\n`;
-                throw err;
-            }
-            (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(()=>{
-                latestSubscriptionCallbackError.current = undefined;
-                childPropsFromStoreUpdate.current = undefined;
-                lastChildProps.current = actualChildProps;
-            }); // Now that all that's done, we can finally try to actually render the child component.
-            // We memoize the elements for the rendered child component as an optimization.
-            const renderedWrappedComponent = _react.useMemo(()=>{
-                return(/*#__PURE__*/ // @ts-ignore
-                _react.createElement(WrappedComponent, (0, _extendsDefault.default)({}, actualChildProps, {
-                    ref: reactReduxForwardedRef
-                })));
-            }, [
-                reactReduxForwardedRef,
-                WrappedComponent,
-                actualChildProps
-            ]); // If React sees the exact same element reference as last time, it bails out of re-rendering
-            // that child, same as if it was wrapped in React.memo() or returned false from shouldComponentUpdate.
-            const renderedChild = _react.useMemo(()=>{
-                if (shouldHandleStateChanges) // If this component is subscribed to store updates, we need to pass its own
-                // subscription instance down to our descendants. That means rendering the same
-                // Context instance, and putting a different value into the context.
-                return /*#__PURE__*/ _react.createElement(ContextToUse.Provider, {
-                    value: overriddenContextValue
-                }, renderedWrappedComponent);
-                return renderedWrappedComponent;
-            }, [
-                ContextToUse,
-                renderedWrappedComponent,
-                overriddenContextValue
-            ]);
-            return renderedChild;
-        }
-        const _Connect = _react.memo(ConnectFunction);
-        // Add a hacky cast to get the right output type
-        const Connect = _Connect;
-        Connect.WrappedComponent = WrappedComponent;
-        Connect.displayName = ConnectFunction.displayName = displayName;
-        if (forwardRef) {
-            const _forwarded = _react.forwardRef(function forwardConnectRef(props, ref) {
-                // @ts-ignore
-                return /*#__PURE__*/ _react.createElement(Connect, (0, _extendsDefault.default)({}, props, {
-                    reactReduxForwardedRef: ref
-                }));
-            });
-            const forwarded = _forwarded;
-            forwarded.displayName = displayName;
-            forwarded.WrappedComponent = WrappedComponent;
-            return (0, _hoistNonReactStaticsDefault.default)(forwarded, WrappedComponent);
-        }
-        return (0, _hoistNonReactStaticsDefault.default)(Connect, WrappedComponent);
-    };
-    return wrapWithConnect;
-}
-exports.default = connect;
-
-},{"@babel/runtime/helpers/esm/extends":"fTBFS","@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"adHgr","hoist-non-react-statics":"1GfsB","react":"21dqq","react-is":"lb6Ui","../connect/selectorFactory":"e9uH3","../connect/mapDispatchToProps":"5QhPl","../connect/mapStateToProps":"4Hl4c","../connect/mergeProps":"hQpBj","../utils/Subscription":"ieuHT","../utils/useIsomorphicLayoutEffect":"kNbVc","../utils/shallowEqual":"gV5L4","../utils/warning":"cUQUw","./Context":"ji81o","../utils/useSyncExternalStore":"dSsKl","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"1GfsB":[function(require,module,exports) {
-"use strict";
-var reactIs = require("c03b486d83967636");
-/**
- * Copyright 2015, Yahoo! Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */ var REACT_STATICS = {
-    childContextTypes: true,
-    contextType: true,
-    contextTypes: true,
-    defaultProps: true,
-    displayName: true,
-    getDefaultProps: true,
-    getDerivedStateFromError: true,
-    getDerivedStateFromProps: true,
-    mixins: true,
-    propTypes: true,
-    type: true
-};
-var KNOWN_STATICS = {
-    name: true,
-    length: true,
-    prototype: true,
-    caller: true,
-    callee: true,
-    arguments: true,
-    arity: true
-};
-var FORWARD_REF_STATICS = {
-    "$$typeof": true,
-    render: true,
-    defaultProps: true,
-    displayName: true,
-    propTypes: true
-};
-var MEMO_STATICS = {
-    "$$typeof": true,
-    compare: true,
-    defaultProps: true,
-    displayName: true,
-    propTypes: true,
-    type: true
-};
-var TYPE_STATICS = {};
-TYPE_STATICS[reactIs.ForwardRef] = FORWARD_REF_STATICS;
-TYPE_STATICS[reactIs.Memo] = MEMO_STATICS;
-function getStatics(component) {
-    // React v16.11 and below
-    if (reactIs.isMemo(component)) return MEMO_STATICS;
-     // React v16.12 and above
-    return TYPE_STATICS[component["$$typeof"]] || REACT_STATICS;
-}
-var defineProperty = Object.defineProperty;
-var getOwnPropertyNames = Object.getOwnPropertyNames;
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
-var getPrototypeOf = Object.getPrototypeOf;
-var objectPrototype = Object.prototype;
-function hoistNonReactStatics(targetComponent, sourceComponent, blacklist) {
-    if (typeof sourceComponent !== "string") {
-        // don't hoist over string (html) components
-        if (objectPrototype) {
-            var inheritedComponent = getPrototypeOf(sourceComponent);
-            if (inheritedComponent && inheritedComponent !== objectPrototype) hoistNonReactStatics(targetComponent, inheritedComponent, blacklist);
-        }
-        var keys = getOwnPropertyNames(sourceComponent);
-        if (getOwnPropertySymbols) keys = keys.concat(getOwnPropertySymbols(sourceComponent));
-        var targetStatics = getStatics(targetComponent);
-        var sourceStatics = getStatics(sourceComponent);
-        for(var i = 0; i < keys.length; ++i){
-            var key = keys[i];
-            if (!KNOWN_STATICS[key] && !(blacklist && blacklist[key]) && !(sourceStatics && sourceStatics[key]) && !(targetStatics && targetStatics[key])) {
-                var descriptor = getOwnPropertyDescriptor(sourceComponent, key);
-                try {
-                    // Avoid failures from read-only properties
-                    defineProperty(targetComponent, key, descriptor);
-                } catch (e) {}
-            }
-        }
-    }
-    return targetComponent;
-}
-module.exports = hoistNonReactStatics;
-
-},{"c03b486d83967636":"7EuwB"}],"lb6Ui":[function(require,module,exports) {
-"use strict";
-module.exports = require("d31d03ee5728daed");
-
-},{"d31d03ee5728daed":"idDA8"}],"idDA8":[function(require,module,exports) {
-/**
- * @license React
- * react-is.development.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */ "use strict";
-(function() {
-    "use strict";
-    // ATTENTION
-    // When adding new symbols to this file,
-    // Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
-    // The Symbol used to tag the ReactElement-like types.
-    var REACT_ELEMENT_TYPE = Symbol.for("react.element");
-    var REACT_PORTAL_TYPE = Symbol.for("react.portal");
-    var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
-    var REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode");
-    var REACT_PROFILER_TYPE = Symbol.for("react.profiler");
-    var REACT_PROVIDER_TYPE = Symbol.for("react.provider");
-    var REACT_CONTEXT_TYPE = Symbol.for("react.context");
-    var REACT_SERVER_CONTEXT_TYPE = Symbol.for("react.server_context");
-    var REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref");
-    var REACT_SUSPENSE_TYPE = Symbol.for("react.suspense");
-    var REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list");
-    var REACT_MEMO_TYPE = Symbol.for("react.memo");
-    var REACT_LAZY_TYPE = Symbol.for("react.lazy");
-    var REACT_OFFSCREEN_TYPE = Symbol.for("react.offscreen");
-    // -----------------------------------------------------------------------------
-    var enableScopeAPI = false; // Experimental Create Event Handle API.
-    var enableCacheElement = false;
-    var enableTransitionTracing = false; // No known bugs, but needs performance testing
-    var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
-    // stuff. Intended to enable React core members to more easily debug scheduling
-    // issues in DEV builds.
-    var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
-    var REACT_MODULE_REFERENCE;
-    REACT_MODULE_REFERENCE = Symbol.for("react.module.reference");
-    function isValidElementType(type) {
-        if (typeof type === "string" || typeof type === "function") return true;
-         // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
-        if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden || type === REACT_OFFSCREEN_TYPE || enableScopeAPI || enableCacheElement || enableTransitionTracing) return true;
-        if (typeof type === "object" && type !== null) {
-            if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // This needs to include all possible module reference object
-            // types supported by any Flight configuration anywhere since
-            // we don't know which Flight build this will end up being used
-            // with.
-            type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== undefined) return true;
-        }
-        return false;
-    }
-    function typeOf(object) {
-        if (typeof object === "object" && object !== null) {
-            var $$typeof = object.$$typeof;
-            switch($$typeof){
-                case REACT_ELEMENT_TYPE:
-                    var type = object.type;
-                    switch(type){
-                        case REACT_FRAGMENT_TYPE:
-                        case REACT_PROFILER_TYPE:
-                        case REACT_STRICT_MODE_TYPE:
-                        case REACT_SUSPENSE_TYPE:
-                        case REACT_SUSPENSE_LIST_TYPE:
-                            return type;
-                        default:
-                            var $$typeofType = type && type.$$typeof;
-                            switch($$typeofType){
-                                case REACT_SERVER_CONTEXT_TYPE:
-                                case REACT_CONTEXT_TYPE:
-                                case REACT_FORWARD_REF_TYPE:
-                                case REACT_LAZY_TYPE:
-                                case REACT_MEMO_TYPE:
-                                case REACT_PROVIDER_TYPE:
-                                    return $$typeofType;
-                                default:
-                                    return $$typeof;
-                            }
-                    }
-                case REACT_PORTAL_TYPE:
-                    return $$typeof;
-            }
-        }
-        return undefined;
-    }
-    var ContextConsumer = REACT_CONTEXT_TYPE;
-    var ContextProvider = REACT_PROVIDER_TYPE;
-    var Element = REACT_ELEMENT_TYPE;
-    var ForwardRef = REACT_FORWARD_REF_TYPE;
-    var Fragment = REACT_FRAGMENT_TYPE;
-    var Lazy = REACT_LAZY_TYPE;
-    var Memo = REACT_MEMO_TYPE;
-    var Portal = REACT_PORTAL_TYPE;
-    var Profiler = REACT_PROFILER_TYPE;
-    var StrictMode = REACT_STRICT_MODE_TYPE;
-    var Suspense = REACT_SUSPENSE_TYPE;
-    var SuspenseList = REACT_SUSPENSE_LIST_TYPE;
-    var hasWarnedAboutDeprecatedIsAsyncMode = false;
-    var hasWarnedAboutDeprecatedIsConcurrentMode = false; // AsyncMode should be deprecated
-    function isAsyncMode(object) {
-        if (!hasWarnedAboutDeprecatedIsAsyncMode) {
-            hasWarnedAboutDeprecatedIsAsyncMode = true; // Using console['warn'] to evade Babel and ESLint
-            console["warn"]("The ReactIs.isAsyncMode() alias has been deprecated, and will be removed in React 18+.");
-        }
-        return false;
-    }
-    function isConcurrentMode(object) {
-        if (!hasWarnedAboutDeprecatedIsConcurrentMode) {
-            hasWarnedAboutDeprecatedIsConcurrentMode = true; // Using console['warn'] to evade Babel and ESLint
-            console["warn"]("The ReactIs.isConcurrentMode() alias has been deprecated, and will be removed in React 18+.");
-        }
-        return false;
-    }
-    function isContextConsumer(object) {
-        return typeOf(object) === REACT_CONTEXT_TYPE;
-    }
-    function isContextProvider(object) {
-        return typeOf(object) === REACT_PROVIDER_TYPE;
-    }
-    function isElement(object) {
-        return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-    }
-    function isForwardRef(object) {
-        return typeOf(object) === REACT_FORWARD_REF_TYPE;
-    }
-    function isFragment(object) {
-        return typeOf(object) === REACT_FRAGMENT_TYPE;
-    }
-    function isLazy(object) {
-        return typeOf(object) === REACT_LAZY_TYPE;
-    }
-    function isMemo(object) {
-        return typeOf(object) === REACT_MEMO_TYPE;
-    }
-    function isPortal(object) {
-        return typeOf(object) === REACT_PORTAL_TYPE;
-    }
-    function isProfiler(object) {
-        return typeOf(object) === REACT_PROFILER_TYPE;
-    }
-    function isStrictMode(object) {
-        return typeOf(object) === REACT_STRICT_MODE_TYPE;
-    }
-    function isSuspense(object) {
-        return typeOf(object) === REACT_SUSPENSE_TYPE;
-    }
-    function isSuspenseList(object) {
-        return typeOf(object) === REACT_SUSPENSE_LIST_TYPE;
-    }
-    exports.ContextConsumer = ContextConsumer;
-    exports.ContextProvider = ContextProvider;
-    exports.Element = Element;
-    exports.ForwardRef = ForwardRef;
-    exports.Fragment = Fragment;
-    exports.Lazy = Lazy;
-    exports.Memo = Memo;
-    exports.Portal = Portal;
-    exports.Profiler = Profiler;
-    exports.StrictMode = StrictMode;
-    exports.Suspense = Suspense;
-    exports.SuspenseList = SuspenseList;
-    exports.isAsyncMode = isAsyncMode;
-    exports.isConcurrentMode = isConcurrentMode;
-    exports.isContextConsumer = isContextConsumer;
-    exports.isContextProvider = isContextProvider;
-    exports.isElement = isElement;
-    exports.isForwardRef = isForwardRef;
-    exports.isFragment = isFragment;
-    exports.isLazy = isLazy;
-    exports.isMemo = isMemo;
-    exports.isPortal = isPortal;
-    exports.isProfiler = isProfiler;
-    exports.isStrictMode = isStrictMode;
-    exports.isSuspense = isSuspense;
-    exports.isSuspenseList = isSuspenseList;
-    exports.isValidElementType = isValidElementType;
-    exports.typeOf = typeOf;
-})();
-
-},{}],"e9uH3":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "pureFinalPropsSelectorFactory", ()=>pureFinalPropsSelectorFactory);
-parcelHelpers.export(exports, "default", ()=>finalPropsSelectorFactory);
-var _objectWithoutPropertiesLoose = require("@babel/runtime/helpers/esm/objectWithoutPropertiesLoose");
-var _objectWithoutPropertiesLooseDefault = parcelHelpers.interopDefault(_objectWithoutPropertiesLoose);
-var _verifySubselectors = require("./verifySubselectors");
-var _verifySubselectorsDefault = parcelHelpers.interopDefault(_verifySubselectors);
-const _excluded = [
-    "initMapStateToProps",
-    "initMapDispatchToProps",
-    "initMergeProps"
-];
-function pureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, { areStatesEqual, areOwnPropsEqual, areStatePropsEqual }) {
-    let hasRunAtLeastOnce = false;
-    let state;
-    let ownProps;
-    let stateProps;
-    let dispatchProps;
-    let mergedProps;
-    function handleFirstCall(firstState, firstOwnProps) {
-        state = firstState;
-        ownProps = firstOwnProps;
-        stateProps = mapStateToProps(state, ownProps);
-        dispatchProps = mapDispatchToProps(dispatch, ownProps);
-        mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
-        hasRunAtLeastOnce = true;
-        return mergedProps;
-    }
-    function handleNewPropsAndNewState() {
-        stateProps = mapStateToProps(state, ownProps);
-        if (mapDispatchToProps.dependsOnOwnProps) dispatchProps = mapDispatchToProps(dispatch, ownProps);
-        mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
-        return mergedProps;
-    }
-    function handleNewProps() {
-        if (mapStateToProps.dependsOnOwnProps) stateProps = mapStateToProps(state, ownProps);
-        if (mapDispatchToProps.dependsOnOwnProps) dispatchProps = mapDispatchToProps(dispatch, ownProps);
-        mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
-        return mergedProps;
-    }
-    function handleNewState() {
-        const nextStateProps = mapStateToProps(state, ownProps);
-        const statePropsChanged = !areStatePropsEqual(nextStateProps, stateProps);
-        stateProps = nextStateProps;
-        if (statePropsChanged) mergedProps = mergeProps(stateProps, dispatchProps, ownProps);
-        return mergedProps;
-    }
-    function handleSubsequentCalls(nextState, nextOwnProps) {
-        const propsChanged = !areOwnPropsEqual(nextOwnProps, ownProps);
-        const stateChanged = !areStatesEqual(nextState, state, nextOwnProps, ownProps);
-        state = nextState;
-        ownProps = nextOwnProps;
-        if (propsChanged && stateChanged) return handleNewPropsAndNewState();
-        if (propsChanged) return handleNewProps();
-        if (stateChanged) return handleNewState();
-        return mergedProps;
-    }
-    return function pureFinalPropsSelector(nextState, nextOwnProps) {
-        return hasRunAtLeastOnce ? handleSubsequentCalls(nextState, nextOwnProps) : handleFirstCall(nextState, nextOwnProps);
-    };
-}
-function finalPropsSelectorFactory(dispatch, _ref) {
-    let { initMapStateToProps, initMapDispatchToProps, initMergeProps } = _ref, options = (0, _objectWithoutPropertiesLooseDefault.default)(_ref, _excluded);
-    const mapStateToProps = initMapStateToProps(dispatch, options);
-    const mapDispatchToProps = initMapDispatchToProps(dispatch, options);
-    const mergeProps = initMergeProps(dispatch, options);
-    (0, _verifySubselectorsDefault.default)(mapStateToProps, mapDispatchToProps, mergeProps);
-    return pureFinalPropsSelectorFactory(mapStateToProps, mapDispatchToProps, mergeProps, dispatch, options);
-}
-
-},{"@babel/runtime/helpers/esm/objectWithoutPropertiesLoose":"adHgr","./verifySubselectors":"10wWL","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"10wWL":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>verifySubselectors);
-var _warning = require("../utils/warning");
-var _warningDefault = parcelHelpers.interopDefault(_warning);
-function verify(selector, methodName) {
-    if (!selector) throw new Error(`Unexpected value for ${methodName} in connect.`);
-    else if (methodName === "mapStateToProps" || methodName === "mapDispatchToProps") {
-        if (!Object.prototype.hasOwnProperty.call(selector, "dependsOnOwnProps")) (0, _warningDefault.default)(`The selector for ${methodName} of connect did not specify a value for dependsOnOwnProps.`);
-    }
-}
-function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps) {
-    verify(mapStateToProps, "mapStateToProps");
-    verify(mapDispatchToProps, "mapDispatchToProps");
-    verify(mergeProps, "mergeProps");
-}
-
-},{"../utils/warning":"cUQUw","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"cUQUw":[function(require,module,exports) {
-/**
- * Prints a warning in the console if it exists.
- *
- * @param {String} message The warning message.
- * @returns {void}
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>warning);
-function warning(message) {
-    /* eslint-disable no-console */ if (typeof console !== "undefined" && typeof console.error === "function") console.error(message);
-    /* eslint-enable no-console */ try {
-        // This error was thrown as a convenience so that if you enable
-        // "break on all exceptions" in your console,
-        // it would pause the execution at this line.
-        throw new Error(message);
-    /* eslint-disable no-empty */ } catch (e) {}
-/* eslint-enable no-empty */ }
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"5QhPl":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "mapDispatchToPropsFactory", ()=>mapDispatchToPropsFactory);
-var _bindActionCreators = require("../utils/bindActionCreators");
-var _bindActionCreatorsDefault = parcelHelpers.interopDefault(_bindActionCreators);
-var _wrapMapToProps = require("./wrapMapToProps");
-var _invalidArgFactory = require("./invalidArgFactory");
-function mapDispatchToPropsFactory(mapDispatchToProps) {
-    return mapDispatchToProps && typeof mapDispatchToProps === "object" ? (0, _wrapMapToProps.wrapMapToPropsConstant)((dispatch)=>(0, _bindActionCreatorsDefault.default)(mapDispatchToProps, dispatch)) : !mapDispatchToProps ? (0, _wrapMapToProps.wrapMapToPropsConstant)((dispatch)=>({
-            dispatch
-        })) : typeof mapDispatchToProps === "function" ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapDispatchToProps, "mapDispatchToProps") : (0, _invalidArgFactory.createInvalidArgFactory)(mapDispatchToProps, "mapDispatchToProps");
-}
-
-},{"../utils/bindActionCreators":"afPZO","./wrapMapToProps":"bSgjL","./invalidArgFactory":"fnbUv","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"afPZO":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>bindActionCreators);
-function bindActionCreators(actionCreators, dispatch) {
-    const boundActionCreators = {};
-    for(const key in actionCreators){
-        const actionCreator = actionCreators[key];
-        if (typeof actionCreator === "function") boundActionCreators[key] = (...args)=>dispatch(actionCreator(...args));
-    }
-    return boundActionCreators;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"bSgjL":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "wrapMapToPropsConstant", ()=>wrapMapToPropsConstant) // dependsOnOwnProps is used by createMapToPropsProxy to determine whether to pass props as args
-;
-// to the mapToProps function being wrapped. It is also used by makePurePropsSelector to determine
-// whether mapToProps needs to be invoked when props have changed.
-//
-// A length of one signals that mapToProps does not depend on props from the parent component.
-// A length of zero is assumed to mean mapToProps is getting args via arguments or ...args and
-// therefore not reporting its length accurately..
-// TODO Can this get pulled out so that we can subscribe directly to the store if we don't need ownProps?
-parcelHelpers.export(exports, "getDependsOnOwnProps", ()=>getDependsOnOwnProps) // Used by whenMapStateToPropsIsFunction and whenMapDispatchToPropsIsFunction,
-;
-// this function wraps mapToProps in a proxy function which does several things:
-//
-//  * Detects whether the mapToProps function being called depends on props, which
-//    is used by selectorFactory to decide if it should reinvoke on props changes.
-//
-//  * On first call, handles mapToProps if returns another function, and treats that
-//    new function as the true mapToProps for subsequent calls.
-//
-//  * On first call, verifies the first result is a plain object, in order to warn
-//    the developer that their mapToProps function is not returning a valid result.
-//
-parcelHelpers.export(exports, "wrapMapToPropsFunc", ()=>wrapMapToPropsFunc);
-var _verifyPlainObject = require("../utils/verifyPlainObject");
-var _verifyPlainObjectDefault = parcelHelpers.interopDefault(_verifyPlainObject);
-function wrapMapToPropsConstant(//  It seems that the dispatch argument
-//  could be a dispatch function in some cases (ex: whenMapDispatchToPropsIsMissing)
-//  and a state object in some others (ex: whenMapStateToPropsIsMissing)
-// eslint-disable-next-line no-unused-vars
-getConstant) {
-    return function initConstantSelector(dispatch) {
-        const constant = getConstant(dispatch);
-        function constantSelector() {
-            return constant;
-        }
-        constantSelector.dependsOnOwnProps = false;
-        return constantSelector;
-    };
-}
-function getDependsOnOwnProps(mapToProps) {
-    return mapToProps.dependsOnOwnProps ? Boolean(mapToProps.dependsOnOwnProps) : mapToProps.length !== 1;
-}
-function wrapMapToPropsFunc(mapToProps, methodName) {
-    return function initProxySelector(dispatch, { displayName }) {
-        const proxy = function mapToPropsProxy(stateOrDispatch, ownProps) {
-            return proxy.dependsOnOwnProps ? proxy.mapToProps(stateOrDispatch, ownProps) : proxy.mapToProps(stateOrDispatch, undefined);
-        }; // allow detectFactoryAndVerify to get ownProps
-        proxy.dependsOnOwnProps = true;
-        proxy.mapToProps = function detectFactoryAndVerify(stateOrDispatch, ownProps) {
-            proxy.mapToProps = mapToProps;
-            proxy.dependsOnOwnProps = getDependsOnOwnProps(mapToProps);
-            let props = proxy(stateOrDispatch, ownProps);
-            if (typeof props === "function") {
-                proxy.mapToProps = props;
-                proxy.dependsOnOwnProps = getDependsOnOwnProps(props);
-                props = proxy(stateOrDispatch, ownProps);
-            }
-            (0, _verifyPlainObjectDefault.default)(props, displayName, methodName);
-            return props;
-        };
-        return proxy;
-    };
-}
-
-},{"../utils/verifyPlainObject":"f6LbZ","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"f6LbZ":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>verifyPlainObject);
-var _isPlainObject = require("./isPlainObject");
-var _isPlainObjectDefault = parcelHelpers.interopDefault(_isPlainObject);
-var _warning = require("./warning");
-var _warningDefault = parcelHelpers.interopDefault(_warning);
-function verifyPlainObject(value, displayName, methodName) {
-    if (!(0, _isPlainObjectDefault.default)(value)) (0, _warningDefault.default)(`${methodName}() in ${displayName} must return a plain object. Instead received ${value}.`);
-}
-
-},{"./isPlainObject":"lM8m6","./warning":"cUQUw","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"lM8m6":[function(require,module,exports) {
-/**
- * @param {any} obj The object to inspect.
- * @returns {boolean} True if the argument appears to be a plain object.
- */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>isPlainObject);
-function isPlainObject(obj) {
-    if (typeof obj !== "object" || obj === null) return false;
-    let proto = Object.getPrototypeOf(obj);
-    if (proto === null) return true;
-    let baseProto = proto;
-    while(Object.getPrototypeOf(baseProto) !== null)baseProto = Object.getPrototypeOf(baseProto);
-    return proto === baseProto;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"fnbUv":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createInvalidArgFactory", ()=>createInvalidArgFactory);
-function createInvalidArgFactory(arg, name) {
-    return (dispatch, options)=>{
-        throw new Error(`Invalid value of type ${typeof arg} for ${name} argument when connecting component ${options.wrappedComponentName}.`);
-    };
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"4Hl4c":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "mapStateToPropsFactory", ()=>mapStateToPropsFactory);
-var _wrapMapToProps = require("./wrapMapToProps");
-var _invalidArgFactory = require("./invalidArgFactory");
-function mapStateToPropsFactory(mapStateToProps) {
-    return !mapStateToProps ? (0, _wrapMapToProps.wrapMapToPropsConstant)(()=>({})) : typeof mapStateToProps === "function" ? (0, _wrapMapToProps.wrapMapToPropsFunc)(mapStateToProps, "mapStateToProps") : (0, _invalidArgFactory.createInvalidArgFactory)(mapStateToProps, "mapStateToProps");
-}
-
-},{"./wrapMapToProps":"bSgjL","./invalidArgFactory":"fnbUv","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"hQpBj":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "defaultMergeProps", ()=>defaultMergeProps);
-parcelHelpers.export(exports, "wrapMergePropsFunc", ()=>wrapMergePropsFunc);
-parcelHelpers.export(exports, "mergePropsFactory", ()=>mergePropsFactory);
-var _extends = require("@babel/runtime/helpers/esm/extends");
-var _extendsDefault = parcelHelpers.interopDefault(_extends);
-var _verifyPlainObject = require("../utils/verifyPlainObject");
-var _verifyPlainObjectDefault = parcelHelpers.interopDefault(_verifyPlainObject);
-var _invalidArgFactory = require("./invalidArgFactory");
-function defaultMergeProps(stateProps, dispatchProps, ownProps) {
-    // @ts-ignore
-    return (0, _extendsDefault.default)({}, ownProps, stateProps, dispatchProps);
-}
-function wrapMergePropsFunc(mergeProps) {
-    return function initMergePropsProxy(dispatch, { displayName, areMergedPropsEqual }) {
-        let hasRunOnce = false;
-        let mergedProps;
-        return function mergePropsProxy(stateProps, dispatchProps, ownProps) {
-            const nextMergedProps = mergeProps(stateProps, dispatchProps, ownProps);
-            if (hasRunOnce) {
-                if (!areMergedPropsEqual(nextMergedProps, mergedProps)) mergedProps = nextMergedProps;
-            } else {
-                hasRunOnce = true;
-                mergedProps = nextMergedProps;
-                (0, _verifyPlainObjectDefault.default)(mergedProps, displayName, "mergeProps");
-            }
-            return mergedProps;
-        };
-    };
-}
-function mergePropsFactory(mergeProps) {
-    return !mergeProps ? ()=>defaultMergeProps : typeof mergeProps === "function" ? wrapMergePropsFunc(mergeProps) : (0, _invalidArgFactory.createInvalidArgFactory)(mergeProps, "mergeProps");
-}
-
-},{"@babel/runtime/helpers/esm/extends":"fTBFS","../utils/verifyPlainObject":"f6LbZ","./invalidArgFactory":"fnbUv","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"ieuHT":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createSubscription", ()=>createSubscription);
-var _batch = require("./batch"); // encapsulates the subscription logic for connecting a component to the redux store, as
-// well as nesting subscriptions of descendant components, so that we can ensure the
-// ancestor components re-render before descendants
-function createListenerCollection() {
-    const batch = (0, _batch.getBatch)();
-    let first = null;
-    let last = null;
-    return {
-        clear () {
-            first = null;
-            last = null;
-        },
-        notify () {
-            batch(()=>{
-                let listener = first;
-                while(listener){
-                    listener.callback();
-                    listener = listener.next;
-                }
-            });
-        },
-        get () {
-            let listeners = [];
-            let listener = first;
-            while(listener){
-                listeners.push(listener);
-                listener = listener.next;
-            }
-            return listeners;
-        },
-        subscribe (callback) {
-            let isSubscribed = true;
-            let listener = last = {
-                callback,
-                next: null,
-                prev: last
-            };
-            if (listener.prev) listener.prev.next = listener;
-            else first = listener;
-            return function unsubscribe() {
-                if (!isSubscribed || first === null) return;
-                isSubscribed = false;
-                if (listener.next) listener.next.prev = listener.prev;
-                else last = listener.prev;
-                if (listener.prev) listener.prev.next = listener.next;
-                else first = listener.next;
-            };
-        }
-    };
-}
-const nullListeners = {
-    notify () {},
-    get: ()=>[]
-};
-function createSubscription(store, parentSub) {
-    let unsubscribe;
-    let listeners = nullListeners; // Reasons to keep the subscription active
-    let subscriptionsAmount = 0; // Is this specific subscription subscribed (or only nested ones?)
-    let selfSubscribed = false;
-    function addNestedSub(listener) {
-        trySubscribe();
-        const cleanupListener = listeners.subscribe(listener); // cleanup nested sub
-        let removed = false;
-        return ()=>{
-            if (!removed) {
-                removed = true;
-                cleanupListener();
-                tryUnsubscribe();
-            }
-        };
-    }
-    function notifyNestedSubs() {
-        listeners.notify();
-    }
-    function handleChangeWrapper() {
-        if (subscription.onStateChange) subscription.onStateChange();
-    }
-    function isSubscribed() {
-        return selfSubscribed;
-    }
-    function trySubscribe() {
-        subscriptionsAmount++;
-        if (!unsubscribe) {
-            unsubscribe = parentSub ? parentSub.addNestedSub(handleChangeWrapper) : store.subscribe(handleChangeWrapper);
-            listeners = createListenerCollection();
-        }
-    }
-    function tryUnsubscribe() {
-        subscriptionsAmount--;
-        if (unsubscribe && subscriptionsAmount === 0) {
-            unsubscribe();
-            unsubscribe = undefined;
-            listeners.clear();
-            listeners = nullListeners;
-        }
-    }
-    function trySubscribeSelf() {
-        if (!selfSubscribed) {
-            selfSubscribed = true;
-            trySubscribe();
-        }
-    }
-    function tryUnsubscribeSelf() {
-        if (selfSubscribed) {
-            selfSubscribed = false;
-            tryUnsubscribe();
-        }
-    }
-    const subscription = {
-        addNestedSub,
-        notifyNestedSubs,
-        handleChangeWrapper,
-        isSubscribed,
-        trySubscribe: trySubscribeSelf,
-        tryUnsubscribe: tryUnsubscribeSelf,
-        getListeners: ()=>listeners
-    };
-    return subscription;
-}
-
-},{"./batch":"ikw0G","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"kNbVc":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "canUseDOM", ()=>canUseDOM);
-parcelHelpers.export(exports, "useIsomorphicLayoutEffect", ()=>useIsomorphicLayoutEffect);
-var _react = require("react"); // React currently throws a warning when using useLayoutEffect on the server.
-const canUseDOM = !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
-const useIsomorphicLayoutEffect = canUseDOM ? _react.useLayoutEffect : _react.useEffect;
-
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"gV5L4":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "default", ()=>shallowEqual);
-function is(x, y) {
-    if (x === y) return x !== 0 || y !== 0 || 1 / x === 1 / y;
-    else return x !== x && y !== y;
-}
-function shallowEqual(objA, objB) {
-    if (is(objA, objB)) return true;
-    if (typeof objA !== "object" || objA === null || typeof objB !== "object" || objB === null) return false;
-    const keysA = Object.keys(objA);
-    const keysB = Object.keys(objB);
-    if (keysA.length !== keysB.length) return false;
-    for(let i = 0; i < keysA.length; i++){
-        if (!Object.prototype.hasOwnProperty.call(objB, keysA[i]) || !is(objA[keysA[i]], objB[keysA[i]])) return false;
-    }
-    return true;
-}
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"iAa1P":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Provider", ()=>(0, _providerDefault.default));
-parcelHelpers.export(exports, "ReactReduxContext", ()=>(0, _context.ReactReduxContext));
-parcelHelpers.export(exports, "connect", ()=>(0, _connectDefault.default));
-parcelHelpers.export(exports, "useDispatch", ()=>(0, _useDispatch.useDispatch));
-parcelHelpers.export(exports, "createDispatchHook", ()=>(0, _useDispatch.createDispatchHook));
-parcelHelpers.export(exports, "useSelector", ()=>(0, _useSelector.useSelector));
-parcelHelpers.export(exports, "createSelectorHook", ()=>(0, _useSelector.createSelectorHook));
-parcelHelpers.export(exports, "useStore", ()=>(0, _useStore.useStore));
-parcelHelpers.export(exports, "createStoreHook", ()=>(0, _useStore.createStoreHook));
-parcelHelpers.export(exports, "shallowEqual", ()=>(0, _shallowEqualDefault.default));
-var _provider = require("./components/Provider");
-var _providerDefault = parcelHelpers.interopDefault(_provider);
-var _connect = require("./components/connect");
-var _connectDefault = parcelHelpers.interopDefault(_connect);
-var _context = require("./components/Context");
-var _useDispatch = require("./hooks/useDispatch");
-var _useSelector = require("./hooks/useSelector");
-var _useStore = require("./hooks/useStore");
-var _shallowEqual = require("./utils/shallowEqual");
-var _shallowEqualDefault = parcelHelpers.interopDefault(_shallowEqual);
-var _types = require("./types");
-parcelHelpers.exportAll(_types, exports);
-
-},{"./components/Provider":"bdd6J","./components/connect":"5gOIw","./components/Context":"ji81o","./hooks/useDispatch":"aOjNn","./hooks/useSelector":"l3rFI","./hooks/useStore":"39JZU","./utils/shallowEqual":"gV5L4","./types":"8RiCo","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"bdd6J":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _react = require("react");
-var _context = require("./Context");
-var _subscription = require("../utils/Subscription");
-var _useIsomorphicLayoutEffect = require("../utils/useIsomorphicLayoutEffect");
-function Provider({ store, context, children, serverState, stabilityCheck = "once", noopCheck = "once" }) {
-    const contextValue = _react.useMemo(()=>{
-        const subscription = (0, _subscription.createSubscription)(store);
-        return {
-            store,
-            subscription,
-            getServerState: serverState ? ()=>serverState : undefined,
-            stabilityCheck,
-            noopCheck
-        };
-    }, [
-        store,
-        serverState,
-        stabilityCheck,
-        noopCheck
-    ]);
-    const previousState = _react.useMemo(()=>store.getState(), [
-        store
-    ]);
-    (0, _useIsomorphicLayoutEffect.useIsomorphicLayoutEffect)(()=>{
-        const { subscription } = contextValue;
-        subscription.onStateChange = subscription.notifyNestedSubs;
-        subscription.trySubscribe();
-        if (previousState !== store.getState()) subscription.notifyNestedSubs();
-        return ()=>{
-            subscription.tryUnsubscribe();
-            subscription.onStateChange = undefined;
-        };
-    }, [
-        contextValue,
-        previousState
-    ]);
-    const Context = context || (0, _context.ReactReduxContext); // @ts-ignore 'AnyAction' is assignable to the constraint of type 'A', but 'A' could be instantiated with a different subtype
-    return /*#__PURE__*/ _react.createElement(Context.Provider, {
-        value: contextValue
-    }, children);
-}
-exports.default = Provider;
-
-},{"react":"21dqq","./Context":"ji81o","../utils/Subscription":"ieuHT","../utils/useIsomorphicLayoutEffect":"kNbVc","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"aOjNn":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-/**
- * Hook factory, which creates a `useDispatch` hook bound to a given context.
- *
- * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
- * @returns {Function} A `useDispatch` hook bound to the specified context.
- */ parcelHelpers.export(exports, "createDispatchHook", ()=>createDispatchHook);
-parcelHelpers.export(exports, "useDispatch", ()=>useDispatch);
-var _context = require("../components/Context");
-var _useStore = require("./useStore");
-function createDispatchHook(context = (0, _context.ReactReduxContext)) {
-    const useStore = context === (0, _context.ReactReduxContext) ? (0, _useStore.useStore) : (0, _useStore.createStoreHook)(context);
-    return function useDispatch() {
-        const store = useStore(); // @ts-ignore
-        return store.dispatch;
-    };
-}
-const useDispatch = /*#__PURE__*/ createDispatchHook();
-
-},{"../components/Context":"ji81o","./useStore":"39JZU","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"39JZU":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-/**
- * Hook factory, which creates a `useStore` hook bound to a given context.
- *
- * @param {React.Context} [context=ReactReduxContext] Context passed to your `<Provider>`.
- * @returns {Function} A `useStore` hook bound to the specified context.
- */ parcelHelpers.export(exports, "createStoreHook", ()=>createStoreHook);
-parcelHelpers.export(exports, "useStore", ()=>useStore);
-var _context = require("../components/Context");
-var _useReduxContext = require("./useReduxContext");
-function createStoreHook(context = (0, _context.ReactReduxContext)) {
-    const useReduxContext = context === (0, _context.ReactReduxContext) ? (0, _useReduxContext.useReduxContext) : (0, _useReduxContext.createReduxContextHook)(context);
-    return function useStore() {
-        const { store } = useReduxContext(); // @ts-ignore
-        return store;
-    };
-}
-const useStore = /*#__PURE__*/ createStoreHook();
-
-},{"../components/Context":"ji81o","./useReduxContext":"3828k","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"8RiCo":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"bwuIu":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$67b2.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _card = require("react-bootstrap/Card");
-var _cardDefault = parcelHelpers.interopDefault(_card);
-var _movieCardScss = require("./movie-card.scss");
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _reactRouterDom = require("react-router-dom");
-const MovieCard = ({ movie })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-        to: `/movies/${encodeURIComponent(movie.id)}`,
-        className: "remove-decoration",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default), {
-            className: "hover h-100",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Body, {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Title, {
-                        children: movie.title
-                    }, void 0, false, {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 12,
-                        columnNumber: 21
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cardDefault.default).Img, {
-                        src: movie.image,
-                        alt: movie.title
-                    }, void 0, false, {
-                        fileName: "src/components/movie-card/movie-card.jsx",
-                        lineNumber: 13,
-                        columnNumber: 21
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 11,
-                columnNumber: 17
-            }, undefined)
-        }, void 0, false, {
-            fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 10,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/components/movie-card/movie-card.jsx",
-        lineNumber: 9,
-        columnNumber: 9
-    }, undefined);
-};
-_c = MovieCard;
-MovieCard.prototypes = {
-    movie: (0, _propTypesDefault.default).shape({
-        title: (0, _propTypesDefault.default).string.isRequired,
-        image: (0, _propTypesDefault.default).string.isRequired
-    }).isRequired
-};
-var _c;
-$RefreshReg$(_c, "MovieCard");
-
-  $parcel$ReactRefreshHelpers$67b2.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8","react":"21dqq","react-bootstrap/Card":"lAynp","./movie-card.scss":"d6HH4","prop-types":"7wKI2","react-router-dom":"9xmpe"}],"d6HH4":[function() {},{}],"9YtA0":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$9fee.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "LoginView", ()=>LoginView);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _button = require("react-bootstrap/Button");
-var _buttonDefault = parcelHelpers.interopDefault(_button);
-var _form = require("react-bootstrap/Form");
-var _formDefault = parcelHelpers.interopDefault(_form);
-var _reactRedux = require("react-redux");
 var _userActions = require("../../actions/userActions");
+var _reactRedux = require("react-redux");
 var _s = $RefreshSig$();
-const LoginView = ()=>{
+const MovieView = ({ movies, user })=>{
     _s();
+    const { movieId } = (0, _reactRouter.useParams)();
     const dispatch = (0, _reactRedux.useDispatch)();
-    const [username, setUsername] = (0, _react.useState)("");
-    const [password, setPassword] = (0, _react.useState)("");
-    const loginUser = (event)=>{
-        event.preventDefault();
-        console.log(username, password);
-        dispatch((0, _userActions.login)(username, password));
-        setUsername("");
-        setPassword("");
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
-        onSubmit: loginUser,
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                className: "mt-3",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-                        children: "Log In"
+    const movie = movies.find((m)=>m.id === movieId);
+    const isMovieInFavorites = user.FavoriteMovies.includes(String(movieId));
+    const similarMovies = movies.filter((m)=>m.genre.Name === movie.genre.Name && m.id !== movieId);
+    console.log(isMovieInFavorites, "favorite movie added");
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
+            className: "d-flex flex-column",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Header, {
+                    as: "h5",
+                    children: movie.title
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 22,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
+                    children: movie.description
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 24,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                            children: "Director:"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 26,
+                            columnNumber: 21
+                        }, undefined),
+                        " ",
+                        movie.director.Name,
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 27,
+                            columnNumber: 21
+                        }, undefined),
+                        movie.director.Bio
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 25,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                        children: "Actors:"
                     }, void 0, false, {
-                        fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 24,
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 32,
                         columnNumber: 21
                     }, undefined)
                 }, void 0, false, {
-                    fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 23,
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 31,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                    className: "list-unstyled",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "row",
+                        children: movie.actor.map((actor, index)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "col-md-4 my-2",
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                    children: actor
+                                }, void 0, false, {
+                                    fileName: "src/components/movie-view/movie-view.jsx",
+                                    lineNumber: 38,
+                                    columnNumber: 33
+                                }, undefined)
+                            }, index, false, {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 37,
+                                columnNumber: 29
+                            }, undefined))
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 35,
+                        columnNumber: 21
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 34,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                            children: "Genre:"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 45,
+                            columnNumber: 21
+                        }, undefined),
+                        " ",
+                        movie.genre.Name
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 44,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                            children: "Featured:"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 49,
+                            columnNumber: 21
+                        }, undefined),
+                        " ",
+                        movie.featured ? "Yes" : "No"
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 48,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
+                    className: "list-unstyled",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("strong", {
+                        children: "Similar Movies:"
+                    }, void 0, false, {
+                        fileName: "src/components/movie-view/movie-view.jsx",
+                        lineNumber: 53,
+                        columnNumber: 21
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 52,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "row list-unstyled",
+                    children: similarMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "col-md-4 my-2",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: movie.title
+                            }, void 0, false, {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 58,
+                                columnNumber: 29
+                            }, undefined)
+                        }, movie.id, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 57,
+                            columnNumber: 25
+                        }, undefined))
+                }, void 0, false, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 55,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
+                    className: "d-flex justify-content-between",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                            to: `/`,
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                variant: "primary",
+                                style: {
+                                    cursor: "pointer"
+                                },
+                                children: "Close"
+                            }, void 0, false, {
+                                fileName: "src/components/movie-view/movie-view.jsx",
+                                lineNumber: 65,
+                                columnNumber: 25
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 64,
+                            columnNumber: 21
+                        }, undefined),
+                        isMovieInFavorites ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                            variant: "secondary",
+                            children: "Already Your Favorite"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 71,
+                            columnNumber: 25
+                        }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                            onClick: ()=>{
+                                dispatch((0, _userActions.addFavoriteMovieToUser)(user._id, movieId));
+                            },
+                            variant: "dark",
+                            style: {
+                                cursor: "pointer"
+                            },
+                            children: "Add To Favorite"
+                        }, void 0, false, {
+                            fileName: "src/components/movie-view/movie-view.jsx",
+                            lineNumber: 73,
+                            columnNumber: 25
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/components/movie-view/movie-view.jsx",
+                    lineNumber: 63,
                     columnNumber: 17
                 }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 22,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                className: "mb-3",
-                controlId: "formUsername",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                        children: "Username:"
-                    }, void 0, false, {
-                        fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 29,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                        type: "text",
-                        value: username,
-                        onChange: (e)=>setUsername(e.target.value),
-                        required: true
-                    }, void 0, false, {
-                        fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 30,
-                        columnNumber: 17
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 28,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
-                className: "mb-3",
-                controlId: "formPassword",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
-                        children: "Password:"
-                    }, void 0, false, {
-                        fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 39,
-                        columnNumber: 17
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
-                        className: "mb-3",
-                        type: "password",
-                        value: password,
-                        onChange: (e)=>setPassword(e.target.value),
-                        required: true
-                    }, void 0, false, {
-                        fileName: "src/components/login-view/login-view.jsx",
-                        lineNumber: 40,
-                        columnNumber: 17
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 38,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                type: "submit",
-                children: "Submit"
-            }, void 0, false, {
-                fileName: "src/components/login-view/login-view.jsx",
-                lineNumber: 49,
-                columnNumber: 13
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/components/login-view/login-view.jsx",
-        lineNumber: 21,
+            ]
+        }, void 0, true, {
+            fileName: "src/components/movie-view/movie-view.jsx",
+            lineNumber: 21,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/movie-view/movie-view.jsx",
+        lineNumber: 20,
         columnNumber: 9
     }, undefined);
 };
-_s(LoginView, "0kwmJMOmeJYxYU6JLGKQHR0o1XA=", false, function() {
+_s(MovieView, "ImeHYv49h+hVneCbtq53++hVfSU=", false, function() {
     return [
+        (0, _reactRouter.useParams),
         (0, _reactRedux.useDispatch)
     ];
 });
-_c = LoginView;
+_c = MovieView;
 var _c;
-$RefreshReg$(_c, "LoginView");
+$RefreshReg$(_c, "MovieView");
 
-  $parcel$ReactRefreshHelpers$9fee.postlude(module);
+  $parcel$ReactRefreshHelpers$e9f6.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8","react-redux":"bdVon","../../actions/userActions":"5JRkM"}],"4OGiN":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./movie-view.scss":"jnlR5","react-bootstrap":"3AD9A","react-router":"dbWyW","react-router-dom":"9xmpe","../../actions/userActions":"5JRkM","react-redux":"bdVon","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8"}],"jnlR5":[function() {},{}],"4OGiN":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$73d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -43352,132 +43378,7 @@ $RefreshReg$(_c, "SignupView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8"}],"bsPVM":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$abf5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$abf5.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "NavigationBar", ()=>NavigationBar);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _reactBootstrap = require("react-bootstrap");
-var _reactRouterDom = require("react-router-dom");
-const NavigationBar = ({ user, loggedOut })=>{
-    const storedUser = JSON.parse(localStorage.getItem("user"));
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
-        bg: "light",
-        expand: "lg",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Brand, {
-                    as: (0, _reactRouterDom.Link),
-                    to: "/",
-                    children: "HistoricMovie App"
-                }, void 0, false, {
-                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                    lineNumber: 10,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Toggle, {
-                    "aria-controls": "basic-navbar-nav"
-                }, void 0, false, {
-                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                    lineNumber: 13,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Collapse, {
-                    id: "basic-navbar-nav",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
-                        className: "me-auto",
-                        children: [
-                            !storedUser && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                        as: (0, _reactRouterDom.Link),
-                                        to: "/login",
-                                        children: "Login"
-                                    }, void 0, false, {
-                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 18,
-                                        columnNumber: 33
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                        as: (0, _reactRouterDom.Link),
-                                        to: "/signup",
-                                        children: "Signup"
-                                    }, void 0, false, {
-                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 21,
-                                        columnNumber: 33
-                                    }, undefined)
-                                ]
-                            }, void 0, true),
-                            storedUser && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                        as: (0, _reactRouterDom.Link),
-                                        to: "/",
-                                        children: "Home"
-                                    }, void 0, false, {
-                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 28,
-                                        columnNumber: 33
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                        as: (0, _reactRouterDom.Link),
-                                        to: "/users",
-                                        children: "Profile"
-                                    }, void 0, false, {
-                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 31,
-                                        columnNumber: 33
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                        onClick: loggedOut,
-                                        children: "Logout"
-                                    }, void 0, false, {
-                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                                        lineNumber: 34,
-                                        columnNumber: 33
-                                    }, undefined)
-                                ]
-                            }, void 0, true)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                        lineNumber: 15,
-                        columnNumber: 21
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
-                    lineNumber: 14,
-                    columnNumber: 17
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/components/navigation-bar/navigation-bar.jsx",
-            lineNumber: 9,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/components/navigation-bar/navigation-bar.jsx",
-        lineNumber: 8,
-        columnNumber: 9
-    }, undefined);
-};
-_c = NavigationBar;
-var _c;
-$RefreshReg$(_c, "NavigationBar");
-
-  $parcel$ReactRefreshHelpers$abf5.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8"}],"2vVqf":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8"}],"2vVqf":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3c12 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -43672,172 +43573,132 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8","react-bootstrap":"3AD9A","react-bootstrap/ListGroup":"4tGXh","react":"21dqq","react-redux":"bdVon","../../actions/userActions":"5JRkM"}],"kr71C":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$484b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react-bootstrap/ListGroup":"4tGXh","react":"21dqq","react-redux":"bdVon","../../actions/userActions":"5JRkM","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8"}],"bsPVM":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$abf5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$484b.prelude(module);
+$parcel$ReactRefreshHelpers$abf5.prelude(module);
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "ProfileEditView", ()=>ProfileEditView);
+parcelHelpers.export(exports, "NavigationBar", ()=>NavigationBar);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactBootstrap = require("react-bootstrap");
-var _reactRedux = require("react-redux");
-var _userActions = require("../../actions/userActions");
-var _s = $RefreshSig$();
-const ProfileEditView = ({ user, clickUpdate, token })=>{
-    _s();
-    const dispatch = (0, _reactRedux.useDispatch)();
-    const [updatedUserData, setUpdatedUserData] = (0, _react.useState)(user);
-    const handleChange = (e)=>{
-        const { name, value } = e.target;
-        setUpdatedUserData({
-            ...updatedUserData,
-            [name]: value
-        });
-    };
-    const handleSubmit = ()=>{
-        dispatch((0, _userActions.editUser)(user, updatedUserData, token));
-        clickUpdate(null);
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card), {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
-                            children: "Edit Profile"
-                        }, void 0, false, {
-                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                            lineNumber: 23,
-                            columnNumber: 21
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.ListGroup), {
-                            className: "list-group-flush",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.ListGroup).Item, {
-                                    children: [
-                                        "Username:",
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                            type: "text",
-                                            name: "Username",
-                                            value: updatedUserData.Username,
-                                            onChange: handleChange
-                                        }, void 0, false, {
-                                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                                            lineNumber: 27,
-                                            columnNumber: 29
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                                    lineNumber: 25,
-                                    columnNumber: 25
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.ListGroup).Item, {
-                                    children: [
-                                        "Password:",
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                            type: "text",
-                                            name: "Password",
-                                            value: updatedUserData.Password,
-                                            onChange: handleChange
-                                        }, void 0, false, {
-                                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                                            lineNumber: 36,
-                                            columnNumber: 29
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                                    lineNumber: 34,
-                                    columnNumber: 25
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.ListGroup).Item, {
-                                    children: [
-                                        "Date of Birth:",
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                            type: "date",
-                                            name: "Birthday",
-                                            value: updatedUserData.Birthday,
-                                            onChange: handleChange
-                                        }, void 0, false, {
-                                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                                            lineNumber: 45,
-                                            columnNumber: 29
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                                    lineNumber: 43,
-                                    columnNumber: 25
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.ListGroup).Item, {
-                                    children: [
-                                        "Email:",
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                            type: "email",
-                                            name: "Email",
-                                            value: updatedUserData.Email,
-                                            onChange: handleChange
-                                        }, void 0, false, {
-                                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                                            lineNumber: 54,
-                                            columnNumber: 29
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                                    lineNumber: 52,
-                                    columnNumber: 25
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                            lineNumber: 24,
-                            columnNumber: 21
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                    lineNumber: 22,
+var _reactRouterDom = require("react-router-dom");
+const NavigationBar = ({ user, loggedOut })=>{
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar), {
+        bg: "light",
+        expand: "lg",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Brand, {
+                    as: (0, _reactRouterDom.Link),
+                    to: "/",
+                    children: "HistoricMovie App"
+                }, void 0, false, {
+                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                    lineNumber: 10,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Toggle, {
+                    "aria-controls": "basic-navbar-nav"
+                }, void 0, false, {
+                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                    lineNumber: 13,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Navbar).Collapse, {
+                    id: "basic-navbar-nav",
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav), {
+                        className: "me-auto",
+                        children: [
+                            !storedUser && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                        as: (0, _reactRouterDom.Link),
+                                        to: "/login",
+                                        children: "Login"
+                                    }, void 0, false, {
+                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                        lineNumber: 18,
+                                        columnNumber: 33
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                        as: (0, _reactRouterDom.Link),
+                                        to: "/signup",
+                                        children: "Signup"
+                                    }, void 0, false, {
+                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                        lineNumber: 21,
+                                        columnNumber: 33
+                                    }, undefined)
+                                ]
+                            }, void 0, true),
+                            storedUser && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                        as: (0, _reactRouterDom.Link),
+                                        to: "/",
+                                        children: "Home"
+                                    }, void 0, false, {
+                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                        lineNumber: 28,
+                                        columnNumber: 33
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                        as: (0, _reactRouterDom.Link),
+                                        to: "/users",
+                                        children: "Profile"
+                                    }, void 0, false, {
+                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                        lineNumber: 31,
+                                        columnNumber: 33
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
+                                        onClick: loggedOut,
+                                        children: "Logout"
+                                    }, void 0, false, {
+                                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                                        lineNumber: 34,
+                                        columnNumber: 33
+                                    }, undefined)
+                                ]
+                            }, void 0, true)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                        lineNumber: 15,
+                        columnNumber: 21
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/navigation-bar/navigation-bar.jsx",
+                    lineNumber: 14,
                     columnNumber: 17
                 }, undefined)
-            }, void 0, false, {
-                fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                lineNumber: 21,
-                columnNumber: 13
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
-                onClick: handleSubmit,
-                children: "Update"
-            }, void 0, false, {
-                fileName: "src/components/profileEdit-view/profileEdit-view.jsx",
-                lineNumber: 64,
-                columnNumber: 13
-            }, undefined)
-        ]
-    }, void 0, true);
+            ]
+        }, void 0, true, {
+            fileName: "src/components/navigation-bar/navigation-bar.jsx",
+            lineNumber: 9,
+            columnNumber: 13
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/components/navigation-bar/navigation-bar.jsx",
+        lineNumber: 8,
+        columnNumber: 9
+    }, undefined);
 };
-_s(ProfileEditView, "ZULVamhvOOhmMgA1M4B0ZQpRprI=", false, function() {
-    return [
-        (0, _reactRedux.useDispatch)
-    ];
-});
-_c = ProfileEditView;
+_c = NavigationBar;
 var _c;
-$RefreshReg$(_c, "ProfileEditView");
+$RefreshReg$(_c, "NavigationBar");
 
-  $parcel$ReactRefreshHelpers$484b.postlude(module);
+  $parcel$ReactRefreshHelpers$abf5.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8","react-redux":"bdVon","../../actions/userActions":"5JRkM"}],"fP2tj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-bootstrap":"3AD9A","react-router-dom":"9xmpe","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8"}],"fP2tj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "GET_MOVIES", ()=>GET_MOVIES);
@@ -43877,7 +43738,146 @@ const getMovies = ()=>async (dispatch)=>{
         }
     };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"kikAt":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"9YtA0":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9fee.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "LoginView", ()=>LoginView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _reactRedux = require("react-redux");
+var _userActions = require("../../actions/userActions");
+var _s = $RefreshSig$();
+const LoginView = ()=>{
+    _s();
+    const dispatch = (0, _reactRedux.useDispatch)();
+    const [username, setUsername] = (0, _react.useState)("");
+    const [password, setPassword] = (0, _react.useState)("");
+    const loginUser = (event)=>{
+        event.preventDefault();
+        console.log(username, password);
+        dispatch((0, _userActions.login)(username, password));
+        setUsername("");
+        setPassword("");
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default), {
+        onSubmit: loginUser,
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                className: "mt-3",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                        children: "Log In"
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 24,
+                        columnNumber: 21
+                    }, undefined)
+                }, void 0, false, {
+                    fileName: "src/components/login-view/login-view.jsx",
+                    lineNumber: 23,
+                    columnNumber: 17
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/login-view/login-view.jsx",
+                lineNumber: 22,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                className: "mb-3",
+                controlId: "formUsername",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                        children: "Username:"
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 29,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                        type: "text",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value),
+                        required: true
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 30,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/login-view/login-view.jsx",
+                lineNumber: 28,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Group, {
+                className: "mb-3",
+                controlId: "formPassword",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Label, {
+                        children: "Password:"
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 39,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _formDefault.default).Control, {
+                        className: "mb-3",
+                        type: "password",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value),
+                        required: true
+                    }, void 0, false, {
+                        fileName: "src/components/login-view/login-view.jsx",
+                        lineNumber: 40,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/login-view/login-view.jsx",
+                lineNumber: 38,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
+                type: "submit",
+                children: "Submit"
+            }, void 0, false, {
+                fileName: "src/components/login-view/login-view.jsx",
+                lineNumber: 49,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/login-view/login-view.jsx",
+        lineNumber: 21,
+        columnNumber: 9
+    }, undefined);
+};
+_s(LoginView, "0kwmJMOmeJYxYU6JLGKQHR0o1XA=", false, function() {
+    return [
+        (0, _reactRedux.useDispatch)
+    ];
+});
+_c = LoginView;
+var _c;
+$RefreshReg$(_c, "LoginView");
+
+  $parcel$ReactRefreshHelpers$9fee.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","react-redux":"bdVon","../../actions/userActions":"5JRkM","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hjvA8","react/jsx-dev-runtime":"iTorj","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80"}],"kikAt":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _toolkit = require("@reduxjs/toolkit");
@@ -43894,7 +43894,7 @@ const store = (0, _toolkit.configureStore)({
 });
 exports.default = store;
 
-},{"@reduxjs/toolkit":"lL1Ef","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","../reducers/userReducer":"lw6yR","../reducers/movieReducer":"2ggcn"}],"lL1Ef":[function(require,module,exports) {
+},{"@reduxjs/toolkit":"lL1Ef","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp","../reducers/movieReducer":"2ggcn","../reducers/userReducer":"lw6yR"}],"lL1Ef":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "EnhancerArray", ()=>EnhancerArray);
@@ -47807,7 +47807,25 @@ var thunk = createThunkMiddleware(); // Attach the factory function so users can
 thunk.withExtraArgument = createThunkMiddleware;
 exports.default = thunk;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"lw6yR":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"2ggcn":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _movieActions = require("../actions/movieActions");
+const movieReducer = (state = [], action)=>{
+    switch(action.type){
+        case 0, _movieActions.GET_MOVIES:
+            console.log("Movies received:", action.movies);
+            return [
+                ...state,
+                ...action.movies
+            ];
+        default:
+            return state;
+    }
+};
+exports.default = movieReducer;
+
+},{"../actions/movieActions":"fP2tj","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"lw6yR":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _userActions = require("../actions/userActions");
@@ -47837,24 +47855,6 @@ const userReducer = (state = storedUser ? storedUser : null, action)=>{
 };
 exports.default = userReducer;
 
-},{"../actions/userActions":"5JRkM","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}],"2ggcn":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _movieActions = require("../actions/movieActions");
-const movieReducer = (state = [], action)=>{
-    switch(action.type){
-        case 0, _movieActions.GET_MOVIES:
-            console.log("Movies received:", action.movies);
-            return [
-                ...state,
-                ...action.movies
-            ];
-        default:
-            return state;
-    }
-};
-exports.default = movieReducer;
-
-},{"../actions/movieActions":"fP2tj","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}]},["ccRe5","lOnuB","d8Dch"], "d8Dch", "parcelRequireccd1")
+},{"../actions/userActions":"5JRkM","@parcel/transformer-js/src/esmodule-helpers.js":"ifWdp"}]},["ccRe5","lOnuB","d8Dch"], "d8Dch", "parcelRequireccd1")
 
 //# sourceMappingURL=index.b4b6dfad.js.map
