@@ -1,18 +1,55 @@
-// console.log(storedToken);
-// actions.js
-export const LOG_IN = "LOG_IN";
+export const SIGNUP = "SIGNUP";
 export const LOG_OUT = "LOG_OUT";
 export const EDIT_USER = "EDIT_USER";
 export const DELETE_USER = "DELETE_USER";
-export const ADD_FAVORITE_MOVIE_TO_USER = "ADD_FAVORITE_MOVIE_TO_USER";
 export const UNFAVORITE_MOVIE = "UNFAVORITE_MOVIE";
 const storedToken = localStorage.getItem("token");
+// LOGIN
+export const LOGIN_REQUEST = "LOGIN_REQUEST",
+    LOGIN_SUCCESS = "LOGIN_SUCCESS",
+    LOGIN_FAILURE = "LOGIN_FAILURE";
+
+// ADD FAVORITE_MOVIE
+export const ADD_FAVORITE_MOVIE_REQUEST = "ADD_FAVORITE_MOVIE_REQUEST",
+    ADD_FAVORITE_MOVIE_SUCCESS = "ADD_FAVORITE_MOVIE_SUCCESS",
+    ADD_FAVORITE_MOVIE_FAILURE = "ADD_FAVORITE_MOVIE_FAILURE";
+
+//  DELETE FAVORITE_MOVIE
+export const DELETE_FAVORITE_MOVIE_REQUEST = "DELETE_FAVORITE_MOVIE_REQUEST",
+    DELETE_FAVORITE_MOVIE_SUCCESS = "DELETE_FAVORITE_MOVIE_SUCCESS",
+    DELETE_FAVORITE_MOVIE_FAILURE = "DELETE_FAVORITE_MOVIE_FAILURE";
 
 // action creator
 
-// login action creator
+// SIGNUP
+export const signup = (Username, Password, Email, Birthday) => async (dispatch) => {
+    const data = {
+        Username,
+        Password,
+        Email,
+        Birthday,
+    };
+
+    const response = await fetch("https://history-movie-api.onrender.com/register", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+    const signupUser = await response.json();
+
+    if (signupUser.ok) {
+        dispatch({ type: SIGNUP, user: signupUser });
+        alert("Signup successful");
+    } else {
+        alert("Signup failed");
+    }
+};
+
+// LOGIN
 export const login = (username, password) => async (dispatch) => {
-    console.log("Fetching movies...");
+    dispatch({ type: LOGIN_REQUEST });
 
     const data = {
         Username: username,
@@ -20,7 +57,7 @@ export const login = (username, password) => async (dispatch) => {
     };
 
     try {
-        const response = await fetch("https://historic-movies-a728a807961d.herokuapp.com/login", {
+        const response = await fetch("https://history-movie-api.onrender.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -31,19 +68,21 @@ export const login = (username, password) => async (dispatch) => {
         const userData = await response.json();
 
         if (userData.user) {
-            dispatch({ type: LOG_IN, user: userData.user });
+            dispatch({ type: LOGIN_SUCCESS, user: userData.data });
             localStorage.setItem("user", JSON.stringify(userData.user));
             localStorage.setItem("token", userData.token);
-            window.location.reload();
+            // window.location.reload();
         } else {
-            alert("No such user");
+            dispatch({ type: LOGIN_FAILURE, user: "Wrong Password or Username" });
         }
     } catch (error) {
-        alert("Something went wrong", error);
+        console.error("Error adding movie to favorites:", error);
+
+        dispatch({ type: LOGIN_FAILURE, user: "Network Problem. Please try again later." });
     }
 };
 
-// logout action creator
+// LOGOUT
 export const logout = () => (dispatch) => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
@@ -51,11 +90,11 @@ export const logout = () => (dispatch) => {
     window.location.reload();
 };
 
-// editUser action creator
+// EDIT USER
 export const editUser = (userData, updatedUserData, token) => async (dispatch) => {
     try {
         const response = await fetch(
-            `https://historic-movies-a728a807961d.herokuapp.com/user/${userData.Username}`,
+            `https://history-movie-api.onrender.com/user/${userData.Username}`,
             {
                 method: "PUT",
                 headers: {
@@ -76,19 +115,16 @@ export const editUser = (userData, updatedUserData, token) => async (dispatch) =
     }
 };
 
-// deleteUser action creator
+// DELETE_USER
 export const deleteUser = (user, token) => async (dispatch) => {
     try {
-        const response = await fetch(
-            `https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}`,
-            {
-                method: "DELETE",
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    "Content-Type": "application/json",
-                },
-            }
-        );
+        const response = await fetch(`https://history-movie-api.onrender.com/user/${user._id}`, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        });
 
         if (response.ok) {
             localStorage.clear();
@@ -102,59 +138,66 @@ export const deleteUser = (user, token) => async (dispatch) => {
     }
 };
 
+// ADD_FAVORITE_MOVIE
 export const addFavoriteMovieToUser = (userId, movieId) => async (dispatch) => {
+    dispatch({ type: ADD_FAVORITE_MOVIE_REQUEST });
     try {
-        const response = await fetch(
-            "https://historic-movies-a728a807961d.herokuapp.com/user/addfavorite",
-            {
-                method: "POST",
-                headers: {
-                    Authorization: `Bearer ${storedToken}`,
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ userId: userId, movieId }),
-            }
-        );
+        const response = await fetch("https://history-movie-api.onrender.com/user/addfavorite", {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${storedToken}`,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ userId: userId, movieId }),
+        });
 
         if (!response.ok) {
             throw new Error("Network response was not ok");
         }
         const updatedUser = await response.json();
-        console.log(updatedUser.FavoriteMovie, "updatedUser");
-        window.location.reload();
 
-        dispatch({ type: ADD_FAVORITE_MOVIE_TO_USER, user: updatedUser });
+        dispatch({ type: ADD_FAVORITE_MOVIE_SUCCESS, user: updatedUser });
         localStorage.setItem("user", JSON.stringify(updatedUser));
     } catch (error) {
         console.error("Error adding movie to favorites:", error);
+        dispatch({
+            type: ADD_FAVORITE_MOVIE_FAILURE,
+            user: "Network Problem. Please try again later.",
+        });
     }
 };
+
+// DELETE_FAVORITE_MOVIE
 export const unFavoriteMovie = (user, movieId) => async (dispatch) => {
+    dispatch({ type: DELETE_FAVORITE_MOVIE_REQUEST, user: user });
+
+    console.log(movieId);
     try {
         const encodedMovieId = encodeURIComponent(movieId);
         console.log(encodedMovieId);
         const response = await fetch(
-            `https://historic-movies-a728a807961d.herokuapp.com/user/${user._id}/${encodedMovieId}`,
+            `https://history-movie-api.onrender.com/user/${user._id}/${encodedMovieId}`,
             {
                 method: "DELETE",
                 headers: {
-                    "Content-Type": "application/json",
                     Authorization: `Bearer ${storedToken}`,
+                    "Content-Type": "application/json",
                 },
             }
         );
 
         const deletedFavoriteMovieFromUser = await response.json();
-
         const updatedUser = {
             ...user,
             FavoriteMovies: user.FavoriteMovies.filter((movie) => movie !== movieId),
         };
-        window.location.reload();
-        console.log(updatedUser);
-        dispatch({ type: UNFAVORITE_MOVIE, user: updatedUser });
+        dispatch({ type: DELETE_FAVORITE_MOVIE_SUCCESS, user: updatedUser });
         localStorage.setItem("user", JSON.stringify(updatedUser));
     } catch (error) {
+        dispatch({
+            type: DELETE_FAVORITE_MOVIE_FAILURE,
+            user: "Network Problem. Please try again later.",
+        });
         console.error("Error removing movie to favorites:", error);
     }
 };

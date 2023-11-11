@@ -1,10 +1,13 @@
-export const GET_MOVIES = "GET_MOVIES";
-export const ADD_FAVORITE_MOVIE = "ADD_FAVORITE_MOVIE";
+export const GET_MOVIES_REQUEST = "GET_MOVIES_REQUEST",
+    GET_MOVIES_SUCCESS = "GET_MOVIES_SUCCESS",
+    GET_MOVIES_FAILURE = "GET_MOVIES_FAILURE";
+
 const storedToken = localStorage.getItem("token");
 
 export const getMovies = () => async (dispatch) => {
+    dispatch({ type: GET_MOVIES_REQUEST });
     try {
-        const response = await fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
+        const response = await fetch("https://history-movie-api.onrender.com/Movies", {
             headers: { Authorization: `Bearer ${storedToken}` },
         });
 
@@ -23,9 +26,12 @@ export const getMovies = () => async (dispatch) => {
                     featured: data.Featured,
                 };
             });
-            dispatch({ type: GET_MOVIES, movies: historyMovieApi });
+            console.log(historyMovieApi);
+            dispatch({ type: GET_MOVIES_SUCCESS, movies: historyMovieApi });
         }
     } catch (error) {
+        dispatch({ type: GET_MOVIES_FAILURE, movies: "Network Problem. Please try again later." });
+
         console.log(error, "error");
     }
 };

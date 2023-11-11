@@ -2,19 +2,22 @@ import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useDispatch } from "react-redux";
+import { Spinner, Alert } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/userActions";
 export const LoginView = () => {
     const dispatch = useDispatch();
-
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    // Select user state, loading, and error from the Redux store
+    const { user, loading, error } = useSelector((state) => state.user);
+
     const loginUser = (event) => {
         event.preventDefault();
-        console.log(username, password);
+
+        // Dispatch the login action
         dispatch(login(username, password));
-        setUsername("");
-        setPassword("");
     };
 
     return (
@@ -46,7 +49,15 @@ export const LoginView = () => {
                 />
             </Form.Group>
 
-            <Button type="submit">Submit</Button>
+            {/* Error message if login fails */}
+            {error && <Alert variant="danger">{error}</Alert>}
+
+            {/*  Spinner while loading */}
+            {loading ? (
+                <Spinner animation="border" variant="primary" size="sm" />
+            ) : (
+                <Button type="submit">Submit</Button>
+            )}
         </Form>
     );
 };

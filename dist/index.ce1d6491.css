@@ -13203,18 +13203,6 @@ textarea.form-control-lg {
   }
 }
 
-.back-button {
-  color: #f5f5f5;
-  background-color: #1e90ff;
-  border: none;
-  border-radius: 4px;
-  padding: 4px 12px;
-}
-
-.d-flex {
-  gap: 5px;
-}
-
 .hover {
   cursor: pointer;
   background-color: #fff;
@@ -13228,6 +13216,18 @@ textarea.form-control-lg {
 
 .remove-decoration {
   text-decoration: none;
+}
+
+.back-button {
+  color: #f5f5f5;
+  background-color: #1e90ff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+}
+
+.d-flex {
+  gap: 5px;
 }
 
 /*# sourceMappingURL=index.ce1d6491.css.map */

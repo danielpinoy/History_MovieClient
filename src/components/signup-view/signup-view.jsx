@@ -1,37 +1,22 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
+import { useDispatch } from "react-redux";
+import { signup } from "../../actions/userActions";
 export const SignupView = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const [birthday, setBirthday] = useState("");
-
+    const dispatch = useDispatch();
     const signUpSubmit = (event) => {
         event.preventDefault();
 
-        const data = {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday,
-        };
-
-        fetch("https://historic-movies-a728a807961d.herokuapp.com/register", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }).then((response) => {
-            if (response.ok) {
-                alert("Signup successful");
-                window.location.reload();
-            } else {
-                alert("Signup failed");
-            }
-        });
+        dispatch(signup(username, password, email, birthday));
+        setUsername("");
+        setPassword("");
+        setEmail("");
+        setBirthday("");
     };
     return (
         <Form onSubmit={signUpSubmit}>

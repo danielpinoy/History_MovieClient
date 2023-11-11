@@ -1,31 +1,83 @@
+import { LOG_OUT, EDIT_USER, DELETE_USER, UNFAVORITE_MOVIE } from "../actions/userActions";
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions/userActions";
 import {
-    LOG_IN,
-    LOG_OUT,
-    EDIT_USER,
-    DELETE_USER,
-    ADD_FAVORITE_MOVIE_TO_USER,
-    UNFAVORITE_MOVIE,
+    ADD_FAVORITE_MOVIE_REQUEST,
+    ADD_FAVORITE_MOVIE_SUCCESS,
+    ADD_FAVORITE_MOVIE_FAILURE,
+    DELETE_FAVORITE_MOVIE_REQUEST,
+    DELETE_FAVORITE_MOVIE_SUCCESS,
+    DELETE_FAVORITE_MOVIE_FAILURE,
 } from "../actions/userActions";
-
 const storedUser = JSON.parse(localStorage.getItem("user"));
-
-// state = storedUser ? storedUser seems to be the problem
-// As I console.log everything, and no problems with the flow of data in my redux
-const userReducer = (state = storedUser ? storedUser : null, action) => {
+const initialState = {
+    user: storedUser ? storedUser : null,
+};
+const asyncUserReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOG_IN:
-            return action.user;
-        case LOG_OUT:
+        case LOGIN_REQUEST:
+            return {
+                loading: true,
+                error: null,
+            };
+        case LOGIN_SUCCESS:
+            return {
+                loading: false,
+                user: action.user,
+            };
+        case LOGIN_FAILURE:
             return {
                 ...state,
-                user: null,
+                loading: false,
+                error: action.user,
             };
+        case ADD_FAVORITE_MOVIE_REQUEST:
+            return {
+                loading: true,
+                error: null,
+            };
+        case ADD_FAVORITE_MOVIE_SUCCESS:
+            return {
+                loading: false,
+                user: action.user,
+            };
+        case ADD_FAVORITE_MOVIE_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.user,
+            };
+
+        case DELETE_FAVORITE_MOVIE_REQUEST:
+            return {
+                loading: true,
+                error: null,
+                user: action.user,
+            };
+        case DELETE_FAVORITE_MOVIE_SUCCESS:
+            return {
+                loading: false,
+                user: action.user,
+            };
+        case DELETE_FAVORITE_MOVIE_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.user,
+            };
+        default:
+            return state;
+    }
+};
+const userReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case SIGNUP:
+            return action.user;
+        case LOG_OUT:
+            return null;
         case EDIT_USER:
             return action.user;
         case DELETE_USER:
-            return;
-        case ADD_FAVORITE_MOVIE_TO_USER:
-            return action.user;
+            return null;
         case UNFAVORITE_MOVIE:
             return action.user;
         default:
@@ -33,4 +85,4 @@ const userReducer = (state = storedUser ? storedUser : null, action) => {
     }
 };
 
-export default userReducer;
+export { userReducer, asyncUserReducer };
