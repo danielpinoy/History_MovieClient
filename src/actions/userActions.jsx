@@ -1,4 +1,4 @@
-export const SIGNUP = "SIGNUP";
+export const SIGN_UP = "SIGN_UP";
 export const LOG_OUT = "LOG_OUT";
 export const EDIT_USER = "EDIT_USER";
 export const DELETE_USER = "DELETE_USER";
@@ -44,8 +44,8 @@ export const signup = (Username, Password, Email, Birthday) => async (dispatch) 
     });
     const signupUser = await response.json();
 
-    if (signupUser.ok) {
-        dispatch({ type: SIGNUP, user: signupUser });
+    if (signupUser) {
+        dispatch({ type: SIGN_UP, user: signupUser });
         alert("Signup successful");
     } else {
         alert("Signup failed");
@@ -76,7 +76,7 @@ export const login = (username, password) => async (dispatch) => {
             dispatch({ type: LOGIN_SUCCESS, user: userData.data });
             localStorage.setItem("user", JSON.stringify(userData.user));
             localStorage.setItem("token", userData.token);
-            // window.location.reload();
+            window.location.reload();
         } else {
             dispatch({ type: LOGIN_FAILURE, user: "Wrong Password or Username" });
         }

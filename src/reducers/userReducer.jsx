@@ -1,5 +1,5 @@
 import { LOG_OUT, EDIT_USER, DELETE_USER } from "../actions/userActions";
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions/userActions";
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, SIGN_UP } from "../actions/userActions";
 import {
     ADD_FAVORITE_MOVIE_REQUEST,
     ADD_FAVORITE_MOVIE_SUCCESS,
@@ -74,7 +74,7 @@ const asyncUserReducer = (state = initialState, action) => {
 
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SIGNUP:
+        case SIGN_UP:
             return action.user;
         case LOG_OUT:
             return null;

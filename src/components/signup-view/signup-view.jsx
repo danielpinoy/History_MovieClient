@@ -3,7 +3,11 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { signup } from "../../actions/userActions";
+import { useNavigate } from "react-router-dom";
+
 export const SignupView = () => {
+    const navigate = useNavigate();
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -17,6 +21,7 @@ export const SignupView = () => {
         setPassword("");
         setEmail("");
         setBirthday("");
+        navigate("/login");
     };
     return (
         <Form onSubmit={signUpSubmit}>
