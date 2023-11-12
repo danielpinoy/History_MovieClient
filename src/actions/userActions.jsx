@@ -19,6 +19,12 @@ export const DELETE_FAVORITE_MOVIE_REQUEST = "DELETE_FAVORITE_MOVIE_REQUEST",
     DELETE_FAVORITE_MOVIE_SUCCESS = "DELETE_FAVORITE_MOVIE_SUCCESS",
     DELETE_FAVORITE_MOVIE_FAILURE = "DELETE_FAVORITE_MOVIE_FAILURE";
 
+// EDIT USER
+
+export const EDIT_USER_REQUEST = "EDIT_USER_REQUEST",
+    EDIT_USER_SUCCESS = "EDIT_USER_SUCCESS",
+    EDIT_USER_FAILURE = "EDIT_USER_FAILURE";
+
 // action creator
 
 // SIGNUP
@@ -29,7 +35,6 @@ export const signup = (Username, Password, Email, Birthday) => async (dispatch) 
         Email,
         Birthday,
     };
-
     const response = await fetch("https://history-movie-api.onrender.com/register", {
         method: "POST",
         body: JSON.stringify(data),
@@ -84,14 +89,15 @@ export const login = (username, password) => async (dispatch) => {
 
 // LOGOUT
 export const logout = () => (dispatch) => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
+    localStorage.clear();
     dispatch({ type: LOG_OUT });
     window.location.reload();
 };
 
 // EDIT USER
 export const editUser = (userData, updatedUserData, token) => async (dispatch) => {
+    dispatch({ type: EDIT_USER_REQUEST, user: userData });
+
     try {
         const response = await fetch(
             `https://history-movie-api.onrender.com/user/${userData.Username}`,
@@ -107,11 +113,12 @@ export const editUser = (userData, updatedUserData, token) => async (dispatch) =
 
         const updatedUser = await response.json();
 
-        dispatch({ type: EDIT_USER, user: updatedUser });
+        dispatch({ type: EDIT_USER_SUCCESS, user: updatedUser });
         localStorage.setItem("user", JSON.stringify(updatedUser));
-        window.location.reload();
+        // window.location.reload();
     } catch (error) {
         console.error("Error updating user:", error);
+        dispatch({ type: EDIT_USER_FAILURE, user: "Network Problem. Please try again later." });
     }
 };
 

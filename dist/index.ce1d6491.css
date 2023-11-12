@@ -1,3 +1,10 @@
+.loadingData {
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  display: flex;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;

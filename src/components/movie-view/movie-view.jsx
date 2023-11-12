@@ -10,11 +10,10 @@ export const MovieView = ({ movies }) => {
     const { user, loading, error } = useSelector((state) => state.user);
     const { movieId } = useParams();
     const dispatch = useDispatch();
-    const movie = movies.find((m) => m.id === movieId);
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
     const isMovieInFavorites = storedUser.FavoriteMovies.includes(String(movieId));
-
+    const movie = movies.find((m) => m.id === movieId);
     const similarMovies = movies.filter(
         (m) => m.genre.Name === movie.genre.Name && m.id !== movieId
     );

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Button, Card, ListGroup } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editUser } from "../../actions/userActions";
-export const ProfileEditView = ({ user, clickUpdate, token }) => {
+export const ProfileEditView = ({ clickUpdate, token }) => {
     const dispatch = useDispatch();
-    console.log(user, "user");
+    const { user, loading, error } = useSelector((state) => state.user);
+
     const [updatedUserData, setUpdatedUserData] = useState(user);
     const handleChange = (e) => {
         const { name, value } = e.target;

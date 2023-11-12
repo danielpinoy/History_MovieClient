@@ -10,13 +10,11 @@ export const LoginView = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    // Select user state, loading, and error from the Redux store
     const { user, loading, error } = useSelector((state) => state.user);
 
     const loginUser = (event) => {
         event.preventDefault();
 
-        // Dispatch the login action
         dispatch(login(username, password));
     };
 
@@ -49,10 +47,8 @@ export const LoginView = () => {
                 />
             </Form.Group>
 
-            {/* Error message if login fails */}
             {error && <Alert variant="danger">{error}</Alert>}
 
-            {/*  Spinner while loading */}
             {loading ? (
                 <Spinner animation="border" variant="primary" size="sm" />
             ) : (

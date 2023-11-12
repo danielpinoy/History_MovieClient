@@ -12,13 +12,12 @@ import { NavigationBar } from "../navigation-bar/navigation-bar";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../../actions/userActions";
 import { getMovies } from "../../actions/movieActions";
-import { Spinner, Alert } from "react-bootstrap";
+import { Alert } from "react-bootstrap";
 
 export const MainView = () => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
 
     const storedToken = localStorage.getItem("token");
-    // const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
     const [userEdit, setUserEdit] = useState(null);
     const dispatch = useDispatch();
@@ -28,8 +27,6 @@ export const MainView = () => {
     }, []);
     const user = useSelector((state) => state.user);
     const { movies, loading, error } = useSelector((state) => state.movies);
-    // console.log(storedUser, "main-view storedUser");
-    // console.log(token);
 
     const updatedMovie = movies.map((movie) => (
         <Col key={movie.id} md={3} className="mb-4">
@@ -42,7 +39,6 @@ export const MainView = () => {
                 user={user}
                 loggedOut={() => {
                     dispatch(logout());
-                    window.location.reload();
                 }}
             />
             <Row>
@@ -85,7 +81,6 @@ export const MainView = () => {
                                     <Col md={12} className="d-flex justify-content-center">
                                         {!userEdit ? (
                                             <ProfileView
-                                                user={user.user}
                                                 movies={movies}
                                                 token={token}
                                                 clickUpdate={(num) => {
@@ -94,8 +89,6 @@ export const MainView = () => {
                                             />
                                         ) : (
                                             <ProfileEditView
-                                                user={user.user}
-                                                newUser={storedUser}
                                                 token={storedToken}
                                                 clickUpdate={(num) => {
                                                     setUserEdit(num);
@@ -118,7 +111,7 @@ export const MainView = () => {
                                     <Col>The list is empty!</Col>
                                 ) : (
                                     <Col md={12}>
-                                        <MovieView movies={movies} token={token} user={user} />
+                                        <MovieView movies={movies} />
                                     </Col>
                                 )}
                             </>
@@ -131,12 +124,15 @@ export const MainView = () => {
                                 {!storedUser ? (
                                     <Navigate to="/login" replace />
                                 ) : loading ? (
-                                    <div>
-                                        <Spinner animation="grow" variant="dark" size="lg" />
+                                    <Alert key="dark" variant="dark">
                                         Loading...
-                                    </div>
+                                    </Alert>
                                 ) : movies.length === 0 ? (
-                                    <Col>The list is empty!</Col>
+                                    <div className="loadingData">
+                                        <Alert key="dark" variant="danger">
+                                            No Movies to Show
+                                        </Alert>
+                                    </div>
                                 ) : (
                                     updatedMovie
                                 )}
