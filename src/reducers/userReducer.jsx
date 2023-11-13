@@ -36,6 +36,7 @@ const getFailureState = (state, action) => ({
     error: action.user,
 });
 
+// MULTI STATE ACTION
 const asyncUserReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN_REQUEST:
@@ -52,7 +53,7 @@ const asyncUserReducer = (state = initialState, action) => {
         case EDIT_USER_FAILURE:
             return getFailureState(state, action);
 
-        // USER NEED TO BE PASSED IN ORDER TO NOT GET UNDEFINED ERROR
+        // USER DATA NEEDS TO BE PASSED IN ORDER TO NOT GET UNDEFINED ERROR
         case DELETE_FAVORITE_MOVIE_REQUEST:
         case EDIT_USER_REQUEST:
             return {
@@ -72,6 +73,7 @@ const asyncUserReducer = (state = initialState, action) => {
     }
 };
 
+// NON MULTI STATE ACTION
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
         case SIGN_UP:

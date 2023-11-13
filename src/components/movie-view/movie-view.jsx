@@ -2,7 +2,7 @@ import "./movie-view.scss";
 import { Button, Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { Spinner, Alert } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 
 import { addFavoriteMovieToUser } from "../../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
