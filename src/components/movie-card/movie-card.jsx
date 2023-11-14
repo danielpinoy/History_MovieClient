@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export const MovieCard = ({ movie }) => {
-    console.log(movie.id);
-
     return (
         <Link to={`/movies/${encodeURIComponent(movie.id)}`} className="remove-decoration">
             <Card className="hover h-100">

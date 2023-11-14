@@ -2,6 +2,8 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const NavigationBar = ({ user, loggedOut }) => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -11,7 +13,7 @@ export const NavigationBar = ({ user, loggedOut }) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        {!user && (
+                        {!storedUser && (
                             <>
                                 <Nav.Link as={Link} to="/login">
                                     Login
@@ -21,7 +23,7 @@ export const NavigationBar = ({ user, loggedOut }) => {
                                 </Nav.Link>
                             </>
                         )}
-                        {user && (
+                        {storedUser && (
                             <>
                                 <Nav.Link as={Link} to="/">
                                     Home

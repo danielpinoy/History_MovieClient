@@ -2,18 +2,22 @@ import "./movie-view.scss";
 import { Button, Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
-export const MovieView = ({ movies, token, user, updatedUser }) => {
+import { addFavoriteMovieToUser } from "../../actions/userActions";
+import { useDispatch, useSelector } from "react-redux";
+export const MovieView = ({ movies }) => {
+    const { user, loading, error } = useSelector((state) => state.user);
     const { movieId } = useParams();
-    const movie = movies.find((m) => m.id === movieId);
+    const dispatch = useDispatch();
+    const storedUser = JSON.parse(localStorage.getItem("user"));
 
+    const isMovieInFavorites = storedUser.FavoriteMovies.includes(String(movieId));
+    const movie = movies.find((m) => m.id === movieId);
     const similarMovies = movies.filter(
         (m) => m.genre.Name === movie.genre.Name && m.id !== movieId
     );
 
-    const onSubmit = () => {
-        updatedUser();
-    };
     return (
         <Card>
             <Card.Body className="d-flex flex-column">
@@ -26,9 +30,8 @@ export const MovieView = ({ movies, token, user, updatedUser }) => {
                     {movie.director.Bio}
                 </Card.Text>
 
-                <Card.Text>
-                    <strong>Actors:</strong>
-                </Card.Text>
+                <strong>Actors:</strong>
+
                 <ul className="list-unstyled">
                     <div className="row">
                         {movie.actor.map((actor, index) => (
@@ -64,14 +67,34 @@ export const MovieView = ({ movies, token, user, updatedUser }) => {
                             Close
                         </Button>
                     </Link>
-                    <Button
-                        onClick={() => {
-                            updatedUser(movieId);
-                        }}
-                        variant="dark"
-                        style={{ cursor: "pointer" }}>
-                        Add To Favorite
-                    </Button>
+                    {isMovieInFavorites ? (
+                        <Button variant="secondary">Already Your Favorite</Button>
+                    ) : (
+                        <Button
+                            onClick={() => {
+                                dispatch(addFavoriteMovieToUser(user._id, movieId));
+                            }}
+                            variant="dark"
+                            style={{ cursor: "pointer" }}
+                            disabled={loading}>
+                            {loading ? (
+                                <>
+                                    <Spinner
+                                        as="span"
+                                        animation="border"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                        className="me-1"
+                                        variant="secondary"
+                                    />
+                                    Adding...
+                                </>
+                            ) : (
+                                "Add To Favorite"
+                            )}
+                        </Button>
+                    )}
                 </Card.Text>
             </Card.Body>
         </Card>

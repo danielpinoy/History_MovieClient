@@ -2,42 +2,20 @@ import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
-export const LoginView = ({ onLoggedIn }) => {
+import { Spinner, Alert } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../actions/userActions";
+export const LoginView = () => {
+    const dispatch = useDispatch();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+
+    const { user, loading, error } = useSelector((state) => state.user);
+
     const loginUser = (event) => {
         event.preventDefault();
 
-        const data = {
-            Username: username,
-            Password: password,
-        };
-
-        fetch("https://historic-movies-a728a807961d.herokuapp.com/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log("Login response: ", data);
-                if (data.user) {
-                    localStorage.setItem("user", JSON.stringify(data.user));
-                    console.log(data.user);
-                    localStorage.setItem("token", data.token);
-                    onLoggedIn(data.user, data.token);
-                } else {
-                    console.log(data.token);
-
-                    alert("No such user");
-                }
-            })
-            .catch((e) => {
-                alert("Something went wrong");
-            });
+        dispatch(login(username, password));
     };
 
     return (
@@ -69,7 +47,13 @@ export const LoginView = ({ onLoggedIn }) => {
                 />
             </Form.Group>
 
-            <Button type="submit">Submit</Button>
+            {error && <Alert variant="danger">{error}</Alert>}
+
+            {loading ? (
+                <Spinner animation="border" variant="primary" size="sm" />
+            ) : (
+                <Button type="submit">Submit</Button>
+            )}
         </Form>
     );
 };

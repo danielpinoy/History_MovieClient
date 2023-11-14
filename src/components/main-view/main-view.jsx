@@ -9,84 +9,42 @@ import { SignupView } from "../signup-view/signup-view";
 import { ProfileView } from "../profile-view/profile-view";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../../actions/userActions";
+import { getMovies } from "../../actions/movieActions";
+import { Alert } from "react-bootstrap";
+
 export const MainView = () => {
+    // Retrieve user information from local storage
     const storedUser = JSON.parse(localStorage.getItem("user"));
+
+    // Retrieve token from local storage or set it to null if not present
     const storedToken = localStorage.getItem("token");
-    const [user, setUser] = useState(storedUser ? storedUser : null);
     const [token, setToken] = useState(storedToken ? storedToken : null);
-    const [movies, setMovies] = useState([]);
-    const [userEdit, setUserEdit] = useState(null);
+
+    const [isEditingProfile, setUserEdit] = useState(null);
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        // Fetch movies from your API
-        fetch("https://historic-movies-a728a807961d.herokuapp.com/Movies", {
-            headers: { Authorization: `Bearer ${token}` },
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
-            .then((data) => {
-                const historyMovieApi = data.map((data) => {
-                    return {
-                        id: data._id,
-                        title: data.Title,
-                        description: data.Description,
-                        image: data.Image,
-                        director: data.Director,
-                        actor: data.Actors,
-                        genre: data.Genre,
-                        featured: data.Featured,
-                    };
-                });
-                setMovies(historyMovieApi);
-            })
-            .catch((error) => {
-                console.error("Error fetching movies:", error);
-            });
-    }, [user]);
+        dispatch(getMovies());
+    }, []);
 
-    const updatedMovie = movies.map((movie) => {
-        return (
-            <Col key={movie.id} md={3} className="mb-4">
-                <MovieCard movie={movie} />
-            </Col>
-        );
-    });
+    // Get user information and movie data from Redux store
+    const user = useSelector((state) => state.user);
+    const { movies, loading, error } = useSelector((state) => state.movies);
 
-    const handleAddToFavorites = (movieId) => {
-        fetch("https://historic-movies-a728a807961d.herokuapp.com/user/addfavorite", {
-            method: "POST",
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ userId: user._id, movieId }),
-        })
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
-            .then((data) => {
-                setUser(data);
-                localStorage.setItem("user", JSON.stringify(data));
-            })
-            .catch((error) => {
-                console.error("Error adding movie to favorites:", error);
-            });
-    };
-
+    // Map movies to MovieCard components
+    const updatedMovie = movies.map((movie) => (
+        <Col key={movie.id} md={3} className="mb-4">
+            <MovieCard movie={movie} />
+        </Col>
+    ));
     return (
         <BrowserRouter>
             <NavigationBar
                 user={user}
                 loggedOut={() => {
-                    setUser(null);
-                    setToken(null);
-                    localStorage.clear();
+                    dispatch(logout());
                 }}
             />
             <Row>
@@ -94,117 +52,96 @@ export const MainView = () => {
                     <Route
                         path="/signup"
                         element={
-                            <>
-                                {user ? (
-                                    <Navigate to="/" />
-                                ) : (
-                                    <Col md={5}>
-                                        <SignupView />
-                                    </Col>
-                                )}
-                            </>
+                            storedUser ? (
+                                <Navigate to="/" />
+                            ) : (
+                                <Col md={5}>
+                                    <SignupView />
+                                </Col>
+                            )
                         }
                     />
+
+                    {/* Login view */}
+
                     <Route
                         path="/login"
                         element={
                             <>
-                                {user ? (
+                                {storedUser ? (
                                     <Navigate to="/" />
                                 ) : (
                                     <Col md={4}>
-                                        <LoginView
-                                            onLoggedIn={(user, token) => {
-                                                setUser(user);
-                                                setToken(token);
-                                            }}
-                                        />
-                                    </Col>
-                                )}
-                            </>
-                        }
-                    />
-                    <Route
-                        path="/users"
-                        element={
-                            <>
-                                {!user ? (
-                                    <Navigate to="/login" replace />
-                                ) : (
-                                    <Col md={12} className="d-flex justify-content-center">
-                                        {!userEdit ? (
-                                            <ProfileView
-                                                user={user}
-                                                movies={movies}
-                                                token={token}
-                                                clickDeleteFM={(updatedUser) => {
-                                                    setUser(updatedUser);
-                                                    localStorage.setItem(
-                                                        "user",
-                                                        JSON.stringify(updatedUser)
-                                                    );
-                                                }}
-                                                clickUpdate={(num, updatedUser) => {
-                                                    setUserEdit(num);
-                                                }}
-                                            />
-                                        ) : (
-                                            <ProfileEditView
-                                                user={user}
-                                                token={token}
-                                                clickUpdate={(num) => {
-                                                    setUserEdit(num);
-                                                }}
-                                                onUpdateUser={(updatedUser) => {
-                                                    setUser(updatedUser);
-                                                    localStorage.setItem(
-                                                        "user",
-                                                        JSON.stringify(updatedUser)
-                                                    );
-                                                }}
-                                            />
-                                        )}
+                                        <LoginView />
                                     </Col>
                                 )}
                             </>
                         }
                     />
 
+                    {/* User profile view */}
+
+                    <Route
+                        path="/users"
+                        element={
+                            !storedUser ? (
+                                <Navigate to="/login" replace />
+                            ) : (
+                                <Col md={12} className="d-flex justify-content-center">
+                                    {!isEditingProfile ? (
+                                        <ProfileView
+                                            movies={movies}
+                                            token={token}
+                                            clickUpdate={(num) => setUserEdit(num)}
+                                        />
+                                    ) : (
+                                        <ProfileEditView
+                                            token={storedToken}
+                                            clickUpdate={(num) => setUserEdit(num)}
+                                        />
+                                    )}
+                                </Col>
+                            )
+                        }
+                    />
+
+                    {/* Movie details view */}
+
                     <Route
                         path="/Movies/:movieId"
                         element={
-                            <>
-                                {!user ? (
-                                    <Navigate to="/login" replace />
-                                ) : movies.length === 0 ? (
-                                    <Col>The list is empty!</Col>
-                                ) : (
-                                    <Col md={12}>
-                                        <MovieView
-                                            movies={movies}
-                                            token={token}
-                                            user={user}
-                                            updatedUser={(movieId) => {
-                                                handleAddToFavorites(movieId);
-                                            }}
-                                        />
-                                    </Col>
-                                )}
-                            </>
+                            !storedUser ? (
+                                <Navigate to="/login" replace />
+                            ) : movies.length === 0 ? (
+                                <Col>The list is empty!</Col>
+                            ) : (
+                                <Col md={12}>
+                                    <MovieView movies={movies} />
+                                </Col>
+                            )
                         }
                     />
+
+                    {/* Home view */}
+
                     <Route
                         path="/"
                         element={
-                            <>
-                                {!user ? (
-                                    <Navigate to="/login" replace />
-                                ) : movies.length === 0 ? (
-                                    <Col>The list is empty!</Col>
-                                ) : (
-                                    updatedMovie
-                                )}
-                            </>
+                            !storedUser ? (
+                                <Navigate to="/login" replace />
+                            ) : loading ? (
+                                <Alert key="dark" variant="dark">
+                                    Loading...
+                                </Alert>
+                            ) : movies.length === 0 ? (
+                                <div className="loadingData">
+                                    <Alert key="dark" variant="danger">
+                                        No Movies to Show
+                                    </Alert>
+                                </div>
+                            ) : (
+                                updatedMovie
+                            )
                         }
                     />
                 </Routes>

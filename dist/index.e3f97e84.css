@@ -1,3 +1,30 @@
+.hover {
+  cursor: pointer;
+  background-color: #fff;
+  transition: background-color .3s;
+}
+
+.hover:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+.remove-decoration {
+  text-decoration: none;
+}
+
+.back-button {
+  color: #f5f5f5;
+  background-color: #1e90ff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 12px;
+}
+
+.d-flex {
+  gap: 5px;
+}
+
 .loadingData {
   justify-content: center;
   align-items: center;
@@ -13209,31 +13236,4 @@ textarea.form-control-lg {
   }
 }
 
-.hover {
-  cursor: pointer;
-  background-color: #fff;
-  transition: background-color .3s;
-}
-
-.hover:hover {
-  color: #fff;
-  background-color: #000;
-}
-
-.remove-decoration {
-  text-decoration: none;
-}
-
-.back-button {
-  color: #f5f5f5;
-  background-color: #1e90ff;
-  border: none;
-  border-radius: 4px;
-  padding: 4px 12px;
-}
-
-.d-flex {
-  gap: 5px;
-}
-
-/*# sourceMappingURL=index.ce1d6491.css.map */
+/*# sourceMappingURL=index.e3f97e84.css.map */
