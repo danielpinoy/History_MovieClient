@@ -1,5 +1,16 @@
-$color: steelblue;
 
-.my-movie {
-  color: $color;
+// $primary: SeaGreen;
+
+.loadingData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
 }
+
+.loadingData .spinner-border {
+  /* Adjust styles for the spinner if needed */
+}
+
+
+@import '~bootstrap/scss/bootstrap.scss';

@@ -1,61 +1,102 @@
-import PropTypes from "prop-types";
-export const MovieView = ({ movie ,onBackClick }) => {
-	console.log(movie.genre)
-    return (
-        <div>
-            <div>
-                
-            </div>
-            <div>
-                <span>Title: </span>
-                <span>{movie.title}</span>
-            </div>
+import "./movie-view.scss";
+import { Button, Card } from "react-bootstrap";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
-						<div>
-                <span>Description: </span>
-                <span>{movie.description}</span>
-            </div>
-            <div>
-                <span>Director: </span>
-								<span>{movie.director.Name}</span>
-								<br />							
-								<span>{movie.director.Bio}</span>
-            </div>
+import { addFavoriteMovieToUser } from "../../actions/userActions";
+import { useDispatch, useSelector } from "react-redux";
+export const MovieView = ({ movies }) => {
+    const { user, loading, error } = useSelector((state) => state.user);
+    const { movieId } = useParams();
+    const dispatch = useDispatch();
+    const storedUser = JSON.parse(localStorage.getItem("user"));
 
-						<div>
-                <span>Actors: </span>
-								<span>{movie.actor.map((actor)=><div key={actor}>{actor}</div>)}</span>
-								<br />							
-            </div>
-
-						<div>
-                <span>Genres: </span>
-								<span>{movie.genre.Name}</span>
-								<br />							
-            </div>
-
-						<div>{movie.featured}</div>
-						<button onClick={onBackClick}>Close</button>
-        </div>
+    const isMovieInFavorites = storedUser.FavoriteMovies.includes(String(movieId));
+    const movie = movies.find((m) => m.id === movieId);
+    const similarMovies = movies.filter(
+        (m) => m.genre.Name === movie.genre.Name && m.id !== movieId
     );
-};
 
+    return (
+        <Card>
+            <Card.Body className="d-flex flex-column">
+                <Card.Header as="h5">{movie.title}</Card.Header>
 
+                <Card.Text>{movie.description}</Card.Text>
+                <Card.Text>
+                    <strong>Director:</strong> {movie.director.Name}
+                    <br />
+                    {movie.director.Bio}
+                </Card.Text>
 
-MovieView.propTypes  = {
-  movie: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Bio: PropTypes.string.isRequired,
-    }).isRequired,
-    actor: PropTypes.arrayOf(PropTypes.string),
-    genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Description: PropTypes.string,
-    }).isRequired,
-    featured: PropTypes.bool,
-  }).isRequired,
-  onBackClick: PropTypes.func.isRequired,
+                <strong>Actors:</strong>
+
+                <ul className="list-unstyled">
+                    <div className="row">
+                        {movie.actor.map((actor, index) => (
+                            <div className="col-md-4 my-2" key={index}>
+                                <li>{actor}</li>
+                            </div>
+                        ))}
+                    </div>
+                </ul>
+
+                <Card.Text>
+                    <strong>Genre:</strong> {movie.genre.Name}
+                </Card.Text>
+
+                <Card.Text>
+                    <strong>Featured:</strong> {movie.featured ? "Yes" : "No"}
+                </Card.Text>
+
+                <Card.Text className="list-unstyled">
+                    <strong>Similar Movies:</strong>
+                </Card.Text>
+                <div className="row list-unstyled">
+                    {similarMovies.map((movie) => (
+                        <div className="col-md-4 my-2" key={movie.id}>
+                            <li>{movie.title}</li>
+                        </div>
+                    ))}
+                </div>
+
+                <Card.Text className="d-flex justify-content-between">
+                    <Link to={`/`}>
+                        <Button variant="primary" style={{ cursor: "pointer" }}>
+                            Close
+                        </Button>
+                    </Link>
+                    {isMovieInFavorites ? (
+                        <Button variant="secondary">Already Your Favorite</Button>
+                    ) : (
+                        <Button
+                            onClick={() => {
+                                dispatch(addFavoriteMovieToUser(user._id, movieId));
+                            }}
+                            variant="dark"
+                            style={{ cursor: "pointer" }}
+                            disabled={loading}>
+                            {loading ? (
+                                <>
+                                    <Spinner
+                                        as="span"
+                                        animation="border"
+                                        size="sm"
+                                        role="status"
+                                        aria-hidden="true"
+                                        className="me-1"
+                                        variant="secondary"
+                                    />
+                                    Adding...
+                                </>
+                            ) : (
+                                "Add To Favorite"
+                            )}
+                        </Button>
+                    )}
+                </Card.Text>
+            </Card.Body>
+        </Card>
+    );
 };
