@@ -1,5 +1,3 @@
-import { LOG_OUT, EDIT_USER, DELETE_USER } from "../actions/userActions";
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, SIGN_UP } from "../actions/userActions";
 import {
     ADD_FAVORITE_MOVIE_REQUEST,
     ADD_FAVORITE_MOVIE_SUCCESS,
@@ -13,6 +11,9 @@ import {
     EDIT_USER_REQUEST,
     EDIT_USER_SUCCESS,
     EDIT_USER_FAILURE,
+    LOG_OUT,
+    DELETE_USER,
+    SIGN_UP,
 } from "../actions/userActions";
 const storedUser = JSON.parse(localStorage.getItem("user"));
 
